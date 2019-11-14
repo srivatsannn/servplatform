@@ -75,11 +75,9 @@ class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
     await localizations.load();
     return localizations;
   } */
-  
-  
+
   @override
   Future<AppLocalizations> load(Locale locale) async {
-
     // flutter 0.11 localeResolutionCallback fix, change it if fixed
     if (locale == null || isSupported(locale) == false) {
       debugPrint('*app_locale_delegate* fallback to locale ');
@@ -92,7 +90,6 @@ class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
 
     return localizations;
   }
-
 
   @override
   bool shouldReload(AppLocalizationsDelegate old) => false;

@@ -6,7 +6,6 @@ import 'package:servplatform/core/repositories/users_repository/users_repository
 import 'package:servplatform/core/repositories/services_repository/services_repository.dart';
 import 'package:servplatform/core/repositories/services_repository/services_repository_impl.dart';
 
-
 import 'package:servplatform/core/services/auth/auth_service.dart';
 import 'package:servplatform/core/services/auth/auth_service_impl.dart';
 import 'package:servplatform/core/services/connectivity/connectivity_service.dart';
@@ -41,7 +40,8 @@ GetIt locator = GetIt.instance;
 Future<void> setupLocator() async {
   // Repositories
   locator.registerLazySingleton<PostsRepository>(() => PostsRepositoryImpl());
-  locator.registerLazySingleton<ServicesRepository>(() => ServicesRepositoryImpl());
+  locator.registerLazySingleton<ServicesRepository>(
+      () => ServicesRepositoryImpl());
 
   locator.registerLazySingleton<UsersRepository>(() => UsersRepositoryImpl());
 
@@ -59,7 +59,7 @@ Future<void> setupLocator() async {
   locator.registerLazySingleton<LocalStorageService>(
     () => LocalStorageServiceImpl(),
   );
-  
+
   locator.registerLazySingleton<FirebaseService>(
     () => FirebaseServiceImpl(),
   );

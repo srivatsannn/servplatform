@@ -20,7 +20,6 @@ abstract class Service implements Built<Service, ServiceBuilder> {
 
   String get percentage_match;
 
-
   String toJson() {
     return json.encode(serializers.serializeWith(Service.serializer, this));
   }

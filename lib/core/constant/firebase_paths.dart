@@ -4,5 +4,4 @@ class FirebasePaths {
 
   static const base_url = '';
   static const recommended_services = 'recommended_services';
-  
 }

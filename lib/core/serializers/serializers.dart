@@ -7,7 +7,6 @@ import 'package:servplatform/core/serializers/post.dart';
 import 'package:servplatform/core/serializers/user.dart';
 import 'package:servplatform/core/serializers/service.dart';
 
-
 part 'serializers.g.dart';
 
 /// List of Serializable models that will built using `build_value` package

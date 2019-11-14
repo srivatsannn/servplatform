@@ -9,7 +9,6 @@ import 'package:servplatform/locator.dart';
 class HomeModel extends BaseModel {
   final _servicesRepository = locator<ServicesRepository>();
 
-
   List<Service> _services = [];
   List<Service> get services => _services;
 

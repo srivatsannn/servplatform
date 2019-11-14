@@ -34,7 +34,7 @@ class LoginModel extends BaseModel with Validators {
 
       await _navigationService.popAllAndPushNamed(ViewRoutes.splash);
       setState(ViewState.Idle);
-    } on AuthException   catch (error) {
+    } on AuthException catch (error) {
       debugPrint('(ERROR) ${error.message}');
       setState(ViewState.Error);
     }

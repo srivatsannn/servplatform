@@ -39,8 +39,6 @@ class Router {
       case ViewRoutes.post_details:
         final post = settings.arguments as Post;
         return PostDetailsView(post: post);
-      
-
 
       default:
         return Scaffold(
