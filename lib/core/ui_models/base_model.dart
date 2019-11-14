@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:provider_start/core/enums/view_state.dart';
+import 'package:servplatform/core/enums/view_state.dart';
 
 /// Class for viewmodels to extend from. Keeps track
 /// of [ViewState] and exposes a function to change the

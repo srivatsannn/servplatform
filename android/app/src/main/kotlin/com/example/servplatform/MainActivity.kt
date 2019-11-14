@@ -1,4 +1,4 @@
-package com.example.provider_start
+package com.example.servplatform
 
 import android.os.Bundle
 

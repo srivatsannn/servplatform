@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import 'package:provider_start/core/serializers/user.dart';
+import 'package:servplatform/core/serializers/user.dart';
 
 part 'user_h.g.dart';
 

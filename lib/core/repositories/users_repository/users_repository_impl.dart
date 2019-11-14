@@ -1,13 +1,13 @@
-import 'package:provider_start/core/constant/api_routes.dart';
-import 'package:provider_start/core/constant/repository_exception_messages.dart';
-import 'package:provider_start/core/exceptions/repository_exception.dart';
-import 'package:provider_start/core/hive_models/user_h.dart';
-import 'package:provider_start/core/repositories/users_repository/users_repository.dart';
-import 'package:provider_start/core/serializers/user.dart';
-import 'package:provider_start/core/services/connectivity/connectivity_service.dart';
-import 'package:provider_start/core/services/http/http_service.dart';
-import 'package:provider_start/core/services/local_storage/local_storage_service.dart';
-import 'package:provider_start/locator.dart';
+import 'package:servplatform/core/constant/api_routes.dart';
+import 'package:servplatform/core/constant/repository_exception_messages.dart';
+import 'package:servplatform/core/exceptions/repository_exception.dart';
+import 'package:servplatform/core/hive_models/user_h.dart';
+import 'package:servplatform/core/repositories/users_repository/users_repository.dart';
+import 'package:servplatform/core/serializers/user.dart';
+import 'package:servplatform/core/services/connectivity/connectivity_service.dart';
+import 'package:servplatform/core/services/http/http_service.dart';
+import 'package:servplatform/core/services/local_storage/local_storage_service.dart';
+import 'package:servplatform/locator.dart';
 
 class UsersRepositoryImpl implements UsersRepository {
   final _httpService = locator<HttpService>();

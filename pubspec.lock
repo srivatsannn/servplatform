@@ -127,6 +127,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  cloud_firestore:
+    dependency: "direct main"
+    description:
+      name: cloud_firestore
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.12.10"
   code_builder:
     dependency: transitive
     description:
@@ -197,6 +204,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.3"
+  firebase_core:
+    dependency: "direct main"
+    description:
+      name: firebase_core
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.0+9"
   fixnum:
     dependency: transitive
     description:
@@ -366,6 +380,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.4"
+  image_picker_saver:
+    dependency: "direct main"
+    description:
+      name: image_picker_saver
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   intl:
     dependency: transitive
     description:

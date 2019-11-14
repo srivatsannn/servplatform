@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/services.dart';
-import 'package:provider_start/local_setup.dart';
+import 'package:servplatform/local_setup.dart';
 
 class AppLocalizations {
   final Locale locale;
@@ -67,12 +67,32 @@ class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   bool isSupported(Locale locale) =>
       supportedLocalCodes.contains(locale.languageCode);
 
-  @override
+  /* @override
   Future<AppLocalizations> load(Locale locale) async {
+
+
     final localizations = AppLocalizations(locale);
     await localizations.load();
     return localizations;
+  } */
+  
+  
+  @override
+  Future<AppLocalizations> load(Locale locale) async {
+
+    // flutter 0.11 localeResolutionCallback fix, change it if fixed
+    if (locale == null || isSupported(locale) == false) {
+      debugPrint('*app_locale_delegate* fallback to locale ');
+
+      locale = Locale('en', 'US'); // fallback to default language
+    }
+
+    AppLocalizations localizations = new AppLocalizations(locale);
+    await localizations.load();
+
+    return localizations;
   }
+
 
   @override
   bool shouldReload(AppLocalizationsDelegate old) => false;

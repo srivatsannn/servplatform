@@ -1,8 +1,8 @@
-import 'package:provider_start/core/constant/auth_exception_messages.dart';
-import 'package:provider_start/core/exceptions/auth_exception.dart';
-import 'package:provider_start/core/services/auth/auth_service.dart';
-import 'package:provider_start/core/services/key_storage/key_storage_service.dart';
-import 'package:provider_start/locator.dart';
+import 'package:servplatform/core/constant/auth_exception_messages.dart';
+import 'package:servplatform/core/exceptions/auth_exception.dart';
+import 'package:servplatform/core/services/auth/auth_service.dart';
+import 'package:servplatform/core/services/key_storage/key_storage_service.dart';
+import 'package:servplatform/locator.dart';
 
 class AuthServiceImpl implements AuthService {
   final _keyStorageService = locator<KeyStorageService>();

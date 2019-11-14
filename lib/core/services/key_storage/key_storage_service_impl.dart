@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart' show debugPrint;
-import 'package:provider_start/core/services/key_storage/key_storage_service.dart';
+import 'package:servplatform/core/services/key_storage/key_storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Service that is responsible for storing/retrieving data in/from

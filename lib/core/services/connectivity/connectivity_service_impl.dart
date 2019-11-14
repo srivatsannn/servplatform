@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/foundation.dart' show debugPrint;
-import 'package:provider_start/core/enums/connectivity_status.dart';
-import 'package:provider_start/core/services/connectivity/connectivity_service.dart';
+import 'package:servplatform/core/enums/connectivity_status.dart';
+import 'package:servplatform/core/services/connectivity/connectivity_service.dart';
 
 class ConnectivityServiceImpl implements ConnectivityService {
   final _connectivityResultController = StreamController<ConnectivityStatus>();

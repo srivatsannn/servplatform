@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flare_splash_screen/flare_splash_screen.dart';
-import 'package:provider_start/core/constant/animations.dart';
-import 'package:provider_start/core/services/hardware/hardware_service.dart';
-import 'package:provider_start/core/services/local_storage/local_storage_service.dart';
-import 'package:provider_start/locator.dart';
-import 'package:provider_start/ui/views/main_view.dart';
+import 'package:servplatform/core/constant/animations.dart';
+import 'package:servplatform/core/services/hardware/hardware_service.dart';
+import 'package:servplatform/core/services/local_storage/local_storage_service.dart';
+import 'package:servplatform/locator.dart';
+import 'package:servplatform/ui/views/main_view.dart';
 
 /// A widget that will be shown as the first page when
 /// the app is loaded for the first time.

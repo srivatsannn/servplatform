@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
-import 'package:provider_start/core/models/alert_request.dart';
-import 'package:provider_start/core/models/alert_response.dart';
-import 'package:provider_start/core/services/dialog/dialog_service.dart';
+import 'package:servplatform/core/models/alert_request.dart';
+import 'package:servplatform/core/models/alert_response.dart';
+import 'package:servplatform/core/services/dialog/dialog_service.dart';
 
 /// A service that is responsible for returning future dialogs
 class DialogServiceImpl implements DialogService {

@@ -3,8 +3,10 @@ library serializers;
 import 'package:built_value/iso_8601_date_time_serializer.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
-import 'package:provider_start/core/serializers/post.dart';
-import 'package:provider_start/core/serializers/user.dart';
+import 'package:servplatform/core/serializers/post.dart';
+import 'package:servplatform/core/serializers/user.dart';
+import 'package:servplatform/core/serializers/service.dart';
+
 
 part 'serializers.g.dart';
 
@@ -12,6 +14,7 @@ part 'serializers.g.dart';
 @SerializersFor([
   User,
   Post,
+  Service,
 ])
 
 /// Can add additional plugins that will serialize types like [DateTime]
