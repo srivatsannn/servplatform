@@ -1,20 +1,14 @@
 PODS:
   - "app_settings (1.0.6+2)":
     - Flutter
-  - BoringSSL-GRPC (0.0.3):
-    - BoringSSL-GRPC/Implementation (= 0.0.3)
-    - BoringSSL-GRPC/Interface (= 0.0.3)
-  - BoringSSL-GRPC/Implementation (0.0.3):
-    - BoringSSL-GRPC/Interface (= 0.0.3)
-  - BoringSSL-GRPC/Interface (0.0.3)
-  - cloud_firestore (0.0.1):
-    - Firebase/Core
-    - Firebase/Firestore (~> 6.0)
-    - Flutter
   - connectivity (0.0.1):
     - Flutter
     - Reachability
   - device_info (0.0.1):
+    - Flutter
+  - cloud_firestore (0.0.1):
+    - Firebase/Core
+    - Firebase/Firestore (~> 6.0)
     - Flutter
   - Firebase/Core (6.5.0):
     - Firebase/CoreOnly

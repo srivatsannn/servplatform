@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:servplatform/core/ui_models/widgets/animated_list_item_model.dart';
-import 'package:servplatform/ui/views/base_view.dart';
+import 'package:provider_architecture/provider_architecture.dart';
+import 'package:servplatform/core/view_models/widgets/animated_list_item_model.dart';
 
 class AnimatedListItem extends StatelessWidget {
   final int index;
@@ -15,7 +15,8 @@ class AnimatedListItem extends StatelessWidget {
         ? Theme.of(context).primaryColor
         : CupertinoTheme.of(context).primaryColor;
 
-    return BaseView<AnimatedListItemModel>(
+    return ViewModelProvider<AnimatedListItemViewModel>.withConsumer(
+      viewModel: AnimatedListItemViewModel(),
       onModelReady: (model) => model.init(color),
       builder: (context, model, child) => GestureDetector(
         onTap: model.updateColor,

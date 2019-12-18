@@ -1,4 +1,4 @@
-import 'package:servplatform/core/serializers/user.dart';
+import 'package:servplatform/core/models/user/user.dart';
 
 abstract class UsersRepository {
   /// - throws `RepositoryException` if fetch fails

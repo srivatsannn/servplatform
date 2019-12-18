@@ -1,18 +1,21 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
+import 'package:pedantic/pedantic.dart';
 import 'package:servplatform/core/constant/api_routes.dart';
 import 'package:servplatform/core/constant/repository_exception_messages.dart';
 import 'package:servplatform/core/exceptions/network_exception.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
-import 'package:servplatform/core/hive_models/post_h.dart';
+import 'package:servplatform/core/models/post/post.dart';
+import 'package:servplatform/core/models/post/post_h.dart';
 import 'package:servplatform/core/repositories/posts_repository/posts_repository.dart';
-import 'package:servplatform/core/serializers/post.dart';
 import 'package:servplatform/core/services/connectivity/connectivity_service.dart';
-import 'package:servplatform/core/services/http/http_service.dart';
+import 'package:servplatform/core/services/http/http_service_impl.dart';
 import 'package:servplatform/core/services/local_storage/local_storage_service.dart';
+import 'package:servplatform/core/utils/logger.dart';
 import 'package:servplatform/locator.dart';
 
 class PostsRepositoryImpl implements PostsRepository {
-  final _httpService = locator<HttpService>();
   final _localStorageService = locator<LocalStorageService>();
   final _connectionService = locator<ConnectivityService>();
 
@@ -20,28 +23,41 @@ class PostsRepositoryImpl implements PostsRepository {
   Future<List<Post>> fetchPosts() async {
     try {
       if (await _connectionService.isConnected()) {
-        final posts = await compute(_fetchPosts, _httpService);
-        await _storePostsLocally(posts);
+        Logger.d('PostsRepository: Fetching posts Remotely');
+        final posts = await compute(_fetchPostsRemotely, null);
+        unawaited(_storePostsLocally(posts));
         return posts;
       } else {
+        Logger.d('PostsRepository: Fetching posts locally');
         final posts = _fetchPostsLocally();
         return posts;
       }
-    } on NetworkException {
-      throw RepositoryException(RepositoryExceptionMessages.general_posts);
+    } on NetworkException catch (e) {
+      Logger.e('PostsRepository: ${e.message}', e: e, s: e.stackTrace);
+      throw RepositoryException(
+        RepositoryExceptionMessages.general_posts,
+        stackTrace: e.stackTrace,
+      );
     }
   }
 
-  static Future<List<Post>> _fetchPosts(HttpService httpService) async {
-    final postsJsonData =
-        await httpService.getHttp(ApiRoutes.posts) as List<dynamic>;
+  static Future<List<Post>> _fetchPostsRemotely(_) async {
+    final HttpServiceImpl httpService = HttpServiceImpl();
+    setupLogger();
 
-    final posts = postsJsonData
-        .map((data) => data as Map<String, dynamic>)
-        .map(Post.fromMap)
-        .toList();
+    try {
+      final postsJsonData =
+          await httpService.getHttp(ApiRoutes.posts) as List<dynamic>;
 
-    return posts;
+      final posts = postsJsonData
+          .map((data) => data as Map<String, dynamic>)
+          .map(Post.fromMap)
+          .toList();
+
+      return posts;
+    } finally {
+      httpService.dispose();
+    }
   }
 
   List<Post> _fetchPostsLocally() {

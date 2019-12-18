@@ -32,9 +32,11 @@ class AppLocalizations {
     return _sentences[key];
   }
 
-  // List of available sentences that correspond to the /assets/lang/<local>.json files
+  // List of available local strings that the app can use
+  //  - translated from the corresponding /assets/lang/<local>.json files
   String get appTitle => _translate('app-title');
   String get homeViewTitle => _translate('home-view-title');
+  String get homeViewNoPosts => _translate('home-view-no-posts');
   String get settingsViewTitle => _translate('settings-view-title');
   String get settingsViewPermissions => _translate('settings-view-permissions');
   String get settingsViewPermissionsDesc =>
@@ -55,7 +57,6 @@ class AppLocalizations {
   String get loginButtonText => _translate('login-button-text');
   String get buttonTextCancel => _translate('button-text-cancel');
   String get buttonTextConfirm => _translate('button-text-confirm');
-
   String get emailHintText => _translate('email-hint-text');
   String get passwordHintText => _translate('password-hint-text');
 }
@@ -64,30 +65,14 @@ class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const AppLocalizationsDelegate();
 
   @override
-  bool isSupported(Locale locale) =>
-      supportedLocalCodes.contains(locale.languageCode);
-
-  /* @override
-  Future<AppLocalizations> load(Locale locale) async {
-
-
-    final localizations = AppLocalizations(locale);
-    await localizations.load();
-    return localizations;
-  } */
+  bool isSupported(Locale locale) {
+    return supportedLocalCodes.contains(locale.languageCode);
+  }
 
   @override
   Future<AppLocalizations> load(Locale locale) async {
-    // flutter 0.11 localeResolutionCallback fix, change it if fixed
-    if (locale == null || isSupported(locale) == false) {
-      debugPrint('*app_locale_delegate* fallback to locale ');
-
-      locale = Locale('en', 'US'); // fallback to default language
-    }
-
-    AppLocalizations localizations = new AppLocalizations(locale);
+    final localizations = AppLocalizations(locale);
     await localizations.load();
-
     return localizations;
   }
 
@@ -100,11 +85,14 @@ class FallbackCupertinoLocalizationsDelegate
   const FallbackCupertinoLocalizationsDelegate();
 
   @override
-  bool isSupported(Locale locale) => true;
+  bool isSupported(Locale locale) {
+    return supportedLocalCodes.contains(locale.languageCode);
+  }
 
   @override
-  Future<CupertinoLocalizations> load(Locale locale) =>
-      DefaultCupertinoLocalizations.load(locale);
+  Future<CupertinoLocalizations> load(Locale locale) {
+    return DefaultCupertinoLocalizations.load(locale);
+  }
 
   @override
   bool shouldReload(FallbackCupertinoLocalizationsDelegate old) => false;

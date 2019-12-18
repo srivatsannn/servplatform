@@ -3,33 +3,20 @@ import 'package:servplatform/core/repositories/posts_repository/posts_repository
 import 'package:servplatform/core/repositories/posts_repository/posts_repository_impl.dart';
 import 'package:servplatform/core/repositories/users_repository/users_repository.dart';
 import 'package:servplatform/core/repositories/users_repository/users_repository_impl.dart';
-import 'package:servplatform/core/repositories/services_repository/services_repository.dart';
-import 'package:servplatform/core/repositories/services_repository/services_repository_impl.dart';
-
 import 'package:servplatform/core/services/auth/auth_service.dart';
 import 'package:servplatform/core/services/auth/auth_service_impl.dart';
 import 'package:servplatform/core/services/connectivity/connectivity_service.dart';
 import 'package:servplatform/core/services/connectivity/connectivity_service_impl.dart';
 import 'package:servplatform/core/services/dialog/dialog_service.dart';
 import 'package:servplatform/core/services/dialog/dialog_service_impl.dart';
-import 'package:servplatform/core/services/hardware/hardware_service.dart';
-import 'package:servplatform/core/services/hardware/hardware_service_impl.dart';
-import 'package:servplatform/core/services/http/http_service.dart';
-import 'package:servplatform/core/services/http/http_service_impl.dart';
-import 'package:servplatform/core/services/firebase/firebase_service.dart';
-import 'package:servplatform/core/services/firebase/firebase_service_impl.dart';
+import 'package:servplatform/core/services/hardware_info/hardware_info_service.dart';
+import 'package:servplatform/core/services/hardware_info/hardware_info_service_impl.dart';
 import 'package:servplatform/core/services/key_storage/key_storage_service.dart';
 import 'package:servplatform/core/services/key_storage/key_storage_service_impl.dart';
 import 'package:servplatform/core/services/local_storage/local_storage_service.dart';
 import 'package:servplatform/core/services/local_storage/local_storage_service_impl.dart';
 import 'package:servplatform/core/services/navigation/navigation_service.dart';
 import 'package:servplatform/core/services/navigation/navigation_service_impl.dart';
-import 'package:servplatform/core/ui_models/views/home_model.dart';
-import 'package:servplatform/core/ui_models/views/login_model.dart';
-import 'package:servplatform/core/ui_models/views/main_model.dart';
-import 'package:servplatform/core/ui_models/views/post_details_model.dart';
-import 'package:servplatform/core/ui_models/views/settings_model.dart';
-import 'package:servplatform/core/ui_models/widgets/animated_list_item_model.dart';
 
 GetIt locator = GetIt.instance;
 
@@ -49,7 +36,8 @@ Future<void> setupLocator() async {
   locator.registerLazySingleton<NavigationService>(
     () => NavigationServiceImpl(),
   );
-  locator.registerLazySingleton<HardwareService>(() => HardwareServiceImpl());
+  locator.registerLazySingleton<HardwareInfoService>(
+      () => HardwareInfoServiceImpl());
   locator.registerLazySingleton<ConnectivityService>(
     () => ConnectivityServiceImpl(),
   );
