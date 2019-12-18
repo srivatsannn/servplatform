@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider_start/core/services/connectivity/connectivity_service.dart';
-import 'package:provider_start/core/services/stoppable_service.dart';
-import 'package:provider_start/locator.dart';
+import 'package:servplatform/core/services/connectivity/connectivity_service.dart';
+import 'package:servplatform/core/services/stoppable_service.dart';
+import 'package:servplatform/locator.dart';
 
 /// Stop and start long running services
 class LifeCycleManager extends StatefulWidget {

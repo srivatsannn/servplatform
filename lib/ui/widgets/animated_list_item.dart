@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider_start/core/ui_models/widgets/animated_list_item_model.dart';
-import 'package:provider_start/ui/views/base_view.dart';
+import 'package:servplatform/core/ui_models/widgets/animated_list_item_model.dart';
+import 'package:servplatform/ui/views/base_view.dart';
 
 class AnimatedListItem extends StatelessWidget {
   final int index;

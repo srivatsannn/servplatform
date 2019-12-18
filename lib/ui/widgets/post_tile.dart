@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider_start/core/constant/view_routes.dart';
-import 'package:provider_start/core/serializers/post.dart';
+import 'package:servplatform/core/constant/view_routes.dart';
+import 'package:servplatform/core/serializers/post.dart';
 
 class PostTile extends StatelessWidget {
   final Post post;

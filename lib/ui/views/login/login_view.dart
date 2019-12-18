@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
-import 'package:provider_start/core/enums/view_state.dart';
-import 'package:provider_start/core/localization/localization.dart';
-import 'package:provider_start/core/ui_models/views/login_model.dart';
-import 'package:provider_start/ui/shared/ui_helper.dart';
-import 'package:provider_start/ui/views/base_view.dart';
+import 'package:servplatform/core/enums/view_state.dart';
+import 'package:servplatform/core/localization/localization.dart';
+import 'package:servplatform/core/ui_models/views/login_model.dart';
+import 'package:servplatform/ui/shared/ui_helper.dart';
+import 'package:servplatform/ui/views/base_view.dart';
 
 part 'login_view.g.dart';
 

@@ -1,30 +1,35 @@
 import 'package:get_it/get_it.dart';
-import 'package:provider_start/core/repositories/posts_repository/posts_repository.dart';
-import 'package:provider_start/core/repositories/posts_repository/posts_repository_impl.dart';
-import 'package:provider_start/core/repositories/users_repository/users_repository.dart';
-import 'package:provider_start/core/repositories/users_repository/users_repository_impl.dart';
-import 'package:provider_start/core/services/auth/auth_service.dart';
-import 'package:provider_start/core/services/auth/auth_service_impl.dart';
-import 'package:provider_start/core/services/connectivity/connectivity_service.dart';
-import 'package:provider_start/core/services/connectivity/connectivity_service_impl.dart';
-import 'package:provider_start/core/services/dialog/dialog_service.dart';
-import 'package:provider_start/core/services/dialog/dialog_service_impl.dart';
-import 'package:provider_start/core/services/hardware/hardware_service.dart';
-import 'package:provider_start/core/services/hardware/hardware_service_impl.dart';
-import 'package:provider_start/core/services/http/http_service.dart';
-import 'package:provider_start/core/services/http/http_service_impl.dart';
-import 'package:provider_start/core/services/key_storage/key_storage_service.dart';
-import 'package:provider_start/core/services/key_storage/key_storage_service_impl.dart';
-import 'package:provider_start/core/services/local_storage/local_storage_service.dart';
-import 'package:provider_start/core/services/local_storage/local_storage_service_impl.dart';
-import 'package:provider_start/core/services/navigation/navigation_service.dart';
-import 'package:provider_start/core/services/navigation/navigation_service_impl.dart';
-import 'package:provider_start/core/ui_models/views/home_model.dart';
-import 'package:provider_start/core/ui_models/views/login_model.dart';
-import 'package:provider_start/core/ui_models/views/main_model.dart';
-import 'package:provider_start/core/ui_models/views/post_details_model.dart';
-import 'package:provider_start/core/ui_models/views/settings_model.dart';
-import 'package:provider_start/core/ui_models/widgets/animated_list_item_model.dart';
+import 'package:servplatform/core/repositories/posts_repository/posts_repository.dart';
+import 'package:servplatform/core/repositories/posts_repository/posts_repository_impl.dart';
+import 'package:servplatform/core/repositories/users_repository/users_repository.dart';
+import 'package:servplatform/core/repositories/users_repository/users_repository_impl.dart';
+import 'package:servplatform/core/repositories/services_repository/services_repository.dart';
+import 'package:servplatform/core/repositories/services_repository/services_repository_impl.dart';
+
+import 'package:servplatform/core/services/auth/auth_service.dart';
+import 'package:servplatform/core/services/auth/auth_service_impl.dart';
+import 'package:servplatform/core/services/connectivity/connectivity_service.dart';
+import 'package:servplatform/core/services/connectivity/connectivity_service_impl.dart';
+import 'package:servplatform/core/services/dialog/dialog_service.dart';
+import 'package:servplatform/core/services/dialog/dialog_service_impl.dart';
+import 'package:servplatform/core/services/hardware/hardware_service.dart';
+import 'package:servplatform/core/services/hardware/hardware_service_impl.dart';
+import 'package:servplatform/core/services/http/http_service.dart';
+import 'package:servplatform/core/services/http/http_service_impl.dart';
+import 'package:servplatform/core/services/firebase/firebase_service.dart';
+import 'package:servplatform/core/services/firebase/firebase_service_impl.dart';
+import 'package:servplatform/core/services/key_storage/key_storage_service.dart';
+import 'package:servplatform/core/services/key_storage/key_storage_service_impl.dart';
+import 'package:servplatform/core/services/local_storage/local_storage_service.dart';
+import 'package:servplatform/core/services/local_storage/local_storage_service_impl.dart';
+import 'package:servplatform/core/services/navigation/navigation_service.dart';
+import 'package:servplatform/core/services/navigation/navigation_service_impl.dart';
+import 'package:servplatform/core/ui_models/views/home_model.dart';
+import 'package:servplatform/core/ui_models/views/login_model.dart';
+import 'package:servplatform/core/ui_models/views/main_model.dart';
+import 'package:servplatform/core/ui_models/views/post_details_model.dart';
+import 'package:servplatform/core/ui_models/views/settings_model.dart';
+import 'package:servplatform/core/ui_models/widgets/animated_list_item_model.dart';
 
 GetIt locator = GetIt.instance;
 
@@ -35,6 +40,9 @@ GetIt locator = GetIt.instance;
 Future<void> setupLocator() async {
   // Repositories
   locator.registerLazySingleton<PostsRepository>(() => PostsRepositoryImpl());
+  locator.registerLazySingleton<ServicesRepository>(
+      () => ServicesRepositoryImpl());
+
   locator.registerLazySingleton<UsersRepository>(() => UsersRepositoryImpl());
 
   // Services
@@ -50,6 +58,10 @@ Future<void> setupLocator() async {
   locator.registerLazySingleton<AuthService>(() => AuthServiceImpl());
   locator.registerLazySingleton<LocalStorageService>(
     () => LocalStorageServiceImpl(),
+  );
+
+  locator.registerLazySingleton<FirebaseService>(
+    () => FirebaseServiceImpl(),
   );
 
   // View view models

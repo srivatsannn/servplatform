@@ -2,8 +2,8 @@ import 'dart:convert' as convert;
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart' show debugPrint;
-import 'package:provider_start/core/constant/network_exception_messages.dart';
-import 'package:provider_start/core/exceptions/network_exception.dart';
+import 'package:servplatform/core/constant/network_exception_messages.dart';
+import 'package:servplatform/core/exceptions/network_exception.dart';
 
 void checkForNetworkExceptions(Response response) {
   switch (response.statusCode) {

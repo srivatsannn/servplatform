@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider_start/core/managers/lifecycle_manager.dart';
+import 'package:servplatform/core/managers/lifecycle_manager.dart';
 
 class CoreManager extends StatelessWidget {
   final Widget child;

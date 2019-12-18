@@ -1,4 +1,4 @@
-import 'package:provider_start/core/ui_models/base_model.dart';
+import 'package:servplatform/core/ui_models/base_model.dart';
 
 class MainModel extends BaseModel {
   int _index = 0;

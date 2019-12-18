@@ -12,4 +12,6 @@ class RepositoryExceptionMessages {
   static const user_remote = 'Failed to fetch user remotely';
   static const users_local = 'Failed to fetch users locally';
   static const user_local = 'Failed to fetch user locally';
+
+  static const general_service = 'Failed to load service';
 }

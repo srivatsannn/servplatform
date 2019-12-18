@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart' show GlobalKey, NavigatorState;
-import 'package:provider_start/core/services/navigation/navigation_service.dart';
+import 'package:servplatform/core/services/navigation/navigation_service.dart';
 
 class NavigationServiceImpl implements NavigationService {
   final _navigatorKey = GlobalKey<NavigatorState>();

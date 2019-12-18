@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_start/core/ui_models/base_model.dart';
-import 'package:provider_start/locator.dart';
+import 'package:servplatform/core/ui_models/base_model.dart';
+import 'package:servplatform/locator.dart';
 
 /// A widget that abstracts away the boiler plate of [ChangeNotifierProvider]
 /// boilerplate

@@ -2,12 +2,12 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart' show debugPrint;
-import 'package:provider_start/core/constant/api_routes.dart';
-import 'package:provider_start/core/constant/network_exception_messages.dart';
-import 'package:provider_start/core/exceptions/network_exception.dart';
-import 'package:provider_start/core/services/http/http_service.dart';
-import 'package:provider_start/core/utils/file_utils.dart' as fileUtils;
-import 'package:provider_start/core/utils/network_utils.dart' as networkUtils;
+import 'package:servplatform/core/constant/api_routes.dart';
+import 'package:servplatform/core/constant/network_exception_messages.dart';
+import 'package:servplatform/core/exceptions/network_exception.dart';
+import 'package:servplatform/core/services/http/http_service.dart';
+import 'package:servplatform/core/utils/file_utils.dart' as fileUtils;
+import 'package:servplatform/core/utils/network_utils.dart' as networkUtils;
 
 /// Helper service that abstracts away common HTTP Requests
 class HttpServiceImpl implements HttpService {

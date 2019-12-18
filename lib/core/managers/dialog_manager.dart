@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
-import 'package:provider_start/core/localization/localization.dart';
-import 'package:provider_start/core/models/alert_request.dart';
-import 'package:provider_start/core/models/alert_response.dart';
-import 'package:provider_start/core/services/dialog/dialog_service.dart';
-import 'package:provider_start/locator.dart';
+import 'package:servplatform/core/localization/localization.dart';
+import 'package:servplatform/core/models/alert_request.dart';
+import 'package:servplatform/core/models/alert_response.dart';
+import 'package:servplatform/core/services/dialog/dialog_service.dart';
+import 'package:servplatform/locator.dart';
 
 /// Manager that is responsible for showing dialogs that
 /// the [DialogService] requests.

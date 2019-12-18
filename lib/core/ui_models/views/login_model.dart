@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:provider_start/core/constant/view_routes.dart';
-import 'package:provider_start/core/enums/view_state.dart';
-import 'package:provider_start/core/exceptions/auth_exception.dart';
-import 'package:provider_start/core/mixins/validators.dart';
-import 'package:provider_start/core/services/auth/auth_service.dart';
-import 'package:provider_start/core/services/navigation/navigation_service.dart';
-import 'package:provider_start/core/ui_models/base_model.dart';
-import 'package:provider_start/locator.dart';
+import 'package:servplatform/core/constant/view_routes.dart';
+import 'package:servplatform/core/enums/view_state.dart';
+import 'package:servplatform/core/exceptions/auth_exception.dart';
+import 'package:servplatform/core/mixins/validators.dart';
+import 'package:servplatform/core/services/auth/auth_service.dart';
+import 'package:servplatform/core/services/navigation/navigation_service.dart';
+import 'package:servplatform/core/ui_models/base_model.dart';
+import 'package:servplatform/locator.dart';
 
 class LoginModel extends BaseModel with Validators {
   final _navigationService = locator<NavigationService>();
