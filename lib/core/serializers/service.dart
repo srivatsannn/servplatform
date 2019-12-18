@@ -17,8 +17,11 @@ abstract class Service implements Built<Service, ServiceBuilder> {
   int get id;
 
   String get service;
-
   String get percentage_match;
+
+  Map<String, dynamic> toMap() {
+    return json.decode(serializers.serializeWith(Service.serializer, this));
+  }
 
   String toJson() {
     return json.encode(serializers.serializeWith(Service.serializer, this));

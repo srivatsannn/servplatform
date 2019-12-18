@@ -6,7 +6,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:servplatform/core/constant/firebase_paths.dart';
 
 import 'package:servplatform/core/constant/repository_exception_messages.dart';
-import 'package:servplatform/core/exceptions/network_exception.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
 
 import 'package:servplatform/core/repositories/services_repository/services_repository.dart';
@@ -23,11 +22,15 @@ class ServicesRepositoryImpl implements ServicesRepository {
 
   @override
   Future<List<Service>> fetchServices() async {
-    final servicesJsonData = await _firebaseService
-        .getDataCollection(FirebasePaths.recommended_services);
-    final services =
-        servicesJsonData.map((doc) => Service.fromMap(doc.data)).toList();
-    return services;
+    try {
+      final servicesJsonData = await _firebaseService
+          .getDataCollection(FirebasePaths.recommended_services);
+      final services =
+          servicesJsonData.map((doc) => Service.fromMap(doc.data)).toList();
+      return services;
+    } catch (e) {
+      throw RepositoryException(RepositoryExceptionMessages.general_service);
+    }
   }
 
   Stream<QuerySnapshot> fetchServicesAsStream() {
@@ -49,13 +52,13 @@ class ServicesRepositoryImpl implements ServicesRepository {
 
   Future updateService(Service data, String id) async {
     await _firebaseService.updateDocument(
-        FirebasePaths.recommended_services, data, id);
+        FirebasePaths.recommended_services, data.toMap(), id);
     return;
   }
 
   Future addService(Service data) async {
     var result = await _firebaseService.addDocument(
-        FirebasePaths.recommended_services, data.toJson());
+        FirebasePaths.recommended_services, data.toMap());
 
     return;
   }
