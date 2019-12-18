@@ -19,7 +19,4 @@ class FirebasePaths {
   static const earnings = 'earnings';
   static const merchants = 'merchants';
   static const teams = 'teams';
-
-
-
 }

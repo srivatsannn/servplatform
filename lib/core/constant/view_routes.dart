@@ -37,21 +37,6 @@ class ViewRoutes {
   static const provider_setup = 'provider_setup';
   static const merchant_assign_task = 'merchant_assign_task';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   static const services = 'services';
   static const users = 'users';
   static const stories = 'stories';
@@ -67,7 +52,4 @@ class ViewRoutes {
   static const earnings = 'earnings';
   static const merchants = 'merchants';
   static const teams = 'teams';
-
-
-
 }
