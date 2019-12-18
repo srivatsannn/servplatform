@@ -59,7 +59,6 @@ Future<void> setupLocator() async {
     () => FirebaseServiceImpl(),
   );
 
-
   // Data sources
   locator.registerLazySingleton<PostsLocalDataSource>(
     () => PostsLocalDataSourceImpl(localStorageService: locator()),
@@ -73,7 +72,6 @@ Future<void> setupLocator() async {
   locator.registerLazySingleton<UsersRemoteDataSource>(
     () => UsersRemoteDataSourceImpl(httpService: locator()),
   );
-   
 
   // Repositories
   locator.registerLazySingleton<PostsRepository>(
@@ -93,5 +91,4 @@ Future<void> setupLocator() async {
   locator.registerLazySingleton<ServicesRepository>(
     () => ServicesRepositoryImpl(),
   );
-
 }

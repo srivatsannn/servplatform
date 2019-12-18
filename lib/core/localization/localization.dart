@@ -40,7 +40,6 @@ class AppLocalizations {
   String get homeViewNoPosts => _translate('home-view-no-posts');
   String get homeViewNoServices => _translate('home-view-no-servicess');
 
-
   String get settingsViewTitle => _translate('settings-view-title');
   String get settingsViewPermissions => _translate('settings-view-permissions');
   String get settingsViewPermissionsDesc =>
