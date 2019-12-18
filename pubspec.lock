@@ -428,7 +428,7 @@ packages:
     source: hosted
     version: "0.3.27"
   logger:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: logger
       url: "https://pub.dartlang.org"
@@ -462,6 +462,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.6+3"
+  mockito:
+    dependency: "direct dev"
+    description:
+      name: mockito
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.1.1"
   node_interop:
     dependency: transitive
     description:

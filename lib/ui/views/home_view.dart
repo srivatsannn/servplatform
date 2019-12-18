@@ -4,7 +4,6 @@ import 'package:provider_architecture/provider_architecture.dart';
 import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/localization/localization.dart';
 import 'package:servplatform/core/view_models/home_view_model.dart';
-import 'package:servplatform/ui/widgets/post_tile.dart';
 import 'package:servplatform/ui/widgets/service_tile.dart';
 
 class HomeView extends StatelessWidget {
@@ -22,19 +21,19 @@ class HomeView extends StatelessWidget {
             transitionBetweenRoutes: false,
           ),
         ),
-        body: _Posts(),
+        body: _Services(),
       ),
     );
   }
 }
 
-class _NoPosts extends StatelessWidget {
+class _NoServices extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final local = AppLocalizations.of(context);
 
     return Center(
-      child: Text(local.homeViewNoPosts),
+      child: Text(local.homeViewNoServices),
     );
   }
 }
@@ -48,22 +47,22 @@ class _LoadingAnimation extends StatelessWidget {
   }
 }
 
-class _Posts extends ProviderWidget<HomeViewModel> {
+class _Services extends ProviderWidget<HomeViewModel> {
   @override
   Widget build(BuildContext context, HomeViewModel model) {
     if (model.state == ViewState.Busy) {
       return _LoadingAnimation();
     }
 
-    if (model.posts.isEmpty) {
-      return _NoPosts();
+    if (model.services.isEmpty) {
+      return _NoServices();
     }
 
     return ListView.builder(
-      itemCount: model.posts.length,
-      itemBuilder: (context, index) => PostTile(
-        key: Key('${model.posts[index].id}'),
-        post: model.posts[index],
+      itemCount: model.services.length,
+      itemBuilder: (context, index) => ServiceTile(
+        key: Key('${model.services[index].id}'),
+        service: model.services[index],
       ),
     );
   }

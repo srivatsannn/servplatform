@@ -5,8 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// Service that is responsible for storing/retrieving data in/from
 /// local storage using the [SharedPreferences] package.
 class KeyStorageServiceImpl implements KeyStorageService {
-  static const logged_in_key = 'hasLoggedIn';
-  static const night_mode_key = 'nightMode';
+  static const logged_in_key = 'logged_in';
 
   static KeyStorageServiceImpl _instance;
   static SharedPreferences _preferences;

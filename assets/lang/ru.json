@@ -7,6 +7,7 @@
   "settings-view-permissions-desc": "Разрешения на открытие приложения",
   "settings-view-app-settings": "Настройки приложения",
   "settings-view-app-settings-desc": "Открыть настройки приложения",
+  "settings-view-location": "Текущее местоположение",
   "settings-view-sign-out": "выход",
   "settings-view-sign-out-desc": "Выйти из приложения",
   "login-view-title": "Авторизоваться",

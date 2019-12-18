@@ -22,7 +22,6 @@ void main() async {
 
   setupLogger();
   await setupLocator();
-
   runApp(MyApp());
 }
 

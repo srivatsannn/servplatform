@@ -1,17 +1,6 @@
-import 'package:flutter/foundation.dart' show debugPrint;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
-
-import 'package:servplatform/core/constant/firebase_paths.dart';
-
-import 'package:servplatform/core/constant/network_exception_messages.dart';
-import 'package:servplatform/core/exceptions/network_exception.dart';
-import 'package:servplatform/core/services/http/http_service.dart';
-
 import 'package:servplatform/core/services/firebase/firebase_service.dart';
-
-import 'package:servplatform/core/utils/file_utils.dart' as fileUtils;
-import 'package:servplatform/core/utils/network_utils.dart' as networkUtils;
 
 /// Helper service that abstracts away common Firebase Requests
 class FirebaseServiceImpl implements FirebaseService {
