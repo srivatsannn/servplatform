@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:servplatform/core/serializers/serializers.dart';
+import 'package:servplatform/core/models/serializers.dart';
 
 part 'service.g.dart';
 
@@ -11,8 +11,6 @@ part 'service.g.dart';
 ///   - @BuiltValueField: is the key that is in the JSON you
 ///     receive from an API
 abstract class Service implements Built<Service, ServiceBuilder> {
-  static Serializer<Service> get serializer => _$serviceSerializer;
-
   @nullable
   int get id;
 
@@ -42,5 +40,6 @@ abstract class Service implements Built<Service, ServiceBuilder> {
   }
 
   Service._();
+  static Serializer<Service> get serializer => _$serviceSerializer;
   factory Service([void Function(ServiceBuilder) updates]) = _$Service;
 }

@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import 'package:servplatform/core/serializers/post.dart';
+import 'package:servplatform/core/models/post.dart';
 
 part 'post_h.g.dart';
 

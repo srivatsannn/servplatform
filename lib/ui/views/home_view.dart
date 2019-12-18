@@ -5,6 +5,7 @@ import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/localization/localization.dart';
 import 'package:servplatform/core/view_models/home_view_model.dart';
 import 'package:servplatform/ui/widgets/post_tile.dart';
+import 'package:servplatform/ui/widgets/service_tile.dart';
 
 class HomeView extends StatelessWidget {
   @override

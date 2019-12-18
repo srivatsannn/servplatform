@@ -9,7 +9,7 @@ import 'package:servplatform/core/constant/repository_exception_messages.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
 
 import 'package:servplatform/core/repositories/services_repository/services_repository.dart';
-import 'package:servplatform/core/serializers/service.dart';
+import 'package:servplatform/core/models/service/service.dart';
 import 'package:servplatform/core/services/firebase/firebase_service.dart';
 
 import 'package:servplatform/locator.dart';
@@ -62,4 +62,4 @@ class ServicesRepositoryImpl implements ServicesRepository {
 
     return;
   }
-
+}

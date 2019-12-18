@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:servplatform/core/constant/view_routes.dart';
-import 'package:servplatform/core/serializers/service.dart';
+import 'package:servplatform/core/models/service/service.dart';
 
 class ServiceTile extends StatelessWidget {
   final Service service;

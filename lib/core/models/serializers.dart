@@ -5,6 +5,7 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:servplatform/core/models/post/post.dart';
 import 'package:servplatform/core/models/user/user.dart';
+import 'package:servplatform/core/models/service/service.dart';
 
 part 'serializers.g.dart';
 
@@ -13,6 +14,7 @@ part 'serializers.g.dart';
 @SerializersFor([
   User,
   Post,
+  Service,
 ])
 
 /// Can add additional plugins that will serialize types like [DateTime]
