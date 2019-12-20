@@ -6,57 +6,57 @@ import 'package:servplatform/core/constant/firebase_paths.dart';
 import 'package:servplatform/core/constant/repository_exception_messages.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
 
-import 'package:servplatform/core/repositories/services_repository/services_repository.dart';
-import 'package:servplatform/core/models/service/service.dart';
-import 'package:servplatform/core/services/firebase/firebase_service.dart';
+import 'package:servplatform/core/repositories/stories_repository/stories_repository.dart';
+import 'package:servplatform/core/models/story/story.dart';
+import 'package:servplatform/core/stories/firebase/firebase_story.dart';
 
 import 'package:servplatform/locator.dart';
 
 import '../../../locator.dart';
 
-class ServicesRepositoryImpl implements ServicesRepository {
-  final _firebaseService = locator<FirebaseService>();
-  List<Service> services;
+class StoriesRepositoryImpl implements StoriesRepository {
+  final _firebaseStory = locator<FirebaseStory>();
+  List<Story> stories;
 
   @override
-  Future<List<Service>> fetchServices() async {
+  Future<List<Story>> fetchStories() async {
     try {
-      final servicesJsonData = await _firebaseService
-          .getDataCollection(FirebasePaths.recommended_services);
-      final services =
-          servicesJsonData.map((doc) => Service.fromMap(doc.data)).toList();
-      return services;
+      final storiesJsonData = await _firebaseStory
+          .getDataCollection(FirebasePaths.recommended_stories);
+      final stories =
+          storiesJsonData.map((doc) => Story.fromMap(doc.data)).toList();
+      return stories;
     } catch (e) {
-      throw RepositoryException(RepositoryExceptionMessages.general_service);
+      throw RepositoryException(RepositoryExceptionMessages.general_story);
     }
   }
 
   Stream<QuerySnapshot> fetchServicesAsStream() {
-    return _firebaseService
-        .streamDataCollection(FirebasePaths.recommended_services);
+    return _firebaseStory
+        .streamDataCollection(FirebasePaths.recommended_stories);
   }
 
-  Future<Service> getServiceById(String id) async {
-    var doc = await _firebaseService.getDocumentById(
-        FirebasePaths.recommended_services, id);
-    return Service.fromMap(doc.data);
+  Future<Story> getStoryById(String id) async {
+    var doc = await _firebaseStory.getDocumentById(
+        FirebasePaths.recommended_stories, id);
+    return Story.fromMap(doc.data);
   }
 
-  Future removeService(String id) async {
-    await _firebaseService.removeDocument(
-        FirebasePaths.recommended_services, id);
+  Future removeStory(String id) async {
+    await _firebaseStory.removeDocument(
+        FirebasePaths.recommended_stories, id);
     return;
   }
 
-  Future updateService(Service data, String id) async {
-    await _firebaseService.updateDocument(
-        FirebasePaths.recommended_services, data.toMap(), id);
+  Future updateStory(Storydata, String id) async {
+    await _firebaseStory.updateDocument(
+        FirebasePaths.recommended_stories, data.toMap(), id);
     return;
   }
 
-  Future addService(Service data) async {
-    var result = await _firebaseService.addDocument(
-        FirebasePaths.recommended_services, data.toMap());
+  Future addStory(Story data) async {
+    var result = await _firebaseStory.addDocument(
+        FirebasePaths.recommended_stories, data.toMap());
 
     return;
   }

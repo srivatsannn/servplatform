@@ -15,6 +15,19 @@ part 'serializers.g.dart';
   User,
   Post,
   Service,
+  Story,
+  Category,
+  Adhoc_requests,
+  Agents,
+  Providers,
+  Carts,
+  Charts,
+  Earnings,
+  Merchants,
+  Orders,
+  Reviews,
+  Tasks,
+  Teams,
 ])
 
 /// Can add additional plugins that will serialize types like [DateTime]
