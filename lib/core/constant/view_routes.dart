@@ -36,20 +36,4 @@ class ViewRoutes {
   static const merchant_home = 'merchant_home';
   static const provider_setup = 'provider_setup';
   static const merchant_assign_task = 'merchant_assign_task';
-
-  static const services = 'services';
-  static const users = 'users';
-  static const stories = 'stories';
-  static const categories = 'categories';
-  static const adhoc_requests = 'adhoc_requests';
-  static const agents = 'agents';
-  static const providers = 'providers';
-  static const reviews = 'reviews';
-  static const carts = 'carts';
-  static const orders = 'orders';
-  static const charts = 'charts';
-  static const tasks = 'tasks';
-  static const earnings = 'earnings';
-  static const merchants = 'merchants';
-  static const teams = 'teams';
 }
