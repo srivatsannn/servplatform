@@ -21,9 +21,6 @@ abstract class Adhoc_request implements Built<Adhoc_request, ServiceBuilder> {
   String get status;
   String get story_key;
 
-  String get adhoc_request;
-  String get percentage_match;
-
   Map<String, dynamic> toMap() {
     return json.decode(serializers.serializeWith(Adhoc_request.serializer, this));
   }

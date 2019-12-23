@@ -43,9 +43,6 @@ abstract class Task implements Built<Task, ServiceBuilder> {
   String get agents;
   String get p_ref_images;
 
-  String get task;
-  String get percentage_match;
-
   Map<String, dynamic> toMap() {
     return json.decode(serializers.serializeWith(Task.serializer, this));
   }

@@ -23,9 +23,6 @@ abstract class Chat implements Built<Chat, ServiceBuilder> {
   String get publishedAt;
   String get groupId;
 
-  String get chat;
-  String get percentage_match;
-
   Map<String, dynamic> toMap() {
     return json.decode(serializers.serializeWith(Chat.serializer, this));
   }

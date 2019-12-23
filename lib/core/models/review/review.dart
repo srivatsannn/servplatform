@@ -30,9 +30,6 @@ abstract class Review implements Built<Review, ServiceBuilder> {
   String get negative_feedback;
   String get video_url;
 
-  String get review;
-  String get percentage_match;
-
   Map<String, dynamic> toMap() {
     return json.decode(serializers.serializeWith(Review.serializer, this));
   }

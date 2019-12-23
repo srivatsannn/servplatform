@@ -22,9 +22,6 @@ abstract class Team implements Built<Team, ServiceBuilder> {
   String get type;
   String get speed;
 
-  String get team;
-  String get percentage_match;
-
   Map<String, dynamic> toMap() {
     return json.decode(serializers.serializeWith(Team.serializer, this));
   }

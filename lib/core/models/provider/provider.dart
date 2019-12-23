@@ -49,9 +49,6 @@ abstract class Provider implements Built<Provider, ServiceBuilder> {
   String get edit_fleet_availability;
   String get teams;
   String get commission_percentage;
-  
-  String get provider;
-  String get percentage_match;
 
   Map<String, dynamic> toMap() {
     return json.decode(serializers.serializeWith(Provider.serializer, this));

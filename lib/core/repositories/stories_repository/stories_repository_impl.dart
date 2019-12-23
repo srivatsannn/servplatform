@@ -31,7 +31,7 @@ class StoriesRepositoryImpl implements StoriesRepository {
     }
   }
 
-  Stream<QuerySnapshot> fetchServicesAsStream() {
+  Stream<QuerySnapshot> fetchStoriesAsStream() {
     return _firebaseStory
         .streamDataCollection(FirebasePaths.recommended_stories);
   }
@@ -48,7 +48,7 @@ class StoriesRepositoryImpl implements StoriesRepository {
     return;
   }
 
-  Future updateStory(Storydata, String id) async {
+  Future updateStory(Story data, String id) async {
     await _firebaseStory.updateDocument(
         FirebasePaths.recommended_stories, data.toMap(), id);
     return;

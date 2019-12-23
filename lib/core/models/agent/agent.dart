@@ -47,8 +47,6 @@ abstract class Agent implements Built<Agent, ServiceBuilder> {
   String get providers;
   String get pending_proifle_steps;
 
-  String get agent;
-  String get percentage_match;
 
   Map<String, dynamic> toMap() {
     return json.decode(serializers.serializeWith(Agent.serializer, this));

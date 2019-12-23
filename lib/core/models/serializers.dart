@@ -7,6 +7,7 @@ import 'package:servplatform/core/models/post/post.dart';
 import 'package:servplatform/core/models/user/user.dart';
 import 'package:servplatform/core/models/service/service.dart';
 
+
 part 'serializers.g.dart';
 
 /// List of models that will have a serializer generated for them.

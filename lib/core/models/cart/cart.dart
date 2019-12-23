@@ -27,9 +27,6 @@ abstract class Cart implements Built<Cart, ServiceBuilder> {
   String get payment_methods;
   String get promo_codes;
   String get tip;
-  
-  String get cart;
-  String get percentage_match;
 
   Map<String, dynamic> toMap() {
     return json.decode(serializers.serializeWith(Cart.serializer, this));

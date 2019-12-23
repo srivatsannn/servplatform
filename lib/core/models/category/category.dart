@@ -38,9 +38,6 @@ abstract class Category implements Built<Category, ServiceBuilder> {
   String get is_required;
   String get depth;
 
-  String get category;
-  String get percentage_match;
-
   Map<String, dynamic> toMap() {
     return json.decode(serializers.serializeWith(Category.serializer, this));
   }
