@@ -57,12 +57,6 @@ class ServicesRepositoryImpl implements ServicesRepository {
         FirebasePaths.recommended_services, data.toMap());
 
     return result;
-  }  
-  /* Future addService(Service data) async {
-    var result = await _firebaseService.addDocument(
-
-        FirebasePaths.recommended_services, this.data);
-
-    return result;
-  } */
+  }
+ 
 }

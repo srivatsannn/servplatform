@@ -63,7 +63,6 @@ class AppLocalizations {
   String get loginButtonText => _translate('login-button-text');
   String get addServiceButtonText => _translate('add_service-button-text');
 
-
   String get buttonTextCancel => _translate('button-text-cancel');
   String get buttonTextConfirm => _translate('button-text-confirm');
 

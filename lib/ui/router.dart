@@ -35,7 +35,6 @@ class Router {
         return LoginView();
       case ViewRoutes.merchant_home:
         return MerchantHomeView();
-      
 
       case ViewRoutes.splash:
         return SplashView();

@@ -14,12 +14,14 @@ class ServiceTile extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
       child: ListTile(
-        title: Text(service.service??'default value',
+        title: Text(
+          service.service ?? 'default value',
           style: textTheme.subhead.copyWith(
             fontWeight: FontWeight.w500,
           ),
         ),
-        subtitle: Text(service.percentage_match??'10',
+        subtitle: Text(
+          service.percentage_match ?? '10',
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
         ),

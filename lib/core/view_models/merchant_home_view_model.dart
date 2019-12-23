@@ -9,7 +9,6 @@ import 'package:servplatform/core/services/navigation/navigation_service.dart';
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
-
 class MerchantHomeViewModel extends BaseViewModel with Validators {
   final _navigationService = locator<NavigationService>();
   final _servicesRepository = locator<ServicesRepository>();
@@ -29,19 +28,18 @@ class MerchantHomeViewModel extends BaseViewModel with Validators {
       final service_name = _serviceController.text.trim();
       final percentage_match = _percent_matchController.text.trim();
       var serviceitem = Service((b) => b
-      ..service = service_name
-      ..percentage_match = percentage_match
-      );
-      
+        ..service = service_name
+        ..percentage_match = percentage_match);
+
       await _servicesRepository.addService(serviceitem);
       // await _servicesRepository.addService();
       await _navigationService.popAllAndPushNamed(ViewRoutes.home);
     } on RepositoryException {
-      setState(ViewState.Error); 
+      setState(ViewState.Error);
     }
     setState(ViewState.Idle);
-
   }
+
   @override
   void dispose() {
     _serviceController.dispose();
