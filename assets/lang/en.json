@@ -2,7 +2,7 @@
   "app-title": "Title",
   "home-view-title": "Home",
   "home-view-no-posts": "No posts available",
-  "settings-view-title": "Settings",
+  "home-view-no-services": "No Services available",  "settings-view-title": "Settings",
   "settings-view-permissions": "Permissions",
   "settings-view-permissions-desc": "Open App Permissions",
   "settings-view-app-settings": "App Settings",
@@ -15,5 +15,11 @@
   "button-text-cancel": "Cancel",
   "button-text-confirm": "Confirm",
   "email-hint-text": "Email",
-  "password-hint-text": "Password"
+  "password-hint-text": "Password",
+  "merchant-home-view-title": "Merchant",
+  "add_service-button-text": "Add Service",
+  "add_service-hint-text": "Service Name",
+  "percentage_match-hint-text": "Percentage Match"
+
+
 }

@@ -9,4 +9,6 @@ class ViewRoutes {
   static const login = 'login';
   static const post_details = 'post_details';
   static const service_details = 'service_details';
-}
+  static const merchant_home = 'merchant_home';
+
+  }

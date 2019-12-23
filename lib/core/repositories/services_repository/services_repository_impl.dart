@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:servplatform/core/constant/firebase_paths.dart';
 
@@ -17,7 +16,6 @@ import '../../../locator.dart';
 class ServicesRepositoryImpl implements ServicesRepository {
   final _firebaseService = locator<FirebaseService>();
   List<Service> services;
-
   @override
   Future<List<Service>> fetchServices() async {
     try {
@@ -58,6 +56,13 @@ class ServicesRepositoryImpl implements ServicesRepository {
     var result = await _firebaseService.addDocument(
         FirebasePaths.recommended_services, data.toMap());
 
-    return;
-  }
+    return result;
+  }  
+  /* Future addService(Service data) async {
+    var result = await _firebaseService.addDocument(
+
+        FirebasePaths.recommended_services, this.data);
+
+    return result;
+  } */
 }

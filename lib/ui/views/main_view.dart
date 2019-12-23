@@ -5,6 +5,7 @@ import 'package:provider_architecture/provider_architecture.dart';
 import 'package:servplatform/core/localization/localization.dart';
 import 'package:servplatform/core/view_models/main_view_model.dart';
 import 'package:servplatform/ui/views/home_view.dart';
+import 'package:servplatform/ui/views/merchant_home_view.dart';
 import 'package:servplatform/ui/views/settings_view.dart';
 
 /// Main view container that handles rendering pages according to which bottom
@@ -23,6 +24,7 @@ class MainView extends StatelessWidget {
           children: <Widget>[
             HomeView(),
             SettingsView(),
+            MerchantHomeView(),
           ],
         ),
         bottomNavBar: PlatformNavBar(
@@ -36,6 +38,10 @@ class MainView extends StatelessWidget {
               icon: Icon(Icons.settings),
               title: Text(local.settingsViewTitle),
             ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              title: Text(local.merchanthomeViewTitle),
+            )
           ],
           itemChanged: model.changeTab,
         ),

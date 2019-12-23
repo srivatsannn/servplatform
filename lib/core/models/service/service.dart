@@ -12,13 +12,13 @@ part 'service.g.dart';
 ///     receive from an API
 abstract class Service implements Built<Service, ServiceBuilder> {
   @nullable
-  int get id;
-
+  int get id;  
   String get service;
   String get percentage_match;
 
+
   Map<String, dynamic> toMap() {
-    return json.decode(serializers.serializeWith(Service.serializer, this));
+    return jsonDecode(jsonEncode(serializers.serializeWith(Service.serializer, this)));
   }
 
   String toJson() {

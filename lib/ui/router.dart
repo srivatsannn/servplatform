@@ -5,6 +5,7 @@ import 'package:servplatform/core/constant/view_routes.dart';
 import 'package:servplatform/core/models/post/post.dart';
 import 'package:servplatform/ui/views/login_view.dart';
 import 'package:servplatform/ui/views/main_view.dart';
+import 'package:servplatform/ui/views/merchant_home_view.dart';
 import 'package:servplatform/ui/views/post_details_view.dart';
 import 'package:servplatform/ui/views/splash_view.dart';
 
@@ -32,6 +33,9 @@ class Router {
         return MainView();
       case ViewRoutes.login:
         return LoginView();
+      case ViewRoutes.merchant_home:
+        return MerchantHomeView();
+      
 
       case ViewRoutes.splash:
         return SplashView();

@@ -10,6 +10,8 @@ class AppLocalizations {
   final Locale locale;
   Map<String, String> _sentences;
 
+  var serviceHintText;
+
   AppLocalizations(this.locale);
 
   static AppLocalizations of(BuildContext context) =>
@@ -37,8 +39,10 @@ class AppLocalizations {
   String get appTitle => _translate('app-title');
 
   String get homeViewTitle => _translate('home-view-title');
+  String get merchanthomeViewTitle => _translate('merchant-home-view-title');
+
   String get homeViewNoPosts => _translate('home-view-no-posts');
-  String get homeViewNoServices => _translate('home-view-no-servicess');
+  String get homeViewNoServices => _translate('home-view-no-services');
 
   String get settingsViewTitle => _translate('settings-view-title');
   String get settingsViewPermissions => _translate('settings-view-permissions');
@@ -54,7 +58,11 @@ class AppLocalizations {
       _translate('settings-view-sign-out-desc');
 
   String get loginViewTitle => _translate('login-view-title');
+  String get merchantHomeViewTitle => _translate('merchant-home-view-title');
+
   String get loginButtonText => _translate('login-button-text');
+  String get addServiceButtonText => _translate('add_service-button-text');
+
 
   String get buttonTextCancel => _translate('button-text-cancel');
   String get buttonTextConfirm => _translate('button-text-confirm');

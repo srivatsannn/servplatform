@@ -36,4 +36,24 @@ class Validators {
     }
     return null;
   }
+
+  String validateService(String value) {
+    if (value.trim().isEmpty) {
+      return 'Service is required';
+    } else if (value.length <= 6) {
+      return 'Service should be more than 6 characters';
+    }
+    return null;
+  }
+
+  String validatePercentageMatch(String value) {
+    if (value.trim().isEmpty) {
+      return 'Percentage Match is required';
+    } else if (value.length > 2) {
+      return 'Percentage should less than two characters';
+    }
+    return null;
+  }
+
+
 }
