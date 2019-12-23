@@ -7,6 +7,7 @@ import 'package:servplatform/core/models/post/post.dart';
 import 'package:servplatform/core/models/user/user.dart';
 import 'package:servplatform/core/models/service/service.dart';
 
+
 part 'serializers.g.dart';
 
 /// List of models that will have a serializer generated for them.
@@ -17,17 +18,17 @@ part 'serializers.g.dart';
   Service,
   Story,
   Category,
-  Adhoc_requests,
-  Agents,
-  Providers,
-  Carts,
-  Charts,
-  Earnings,
-  Merchants,
-  Orders,
-  Reviews,
-  Tasks,
-  Teams,
+  Adhoc_request,
+  Agent,
+  Provider,
+  Cart,
+  Chat,
+  Earning,
+  Merchant,
+  Order,
+  Review,
+  Task,
+  Team,
 ])
 
 /// Can add additional plugins that will serialize types like [DateTime]

@@ -14,13 +14,15 @@ abstract class Story implements Built<Story, ServiceBuilder> {
   @nullable
   int get id;
 
+  String get story_key;
   String get multi_img_url;
-  String get link;
-  String get link;
-  String get link;
-
- 
-
+  String get provider;
+  String get service_key;
+  String get time(sec);
+  String get claps;
+  String get user;
+  String get publishedAt;
+  
   Map<String, dynamic> toMap() {
     return json.decode(serializers.serializeWith(Story.serializer, this));
   }
@@ -29,21 +31,21 @@ abstract class Story implements Built<Story, ServiceBuilder> {
     return json.encode(serializers.serializeWith(Story.serializer, this));
   }
 
-  static Service fromJson(String jsonString) {
+  static Story fromJson(String jsonString) {
     return serializers.deserializeWith(
-      Service.serializer,
+      Story.serializer,
       json.decode(jsonString),
     );
   }
 
-  static Service fromMap(Map<String, dynamic> map) {
+  static Story fromMap(Map<String, dynamic> map) {
     return serializers.deserializeWith(
-      Service.serializer,
+      Story.serializer,
       map,
     );
   }
 
-  Service._();
-  static Serializer<Service> get serializer => _$serviceSerializer;
-  factory Service([void Function(ServiceBuilder) updates]) = _$Service;
+  Story._();
+  static Serializer<Story> get serializer => _$storySerializer;
+  factory Story([void Function(ServiceBuilder) updates]) = _$Story;
 }

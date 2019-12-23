@@ -4,42 +4,63 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:servplatform/core/models/serializers.dart';
 
-part 'service.g.dart';
+part 'category.g.dart';
 
 /// An example Service model that should be serialized.
 ///   - @nullable: means that its ok if the value is null
 ///   - @BuiltValueField: is the key that is in the JSON you
 ///     receive from an API
-abstract class Service implements Built<Service, ServiceBuilder> {
+abstract class Category implements Built<Category, ServiceBuilder> {
   @nullable
   int get id;
 
-  String get service;
-  String get percentage_match;
+  String get category_key;
+  String get category;
+  String get category_examples;
+  String get count_of_services_in_category;
+  String get parent_category_id;
+  String get super_catalogue_id;
+  String get layout_type;
+  String get layout_id;
+  String get priority;
+  String get is_dummy;
+  String get is_enabled;
+  String get level;
+  String get has_children;
+  String get has_products;
+  String get is_deleted;
+  String get child_layout_type;
+  String get admin_catalogue_id;
+  String get products_has_image;
+  String get is_side_order;
+  String get show_catalog;
+  String get has_active_children;
+  String get is_required;
+  String get depth;
 
   Map<String, dynamic> toMap() {
-    return json.decode(serializers.serializeWith(Service.serializer, this));
+    return json.decode(serializers.serializeWith(Category.serializer, this));
   }
 
   String toJson() {
-    return json.encode(serializers.serializeWith(Service.serializer, this));
+    return json.encode(serializers.serializeWith(Category.serializer, this));
   }
 
-  static Service fromJson(String jsonString) {
+  static Category fromJson(String jsonString) {
     return serializers.deserializeWith(
-      Service.serializer,
+      Category.serializer,
       json.decode(jsonString),
     );
   }
 
-  static Service fromMap(Map<String, dynamic> map) {
+  static Category fromMap(Map<String, dynamic> map) {
     return serializers.deserializeWith(
-      Service.serializer,
+      Category.serializer,
       map,
     );
   }
 
-  Service._();
-  static Serializer<Service> get serializer => _$serviceSerializer;
-  factory Service([void Function(ServiceBuilder) updates]) = _$Service;
+  Category._();
+  static Serializer<Category> get serializer => _$categorySerializer;
+  factory Category([void Function(ServiceBuilder) updates]) = _$Category;
 }
