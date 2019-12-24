@@ -8,55 +8,55 @@ import 'package:servplatform/core/exceptions/repository_exception.dart';
 
 import 'package:servplatform/core/repositories/tasks_repository/tasks_repository.dart';
 import 'package:servplatform/core/models/task/task.dart';
-import 'package:servplatform/core/tasks/firebase/firebase_task.dart';
+import 'package:servplatform/core/services/firebase/firebase_service.dart';
 
 import 'package:servplatform/locator.dart';
 
 import '../../../locator.dart';
 
 class TasksRepositoryImpl implements TasksRepository {
-  final _firebaseTask = locator<FirebaseTask>();
+  final _firebaseService = locator<FirebaseService>();
   List<Task> tasks;
 
   @override
   Future<List<Task>> fetchtasks() async {
     try {
-      final tasksJsonData = await _firebaseTask
-          .getDataCollection(FirebasePaths.recommended_tasks);
+      final tasksJsonData = await _firebaseService
+          .getDataCollection(FirebasePaths.tasks);
       final tasks =
           tasksJsonData.map((doc) => Task.fromMap(doc.data)).toList();
       return tasks;
     } catch (e) {
-      throw RepositoryException(RepositoryExceptionMessages.general_task);
+      throw RepositoryException(RepositoryExceptionMessages.general_service);
     }
   }
 
   Stream<QuerySnapshot> fetchTasksAsStream() {
-    return _firebaseTask
-        .streamDataCollection(FirebasePaths.recommended_tasks);
+    return _firebaseService
+        .streamDataCollection(FirebasePaths.tasks);
   }
 
   Future<Task> getTaskById(String id) async {
-    var doc = await _firebaseTask.getDocumentById(
-        FirebasePaths.recommended_tasks, id);
+    var doc = await _firebaseService.getDocumentById(
+        FirebasePaths.tasks, id);
     return Task.fromMap(doc.data);
   }
 
   Future removeTask(String id) async {
-    await _firebaseTask.removeDocument(
-        FirebasePaths.recommended_tasks, id);
+    await _firebaseService.removeDocument(
+        FirebasePaths.tasks, id);
     return;
   }
 
   Future updateTask(Task data, String id) async {
-    await _firebaseTask.updateDocument(
-        FirebasePaths.recommended_tasks, data.toMap(), id);
+    await _firebaseService.updateDocument(
+        FirebasePaths.tasks, data.toMap(), id);
     return;
   }
 
   Future addTask(Task data) async {
-    var result = await _firebaseTask.addDocument(
-        FirebasePaths.recommended_tasks, data.toMap());
+    var result = await _firebaseService.addDocument(
+        FirebasePaths.tasks, data.toMap());
 
     return;
   }

@@ -14,7 +14,7 @@ class FirebasePaths {
   static const reviews = 'reviews';
   static const carts = 'carts';
   static const orders = 'orders';
-  static const charts = 'charts';
+  static const chats = 'chats';
   static const tasks = 'tasks';
   static const earnings = 'earnings';
   static const merchants = 'merchants';

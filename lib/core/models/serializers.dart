@@ -6,7 +6,19 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:servplatform/core/models/post/post.dart';
 import 'package:servplatform/core/models/user/user.dart';
 import 'package:servplatform/core/models/service/service.dart';
-
+import 'package:servplatform/core/models/story/story.dart';
+import 'package:servplatform/core/models/category/category.dart';
+import 'package:servplatform/core/models/adhoc_request/adhoc_request.dart';
+import 'package:servplatform/core/models/agent/agent.dart';
+import 'package:servplatform/core/models/provider/provider.dart';
+import 'package:servplatform/core/models/cart/cart.dart';
+import 'package:servplatform/core/models/chat/chat.dart';
+import 'package:servplatform/core/models/earning/earning.dart';
+import 'package:servplatform/core/models/merchant/merchant.dart';
+import 'package:servplatform/core/models/order/order.dart';
+import 'package:servplatform/core/models/review/review.dart';
+import 'package:servplatform/core/models/task/task.dart';
+import 'package:servplatform/core/models/team/team.dart';
 
 part 'serializers.g.dart';
 

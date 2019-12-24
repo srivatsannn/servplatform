@@ -8,55 +8,55 @@ import 'package:servplatform/core/exceptions/repository_exception.dart';
 
 import 'package:servplatform/core/repositories/stories_repository/stories_repository.dart';
 import 'package:servplatform/core/models/story/story.dart';
-import 'package:servplatform/core/stories/firebase/firebase_story.dart';
+import 'package:servplatform/core/services/firebase/firebase_service.dart';
 
 import 'package:servplatform/locator.dart';
 
 import '../../../locator.dart';
 
 class StoriesRepositoryImpl implements StoriesRepository {
-  final _firebaseStory = locator<FirebaseStory>();
+  final _firebaseService = locator<FirebaseService>();
   List<Story> stories;
 
   @override
   Future<List<Story>> fetchStories() async {
     try {
-      final storiesJsonData = await _firebaseStory
-          .getDataCollection(FirebasePaths.recommended_stories);
+      final storiesJsonData = await _firebaseService
+          .getDataCollection(FirebasePaths.stories);
       final stories =
           storiesJsonData.map((doc) => Story.fromMap(doc.data)).toList();
       return stories;
     } catch (e) {
-      throw RepositoryException(RepositoryExceptionMessages.general_story);
+      throw RepositoryException(RepositoryExceptionMessages.general_service);
     }
   }
 
   Stream<QuerySnapshot> fetchStoriesAsStream() {
-    return _firebaseStory
-        .streamDataCollection(FirebasePaths.recommended_stories);
+    return _firebaseService
+        .streamDataCollection(FirebasePaths.stories);
   }
 
   Future<Story> getStoryById(String id) async {
-    var doc = await _firebaseStory.getDocumentById(
-        FirebasePaths.recommended_stories, id);
+    var doc = await _firebaseService.getDocumentById(
+        FirebasePaths.stories, id);
     return Story.fromMap(doc.data);
   }
 
   Future removeStory(String id) async {
-    await _firebaseStory.removeDocument(
-        FirebasePaths.recommended_stories, id);
+    await _firebaseService.removeDocument(
+        FirebasePaths.stories, id);
     return;
   }
 
   Future updateStory(Story data, String id) async {
-    await _firebaseStory.updateDocument(
-        FirebasePaths.recommended_stories, data.toMap(), id);
+    await _firebaseService.updateDocument(
+        FirebasePaths.stories, data.toMap(), id);
     return;
   }
 
   Future addStory(Story data) async {
-    var result = await _firebaseStory.addDocument(
-        FirebasePaths.recommended_stories, data.toMap());
+    var result = await _firebaseService.addDocument(
+        FirebasePaths.stories, data.toMap());
 
     return;
   }

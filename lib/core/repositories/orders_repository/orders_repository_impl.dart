@@ -8,55 +8,55 @@ import 'package:servplatform/core/exceptions/repository_exception.dart';
 
 import 'package:servplatform/core/repositories/orders_repository/orders_repository.dart';
 import 'package:servplatform/core/models/order/order.dart';
-import 'package:servplatform/core/orders/firebase/firebase_order.dart';
+import 'package:servplatform/core/services/firebase/firebase_service.dart';
 
 import 'package:servplatform/locator.dart';
 
 import '../../../locator.dart';
 
 class OdersRepositoryImpl implements OrdersRepository {
-  final _firebaseOrder = locator<FirebaseOrder>();
+  final _firebaseService = locator<FirebaseService>();
   List<Order> orders;
 
   @override
   Future<List<Order>> fetchOrders() async {
     try {
-      final ordersJsonData = await _firebaseOrder
-          .getDataCollection(FirebasePaths.recommended_orders);
+      final ordersJsonData = await _firebaseService
+          .getDataCollection(FirebasePaths.orders);
       final orders =
           ordersJsonData.map((doc) => Order.fromMap(doc.data)).toList();
       return orders;
     } catch (e) {
-      throw RepositoryException(RepositoryExceptionMessages.general_order);
+      throw RepositoryException(RepositoryExceptionMessages.general_service);
     }
   }
 
   Stream<QuerySnapshot> fetchOrdersAsStream() {
-    return _firebaseOrder
-        .streamDataCollection(FirebasePaths.recommended_orders);
+    return _firebaseService
+        .streamDataCollection(FirebasePaths.orders);
   }
 
   Future<Order> getOrderById(String id) async {
-    var doc = await _firebaseOrder.getDocumentById(
-        FirebasePaths.recommended_orders, id);
+    var doc = await _firebaseService.getDocumentById(
+        FirebasePaths.orders, id);
     return Order.fromMap(doc.data);
   }
 
   Future removeOrder(String id) async {
-    await _firebaseOrder.removeDocument(
-        FirebasePaths.recommended_orders, id);
+    await _firebaseService.removeDocument(
+        FirebasePaths.orders, id);
     return;
   }
 
   Future updateOrder(Order data, String id) async {
-    await _firebaseOrder.updateDocument(
-        FirebasePaths.recommended_orders, data.toMap(), id);
+    await _firebaseService.updateDocument(
+        FirebasePaths.orders, data.toMap(), id);
     return;
   }
 
   Future addOrder(Order data) async {
-    var result = await _firebaseOrder.addDocument(
-        FirebasePaths.recommended_orders, data.toMap());
+    var result = await _firebaseService.addDocument(
+        FirebasePaths.orders, data.toMap());
 
     return;
   }

@@ -91,4 +91,16 @@ Future<void> setupLocator() async {
   locator.registerLazySingleton<ServicesRepository>(
     () => ServicesRepositoryImpl(),
   );
+   locator.registerLazySingleton<PostsRepository>(
+    () => PostsRepositoryImpl(),
+  );
+   locator.registerLazySingleton<Adhoc_requestsRepository>(
+    () => Adhoc_requestsRepositoryImpl(),
+  );
+   locator.registerLazySingleton<AgentsRepository>(
+    () => AgentsRepositoryImpl(),
+  );
+   locator.registerLazySingleton<CartsRepository>(
+    () => CartsRepositoryImpl(),
+  );
 }

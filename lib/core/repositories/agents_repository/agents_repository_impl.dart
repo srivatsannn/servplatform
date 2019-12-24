@@ -8,55 +8,55 @@ import 'package:servplatform/core/exceptions/repository_exception.dart';
 
 import 'package:servplatform/core/repositories/agents_repository/agents_repository.dart';
 import 'package:servplatform/core/models/agent/agent.dart';
-import 'package:servplatform/core/agents/firebase/firebase_agent.dart';
+import 'package:servplatform/core/services/firebase/firebase_service.dart';
 
 import 'package:servplatform/locator.dart';
 
 import '../../../locator.dart';
 
 class AgentsRepositoryImpl implements AgentsRepository {
-  final _firebaseAgent = locator<FirebaseAgent>();
+  final _firebaseService = locator<FirebaseService>();
   List<Agent> agents;
 
   @override
   Future<List<Agent>> fetchAgents() async {
     try {
-      final agentsJsonData = await _firebaseAgent
-          .getDataCollection(FirebasePaths.recommended_agents);
+      final agentsJsonData = await _firebaseService
+          .getDataCollection(FirebasePaths.agents);
       final agents =
           agentsJsonData.map((doc) => Agent.fromMap(doc.data)).toList();
       return agents;
     } catch (e) {
-      throw RepositoryException(RepositoryExceptionMessages.general_agent);
+      throw RepositoryException(RepositoryExceptionMessages.general_service);
     }
   }
 
   Stream<QuerySnapshot> fetchAgentsAsStream() {
-    return _firebaseAgent
-        .streamDataCollection(FirebasePaths.recommended_agents);
+    return _firebaseService
+        .streamDataCollection(FirebasePaths.agents);
   }
 
   Future<Agent> getAgentById(String id) async {
-    var doc = await _firebaseAgent.getDocumentById(
-        FirebasePaths.recommended_agents, id);
+    var doc = await _firebaseService.getDocumentById(
+        FirebasePaths.agents, id);
     return Agent.fromMap(doc.data);
   }
 
   Future removeAgent(String id) async {
-    await _firebaseAgent.removeDocument(
-        FirebasePaths.recommended_agents, id);
+    await _firebaseService.removeDocument(
+        FirebasePaths.agents, id);
     return;
   }
 
   Future updateAgent(Agent data, String id) async {
-    await _firebaseAgent.updateDocument(
-        FirebasePaths.recommended_agents, data.toMap(), id);
+    await _firebaseService.updateDocument(
+        FirebasePaths.agents, data.toMap(), id);
     return;
   }
 
   Future addAgent(Agent data) async {
-    var result = await _firebaseAgent.addDocument(
-        FirebasePaths.recommended_agents, data.toMap());
+    var result = await _firebaseService.addDocument(
+        FirebasePaths.agents, data.toMap());
 
     return;
   }
