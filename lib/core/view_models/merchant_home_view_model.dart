@@ -27,7 +27,7 @@ class MerchantHomeViewModel extends BaseViewModel with Validators {
     try {
       final service_name = _serviceController.text.trim();
       final percentage_match = _percent_matchController.text.trim();
-      var serviceitem = Service((b) => b
+      final serviceitem = Service((b) => b
         ..service = service_name
         ..percentage_match = percentage_match);
 
