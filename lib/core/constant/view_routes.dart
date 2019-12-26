@@ -37,3 +37,4 @@ class ViewRoutes {
   static const provider_setup = 'provider_setup';
   static const merchant_assign_task = 'merchant_assign_task';
 }
+
