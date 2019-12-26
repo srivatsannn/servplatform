@@ -10,7 +10,7 @@ part 'order.g.dart';
 ///   - @nullable: means that its ok if the value is null
 ///   - @BuiltValueField: is the key that is in the JSON you
 ///     receive from an API
-abstract class Order implements Built<Order, ServiceBuilder> {
+abstract class Order implements Built<Order, OrderBuilder> {
   @nullable
   int get id;
    
@@ -96,5 +96,5 @@ abstract class Order implements Built<Order, ServiceBuilder> {
 
   Order._();
   static Serializer<Order> get serializer => _$orderSerializer;
-  factory Order([void Function(ServiceBuilder) updates]) = _$Order;
+  factory Order([void Function(OrderBuilder) updates]) = _$Order;
 }

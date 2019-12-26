@@ -10,7 +10,7 @@ part 'earning.g.dart';
 ///   - @nullable: means that its ok if the value is null
 ///   - @BuiltValueField: is the key that is in the JSON you
 ///     receive from an API
-abstract class Earning implements Built<Earning, ServiceBuilder> {
+abstract class Earning implements Built<Earning, EarningBuilder> {
   @nullable
   int get id;
 
@@ -47,5 +47,5 @@ abstract class Earning implements Built<Earning, ServiceBuilder> {
 
   Earning._();
   static Serializer<Earning> get serializer => _$earningSerializer;
-  factory Earning([void Function(ServiceBuilder) updates]) = _$Earning;
+  factory Earning([void Function(EarningBuilder) updates]) = _$Earning;
 }

@@ -10,7 +10,7 @@ part 'agent.g.dart';
 ///   - @nullable: means that its ok if the value is null
 ///   - @BuiltValueField: is the key that is in the JSON you
 ///     receive from an API
-abstract class Agent implements Built<Agent, ServiceBuilder> {
+abstract class Agent implements Built<Agent, AgentBuilder> {
   @nullable
   int get id;
 
@@ -72,5 +72,5 @@ abstract class Agent implements Built<Agent, ServiceBuilder> {
 
   Agent._();
   static Serializer<Agent> get serializer => _$agentSerializer;
-  factory Agent([void Function(ServiceBuilder) updates]) = _$Agent;
+  factory Agent([void Function(AgentBuilder) updates]) = _$Agent;
 }

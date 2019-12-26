@@ -10,7 +10,7 @@ part 'adhoc_request.g.dart';
 ///   - @nullable: means that its ok if the value is null
 ///   - @BuiltValueField: is the key that is in the JSON you
 ///     receive from an API
-abstract class Adhoc_request implements Built<Adhoc_request, ServiceBuilder> {
+abstract class Adhoc_request implements Built<Adhoc_request, Adhoc_requestBuilder> {
   @nullable
   int get id;
 
@@ -45,5 +45,5 @@ abstract class Adhoc_request implements Built<Adhoc_request, ServiceBuilder> {
 
   Adhoc_request._();
   static Serializer<Adhoc_request> get serializer => _$adhoc_requestSerializer;
-  factory Adhoc_request([void Function(ServiceBuilder) updates]) = _$Adhoc_request;
+  factory Adhoc_request([void Function(Adhoc_requestBuilder) updates]) = _$Adhoc_request;
 }

@@ -10,7 +10,7 @@ part 'category.g.dart';
 ///   - @nullable: means that its ok if the value is null
 ///   - @BuiltValueField: is the key that is in the JSON you
 ///     receive from an API
-abstract class Category implements Built<Category, ServiceBuilder> {
+abstract class Category implements Built<Category, CategoryBuilder> {
   @nullable
   int get id;
 
@@ -62,5 +62,5 @@ abstract class Category implements Built<Category, ServiceBuilder> {
 
   Category._();
   static Serializer<Category> get serializer => _$categorySerializer;
-  factory Category([void Function(ServiceBuilder) updates]) = _$Category;
+  factory Category([void Function(CategoryBuilder) updates]) = _$Category;
 }

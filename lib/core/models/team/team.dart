@@ -10,7 +10,7 @@ part 'team.g.dart';
 ///   - @nullable: means that its ok if the value is null
 ///   - @BuiltValueField: is the key that is in the JSON you
 ///     receive from an API
-abstract class Team implements Built<Team, ServiceBuilder> {
+abstract class Team implements Built<Team, TeamBuilder> {
   @nullable
   int get id;
 
@@ -46,5 +46,5 @@ abstract class Team implements Built<Team, ServiceBuilder> {
 
   Team._();
   static Serializer<Team> get serializer => _$teamSerializer;
-  factory Team([void Function(ServiceBuilder) updates]) = _$Team;
+  factory Team([void Function(TeamBuilder) updates]) = _$Team;
 }

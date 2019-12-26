@@ -10,7 +10,7 @@ part 'cart.g.dart';
 ///   - @nullable: means that its ok if the value is null
 ///   - @BuiltValueField: is the key that is in the JSON you
 ///     receive from an API
-abstract class Cart implements Built<Cart, ServiceBuilder> {
+abstract class Cart implements Built<Cart, CartBuilder> {
   @nullable
   int get id;
 
@@ -52,5 +52,5 @@ abstract class Cart implements Built<Cart, ServiceBuilder> {
 
   Cart._();
   static Serializer<Cart> get serializer => _$cartSerializer;
-  factory Cart([void Function(ServiceBuilder) updates]) = _$Cart;
+  factory Cart([void Function(CartBuilder) updates]) = _$Cart;
 }

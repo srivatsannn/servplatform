@@ -10,7 +10,7 @@ part 'chat.g.dart';
 ///   - @nullable: means that its ok if the value is null
 ///   - @BuiltValueField: is the key that is in the JSON you
 ///     receive from an API
-abstract class Chat implements Built<Chat, ServiceBuilder> {
+abstract class Chat implements Built<Chat, ChatBuilder> {
   @nullable
   int get id;
 
@@ -19,7 +19,7 @@ abstract class Chat implements Built<Chat, ServiceBuilder> {
   String get content;
   String get from;
   String get to;
-  String get isSeen;;
+  String get isSeen;
   String get publishedAt;
   String get groupId;
 
@@ -47,5 +47,5 @@ abstract class Chat implements Built<Chat, ServiceBuilder> {
 
   Chat._();
   static Serializer<Chat> get serializer => _$chatSerializer;
-  factory Chat([void Function(ServiceBuilder) updates]) = _$Chat;
+  factory Chat([void Function(ChatBuilder) updates]) = _$Chat;
 }

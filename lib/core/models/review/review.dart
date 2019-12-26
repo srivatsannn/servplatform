@@ -10,7 +10,7 @@ part 'review.g.dart';
 ///   - @nullable: means that its ok if the value is null
 ///   - @BuiltValueField: is the key that is in the JSON you
 ///     receive from an API
-abstract class Review implements Built<Review, ServiceBuilder> {
+abstract class Review implements Built<Review, ReviewBuilder> {
   @nullable
   int get id;
 
@@ -54,5 +54,5 @@ abstract class Review implements Built<Review, ServiceBuilder> {
 
   Review._();
   static Serializer<Review> get serializer => _$reviewSerializer;
-  factory Review([void Function(ServiceBuilder) updates]) = _$Review;
+  factory Review([void Function(ReviewBuilder) updates]) = _$Review;
 }

@@ -10,7 +10,7 @@ part 'story.g.dart';
 ///   - @nullable: means that its ok if the value is null
 ///   - @BuiltValueField: is the key that is in the JSON you
 ///     receive from an API
-abstract class Story implements Built<Story, ServiceBuilder> {
+abstract class Story implements Built<Story, StoryBuilder> {
   @nullable
   int get id;
 
@@ -18,7 +18,7 @@ abstract class Story implements Built<Story, ServiceBuilder> {
   String get multi_img_url;
   String get provider;
   String get service_key;
-  String get time(sec);
+  String get time_sec;
   String get claps;
   String get user;
   String get publishedAt;
@@ -47,5 +47,5 @@ abstract class Story implements Built<Story, ServiceBuilder> {
 
   Story._();
   static Serializer<Story> get serializer => _$storySerializer;
-  factory Story([void Function(ServiceBuilder) updates]) = _$Story;
+  factory Story([void Function(StoryBuilder) updates]) = _$Story;
 }

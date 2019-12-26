@@ -10,7 +10,7 @@ part 'task.g.dart';
 ///   - @nullable: means that its ok if the value is null
 ///   - @BuiltValueField: is the key that is in the JSON you
 ///     receive from an API
-abstract class Task implements Built<Task, ServiceBuilder> {
+abstract class Task implements Built<Task, TaskBuilder> {
   @nullable
   int get id;
 
@@ -67,5 +67,5 @@ abstract class Task implements Built<Task, ServiceBuilder> {
 
   Task._();
   static Serializer<Task> get serializer => _$taskSerializer;
-  factory Task([void Function(ServiceBuilder) updates]) = _$Task;
+  factory Task([void Function(TaskBuilder) updates]) = _$Task;
 }
