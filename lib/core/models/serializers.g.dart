@@ -7,8 +7,21 @@ part of serializers;
 // **************************************************************************
 
 Serializers _$serializers = (new Serializers().toBuilder()
+      ..add(Adhoc_request.serializer)
+      ..add(Agent.serializer)
+      ..add(Cart.serializer)
+      ..add(Category.serializer)
+      ..add(Chat.serializer)
+      ..add(Earning.serializer)
+      ..add(Merchant.serializer)
+      ..add(Order.serializer)
       ..add(Post.serializer)
+      ..add(Provider.serializer)
+      ..add(Review.serializer)
       ..add(Service.serializer)
+      ..add(Story.serializer)
+      ..add(Task.serializer)
+      ..add(Team.serializer)
       ..add(User.serializer))
     .build();
 

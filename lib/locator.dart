@@ -91,9 +91,6 @@ Future<void> setupLocator() async {
   locator.registerLazySingleton<ServicesRepository>(
     () => ServicesRepositoryImpl(),
   );
-   locator.registerLazySingleton<PostsRepository>(
-    () => PostsRepositoryImpl(),
-  );
    locator.registerLazySingleton<Adhoc_requestsRepository>(
     () => Adhoc_requestsRepositoryImpl(),
   );
@@ -102,5 +99,35 @@ Future<void> setupLocator() async {
   );
    locator.registerLazySingleton<CartsRepository>(
     () => CartsRepositoryImpl(),
+  );
+  locator.registerLazySingleton<CategoriesRepository>(
+    () => CategoriesRepositoryImpl(),
+  );
+  locator.registerLazySingleton<MerchantsRepository>(
+    () => MerchantsRepositoryImpl(),
+  );
+  locator.registerLazySingleton<OrdersRepository>(
+    () => OrdersRepositoryImpl(),
+  );
+  locator.registerLazySingleton<ChatRepository>(
+    () => ChatsRepositoryImpl(),
+  );
+  locator.registerLazySingleton<EarningRepository>(
+    () => EarnngsRepositoryImpl(),
+  );
+  locator.registerLazySingleton<ProvidersRepository>(
+    () => ProvidersRepositoryImpl(),
+  );
+  locator.registerLazySingleton<ReviewsRepository>(
+    () => ReviewsRepositoryImpl(),
+  );
+  locator.registerLazySingleton<StoriesRepository>(
+    () => StoriesRepositoryImpl(),
+  );
+  locator.registerLazySingleton<TasksRepository>(
+    () => TasksRepositoryImpl(),
+  );
+  locator.registerLazySingleton<TeamsRepository>(
+    () => TeamsRepositoryImpl(),
   );
 }

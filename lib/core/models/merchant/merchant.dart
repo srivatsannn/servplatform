@@ -11,7 +11,7 @@ part 'merchant.g.dart';
 ///   - @nullable: means that its ok if the value is null
 ///   - @BuiltValueField: is the key that is in the JSON you
 ///     receive from an API
-abstract class Merchant implements Built<Merchant, ServiceBuilder> {
+abstract class Merchant implements Built<Merchant, MerchantBuilder> {
   @nullable
   int get id;
 
@@ -42,7 +42,6 @@ abstract class Merchant implements Built<Merchant, ServiceBuilder> {
   String get latitude;
   String get longitude;
   String get serving_distance;
-  String get is_active;
   String get is_blocked;
   String get creation_datetime;
   String get update_datetime;
@@ -97,5 +96,5 @@ abstract class Merchant implements Built<Merchant, ServiceBuilder> {
 
   Merchant._();
   static Serializer<Merchant> get serializer => _$merchantSerializer;
-  factory Merchant([void Function(ServiceBuilder) updates]) = _$Merchant;
+  factory Merchant([void Function(MerchantBuilder) updates]) = _$Merchant;
 }
