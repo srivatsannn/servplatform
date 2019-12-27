@@ -1,21 +1,21 @@
 import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
-import 'package:servplatform/core/models/service/service.dart';
-import 'package:servplatform/core/repositories/services_repository/services_repository.dart';
+import 'package:servplatform/core/models/agent/agent.dart';
+import 'package:servplatform/core/repositories/agents_repository/agents_repository.dart';
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
-class HomeViewModel extends BaseViewModel {
-  final _servicesRepository = locator<ServicesRepository>();
+class AgentViewModel extends BaseViewModel {
+  final _agentsRepository = locator<AgentsRepository>();
 
-  List<Service> _services = [];
-  List<Service> get services => _services;
+  List<Agent> _agents = [];
+  List<Agent> get agents => _agents;
 
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedServices = await _servicesRepository.fetchServices();
-      _services = fetchedServices.take(5).toList();
+      final fetchedAgents = await _agentsRepository.fetchAgents();
+      _agents = fetchedAgents.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);
     }

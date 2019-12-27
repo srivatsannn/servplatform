@@ -1,21 +1,21 @@
 import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
-import 'package:servplatform/core/models/service/service.dart';
-import 'package:servplatform/core/repositories/services_repository/services_repository.dart';
+import 'package:servplatform/core/models/agent_merchant_selection_on_home/agent_merchant_selection_on_home.dart';
+import 'package:servplatform/core/repositories/agent_merchant_selection_on_homes_repository/agent_merchant_selection_on_homes_repository.dart';
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
-class HomeViewModel extends BaseViewModel {
-  final _servicesRepository = locator<ServicesRepository>();
+class AgentMerchantSelectionOnHomeViewModel extends BaseViewModel {
+  final _agentMerchantSelectionOnHomesRepository = locator<AgentMerchantSelectionOnHomesRepository>();
 
-  List<Service> _services = [];
-  List<Service> get services => _services;
+  List<AgentMerchantSelectionOnHome> _agentMerchantSelectionOnHomes = [];
+  List<AgentMerchantSelectionOnHome> get agentMerchantSelectionOnHomes => _agentMerchantSelectionOnHomes;
 
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedServices = await _servicesRepository.fetchServices();
-      _services = fetchedServices.take(5).toList();
+      final fetchedAgentMerchantSelectionOnHomes = await _agentMerchantSelectionOnHomesRepository.fetchAgentMerchantSelectionOnHomes();
+      _agentMerchantSelectionOnHomes = fetchedAgentMerchantSelectionOnHomes.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);
     }

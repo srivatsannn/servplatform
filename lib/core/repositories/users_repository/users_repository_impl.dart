@@ -12,7 +12,7 @@ import 'package:servplatform/core/services/connectivity/connectivity_service.dar
 import 'package:servplatform/core/utils/logger.dart';
 
 class UsersRepositoryImpl implements UsersRepository {
-  final UsersRemoteDataSource remoteDataSource;
+final UsersRemoteDataSource remoteDataSource;
   final UsersLocalDataSource localDataSource;
   final ConnectivityService connectivityService;
 
