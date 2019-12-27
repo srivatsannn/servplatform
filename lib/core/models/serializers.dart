@@ -30,7 +30,7 @@ part 'serializers.g.dart';
   Service,
   Story,
   Category,
-  Adhoc_request,
+  AdhocRequest,
   Agent,
   Provider,
   Cart,

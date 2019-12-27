@@ -10,7 +10,7 @@ part 'adhoc_request.g.dart';
 ///   - @nullable: means that its ok if the value is null
 ///   - @BuiltValueField: is the key that is in the JSON you
 ///     receive from an API
-abstract class Adhoc_request implements Built<Adhoc_request, Adhoc_requestBuilder> {
+abstract class AdhocRequest implements Built<AdhocRequest, AdhocRequestBuilder> {
   @nullable
   int get id;
 
@@ -22,28 +22,28 @@ abstract class Adhoc_request implements Built<Adhoc_request, Adhoc_requestBuilde
   String get story_key;
 
   Map<String, dynamic> toMap() {
-    return json.decode(serializers.serializeWith(Adhoc_request.serializer, this));
+    return json.decode(serializers.serializeWith(AdhocRequest.serializer, this));
   }
 
   String toJson() {
-    return json.encode(serializers.serializeWith(Adhoc_request.serializer, this));
+    return json.encode(serializers.serializeWith(AdhocRequest.serializer, this));
   }
 
-  static Adhoc_request fromJson(String jsonString) {
+  static AdhocRequest fromJson(String jsonString) {
     return serializers.deserializeWith(
-      Adhoc_request.serializer,
+      AdhocRequest.serializer,
       json.decode(jsonString),
     );
   }
 
-  static Adhoc_request fromMap(Map<String, dynamic> map) {
+  static AdhocRequest fromMap(Map<String, dynamic> map) {
     return serializers.deserializeWith(
-      Adhoc_request.serializer,
+      AdhocRequest.serializer,
       map,
     );
   }
 
-  Adhoc_request._();
-  static Serializer<Adhoc_request> get serializer => _$adhoc_requestSerializer;
-  factory Adhoc_request([void Function(Adhoc_requestBuilder) updates]) = _$Adhoc_request;
+  AdhocRequest._();
+  static Serializer<AdhocRequest> get serializer => _$_$adhocRequestSerializer;
+  factory AdhocRequest([void Function(AdhocRequestBuilder) updates]) = _$AdhocRequest;
 }

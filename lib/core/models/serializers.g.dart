@@ -7,7 +7,7 @@ part of serializers;
 // **************************************************************************
 
 Serializers _$serializers = (new Serializers().toBuilder()
-      ..add(Adhoc_request.serializer)
+      ..add(AdhocRequest.serializer)
       ..add(Agent.serializer)
       ..add(Cart.serializer)
       ..add(Category.serializer)
