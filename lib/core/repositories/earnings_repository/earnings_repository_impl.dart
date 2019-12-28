@@ -21,8 +21,8 @@ class EarningsRepositoryImpl implements EarningsRepository {
   @override
   Future<List<Earning>> fetchEarnings() async {
     try {
-      final earningsJsonData = await _firebaseService
-          .getDataCollection(FirebasePaths.earnings);
+      final earningsJsonData =
+          await _firebaseService.getDataCollection(FirebasePaths.earnings);
       final earnings =
           earningsJsonData.map((doc) => Earning.fromMap(doc.data)).toList();
       return earnings;
@@ -32,19 +32,17 @@ class EarningsRepositoryImpl implements EarningsRepository {
   }
 
   Stream<QuerySnapshot> fetchEarningsAsStream() {
-    return _firebaseService
-        .streamDataCollection(FirebasePaths.earnings);
+    return _firebaseService.streamDataCollection(FirebasePaths.earnings);
   }
 
   Future<Earning> getEarningById(String id) async {
-    var doc = await _firebaseService.getDocumentById(
-        FirebasePaths.earnings, id);
+    var doc =
+        await _firebaseService.getDocumentById(FirebasePaths.earnings, id);
     return Earning.fromMap(doc.data);
   }
 
   Future removeEarning(String id) async {
-    await _firebaseService.removeDocument(
-        FirebasePaths.earnings, id);
+    await _firebaseService.removeDocument(FirebasePaths.earnings, id);
     return;
   }
 

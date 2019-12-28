@@ -9,8 +9,6 @@ class LocalStorageServiceImpl implements LocalStorageService {
   Box<PostH> _postsBox;
   Box<PostH> get postsBox => _postsBox;
 
- 
-
   Future<void> init() async {
     try {
       final path = await file_utils.getApplicationDocumentsDirectoryPath();

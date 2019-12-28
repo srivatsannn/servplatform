@@ -14,7 +14,8 @@ class ProviderPageViewModel extends BaseViewModel {
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedProviderPages = await _providerPagesRepository.fetchProviderPages();
+      final fetchedProviderPages =
+          await _providerPagesRepository.fetchProviderPages();
       _providerPages = fetchedProviderPages.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);

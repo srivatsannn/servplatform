@@ -21,10 +21,9 @@ class ChatsRepositoryImpl implements ChatsRepository {
   @override
   Future<List<Chat>> fetchChats() async {
     try {
-      final chatsJsonData = await _firebaseChat
-          .getDataCollection(FirebasePaths.chats);
-      final chats =
-          chatsJsonData.map((doc) => Chat.fromMap(doc.data)).toList();
+      final chatsJsonData =
+          await _firebaseChat.getDataCollection(FirebasePaths.chats);
+      final chats = chatsJsonData.map((doc) => Chat.fromMap(doc.data)).toList();
       return chats;
     } catch (e) {
       throw RepositoryException(RepositoryExceptionMessages.general_service);
@@ -32,31 +31,27 @@ class ChatsRepositoryImpl implements ChatsRepository {
   }
 
   Stream<QuerySnapshot> fetchChatsAsStream() {
-    return _firebaseChat
-        .streamDataCollection(FirebasePaths.chats);
+    return _firebaseChat.streamDataCollection(FirebasePaths.chats);
   }
 
   Future<Chat> getChatById(String id) async {
-    var doc = await _firebaseChat.getDocumentById(
-        FirebasePaths.chats, id);
+    var doc = await _firebaseChat.getDocumentById(FirebasePaths.chats, id);
     return Chat.fromMap(doc.data);
   }
 
   Future removeChat(String id) async {
-    await _firebaseChat.removeDocument(
-        FirebasePaths.chats, id);
+    await _firebaseChat.removeDocument(FirebasePaths.chats, id);
     return;
   }
 
   Future updateChat(Chat data, String id) async {
-    await _firebaseChat.updateDocument(
-        FirebasePaths.chats, data.toMap(), id);
+    await _firebaseChat.updateDocument(FirebasePaths.chats, data.toMap(), id);
     return;
   }
 
   Future addChat(Chat data) async {
-    var result = await _firebaseChat.addDocument(
-        FirebasePaths.chats, data.toMap());
+    var result =
+        await _firebaseChat.addDocument(FirebasePaths.chats, data.toMap());
 
     return;
   }

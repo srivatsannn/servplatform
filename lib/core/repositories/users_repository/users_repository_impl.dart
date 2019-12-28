@@ -21,10 +21,9 @@ class UsersRepositoryImpl implements UsersRepository {
   @override
   Future<List<User>> fetchUsers() async {
     try {
-      final usersJsonData = await _firebaseService
-          .getDataCollection(FirebasePaths.users);
-      final users =
-          usersJsonData.map((doc) => User.fromMap(doc.data)).toList();
+      final usersJsonData =
+          await _firebaseService.getDataCollection(FirebasePaths.users);
+      final users = usersJsonData.map((doc) => User.fromMap(doc.data)).toList();
       return users;
     } catch (e) {
       throw RepositoryException(RepositoryExceptionMessages.general_service);
@@ -32,19 +31,16 @@ class UsersRepositoryImpl implements UsersRepository {
   }
 
   Stream<QuerySnapshot> fetchUsersAsStream() {
-    return _firebaseService
-        .streamDataCollection(FirebasePaths.users);
+    return _firebaseService.streamDataCollection(FirebasePaths.users);
   }
 
   Future<User> getUserById(String id) async {
-    var doc = await _firebaseService.getDocumentById(
-        FirebasePaths.users, id);
+    var doc = await _firebaseService.getDocumentById(FirebasePaths.users, id);
     return User.fromMap(doc.data);
   }
 
   Future removeUser(String id) async {
-    await _firebaseService.removeDocument(
-        FirebasePaths.users, id);
+    await _firebaseService.removeDocument(FirebasePaths.users, id);
     return;
   }
 
@@ -55,8 +51,8 @@ class UsersRepositoryImpl implements UsersRepository {
   }
 
   Future addUser(User data) async {
-    var result = await _firebaseService.addDocument(
-        FirebasePaths.users, data.toMap());
+    var result =
+        await _firebaseService.addDocument(FirebasePaths.users, data.toMap());
 
     return;
   }

@@ -5,5 +5,4 @@ abstract class LocalStorageService {
   Future<void> init();
 
   Box<PostH> get postsBox;
-
 }

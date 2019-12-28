@@ -6,15 +6,18 @@ import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
 class AgentSeeAllPromotionViewModel extends BaseViewModel {
-  final _agentSeeAllPromotionsRepository = locator<AgentSeeAllPromotionsRepository>();
+  final _agentSeeAllPromotionsRepository =
+      locator<AgentSeeAllPromotionsRepository>();
 
   List<AgentSeeAllPromotion> _agentSeeAllPromotions = [];
-  List<AgentSeeAllPromotion> get agentSeeAllPromotions => _agentSeeAllPromotions;
+  List<AgentSeeAllPromotion> get agentSeeAllPromotions =>
+      _agentSeeAllPromotions;
 
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedAgentSeeAllPromotions = await _agentSeeAllPromotionsRepository.fetchAgentSeeAllPromotions();
+      final fetchedAgentSeeAllPromotions =
+          await _agentSeeAllPromotionsRepository.fetchAgentSeeAllPromotions();
       _agentSeeAllPromotions = fetchedAgentSeeAllPromotions.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);

@@ -14,7 +14,8 @@ class ProviderSetupViewModel extends BaseViewModel {
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedProviderSetups = await _providerSetupsRepository.fetchProviderSetups();
+      final fetchedProviderSetups =
+          await _providerSetupsRepository.fetchProviderSetups();
       _providerSetups = fetchedProviderSetups.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);

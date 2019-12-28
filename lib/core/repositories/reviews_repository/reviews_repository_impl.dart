@@ -21,8 +21,8 @@ class ReviewsRepositoryImpl implements ReviewsRepository {
   @override
   Future<List<Review>> fetchReviews() async {
     try {
-      final reviewsJsonData = await _firebaseService
-          .getDataCollection(FirebasePaths.reviews);
+      final reviewsJsonData =
+          await _firebaseService.getDataCollection(FirebasePaths.reviews);
       final reviews =
           reviewsJsonData.map((doc) => Review.fromMap(doc.data)).toList();
       return reviews;
@@ -32,19 +32,16 @@ class ReviewsRepositoryImpl implements ReviewsRepository {
   }
 
   Stream<QuerySnapshot> fetchReviewsAsStream() {
-    return _firebaseService
-        .streamDataCollection(FirebasePaths.reviews);
+    return _firebaseService.streamDataCollection(FirebasePaths.reviews);
   }
 
   Future<Review> getReviewById(String id) async {
-    var doc = await _firebaseService.getDocumentById(
-        FirebasePaths.reviews, id);
+    var doc = await _firebaseService.getDocumentById(FirebasePaths.reviews, id);
     return Review.fromMap(doc.data);
   }
 
   Future removeReview(String id) async {
-    await _firebaseService.removeDocument(
-        FirebasePaths.reviews, id);
+    await _firebaseService.removeDocument(FirebasePaths.reviews, id);
     return;
   }
 
@@ -55,8 +52,8 @@ class ReviewsRepositoryImpl implements ReviewsRepository {
   }
 
   Future addReview(Review data) async {
-    var result = await _firebaseService.addDocument(
-        FirebasePaths.reviews, data.toMap());
+    var result =
+        await _firebaseService.addDocument(FirebasePaths.reviews, data.toMap());
 
     return;
   }

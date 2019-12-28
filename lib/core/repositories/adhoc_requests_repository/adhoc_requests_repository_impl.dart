@@ -23,8 +23,9 @@ class AdhocRequestsRepositoryImpl implements AdhocRequestsRepository {
     try {
       final adhocRequestsJsonData = await _firebaseService
           .getDataCollection(FirebasePaths.adhoc_requests);
-      final adhoc_requests =
-          adhocRequestsJsonData.map((doc) => AdhocRequest.fromMap(doc.data)).toList();
+      final adhoc_requests = adhocRequestsJsonData
+          .map((doc) => AdhocRequest.fromMap(doc.data))
+          .toList();
       return adhoc_requests;
     } catch (e) {
       throw RepositoryException(RepositoryExceptionMessages.general_service);
@@ -32,8 +33,7 @@ class AdhocRequestsRepositoryImpl implements AdhocRequestsRepository {
   }
 
   Stream<QuerySnapshot> fetchAdhocRequestsAsStream() {
-    return _firebaseService
-        .streamDataCollection(FirebasePaths.adhoc_requests);
+    return _firebaseService.streamDataCollection(FirebasePaths.adhoc_requests);
   }
 
   Future<AdhocRequest> getAdhocRequestsById(String id) async {
@@ -43,8 +43,7 @@ class AdhocRequestsRepositoryImpl implements AdhocRequestsRepository {
   }
 
   Future removeAdhocRequests(String id) async {
-    await _firebaseService.removeDocument(
-        FirebasePaths.adhoc_requests, id);
+    await _firebaseService.removeDocument(FirebasePaths.adhoc_requests, id);
     return;
   }
 

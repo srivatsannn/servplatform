@@ -97,17 +97,17 @@ Future<void> setupLocator() async {
       remoteDataSource: locator(),
     ),
   );
-  
+
   locator.registerLazySingleton<ServicesRepository>(
     () => ServicesRepositoryImpl(),
   );
-   locator.registerLazySingleton<AdhocRequestsRepository>(
+  locator.registerLazySingleton<AdhocRequestsRepository>(
     () => AdhocRequestsRepositoryImpl(),
   );
-   locator.registerLazySingleton<AgentsRepository>(
+  locator.registerLazySingleton<AgentsRepository>(
     () => AgentsRepositoryImpl(),
   );
-   locator.registerLazySingleton<CartsRepository>(
+  locator.registerLazySingleton<CartsRepository>(
     () => CartsRepositoryImpl(),
   );
   locator.registerLazySingleton<CategoriesRepository>(
@@ -146,5 +146,4 @@ Future<void> setupLocator() async {
   );
 }
 
-OrdersRepositoryImpl() {
-}
+OrdersRepositoryImpl() {}

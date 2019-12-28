@@ -21,10 +21,9 @@ class CartsRepositoryImpl implements CartsRepository {
   @override
   Future<List<Cart>> fetchCarts() async {
     try {
-      final cartsJsonData = await _firebaseService
-          .getDataCollection(FirebasePaths.carts);
-      final carts =
-          cartsJsonData.map((doc) => Cart.fromMap(doc.data)).toList();
+      final cartsJsonData =
+          await _firebaseService.getDataCollection(FirebasePaths.carts);
+      final carts = cartsJsonData.map((doc) => Cart.fromMap(doc.data)).toList();
       return carts;
     } catch (e) {
       throw RepositoryException(RepositoryExceptionMessages.general_service);
@@ -32,19 +31,16 @@ class CartsRepositoryImpl implements CartsRepository {
   }
 
   Stream<QuerySnapshot> fetchCartsAsStream() {
-    return _firebaseService
-        .streamDataCollection(FirebasePaths.carts);
+    return _firebaseService.streamDataCollection(FirebasePaths.carts);
   }
 
   Future<Cart> getCartById(String id) async {
-    var doc = await _firebaseService.getDocumentById(
-        FirebasePaths.carts, id);
+    var doc = await _firebaseService.getDocumentById(FirebasePaths.carts, id);
     return Cart.fromMap(doc.data);
   }
 
   Future removeCart(String id) async {
-    await _firebaseService.removeDocument(
-        FirebasePaths.carts, id);
+    await _firebaseService.removeDocument(FirebasePaths.carts, id);
     return;
   }
 
@@ -55,8 +51,8 @@ class CartsRepositoryImpl implements CartsRepository {
   }
 
   Future addCart(Cart data) async {
-    var result = await _firebaseService.addDocument(
-        FirebasePaths.carts, data.toMap());
+    var result =
+        await _firebaseService.addDocument(FirebasePaths.carts, data.toMap());
 
     return;
   }

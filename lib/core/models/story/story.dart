@@ -22,7 +22,7 @@ abstract class Story implements Built<Story, StoryBuilder> {
   String get claps;
   String get user;
   String get publishedAt;
-  
+
   Map<String, dynamic> toMap() {
     return json.decode(serializers.serializeWith(Story.serializer, this));
   }

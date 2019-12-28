@@ -22,7 +22,6 @@ abstract class Earning implements Built<Earning, EarningBuilder> {
   String get goal;
   String get goal_descrpiton;
 
-
   Map<String, dynamic> toMap() {
     return json.decode(serializers.serializeWith(Earning.serializer, this));
   }

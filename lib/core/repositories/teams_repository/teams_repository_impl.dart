@@ -21,10 +21,9 @@ class TeamsRepositoryImpl implements TeamsRepository {
   @override
   Future<List<Team>> fetchTeams() async {
     try {
-      final teamsJsonData = await _firebaseService
-          .getDataCollection(FirebasePaths.teams);
-      final teams =
-          teamsJsonData.map((doc) => Team.fromMap(doc.data)).toList();
+      final teamsJsonData =
+          await _firebaseService.getDataCollection(FirebasePaths.teams);
+      final teams = teamsJsonData.map((doc) => Team.fromMap(doc.data)).toList();
       return teams;
     } catch (e) {
       throw RepositoryException(RepositoryExceptionMessages.general_service);
@@ -32,19 +31,16 @@ class TeamsRepositoryImpl implements TeamsRepository {
   }
 
   Stream<QuerySnapshot> fetchTeamsAsStream() {
-    return _firebaseService
-        .streamDataCollection(FirebasePaths.teams);
+    return _firebaseService.streamDataCollection(FirebasePaths.teams);
   }
 
   Future<Team> getTeamById(String id) async {
-    var doc = await _firebaseService.getDocumentById(
-        FirebasePaths.teams, id);
+    var doc = await _firebaseService.getDocumentById(FirebasePaths.teams, id);
     return Team.fromMap(doc.data);
   }
 
   Future removeTeam(String id) async {
-    await _firebaseService.removeDocument(
-        FirebasePaths.teams, id);
+    await _firebaseService.removeDocument(FirebasePaths.teams, id);
     return;
   }
 
@@ -55,8 +51,8 @@ class TeamsRepositoryImpl implements TeamsRepository {
   }
 
   Future addTeam(Team data) async {
-    var result = await _firebaseService.addDocument(
-        FirebasePaths.teams, data.toMap());
+    var result =
+        await _firebaseService.addDocument(FirebasePaths.teams, data.toMap());
 
     return;
   }

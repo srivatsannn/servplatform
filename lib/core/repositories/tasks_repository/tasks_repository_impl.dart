@@ -21,10 +21,9 @@ class TasksRepositoryImpl implements TasksRepository {
   @override
   Future<List<Task>> fetchtasks() async {
     try {
-      final tasksJsonData = await _firebaseService
-          .getDataCollection(FirebasePaths.tasks);
-      final tasks =
-          tasksJsonData.map((doc) => Task.fromMap(doc.data)).toList();
+      final tasksJsonData =
+          await _firebaseService.getDataCollection(FirebasePaths.tasks);
+      final tasks = tasksJsonData.map((doc) => Task.fromMap(doc.data)).toList();
       return tasks;
     } catch (e) {
       throw RepositoryException(RepositoryExceptionMessages.general_service);
@@ -32,19 +31,16 @@ class TasksRepositoryImpl implements TasksRepository {
   }
 
   Stream<QuerySnapshot> fetchTasksAsStream() {
-    return _firebaseService
-        .streamDataCollection(FirebasePaths.tasks);
+    return _firebaseService.streamDataCollection(FirebasePaths.tasks);
   }
 
   Future<Task> getTaskById(String id) async {
-    var doc = await _firebaseService.getDocumentById(
-        FirebasePaths.tasks, id);
+    var doc = await _firebaseService.getDocumentById(FirebasePaths.tasks, id);
     return Task.fromMap(doc.data);
   }
 
   Future removeTask(String id) async {
-    await _firebaseService.removeDocument(
-        FirebasePaths.tasks, id);
+    await _firebaseService.removeDocument(FirebasePaths.tasks, id);
     return;
   }
 
@@ -55,8 +51,8 @@ class TasksRepositoryImpl implements TasksRepository {
   }
 
   Future addTask(Task data) async {
-    var result = await _firebaseService.addDocument(
-        FirebasePaths.tasks, data.toMap());
+    var result =
+        await _firebaseService.addDocument(FirebasePaths.tasks, data.toMap());
 
     return;
   }

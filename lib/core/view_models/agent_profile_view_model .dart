@@ -14,7 +14,8 @@ class AgentProfileViewModel extends BaseViewModel {
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedAgentProfiles = await _agentProfilesRepository.fetchAgentProfiles();
+      final fetchedAgentProfiles =
+          await _agentProfilesRepository.fetchAgentProfiles();
       _agentProfiles = fetchedAgentProfiles.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);

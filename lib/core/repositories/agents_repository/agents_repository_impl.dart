@@ -21,8 +21,8 @@ class AgentsRepositoryImpl implements AgentsRepository {
   @override
   Future<List<Agent>> fetchAgents() async {
     try {
-      final agentsJsonData = await _firebaseService
-          .getDataCollection(FirebasePaths.agents);
+      final agentsJsonData =
+          await _firebaseService.getDataCollection(FirebasePaths.agents);
       final agents =
           agentsJsonData.map((doc) => Agent.fromMap(doc.data)).toList();
       return agents;
@@ -32,19 +32,16 @@ class AgentsRepositoryImpl implements AgentsRepository {
   }
 
   Stream<QuerySnapshot> fetchAgentsAsStream() {
-    return _firebaseService
-        .streamDataCollection(FirebasePaths.agents);
+    return _firebaseService.streamDataCollection(FirebasePaths.agents);
   }
 
   Future<Agent> getAgentById(String id) async {
-    var doc = await _firebaseService.getDocumentById(
-        FirebasePaths.agents, id);
+    var doc = await _firebaseService.getDocumentById(FirebasePaths.agents, id);
     return Agent.fromMap(doc.data);
   }
 
   Future removeAgent(String id) async {
-    await _firebaseService.removeDocument(
-        FirebasePaths.agents, id);
+    await _firebaseService.removeDocument(FirebasePaths.agents, id);
     return;
   }
 
@@ -55,8 +52,8 @@ class AgentsRepositoryImpl implements AgentsRepository {
   }
 
   Future addAgent(Agent data) async {
-    var result = await _firebaseService.addDocument(
-        FirebasePaths.agents, data.toMap());
+    var result =
+        await _firebaseService.addDocument(FirebasePaths.agents, data.toMap());
 
     return;
   }
