@@ -44,6 +44,6 @@ abstract class AdhocRequest implements Built<AdhocRequest, AdhocRequestBuilder> 
   }
 
   AdhocRequest._();
-  static Serializer<AdhocRequest> get serializer => _$_$adhocRequestSerializer;
+  static Serializer<AdhocRequest> get serializer => _$adhocRequestSerializer;
   factory AdhocRequest([void Function(AdhocRequestBuilder) updates]) = _$AdhocRequest;
 }
