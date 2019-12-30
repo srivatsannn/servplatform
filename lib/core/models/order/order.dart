@@ -13,7 +13,7 @@ part 'order.g.dart';
 abstract class Order implements Built<Order, OrderBuilder> {
   @nullable
   int get id;
-   
+
   String get order_id;
   String get job_type;
   String get business_type;
@@ -82,7 +82,7 @@ abstract class Order implements Built<Order, OrderBuilder> {
 
   static Order fromJson(String jsonString) {
     return serializers.deserializeWith(
-    Order.serializer,
+      Order.serializer,
       json.decode(jsonString),
     );
   }

@@ -14,7 +14,8 @@ class AdhocRequestViewModel extends BaseViewModel {
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedAdhocRequests = await _adhocrequestsRepository.fetchAdhocRequests();
+      final fetchedAdhocRequests =
+          await _adhocrequestsRepository.fetchAdhocRequests();
       _adhocRequests = fetchedAdhocRequests.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);

@@ -21,8 +21,8 @@ class MerchantsRepositoryImpl implements MerchantsRepository {
   @override
   Future<List<Merchant>> fetchMerchants() async {
     try {
-      final merchantsJsonData = await _firebaseService
-          .getDataCollection(FirebasePaths.merchants);
+      final merchantsJsonData =
+          await _firebaseService.getDataCollection(FirebasePaths.merchants);
       final merchants =
           merchantsJsonData.map((doc) => Merchant.fromMap(doc.data)).toList();
       return merchants;
@@ -32,19 +32,17 @@ class MerchantsRepositoryImpl implements MerchantsRepository {
   }
 
   Stream<QuerySnapshot> fetchMerchantsAsStream() {
-    return _firebaseService
-        .streamDataCollection(FirebasePaths.merchants);
+    return _firebaseService.streamDataCollection(FirebasePaths.merchants);
   }
 
   Future<Merchant> getMerchantById(String id) async {
-    var doc = await _firebaseService.getDocumentById(
-        FirebasePaths.merchants, id);
+    var doc =
+        await _firebaseService.getDocumentById(FirebasePaths.merchants, id);
     return Merchant.fromMap(doc.data);
   }
 
   Future removeMerchant(String id) async {
-    await _firebaseService.removeDocument(
-        FirebasePaths.merchants, id);
+    await _firebaseService.removeDocument(FirebasePaths.merchants, id);
     return;
   }
 

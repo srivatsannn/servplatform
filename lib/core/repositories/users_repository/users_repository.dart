@@ -1,6 +1,5 @@
 import 'package:servplatform/core/models/user/user.dart';
 
 abstract class UsersRepository {
-  /// - throws `RepositoryException` if fetch fails
-  Future<User> fetchUser(int userId);
+  Future<List<User>> fetchUsers();
 }

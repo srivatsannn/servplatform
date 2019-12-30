@@ -6,16 +6,17 @@ import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
 class SubmitReviewViewModel extends BaseViewModel {
-  final _submitReviewsRepository = locator<SubmitReviewsRepository>();
+  final _reviewsRepository = locator<ReviewsRepository>();
 
-  List<SubmitReview> _submitReviews = [];
-  List<SubmitReview> get submitreviews => _submitReviews;
+  List<Review> _reviews = [];
+  List<Review> get reviews => _reviews;
 
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedSubmitReviews = await _submitReviewsRepository.fetchSubmitReviews();
-      _submitReviews = fetchedSubmitReviews.take(5).toList();
+      final fetchedReviews =
+          await _reviewsRepository.fetchReviews();
+      _reviews = fetchedReviews.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);
     }

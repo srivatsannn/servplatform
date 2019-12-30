@@ -21,8 +21,8 @@ class OdersRepositoryImpl implements OrdersRepository {
   @override
   Future<List<Order>> fetchOrders() async {
     try {
-      final ordersJsonData = await _firebaseService
-          .getDataCollection(FirebasePaths.orders);
+      final ordersJsonData =
+          await _firebaseService.getDataCollection(FirebasePaths.orders);
       final orders =
           ordersJsonData.map((doc) => Order.fromMap(doc.data)).toList();
       return orders;
@@ -32,19 +32,16 @@ class OdersRepositoryImpl implements OrdersRepository {
   }
 
   Stream<QuerySnapshot> fetchOrdersAsStream() {
-    return _firebaseService
-        .streamDataCollection(FirebasePaths.orders);
+    return _firebaseService.streamDataCollection(FirebasePaths.orders);
   }
 
   Future<Order> getOrderById(String id) async {
-    var doc = await _firebaseService.getDocumentById(
-        FirebasePaths.orders, id);
+    var doc = await _firebaseService.getDocumentById(FirebasePaths.orders, id);
     return Order.fromMap(doc.data);
   }
 
   Future removeOrder(String id) async {
-    await _firebaseService.removeDocument(
-        FirebasePaths.orders, id);
+    await _firebaseService.removeDocument(FirebasePaths.orders, id);
     return;
   }
 
@@ -55,8 +52,8 @@ class OdersRepositoryImpl implements OrdersRepository {
   }
 
   Future addOrder(Order data) async {
-    var result = await _firebaseService.addDocument(
-        FirebasePaths.orders, data.toMap());
+    var result =
+        await _firebaseService.addDocument(FirebasePaths.orders, data.toMap());
 
     return;
   }

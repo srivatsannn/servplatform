@@ -42,11 +42,10 @@ abstract class Agent implements Built<Agent, AgentBuilder> {
   String get block_status;
   String get message;
   String get skills;
-  String get availability; 
+  String get availability;
   String get earnings;
   String get providers;
   String get pending_proifle_steps;
-
 
   Map<String, dynamic> toMap() {
     return json.decode(serializers.serializeWith(Agent.serializer, this));

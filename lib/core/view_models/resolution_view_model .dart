@@ -6,16 +6,17 @@ import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
 class ResolutionViewModel extends BaseViewModel {
-  final _resolutionsRepository = locator<ResolutionsRepository>();
+  final _agentsRepository = locator<AgentsRepository>();
 
-  List<Resolution> _resolutions = [];
-  List<Resolution> get resolutions => _resoltions;
+  List<Agent> _agents = [];
+  List<Agent> get agents => _agents;
 
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedResolutions = await _resolutionsRepository.fetchResolutions();
-      _resoltions = fetchedResolutions.take(5).toList();
+      final fetchedAgents =
+          await _agentsRepository.fetchAgents();
+      _agents = fetchedAgents.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);
     }

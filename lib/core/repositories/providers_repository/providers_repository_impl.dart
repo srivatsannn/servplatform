@@ -21,8 +21,8 @@ class ProvidersRepositoryImpl implements ProvidersRepository {
   @override
   Future<List<Provider>> fetchProviders() async {
     try {
-      final providersJsonData = await _firebaseService
-          .getDataCollection(FirebasePaths.providers);
+      final providersJsonData =
+          await _firebaseService.getDataCollection(FirebasePaths.providers);
       final providers =
           providersJsonData.map((doc) => Provider.fromMap(doc.data)).toList();
       return providers;
@@ -32,19 +32,17 @@ class ProvidersRepositoryImpl implements ProvidersRepository {
   }
 
   Stream<QuerySnapshot> fetchProvidersAsStream() {
-    return _firebaseService
-        .streamDataCollection(FirebasePaths.providers);
+    return _firebaseService.streamDataCollection(FirebasePaths.providers);
   }
 
   Future<Provider> getProviderById(String id) async {
-    var doc = await _firebaseService.getDocumentById(
-        FirebasePaths.providers, id);
+    var doc =
+        await _firebaseService.getDocumentById(FirebasePaths.providers, id);
     return Provider.fromMap(doc.data);
   }
 
   Future removeProvider(String id) async {
-    await _firebaseService.removeDocument(
-        FirebasePaths.providers, id);
+    await _firebaseService.removeDocument(FirebasePaths.providers, id);
     return;
   }
 

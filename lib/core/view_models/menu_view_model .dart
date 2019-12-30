@@ -6,16 +6,16 @@ import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
 class MenuViewModel extends BaseViewModel {
-  final _menusRepository = locator<MenusRepository>();
+  final _usersRepository = locator<UsersRepository>();
 
-  List<Menu> _menus = [];
-  List<Menu> get menus => _menus;
+  List<User> _users = [];
+  List<User> get menus => _users;
 
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedMenus = await _menusRepository.fetchMenus();
-      _menus = fetchedMenus.take(5).toList();
+      final fetchedUsers = await _usersRepository.fetchUsers();
+      _users = fetchedUsers.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);
     }

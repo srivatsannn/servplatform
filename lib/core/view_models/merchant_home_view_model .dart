@@ -6,16 +6,17 @@ import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
 class MerchantHomeViewModel extends BaseViewModel {
-  final _merchantHomesRepository = locator<MerchantHomesRepository>();
+  final _merchantsRepository = locator<MerchantsRepository>();
 
-  List<MerchantHome> _merchantHomes = [];
-  List<MerchantHome> get merchantHomes => _merchantHomes;
+  List<Merchant> _merchants = [];
+  List<Merchant> get merchants => _merchants;
 
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedMerchantHomes = await _merchantHomesRepository.fetchMerchantHomes();
-      _merchantHomes = fetchedMerchantHomes.take(5).toList();
+      final fetchedMerchants =
+          await _merchantsRepository.fetchMerchants();
+      _merchants = fetchedMerchants.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);
     }

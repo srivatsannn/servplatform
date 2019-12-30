@@ -1,8 +1,31 @@
 import 'package:get_it/get_it.dart';
 import 'package:servplatform/core/data_sources/posts/posts_local_data_source.dart';
 import 'package:servplatform/core/data_sources/posts/posts_remote_data_source.dart';
-import 'package:servplatform/core/data_sources/users/users_local_data_source.dart';
-import 'package:servplatform/core/data_sources/users/users_remote_data_source.dart';
+import 'package:servplatform/core/repositories/adhoc_requests_repository/adhoc_requests_repository.dart';
+import 'package:servplatform/core/repositories/adhoc_requests_repository/adhoc_requests_repository_impl.dart';
+import 'package:servplatform/core/repositories/agents_repository/agents_repository.dart';
+import 'package:servplatform/core/repositories/agents_repository/agents_repository_impl.dart';
+import 'package:servplatform/core/repositories/carts_repository/carts_repository.dart';
+import 'package:servplatform/core/repositories/carts_repository/carts_repository_impl.dart';
+import 'package:servplatform/core/repositories/categories_repository/categories_repository.dart';
+import 'package:servplatform/core/repositories/categories_repository/categories_repository_impl.dart';
+import 'package:servplatform/core/repositories/chats_repository/chats_repository.dart';
+import 'package:servplatform/core/repositories/chats_repository/chats_repository_impl.dart';
+import 'package:servplatform/core/repositories/earnings_repository/earnings_repository.dart';
+import 'package:servplatform/core/repositories/earnings_repository/earnings_repository_impl.dart';
+import 'package:servplatform/core/repositories/merchants_repository/merchants_repository.dart';
+import 'package:servplatform/core/repositories/merchants_repository/merchants_repository_impl.dart';
+import 'package:servplatform/core/repositories/orders_repository/orders_repository.dart';
+import 'package:servplatform/core/repositories/providers_repository/providers_repository.dart';
+import 'package:servplatform/core/repositories/providers_repository/providers_repository_impl.dart';
+import 'package:servplatform/core/repositories/reviews_repository/reviews_repository.dart';
+import 'package:servplatform/core/repositories/reviews_repository/reviews_repository_impl.dart';
+import 'package:servplatform/core/repositories/stories_repository/stories_repository.dart';
+import 'package:servplatform/core/repositories/stories_repository/stories_repository_impl.dart';
+import 'package:servplatform/core/repositories/tasks_repository/tasks_repository.dart';
+import 'package:servplatform/core/repositories/tasks_repository/tasks_repository_impl.dart';
+import 'package:servplatform/core/repositories/teams_repository/teams_repository.dart';
+import 'package:servplatform/core/repositories/teams_repository/teams_repository_impl.dart';
 import 'package:servplatform/core/services/http/http_service.dart';
 import 'package:servplatform/core/services/http/http_service_impl.dart';
 import 'package:servplatform/core/services/key_storage/key_storage_service.dart';
@@ -66,13 +89,6 @@ Future<void> setupLocator() async {
   locator.registerLazySingleton<PostsRemoteDataSource>(
     () => PostsRemoteDataSourceImpl(httpService: locator()),
   );
-  locator.registerLazySingleton<UsersLocalDataSource>(
-    () => UsersLocalDataSourceImpl(localStorageService: locator()),
-  );
-  locator.registerLazySingleton<UsersRemoteDataSource>(
-    () => UsersRemoteDataSourceImpl(httpService: locator()),
-  );
-
   // Repositories
   locator.registerLazySingleton<PostsRepository>(
     () => PostsRepositoryImpl(
@@ -81,23 +97,17 @@ Future<void> setupLocator() async {
       remoteDataSource: locator(),
     ),
   );
-  locator.registerLazySingleton<UsersRepository>(
-    () => UsersRepositoryImpl(
-      connectivityService: locator(),
-      localDataSource: locator(),
-      remoteDataSource: locator(),
-    ),
-  );
+
   locator.registerLazySingleton<ServicesRepository>(
     () => ServicesRepositoryImpl(),
   );
-   locator.registerLazySingleton<Adhoc_requestsRepository>(
-    () => Adhoc_requestsRepositoryImpl(),
+  locator.registerLazySingleton<AdhocRequestsRepository>(
+    () => AdhocRequestsRepositoryImpl(),
   );
-   locator.registerLazySingleton<AgentsRepository>(
+  locator.registerLazySingleton<AgentsRepository>(
     () => AgentsRepositoryImpl(),
   );
-   locator.registerLazySingleton<CartsRepository>(
+  locator.registerLazySingleton<CartsRepository>(
     () => CartsRepositoryImpl(),
   );
   locator.registerLazySingleton<CategoriesRepository>(
@@ -109,11 +119,12 @@ Future<void> setupLocator() async {
   locator.registerLazySingleton<OrdersRepository>(
     () => OrdersRepositoryImpl(),
   );
-  locator.registerLazySingleton<ChatRepository>(
+  locator.registerLazySingleton<ChatsRepository>(
     () => ChatsRepositoryImpl(),
   );
-  locator.registerLazySingleton<EarningRepository>(
-    () => EarnngsRepositoryImpl(),
+
+  locator.registerLazySingleton<EarningsRepository>(
+    () => EarningsRepositoryImpl(),
   );
   locator.registerLazySingleton<ProvidersRepository>(
     () => ProvidersRepositoryImpl(),
@@ -130,4 +141,9 @@ Future<void> setupLocator() async {
   locator.registerLazySingleton<TeamsRepository>(
     () => TeamsRepositoryImpl(),
   );
+  locator.registerLazySingleton<UsersRepository>(
+    () => UsersRepositoryImpl(),
+  );
 }
+
+OrdersRepositoryImpl() {}

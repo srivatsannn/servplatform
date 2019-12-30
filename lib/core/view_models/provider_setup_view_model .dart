@@ -6,16 +6,17 @@ import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
 class ProviderSetupViewModel extends BaseViewModel {
-  final _providerSetupsRepository = locator<ProviderSetupsRepository>();
+  final _providersRepository = locator<ProvidersRepository>();
 
-  List<ProviderSetup> _providerSetups = [];
-  List<ProviderSetup> get providerSetups => _providerSetups;
+  List<Provider> _providerSetups = [];
+  List<Provider> get providers => _providers;
 
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedProviderSetups = await _providerSetupsRepository.fetchProviderSetups();
-      _providerSetups = fetchedProviderSetups.take(5).toList();
+      final fetchedProviders =
+          await _providersRepository.fetchProviders();
+      _providers = fetchedProviders.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);
     }

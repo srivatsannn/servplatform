@@ -6,16 +6,17 @@ import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
 class CategoryDetailViewModel extends BaseViewModel {
-  final _categoryDetailsRepository = locator<CategoryDetailsRepository>();
+  final _categoriesRepository = locator<CategoriesRepository>();
 
-  List<CategoryDetail> _categoryDetails = [];
-  List<CategoryDetail> get categoryDetails => _categoryDetails;
+  List<CategoryDetail> _categories = [];
+  List<CategoryDetail> get categories => _categories;
 
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedCategoryDetails = await _categoryDetailsRepository.fetchCategoryDetails();
-      _categoryDetails = fetchedCategoryDetails.take(5).toList();
+      final fetchedCategories =
+          await _categoriesRepository.fetchCategories();
+      _categories = fetchedCategories.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);
     }

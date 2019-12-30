@@ -21,8 +21,8 @@ class CategoriesRepositoryImpl implements CategoriesRepository {
   @override
   Future<List<Category>> fetchCategories() async {
     try {
-      final categoriesJsonData = await _firebaseService
-          .getDataCollection(FirebasePaths.categories);
+      final categoriesJsonData =
+          await _firebaseService.getDataCollection(FirebasePaths.categories);
       final categories =
           categoriesJsonData.map((doc) => Category.fromMap(doc.data)).toList();
       return categories;
@@ -32,19 +32,17 @@ class CategoriesRepositoryImpl implements CategoriesRepository {
   }
 
   Stream<QuerySnapshot> fetchCategoriesAsStream() {
-    return _firebaseService
-        .streamDataCollection(FirebasePaths.categories);
+    return _firebaseService.streamDataCollection(FirebasePaths.categories);
   }
 
   Future<Category> getCategoryById(String id) async {
-    var doc = await _firebaseService.getDocumentById(
-        FirebasePaths.categories, id);
+    var doc =
+        await _firebaseService.getDocumentById(FirebasePaths.categories, id);
     return Category.fromMap(doc.data);
   }
 
   Future removeCategory(String id) async {
-    await _firebaseService.removeDocument(
-        FirebasePaths.categories, id);
+    await _firebaseService.removeDocument(FirebasePaths.categories, id);
     return;
   }
 

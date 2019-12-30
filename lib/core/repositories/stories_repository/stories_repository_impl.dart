@@ -21,8 +21,8 @@ class StoriesRepositoryImpl implements StoriesRepository {
   @override
   Future<List<Story>> fetchStories() async {
     try {
-      final storiesJsonData = await _firebaseService
-          .getDataCollection(FirebasePaths.stories);
+      final storiesJsonData =
+          await _firebaseService.getDataCollection(FirebasePaths.stories);
       final stories =
           storiesJsonData.map((doc) => Story.fromMap(doc.data)).toList();
       return stories;
@@ -32,19 +32,16 @@ class StoriesRepositoryImpl implements StoriesRepository {
   }
 
   Stream<QuerySnapshot> fetchStoriesAsStream() {
-    return _firebaseService
-        .streamDataCollection(FirebasePaths.stories);
+    return _firebaseService.streamDataCollection(FirebasePaths.stories);
   }
 
   Future<Story> getStoryById(String id) async {
-    var doc = await _firebaseService.getDocumentById(
-        FirebasePaths.stories, id);
+    var doc = await _firebaseService.getDocumentById(FirebasePaths.stories, id);
     return Story.fromMap(doc.data);
   }
 
   Future removeStory(String id) async {
-    await _firebaseService.removeDocument(
-        FirebasePaths.stories, id);
+    await _firebaseService.removeDocument(FirebasePaths.stories, id);
     return;
   }
 
@@ -55,8 +52,8 @@ class StoriesRepositoryImpl implements StoriesRepository {
   }
 
   Future addStory(Story data) async {
-    var result = await _firebaseService.addDocument(
-        FirebasePaths.stories, data.toMap());
+    var result =
+        await _firebaseService.addDocument(FirebasePaths.stories, data.toMap());
 
     return;
   }

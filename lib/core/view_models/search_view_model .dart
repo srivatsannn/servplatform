@@ -6,16 +6,16 @@ import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
 class SearchViewModel extends BaseViewModel {
-  final _searchesRepository = locator<SearchesRepository>();
+  final _usersRepository = locator<UsersRepository>();
 
-  List<Search> _searches = [];
-  List<Search> get searches => _searches;
+  List<User> _users = [];
+  List<User> get users => _users;
 
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedSearches = await _searchesRepository.fetchSearches();
-      _searches = fetchedSearches.take(5).toList();
+      final fetchedUsers = await _usersRepository.fetchUsers();
+      _users = fetchedUsers.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);
     }

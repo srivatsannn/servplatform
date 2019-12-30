@@ -6,16 +6,17 @@ import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
 class LocationInputViewModel extends BaseViewModel {
-  final _locationInputsRepository = locator<LocationInputsRepository>();
+  final _usersRepository = locator<UsRepository>();
 
-  List<LocationInput> _locationInputs = [];
-  List<LocationInput> get locationInputs => _locationInputs;
+  List<User> _users = [];
+  List<User> get users => _users;
 
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedLocationInputs = await _locationInputsRepository.fetchLocationInputs();
-      _locationInputs = fetchedLocationInputs.take(5).toList();
+      final fetchedUsers =
+          await _usersRepository.fetchUsers();
+      _users = fetchedUsers.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);
     }

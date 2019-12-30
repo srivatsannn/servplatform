@@ -6,16 +6,16 @@ import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
 class TipReviewViewModel extends BaseViewModel {
-  final _tipReviewsRepository = locator<Tip_reviewsRepository>();
+  final _ordersRepository = locator<OrdersRepository>();
 
-  List<TipReview> _tipReviews = [];
-  List<TipReview> get tipReviews => _tipReviews;
+  List<Order> _orders = [];
+  List<Order> get orders => _orders;
 
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedTipReviews = await _tipReviewsRepository.fetchTipReviews();
-      _tipReviews = fetchedTipreviews.take(5).toList();
+      final fetchedOrders = await _ordersRepository.fetchOrders();
+      _orders = fetchedOrders.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);
     }
