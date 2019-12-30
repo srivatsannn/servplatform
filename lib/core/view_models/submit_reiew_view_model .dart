@@ -5,6 +5,7 @@ import 'package:servplatform/core/repositories/submit_reviews_repository/submit_
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
+//reviews
 class SubmitReviewViewModel extends BaseViewModel {
   final _submitReviewsRepository = locator<SubmitReviewsRepository>();
 

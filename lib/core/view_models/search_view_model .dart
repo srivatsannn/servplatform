@@ -5,6 +5,7 @@ import 'package:servplatform/core/repositories/searches_repository/searches_repo
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
+//users
 class SearchViewModel extends BaseViewModel {
   final _searchesRepository = locator<SearchesRepository>();
 

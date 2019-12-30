@@ -5,6 +5,7 @@ import 'package:servplatform/core/repositories/agent_see_all_promotions_reposito
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
+//promotions
 class AgentSeeAllPromotionViewModel extends BaseViewModel {
   final _agentSeeAllPromotionsRepository =
       locator<AgentSeeAllPromotionsRepository>();

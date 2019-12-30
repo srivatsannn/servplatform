@@ -5,6 +5,8 @@ import 'package:servplatform/core/repositories/merchant_assign_tasks_repository/
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
+
+//mercahnt
 class MerchantAssignTaskViewModel extends BaseViewModel {
   final _merchantAssignTasksRepository =
       locator<MerchantAssignTasksRepository>();

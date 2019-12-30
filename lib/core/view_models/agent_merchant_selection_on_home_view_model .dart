@@ -6,21 +6,16 @@ import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
 class AgentMerchantSelectionOnHomeViewModel extends BaseViewModel {
-  final _merchantsRepository =
-      locator<MerchantsRepository>();
+  final _merchantsRepository = locator<MerchantsRepository>();
 
   List<Merchant> _merchants = [];
-  List<Merchant> get merchants =>
-      _merchants;
+  List<Merchant> get merchants => _merchants;
 
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedmerchants =
-          await _merchantsRepository
-              .fetchmerchants();
-      _merchants =
-          fetchedmerchants.take(5).toList();
+      final fetchedmerchants = await _merchantsRepository.fetchmerchants();
+      _merchants = fetchedmerchants.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);
     }

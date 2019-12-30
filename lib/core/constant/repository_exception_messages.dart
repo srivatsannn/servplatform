@@ -9,4 +9,7 @@ class RepositoryExceptionMessages {
   static const general_users = 'Failed to load users';
   static const general_service = 'Failed to load service';
   static const general_merchant = 'Failed to load merchant';
+
+
+  
 }

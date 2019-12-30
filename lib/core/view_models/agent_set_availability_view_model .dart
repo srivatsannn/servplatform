@@ -5,6 +5,7 @@ import 'package:servplatform/core/repositories/agent_set_availabilties_repositor
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
+//agent
 class AgentSetAvailabilityViewModel extends BaseViewModel {
   final _agentSetAvailabilitiesRepository =
       locator<AgentSetAvailabilitiesRepository>();

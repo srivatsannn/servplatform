@@ -5,6 +5,7 @@ import 'package:servplatform/core/repositories/tip_reviews_repository/tip_review
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
+//orders
 class TipReviewViewModel extends BaseViewModel {
   final _tipReviewsRepository = locator<Tip_reviewsRepository>();
 

@@ -5,6 +5,8 @@ import 'package:servplatform/core/repositories/logins_repository/logins_reposito
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
+
+//user
 class LoginViewModel extends BaseViewModel {
   final _loginsRepository = locator<LoginsRepository>();
 

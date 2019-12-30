@@ -5,6 +5,7 @@ import 'package:servplatform/core/repositories/provider_pages_repository/provide
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
+//provder
 class ProviderPageViewModel extends BaseViewModel {
   final _providerPagesRepository = locator<ProviderPagesRepository>();
 

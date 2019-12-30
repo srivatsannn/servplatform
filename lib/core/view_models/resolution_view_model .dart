@@ -5,6 +5,7 @@ import 'package:servplatform/core/repositories/resolutions_repository/resolution
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
+//agent
 class ResolutionViewModel extends BaseViewModel {
   final _resolutionsRepository = locator<ResolutionsRepository>();
 

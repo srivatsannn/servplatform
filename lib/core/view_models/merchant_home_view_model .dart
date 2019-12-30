@@ -5,6 +5,7 @@ import 'package:servplatform/core/repositories/merchant_homes_repository/merchan
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
+
 class MerchantHomeViewModel extends BaseViewModel {
   final _merchantHomesRepository = locator<MerchantHomesRepository>();
 

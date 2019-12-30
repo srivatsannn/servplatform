@@ -5,6 +5,8 @@ import 'package:servplatform/core/repositories/category_details_repository/categ
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
+
+//category
 class CategoryDetailViewModel extends BaseViewModel {
   final _categoryDetailsRepository = locator<CategoryDetailsRepository>();
 

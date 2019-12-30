@@ -5,6 +5,7 @@ import 'package:servplatform/core/repositories/securities_repository/securities_
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
+//users
 class SecurityViewModel extends BaseViewModel {
   final _securitiesRepository = locator<SecuritiesRepository>();
 

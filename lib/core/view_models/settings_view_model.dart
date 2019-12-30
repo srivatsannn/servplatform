@@ -8,6 +8,7 @@ import 'package:servplatform/core/utils/logger.dart';
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
+//users
 class SettingsViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();
   final _navigationService = locator<NavigationService>();

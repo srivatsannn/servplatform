@@ -5,6 +5,7 @@ import 'package:servplatform/core/repositories/agent_profiles_repository/agent_p
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
+///Agent
 class AgentProfileViewModel extends BaseViewModel {
   final _agentProfilesRepository = locator<AgentprofilesRepository>();
 

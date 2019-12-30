@@ -5,6 +5,7 @@ import 'package:servplatform/core/repositories/menus_repository/menus_repository
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
+//users
 class MenuViewModel extends BaseViewModel {
   final _menusRepository = locator<MenusRepository>();
 
