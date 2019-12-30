@@ -5,7 +5,6 @@ import 'package:servplatform/core/repositories/orders_repository/orders_reposito
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
-
 class OrderViewModel extends BaseViewModel {
   final _ordersRepository = locator<OrdersRepository>();
 
