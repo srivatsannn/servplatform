@@ -24,7 +24,9 @@ abstract class Story implements Built<Story, StoryBuilder> {
   String get publishedAt;
 
   Map<String, dynamic> toMap() {
-    return json.decode(serializers.serializeWith(Story.serializer, this));
+    //Real weird way to resolve error on firebase
+    return jsonDecode(
+        jsonEncode(serializers.serializeWith(Story.serializer, this)));
   }
 
   String toJson() {

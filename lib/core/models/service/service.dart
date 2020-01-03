@@ -17,12 +17,16 @@ abstract class Service implements Built<Service, ServiceBuilder> {
   String get service;
   String get percentage_match;
 
-  Map<String, dynamic> toMap() {
-    return json.decode(serializers.serializeWith(Service.serializer, this));
-  }
+  
 
   String toJson() {
     return json.encode(serializers.serializeWith(Service.serializer, this));
+  }
+
+  Map<String, dynamic> toMap() {
+    //Real weird way to resolve error on firebase
+    return jsonDecode(
+        jsonEncode(serializers.serializeWith(Service.serializer, this)));
   }
 
   static Service fromJson(String jsonString) {

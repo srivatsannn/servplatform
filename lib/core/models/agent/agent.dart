@@ -48,7 +48,9 @@ abstract class Agent implements Built<Agent, AgentBuilder> {
   String get pending_proifle_steps;
 
   Map<String, dynamic> toMap() {
-    return json.decode(serializers.serializeWith(Agent.serializer, this));
+    //Real weird way to resolve error on firebase
+    return jsonDecode(
+        jsonEncode(serializers.serializeWith(Agent.serializer, this)));
   }
 
   String toJson() {

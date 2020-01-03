@@ -23,7 +23,9 @@ abstract class Team implements Built<Team, TeamBuilder> {
   String get speed;
 
   Map<String, dynamic> toMap() {
-    return json.decode(serializers.serializeWith(Team.serializer, this));
+    //Real weird way to resolve error on firebase
+    return jsonDecode(
+        jsonEncode(serializers.serializeWith(Team.serializer, this)));
   }
 
   String toJson() {

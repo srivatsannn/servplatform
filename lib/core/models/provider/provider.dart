@@ -51,7 +51,9 @@ abstract class Provider implements Built<Provider, ProviderBuilder> {
   String get commission_percentage;
 
   Map<String, dynamic> toMap() {
-    return json.decode(serializers.serializeWith(Provider.serializer, this));
+    //Real weird way to resolve error on firebase
+    return jsonDecode(
+        jsonEncode(serializers.serializeWith(Provider.serializer, this)));
   }
 
   String toJson() {

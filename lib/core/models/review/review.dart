@@ -31,7 +31,9 @@ abstract class Review implements Built<Review, ReviewBuilder> {
   String get video_url;
 
   Map<String, dynamic> toMap() {
-    return json.decode(serializers.serializeWith(Review.serializer, this));
+    //Real weird way to resolve error on firebase
+    return jsonDecode(
+        jsonEncode(serializers.serializeWith(Review.serializer, this)));
   }
 
   String toJson() {

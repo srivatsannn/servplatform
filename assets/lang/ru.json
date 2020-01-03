@@ -1,6 +1,7 @@
 {
   "app-title": "заглавие",
   "home-view-title": "Главная",
+  "home-view-no-services": "No Services available",
   "home-view-no-posts": "Нет доступных сообщений",
   "settings-view-title": "настройки",
   "settings-view-permissions": "права доступа",
@@ -15,5 +16,9 @@
   "button-text-cancel": "Отмена",
   "button-text-confirm": "подтвердить",
   "email-hint-text": "электронное письмо",
-  "password-hint-text": "пароль"
+  "password-hint-text": "пароль",
+  "merchant-home-view-title": "Merchant",
+  "add_service-button-text": "Add Service",
+  "add_service-hint-text": "Service Name",
+  "percentage_match-hint-text": "Percentage Match"
 }

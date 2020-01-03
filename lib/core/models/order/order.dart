@@ -73,7 +73,9 @@ abstract class Order implements Built<Order, OrderBuilder> {
   String get customer_rating;
 
   Map<String, dynamic> toMap() {
-    return json.decode(serializers.serializeWith(Order.serializer, this));
+    //Real weird way to resolve error on firebase
+    return jsonDecode(
+        jsonEncode(serializers.serializeWith(Order.serializer, this)));
   }
 
   String toJson() {

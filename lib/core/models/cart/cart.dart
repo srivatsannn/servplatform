@@ -29,7 +29,9 @@ abstract class Cart implements Built<Cart, CartBuilder> {
   String get tip;
 
   Map<String, dynamic> toMap() {
-    return json.decode(serializers.serializeWith(Cart.serializer, this));
+    //Real weird way to resolve error on firebase
+    return jsonDecode(
+        jsonEncode(serializers.serializeWith(Cart.serializer, this)));
   }
 
   String toJson() {

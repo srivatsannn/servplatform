@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:get_it/get_it.dart';
 import 'package:servplatform/core/models/serializers.dart';
 
 part 'merchant.g.dart';
@@ -73,7 +72,9 @@ abstract class Merchant implements Built<Merchant, MerchantBuilder> {
   String get sponsorship_is_active;
 
   Map<String, dynamic> toMap() {
-    return json.decode(serializers.serializeWith(Merchant.serializer, this));
+    //Real weird way to resolve error on firebase
+    return jsonDecode(
+        jsonEncode(serializers.serializeWith(Merchant.serializer, this)));
   }
 
   String toJson() {

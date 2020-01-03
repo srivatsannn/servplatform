@@ -39,7 +39,9 @@ abstract class Category implements Built<Category, CategoryBuilder> {
   String get depth;
 
   Map<String, dynamic> toMap() {
-    return json.decode(serializers.serializeWith(Category.serializer, this));
+    //Real weird way to resolve error on firebase
+    return jsonDecode(
+        jsonEncode(serializers.serializeWith(Category.serializer, this)));
   }
 
   String toJson() {

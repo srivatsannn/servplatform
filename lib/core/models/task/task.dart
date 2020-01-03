@@ -44,7 +44,9 @@ abstract class Task implements Built<Task, TaskBuilder> {
   String get p_ref_images;
 
   Map<String, dynamic> toMap() {
-    return json.decode(serializers.serializeWith(Task.serializer, this));
+    //Real weird way to resolve error on firebase
+    return jsonDecode(
+        jsonEncode(serializers.serializeWith(Task.serializer, this)));
   }
 
   String toJson() {

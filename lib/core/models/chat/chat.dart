@@ -24,7 +24,9 @@ abstract class Chat implements Built<Chat, ChatBuilder> {
   String get groupId;
 
   Map<String, dynamic> toMap() {
-    return json.decode(serializers.serializeWith(Chat.serializer, this));
+    //Real weird way to resolve error on firebase
+    return jsonDecode(
+        jsonEncode(serializers.serializeWith(Chat.serializer, this)));
   }
 
   String toJson() {

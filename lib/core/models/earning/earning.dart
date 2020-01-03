@@ -23,7 +23,9 @@ abstract class Earning implements Built<Earning, EarningBuilder> {
   String get goal_descrpiton;
 
   Map<String, dynamic> toMap() {
-    return json.decode(serializers.serializeWith(Earning.serializer, this));
+    //Real weird way to resolve error on firebase
+    return jsonDecode(
+        jsonEncode(serializers.serializeWith(Earning.serializer, this)));
   }
 
   String toJson() {

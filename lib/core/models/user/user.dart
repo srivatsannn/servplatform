@@ -74,7 +74,9 @@ abstract class User implements Built<User, UserBuilder> {
   String get default_tip;
 
   Map<String, dynamic> toMap() {
-    return json.decode(serializers.serializeWith(User.serializer, this));
+    //Real weird way to resolve error on firebase
+    return jsonDecode(
+        jsonEncode(serializers.serializeWith(User.serializer, this)));
   }
 
   String toJson() {

@@ -14,7 +14,7 @@ import 'package:servplatform/locator.dart';
 
 import '../../../locator.dart';
 
-class OdersRepositoryImpl implements OrdersRepository {
+class OrdersRepositoryImpl implements OrdersRepository {
   final _firebaseService = locator<FirebaseService>();
   List<Order> orders;
 

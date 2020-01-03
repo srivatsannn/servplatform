@@ -22,10 +22,13 @@ abstract class AdhocRequest
   String get status;
   String get story_key;
 
+  
   Map<String, dynamic> toMap() {
-    return json
-        .decode(serializers.serializeWith(AdhocRequest.serializer, this));
+    //Real weird way to resolve error on firebase
+    return jsonDecode(
+        jsonEncode(serializers.serializeWith(AdhocRequest.serializer, this)));
   }
+
 
   String toJson() {
     return json

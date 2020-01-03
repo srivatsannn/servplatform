@@ -16,6 +16,7 @@ import 'package:servplatform/core/repositories/earnings_repository/earnings_repo
 import 'package:servplatform/core/repositories/merchants_repository/merchants_repository.dart';
 import 'package:servplatform/core/repositories/merchants_repository/merchants_repository_impl.dart';
 import 'package:servplatform/core/repositories/orders_repository/orders_repository.dart';
+import 'package:servplatform/core/repositories/orders_repository/orders_repository_impl.dart';
 import 'package:servplatform/core/repositories/providers_repository/providers_repository.dart';
 import 'package:servplatform/core/repositories/providers_repository/providers_repository_impl.dart';
 import 'package:servplatform/core/repositories/reviews_repository/reviews_repository.dart';
@@ -145,5 +146,3 @@ Future<void> setupLocator() async {
     () => UsersRepositoryImpl(),
   );
 }
-
-OrdersRepositoryImpl() {}
