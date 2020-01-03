@@ -9,4 +9,15 @@ class RepositoryExceptionMessages {
   static const general_users = 'Failed to load users';
   static const general_service = 'Failed to load service';
   static const general_merchant = 'Failed to load merchant';
+  static const general_adhoc_request = 'Failed to load adhoc_request';
+  static const general_agent = 'Failed to load agent';
+  static const general_cart = 'Failed to load cart';
+  static const general_category = 'Failed to load category';
+  static const general_earning = 'Failed to load earning';
+  static const general_order = 'Failed to load order';
+  static const general_review = 'Failed to load review';
+  static const general_provider = 'Failed to load provider';
+  static const general_story = 'Failed to load story';
+  static const general_task = 'Failed to load task';
+  static const general_team = 'Failed to load team';
 }
