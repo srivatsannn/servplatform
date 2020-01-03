@@ -7,16 +7,16 @@ import 'package:servplatform/locator.dart';
 
 //users
 class SecurityViewModel extends BaseViewModel {
-  final _securitiesRepository = locator<SecuritiesRepository>();
+  final _usersRepository = locator<UsersRepository>();
 
-  List<Security> _securities = [];
-  List<Security> get securities => _securities;
+  List<User> _users = [];
+  List<User> get users => _users;
 
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedSecurities = await _securitiesRepository.fetchSecurities();
-      _securities = fetchedSecurities.take(5).toList();
+      final fetchedUsers = await _usersRepository.fetchUsers();
+      _users = fetchedUsers.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);
     }

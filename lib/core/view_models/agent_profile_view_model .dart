@@ -7,17 +7,17 @@ import 'package:servplatform/locator.dart';
 
 ///Agent
 class AgentProfileViewModel extends BaseViewModel {
-  final _agentProfilesRepository = locator<AgentprofilesRepository>();
+  final _agentsRepository = locator<AgentsRepository>();
 
-  List<AgentProfile> _agentProfiles = [];
-  List<AgentProfile> get agentProfiles => _agentProfiles;
+  List<Agent> _agents = [];
+  List<Agent> get agents => _agents;
 
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedAgentProfiles =
-          await _agentProfilesRepository.fetchAgentProfiles();
-      _agentProfiles = fetchedAgentProfiles.take(5).toList();
+      final fetchedAgents =
+          await _agentsRepository.fetchAgents();
+      _agents = fetchedAgents.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);
     }

@@ -14,46 +14,47 @@ import 'package:servplatform/locator.dart';
 
 import '../../../locator.dart';
 
-class AdhocRequestsRepositoryImpl implements AdhocRequestsRepository {
+class Adhoc_requestsRepositoryImpl implements Adhoc_requestsRepository {
   final _firebaseService = locator<FirebaseService>();
-  List<AdhocRequest> adhoc_requests;
+  List<Adhoc_request> adhoc_requests;
 
   @override
-  Future<List<AdhocRequest>> fetchAdhocRequests() async {
+  Future<List<Adhoc_request>> fetchAdhoc_requests() async {
     try {
-      final adhocRequestsJsonData = await _firebaseService
+      final adhoc_requestsJsonData = await _firebaseService
           .getDataCollection(FirebasePaths.adhoc_requests);
-      final adhoc_requests = adhocRequestsJsonData
-          .map((doc) => AdhocRequest.fromMap(doc.data))
-          .toList();
+      final adhoc_requests =
+          adhoc_requestsJsonData.map((doc) => Adhoc_request.fromMap(doc.data)).toList();
       return adhoc_requests;
     } catch (e) {
       throw RepositoryException(RepositoryExceptionMessages.general_service);
     }
   }
 
-  Stream<QuerySnapshot> fetchAdhocRequestsAsStream() {
-    return _firebaseService.streamDataCollection(FirebasePaths.adhoc_requests);
+  Stream<QuerySnapshot> fetchAdhoc_requestsAsStream() {
+    return _firebaseService
+        .streamDataCollection(FirebasePaths.adhoc_requests);
   }
 
-  Future<AdhocRequest> getAdhocRequestsById(String id) async {
+  Future<Adhoc_request> getAdhoc_requestById(String id) async {
     var doc = await _firebaseService.getDocumentById(
         FirebasePaths.adhoc_requests, id);
-    return AdhocRequest.fromMap(doc.data);
+    return Adhoc_request.fromMap(doc.data);
   }
 
-  Future removeAdhocRequests(String id) async {
-    await _firebaseService.removeDocument(FirebasePaths.adhoc_requests, id);
+  Future removeAdhoc_request(String id) async {
+    await _firebaseService.removeDocument(
+        FirebasePaths.adhoc_requests, id);
     return;
   }
 
-  Future updatedhocRequests(AdhocRequest data, String id) async {
+  Future updateAdhoc_request(Adhoc_request data, String id) async {
     await _firebaseService.updateDocument(
         FirebasePaths.adhoc_requests, data.toMap(), id);
     return;
   }
 
-  Future addAdhocRequest(AdhocRequest data) async {
+  Future addAdhoc_request(Adhoc_request data) async {
     var result = await _firebaseService.addDocument(
         FirebasePaths.adhoc_requests, data.toMap());
 

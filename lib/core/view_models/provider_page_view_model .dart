@@ -7,17 +7,17 @@ import 'package:servplatform/locator.dart';
 
 //provder
 class ProviderPageViewModel extends BaseViewModel {
-  final _providerPagesRepository = locator<ProviderPagesRepository>();
+  final _providersRepository = locator<ProvidersRepository>();
 
-  List<ProviderPage> _providerPages = [];
-  List<ProviderPage> get providerPages => _providerPages;
+  List<Provider> _providers = [];
+  List<Provider> get providers => _providers;
 
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedProviderPages =
-          await _providerPagesRepository.fetchProviderPages();
-      _providerPages = fetchedProviderPages.take(5).toList();
+      final fetchedProviders =
+          await _providersRepository.fetchProviders();
+      _providers = fetchedProviders.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);
     }
