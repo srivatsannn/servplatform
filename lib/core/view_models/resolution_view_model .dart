@@ -15,8 +15,7 @@ class ResolutionViewModel extends BaseViewModel {
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedAgents =
-          await _agentsRepository.fetchAgents();
+      final fetchedAgents = await _agentsRepository.fetchAgents();
       _agents = fetchedAgents.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);

@@ -15,8 +15,7 @@ class CategoryDetailViewModel extends BaseViewModel {
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedCategories =
-          await _categoriesRepository.fetchCategories();
+      final fetchedCategories = await _categoriesRepository.fetchCategories();
       _categories = fetchedCategories.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);

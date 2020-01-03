@@ -14,8 +14,7 @@ class MerchantHomeViewModel extends BaseViewModel {
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedMerchants =
-          await _merchantsRepository.fetchMerchants();
+      final fetchedMerchants = await _merchantsRepository.fetchMerchants();
       _merchants = fetchedMerchants.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);

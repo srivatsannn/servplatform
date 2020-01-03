@@ -7,8 +7,7 @@ import 'package:servplatform/locator.dart';
 
 //mercahnt
 class MerchantAssignTaskViewModel extends BaseViewModel {
-  final _merchantsRepository =
-      locator<MerchantsRepository>();
+  final _merchantsRepository = locator<MerchantsRepository>();
 
   List<Merchant> _merchants = [];
   List<Merchant> get merchants => _merchants;
@@ -16,8 +15,7 @@ class MerchantAssignTaskViewModel extends BaseViewModel {
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedMerchants =
-          await _merchantsRepository.fetchMerchants();
+      final fetchedMerchants = await _merchantsRepository.fetchMerchants();
       _merchants = fetchedMerchants.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);

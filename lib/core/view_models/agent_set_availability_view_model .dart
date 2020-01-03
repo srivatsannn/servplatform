@@ -7,18 +7,15 @@ import 'package:servplatform/locator.dart';
 
 //agent
 class AgentSetAvailabilityViewModel extends BaseViewModel {
-  final _agentsRepository =
-      locator<AgentsRepository>();
+  final _agentsRepository = locator<AgentsRepository>();
 
   List<Agent> _agents = [];
-  List<Agent> get agents =>
-      _agents;
+  List<Agent> get agents => _agents;
 
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedAgents =
-          await _agentsRepository.fetchAgents();
+      final fetchedAgents = await _agentsRepository.fetchAgents();
       _agents = fetchedAgents.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);

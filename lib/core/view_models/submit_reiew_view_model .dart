@@ -15,8 +15,7 @@ class SubmitReviewViewModel extends BaseViewModel {
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedReviews =
-          await _reviewsRepository.fetchReviews();
+      final fetchedReviews = await _reviewsRepository.fetchReviews();
       _reviews = fetchedReviews.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);

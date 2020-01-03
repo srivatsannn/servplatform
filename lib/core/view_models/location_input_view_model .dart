@@ -15,8 +15,7 @@ class LocationInputViewModel extends BaseViewModel {
   Future<void> init() async {
     setState(ViewState.Busy);
     try {
-      final fetchedUsers =
-          await _usersRepository.fetchUsers();
+      final fetchedUsers = await _usersRepository.fetchUsers();
       _users = fetchedUsers.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);
