@@ -1,7 +1,7 @@
 import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
-import 'package:servplatform/core/models/provider_setup/provider_setup.dart';
-import 'package:servplatform/core/repositories/provider_setups_repository/provider_setups_repository.dart';
+import 'package:servplatform/core/models/provider/provider.dart';
+import 'package:servplatform/core/repositories/providers_repository/providers_repository.dart';
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
@@ -9,7 +9,7 @@ import 'package:servplatform/locator.dart';
 class ProviderSetupViewModel extends BaseViewModel {
   final _providersRepository = locator<ProvidersRepository>();
 
-  List<Provider> _providerSetups = [];
+  List<Provider> _providers = [];
   List<Provider> get providers => _providers;
 
   Future<void> init() async {

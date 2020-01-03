@@ -1,7 +1,7 @@
 import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
-import 'package:servplatform/core/models/merchant_assign_task/merchant_assign_task.dart';
-import 'package:servplatform/core/repositories/merchant_assign_tasks_repository/merchant_assign_tasks_repository.dart';
+import 'package:servplatform/core/models/merchant/merchant.dart';
+import 'package:servplatform/core/repositories/merchants_repository/merchants_repository.dart';
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 

@@ -1,7 +1,7 @@
 import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
-import 'package:servplatform/core/models/provider_page/provider_page.dart';
-import 'package:servplatform/core/repositories/provider_pages_repository/provider_pages_repository.dart';
+import 'package:servplatform/core/models/provider/provider.dart';
+import 'package:servplatform/core/repositories/providers_repository/providers_repository.dart';
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 

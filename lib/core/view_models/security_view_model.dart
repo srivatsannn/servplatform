@@ -1,7 +1,7 @@
 import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
-import 'package:servplatform/core/models/security/security.dart';
-import 'package:servplatform/core/repositories/securities_repository/securities_repository.dart';
+import 'package:servplatform/core/models/user/user.dart';
+import 'package:servplatform/core/repositories/users_repository/users_repository.dart';
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 

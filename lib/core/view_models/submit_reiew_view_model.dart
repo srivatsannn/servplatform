@@ -1,7 +1,7 @@
 import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
-import 'package:servplatform/core/models/submit_review/submit_review.dart';
-import 'package:servplatform/core/repositories/submit_reviews_repository/submit_reviews_repository.dart';
+import 'package:servplatform/core/models/review/review.dart';
+import 'package:servplatform/core/repositories/reviews_repository/reviews_repository.dart';
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
