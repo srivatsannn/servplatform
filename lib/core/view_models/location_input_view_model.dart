@@ -1,16 +1,16 @@
 import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
-import 'package:servplatform/core/models/menu/menu.dart';
-import 'package:servplatform/core/repositories/menus_repository/menus_repository.dart';
+import 'package:servplatform/core/models/user/user.dart';
+import 'package:servplatform/core/repositories/users_repository/users_repository.dart';
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
-//users
-class MenuViewModel extends BaseViewModel {
+//user
+class LocationInputViewModel extends BaseViewModel {
   final _usersRepository = locator<UsersRepository>();
 
   List<User> _users = [];
-  List<User> get menus => _users;
+  List<User> get users => _users;
 
   Future<void> init() async {
     setState(ViewState.Busy);

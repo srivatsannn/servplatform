@@ -1,12 +1,12 @@
 import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
-import 'package:servplatform/core/models/agent_profile/agent_profile.dart';
-import 'package:servplatform/core/repositories/agent_profiles_repository/agent_profiles_repository.dart';
+import 'package:servplatform/core/models/agent/agent.dart';
+import 'package:servplatform/core/repositories/agents_repository/agents_repository.dart';
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
-///Agent
-class AgentProfileViewModel extends BaseViewModel {
+//agent
+class AgentSetAvailabilityViewModel extends BaseViewModel {
   final _agentsRepository = locator<AgentsRepository>();
 
   List<Agent> _agents = [];

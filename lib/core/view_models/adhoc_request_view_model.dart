@@ -15,7 +15,7 @@ class AdhocRequestViewModel extends BaseViewModel {
     setState(ViewState.Busy);
     try {
       final fetchedAdhocRequests =
-          await _adhocrequestsRepository.fetchAdhocRequests();
+          await _adhocRequestsRepository.fetchAdhocRequests();
       _adhocRequests = fetchedAdhocRequests.take(5).toList();
     } on RepositoryException {
       setState(ViewState.Error);

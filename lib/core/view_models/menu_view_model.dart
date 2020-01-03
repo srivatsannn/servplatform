@@ -1,13 +1,13 @@
 import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
-import 'package:servplatform/core/models/location_input/location_input.dart';
-import 'package:servplatform/core/repositories/location_inputs_repository/location_inputs_repository.dart';
+import 'package:servplatform/core/models/user/user.dart';
+import 'package:servplatform/core/repositories/users_repository/users_repository.dart';
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 
 //user
-class LocationInputViewModel extends BaseViewModel {
-  final _usersRepository = locator<UsRepository>();
+class MenuViewModel extends BaseViewModel {
+  final _usersRepository = locator<UsersRepository>();
 
   List<User> _users = [];
   List<User> get users => _users;
