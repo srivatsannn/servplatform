@@ -22,8 +22,4 @@ class LocationInputViewModel extends BaseViewModel {
     }
     setState(ViewState.Idle);
   }
-
-
-
-  
 }

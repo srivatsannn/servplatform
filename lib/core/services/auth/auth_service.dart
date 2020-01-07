@@ -10,9 +10,7 @@ abstract class AuthService {
     String password,
   );
 
-  Future<void> signInAnon(
-  
-  );
+  Future<void> signInAnon();
 
   Future<void> signOut();
 }

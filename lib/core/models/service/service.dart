@@ -15,17 +15,15 @@ abstract class Service implements Built<Service, ServiceBuilder> {
   int get id;
   @nullable
   String get service;
-  
+
   @nullable
   String get percentage_match;
-  
+
   @nullable
   String get service_name;
-  
+
   @nullable
   String get price;
-
-
 
   String toJson() {
     return json.encode(serializers.serializeWith(Service.serializer, this));

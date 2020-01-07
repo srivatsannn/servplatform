@@ -10,7 +10,6 @@ import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 import 'package:servplatform/core/services/key_storage/key_storage_service.dart';
 
-
 class HomeViewModel extends BaseViewModel {
   final _usersRepository = locator<UsersRepository>();
   final _authService = locator<AuthService>();
@@ -24,50 +23,42 @@ class HomeViewModel extends BaseViewModel {
 
   Future<void> init() async {
     setState(ViewState.Busy);
-    
+
     try {
-      
-          if (!keyStorageService.hasLoggedIn) {
-            await _authService.signInAnon();
-          }//check if logged in, if not logged in login anonymous
-   
-    //TO-DO
-    //get current location
-    //  if permissions not accepted navigate to locations screen(all tasks from demo locationsetter)
+      if (!keyStorageService.hasLoggedIn) {
+        await _authService.signInAnon();
+      } //check if logged in, if not logged in login anonymous
 
-    
+      //TO-DO
+      //get current location
+      //  if permissions not accepted navigate to locations screen(all tasks from demo locationsetter)
 
-        
       //final String userId = keyStorageService.userId;
       //Mocked user_id
       final String userId = 'mg8519';
       final User _user = await _usersRepository.getUserById(userId);
-       final recommended_services =  _user.recommended_services;
-      for(var serviceKey in recommended_services) { 
-        Service serviceItem = await _servicesRepository.getServiceById(serviceKey);
-        print (serviceItem.toJson());
+      final recommended_services = _user.recommended_services;
+      for (var serviceKey in recommended_services) {
+        Service serviceItem =
+            await _servicesRepository.getServiceById(serviceKey);
+        print(serviceItem.toJson());
         _services.add(serviceItem);
       }
       print("printing services");
-      print (_services);
-    //TO-DO
-    //fetch stories (recommended stories for user)
-    //fetch categories (recommended categories for user)
+      print(_services);
+      //TO-DO
+      //fetch stories (recommended stories for user)
+      //fetch categories (recommended categories for user)
 
     } on RepositoryException {
       setState(ViewState.Error);
     }
-    
+
     setState(ViewState.Idle);
   }
 
-  Future<void> onUserLocationUpdate() async{
+  Future<void> onUserLocationUpdate() async {}
 
-  }
-  
-  
-  
- 
   //update location() = navigate to locatios Screen
   //update when required => open diaglog update navigate screen
 //
@@ -78,10 +69,7 @@ class HomeViewModel extends BaseViewModel {
   //onTapAddService=> add service to cart, if service has options navigate t service options screen, if destination location , navigatoe to destinaton_location_screen
 
   //Backlog
-    //create adhoc request()
-        //navigate to orders
-
-
-
+  //create adhoc request()
+  //navigate to orders
 
 }

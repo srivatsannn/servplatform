@@ -20,8 +20,8 @@ class ServicesRepositoryImpl implements ServicesRepository {
   @override
   Future<List<Service>> fetchServices() async {
     try {
-      final servicesJsonData = await _firebaseService
-          .getDataCollection(FirebasePaths.services);
+      final servicesJsonData =
+          await _firebaseService.getDataCollection(FirebasePaths.services);
       final services =
           servicesJsonData.map((doc) => Service.fromMap(doc.data)).toList();
       return services;
@@ -30,17 +30,14 @@ class ServicesRepositoryImpl implements ServicesRepository {
     }
   }
 
-
-
   Future<Service> getServiceById(String id) async {
-    var doc = await _firebaseService.getDocumentById(
-        FirebasePaths.services, id);
+    var doc =
+        await _firebaseService.getDocumentById(FirebasePaths.services, id);
     return Service.fromMap(doc.data);
   }
 
   Future removeService(String id) async {
-    await _firebaseService.removeDocument(
-        FirebasePaths.services, id);
+    await _firebaseService.removeDocument(FirebasePaths.services, id);
     return;
   }
 

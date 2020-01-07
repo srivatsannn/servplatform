@@ -8,7 +8,6 @@ class KeyStorageServiceImpl implements KeyStorageService {
   static const logged_in_key = 'logged_in';
   static const userId_key = 'userId';
 
-
   static KeyStorageServiceImpl _instance;
   static SharedPreferences _preferences;
 

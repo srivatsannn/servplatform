@@ -21,7 +21,6 @@ import 'package:servplatform/core/models/task/task.dart';
 import 'package:servplatform/core/models/team/team.dart';
 import 'package:built_collection/built_collection.dart';
 
-
 part 'serializers.g.dart';
 
 /// List of models that will have a serializer generated for them.

@@ -5,7 +5,6 @@ import 'package:built_value/serializer.dart';
 import 'package:servplatform/core/models/serializers.dart';
 import 'package:built_collection/built_collection.dart';
 
-
 part 'user.g.dart';
 
 /// An example Service model that should be serialized.
@@ -24,7 +23,7 @@ abstract class User implements Built<User, UserBuilder> {
   @nullable
   String get profile_pic;
   @nullable
-  BuiltList <String> get recommended_services;
+  BuiltList<String> get recommended_services;
   @nullable
   String get recommended_stories;
   @nullable

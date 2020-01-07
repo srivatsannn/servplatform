@@ -32,8 +32,8 @@ class AuthServiceImpl implements AuthService {
     try {
       await Future.delayed(Duration(milliseconds: 250));
       //FirebaseUser user = await FirebaseAuth.instance
-        //.signInWithEmailAndPassword(email: email, password: password);
-    
+      //.signInWithEmailAndPassword(email: email, password: password);
+
       //keyStorageService.user_id = user.user_id
       keyStorageService.hasLoggedIn = true;
     } on Exception {
@@ -43,13 +43,13 @@ class AuthServiceImpl implements AuthService {
   }
 
   @override
-  Future<void> signInAnon()async {
+  Future<void> signInAnon() async {
     try {
       await Future.delayed(Duration(milliseconds: 250));
       keyStorageService.hasLoggedIn = true;
-      //keyStorageService.user_id = user.user_id   
-      keyStorageService.userId = 'mg_8519'  ;
-      } on Exception {
+      //keyStorageService.user_id = user.user_id
+      keyStorageService.userId = 'mg_8519';
+    } on Exception {
       Logger.e('AuthService: Error signing in');
       throw AuthException('Error signing in');
     }
