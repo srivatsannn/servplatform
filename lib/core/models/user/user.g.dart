@@ -17,186 +17,362 @@ class _$UserSerializer implements StructuredSerializer<User> {
   @override
   Iterable<Object> serialize(Serializers serializers, User object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'user_id',
-      serializers.serialize(object.user_id,
-          specifiedType: const FullType(String)),
-      'full_name',
-      serializers.serialize(object.full_name,
-          specifiedType: const FullType(String)),
-      'phone_number',
-      serializers.serialize(object.phone_number,
-          specifiedType: const FullType(String)),
-      'profile_pic',
-      serializers.serialize(object.profile_pic,
-          specifiedType: const FullType(String)),
-      'recommended_services',
-      serializers.serialize(object.recommended_services,
-          specifiedType: const FullType(String)),
-      'recommended_stories',
-      serializers.serialize(object.recommended_stories,
-          specifiedType: const FullType(String)),
-      'recommended_categories',
-      serializers.serialize(object.recommended_categories,
-          specifiedType: const FullType(String)),
-      'recommended_services_in_each_recommended_category',
-      serializers.serialize(
-          object.recommended_services_in_each_recommended_category,
-          specifiedType: const FullType(String)),
-      'notifications',
-      serializers.serialize(object.notifications,
-          specifiedType: const FullType(String)),
-      'profile_completion_steps_pending',
-      serializers.serialize(object.profile_completion_steps_pending,
-          specifiedType: const FullType(String)),
-      'segment',
-      serializers.serialize(object.segment,
-          specifiedType: const FullType(String)),
-      'age',
-      serializers.serialize(object.age, specifiedType: const FullType(String)),
-      'longitude',
-      serializers.serialize(object.longitude,
-          specifiedType: const FullType(String)),
-      'latitude',
-      serializers.serialize(object.latitude,
-          specifiedType: const FullType(String)),
-      'friends',
-      serializers.serialize(object.friends,
-          specifiedType: const FullType(String)),
-      'rating',
-      serializers.serialize(object.rating,
-          specifiedType: const FullType(String)),
-      'orders',
-      serializers.serialize(object.orders,
-          specifiedType: const FullType(String)),
-      'payment_methods',
-      serializers.serialize(object.payment_methods,
-          specifiedType: const FullType(String)),
-      'address',
-      serializers.serialize(object.address,
-          specifiedType: const FullType(String)),
-      'password_reset_token',
-      serializers.serialize(object.password_reset_token,
-          specifiedType: const FullType(String)),
-      'is_blocked',
-      serializers.serialize(object.is_blocked,
-          specifiedType: const FullType(String)),
-      'vendor_image',
-      serializers.serialize(object.vendor_image,
-          specifiedType: const FullType(String)),
-      'device_type',
-      serializers.serialize(object.device_type,
-          specifiedType: const FullType(String)),
-      'app_versioncode',
-      serializers.serialize(object.app_versioncode,
-          specifiedType: const FullType(String)),
-      'language',
-      serializers.serialize(object.language,
-          specifiedType: const FullType(String)),
-      'last_login_date_time',
-      serializers.serialize(object.last_login_date_time,
-          specifiedType: const FullType(String)),
-      'creation_datetime',
-      serializers.serialize(object.creation_datetime,
-          specifiedType: const FullType(String)),
-      'vendor_api_key',
-      serializers.serialize(object.vendor_api_key,
-          specifiedType: const FullType(String)),
-      'is_phone_verified',
-      serializers.serialize(object.is_phone_verified,
-          specifiedType: const FullType(String)),
-      'credits',
-      serializers.serialize(object.credits,
-          specifiedType: const FullType(String)),
-      'pending_amount',
-      serializers.serialize(object.pending_amount,
-          specifiedType: const FullType(String)),
-      'successful_task_count',
-      serializers.serialize(object.successful_task_count,
-          specifiedType: const FullType(String)),
-      'referral_code',
-      serializers.serialize(object.referral_code,
-          specifiedType: const FullType(String)),
-      'referrer_id',
-      serializers.serialize(object.referrer_id,
-          specifiedType: const FullType(String)),
-      'reference_id',
-      serializers.serialize(object.reference_id,
-          specifiedType: const FullType(String)),
-      'is_first_login',
-      serializers.serialize(object.is_first_login,
-          specifiedType: const FullType(String)),
-      'registration_status',
-      serializers.serialize(object.registration_status,
-          specifiedType: const FullType(String)),
-      'push_device_type',
-      serializers.serialize(object.push_device_type,
-          specifiedType: const FullType(String)),
-      'login_from',
-      serializers.serialize(object.login_from,
-          specifiedType: const FullType(String)),
-      'custom_field_status',
-      serializers.serialize(object.custom_field_status,
-          specifiedType: const FullType(String)),
-      'subscription_plan',
-      serializers.serialize(object.subscription_plan,
-          specifiedType: const FullType(String)),
-      'is_subscribed',
-      serializers.serialize(object.is_subscribed,
-          specifiedType: const FullType(String)),
-      'chat_enabled',
-      serializers.serialize(object.chat_enabled,
-          specifiedType: const FullType(String)),
-      'cookie_accepted',
-      serializers.serialize(object.cookie_accepted,
-          specifiedType: const FullType(String)),
-      'dob',
-      serializers.serialize(object.dob, specifiedType: const FullType(String)),
-      'creation_date',
-      serializers.serialize(object.creation_date,
-          specifiedType: const FullType(String)),
-      'changed_email',
-      serializers.serialize(object.changed_email,
-          specifiedType: const FullType(String)),
-      'is_email_verified',
-      serializers.serialize(object.is_email_verified,
-          specifiedType: const FullType(String)),
-      'is_vendor_verified',
-      serializers.serialize(object.is_vendor_verified,
-          specifiedType: const FullType(String)),
-      'reason_of_rejection',
-      serializers.serialize(object.reason_of_rejection,
-          specifiedType: const FullType(String)),
-      'last_payment_method',
-      serializers.serialize(object.last_payment_method,
-          specifiedType: const FullType(String)),
-      'is_cash_on_delivery',
-      serializers.serialize(object.is_cash_on_delivery,
-          specifiedType: const FullType(String)),
-      'is_deleted',
-      serializers.serialize(object.is_deleted,
-          specifiedType: const FullType(String)),
-      'signup_type',
-      serializers.serialize(object.signup_type,
-          specifiedType: const FullType(String)),
-      'current_city',
-      serializers.serialize(object.current_city,
-          specifiedType: const FullType(String)),
-      'origin_city',
-      serializers.serialize(object.origin_city,
-          specifiedType: const FullType(String)),
-      'is_fast_forward',
-      serializers.serialize(object.is_fast_forward,
-          specifiedType: const FullType(String)),
-      'default_tip',
-      serializers.serialize(object.default_tip,
-          specifiedType: const FullType(String)),
-    ];
+    final result = <Object>[];
     if (object.id != null) {
       result
         ..add('id')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
+    }
+    if (object.user_id != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(object.user_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.full_name != null) {
+      result
+        ..add('full_name')
+        ..add(serializers.serialize(object.full_name,
+            specifiedType: const FullType(String)));
+    }
+    if (object.phone_number != null) {
+      result
+        ..add('phone_number')
+        ..add(serializers.serialize(object.phone_number,
+            specifiedType: const FullType(String)));
+    }
+    if (object.profile_pic != null) {
+      result
+        ..add('profile_pic')
+        ..add(serializers.serialize(object.profile_pic,
+            specifiedType: const FullType(String)));
+    }
+    if (object.recommended_services != null) {
+      result
+        ..add('recommended_services')
+        ..add(serializers.serialize(object.recommended_services,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    if (object.recommended_stories != null) {
+      result
+        ..add('recommended_stories')
+        ..add(serializers.serialize(object.recommended_stories,
+            specifiedType: const FullType(String)));
+    }
+    if (object.recommended_categories != null) {
+      result
+        ..add('recommended_categories')
+        ..add(serializers.serialize(object.recommended_categories,
+            specifiedType: const FullType(String)));
+    }
+    if (object.recommended_services_in_each_recommended_category != null) {
+      result
+        ..add('recommended_services_in_each_recommended_category')
+        ..add(serializers.serialize(
+            object.recommended_services_in_each_recommended_category,
+            specifiedType: const FullType(String)));
+    }
+    if (object.notifications != null) {
+      result
+        ..add('notifications')
+        ..add(serializers.serialize(object.notifications,
+            specifiedType: const FullType(String)));
+    }
+    if (object.profile_completion_steps_pending != null) {
+      result
+        ..add('profile_completion_steps_pending')
+        ..add(serializers.serialize(object.profile_completion_steps_pending,
+            specifiedType: const FullType(String)));
+    }
+    if (object.segment != null) {
+      result
+        ..add('segment')
+        ..add(serializers.serialize(object.segment,
+            specifiedType: const FullType(String)));
+    }
+    if (object.age != null) {
+      result
+        ..add('age')
+        ..add(serializers.serialize(object.age,
+            specifiedType: const FullType(String)));
+    }
+    if (object.longitude != null) {
+      result
+        ..add('longitude')
+        ..add(serializers.serialize(object.longitude,
+            specifiedType: const FullType(String)));
+    }
+    if (object.latitude != null) {
+      result
+        ..add('latitude')
+        ..add(serializers.serialize(object.latitude,
+            specifiedType: const FullType(String)));
+    }
+    if (object.friends != null) {
+      result
+        ..add('friends')
+        ..add(serializers.serialize(object.friends,
+            specifiedType: const FullType(String)));
+    }
+    if (object.rating != null) {
+      result
+        ..add('rating')
+        ..add(serializers.serialize(object.rating,
+            specifiedType: const FullType(String)));
+    }
+    if (object.orders != null) {
+      result
+        ..add('orders')
+        ..add(serializers.serialize(object.orders,
+            specifiedType: const FullType(String)));
+    }
+    if (object.payment_methods != null) {
+      result
+        ..add('payment_methods')
+        ..add(serializers.serialize(object.payment_methods,
+            specifiedType: const FullType(String)));
+    }
+    if (object.address != null) {
+      result
+        ..add('address')
+        ..add(serializers.serialize(object.address,
+            specifiedType: const FullType(String)));
+    }
+    if (object.password_reset_token != null) {
+      result
+        ..add('password_reset_token')
+        ..add(serializers.serialize(object.password_reset_token,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_blocked != null) {
+      result
+        ..add('is_blocked')
+        ..add(serializers.serialize(object.is_blocked,
+            specifiedType: const FullType(String)));
+    }
+    if (object.vendor_image != null) {
+      result
+        ..add('vendor_image')
+        ..add(serializers.serialize(object.vendor_image,
+            specifiedType: const FullType(String)));
+    }
+    if (object.device_type != null) {
+      result
+        ..add('device_type')
+        ..add(serializers.serialize(object.device_type,
+            specifiedType: const FullType(String)));
+    }
+    if (object.app_versioncode != null) {
+      result
+        ..add('app_versioncode')
+        ..add(serializers.serialize(object.app_versioncode,
+            specifiedType: const FullType(String)));
+    }
+    if (object.language != null) {
+      result
+        ..add('language')
+        ..add(serializers.serialize(object.language,
+            specifiedType: const FullType(String)));
+    }
+    if (object.last_login_date_time != null) {
+      result
+        ..add('last_login_date_time')
+        ..add(serializers.serialize(object.last_login_date_time,
+            specifiedType: const FullType(String)));
+    }
+    if (object.creation_datetime != null) {
+      result
+        ..add('creation_datetime')
+        ..add(serializers.serialize(object.creation_datetime,
+            specifiedType: const FullType(String)));
+    }
+    if (object.vendor_api_key != null) {
+      result
+        ..add('vendor_api_key')
+        ..add(serializers.serialize(object.vendor_api_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_phone_verified != null) {
+      result
+        ..add('is_phone_verified')
+        ..add(serializers.serialize(object.is_phone_verified,
+            specifiedType: const FullType(String)));
+    }
+    if (object.credits != null) {
+      result
+        ..add('credits')
+        ..add(serializers.serialize(object.credits,
+            specifiedType: const FullType(String)));
+    }
+    if (object.pending_amount != null) {
+      result
+        ..add('pending_amount')
+        ..add(serializers.serialize(object.pending_amount,
+            specifiedType: const FullType(String)));
+    }
+    if (object.successful_task_count != null) {
+      result
+        ..add('successful_task_count')
+        ..add(serializers.serialize(object.successful_task_count,
+            specifiedType: const FullType(String)));
+    }
+    if (object.referral_code != null) {
+      result
+        ..add('referral_code')
+        ..add(serializers.serialize(object.referral_code,
+            specifiedType: const FullType(String)));
+    }
+    if (object.referrer_id != null) {
+      result
+        ..add('referrer_id')
+        ..add(serializers.serialize(object.referrer_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.reference_id != null) {
+      result
+        ..add('reference_id')
+        ..add(serializers.serialize(object.reference_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_first_login != null) {
+      result
+        ..add('is_first_login')
+        ..add(serializers.serialize(object.is_first_login,
+            specifiedType: const FullType(String)));
+    }
+    if (object.registration_status != null) {
+      result
+        ..add('registration_status')
+        ..add(serializers.serialize(object.registration_status,
+            specifiedType: const FullType(String)));
+    }
+    if (object.push_device_type != null) {
+      result
+        ..add('push_device_type')
+        ..add(serializers.serialize(object.push_device_type,
+            specifiedType: const FullType(String)));
+    }
+    if (object.login_from != null) {
+      result
+        ..add('login_from')
+        ..add(serializers.serialize(object.login_from,
+            specifiedType: const FullType(String)));
+    }
+    if (object.custom_field_status != null) {
+      result
+        ..add('custom_field_status')
+        ..add(serializers.serialize(object.custom_field_status,
+            specifiedType: const FullType(String)));
+    }
+    if (object.subscription_plan != null) {
+      result
+        ..add('subscription_plan')
+        ..add(serializers.serialize(object.subscription_plan,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_subscribed != null) {
+      result
+        ..add('is_subscribed')
+        ..add(serializers.serialize(object.is_subscribed,
+            specifiedType: const FullType(String)));
+    }
+    if (object.chat_enabled != null) {
+      result
+        ..add('chat_enabled')
+        ..add(serializers.serialize(object.chat_enabled,
+            specifiedType: const FullType(String)));
+    }
+    if (object.cookie_accepted != null) {
+      result
+        ..add('cookie_accepted')
+        ..add(serializers.serialize(object.cookie_accepted,
+            specifiedType: const FullType(String)));
+    }
+    if (object.dob != null) {
+      result
+        ..add('dob')
+        ..add(serializers.serialize(object.dob,
+            specifiedType: const FullType(String)));
+    }
+    if (object.creation_date != null) {
+      result
+        ..add('creation_date')
+        ..add(serializers.serialize(object.creation_date,
+            specifiedType: const FullType(String)));
+    }
+    if (object.changed_email != null) {
+      result
+        ..add('changed_email')
+        ..add(serializers.serialize(object.changed_email,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_email_verified != null) {
+      result
+        ..add('is_email_verified')
+        ..add(serializers.serialize(object.is_email_verified,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_vendor_verified != null) {
+      result
+        ..add('is_vendor_verified')
+        ..add(serializers.serialize(object.is_vendor_verified,
+            specifiedType: const FullType(String)));
+    }
+    if (object.reason_of_rejection != null) {
+      result
+        ..add('reason_of_rejection')
+        ..add(serializers.serialize(object.reason_of_rejection,
+            specifiedType: const FullType(String)));
+    }
+    if (object.last_payment_method != null) {
+      result
+        ..add('last_payment_method')
+        ..add(serializers.serialize(object.last_payment_method,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_cash_on_delivery != null) {
+      result
+        ..add('is_cash_on_delivery')
+        ..add(serializers.serialize(object.is_cash_on_delivery,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_deleted != null) {
+      result
+        ..add('is_deleted')
+        ..add(serializers.serialize(object.is_deleted,
+            specifiedType: const FullType(String)));
+    }
+    if (object.signup_type != null) {
+      result
+        ..add('signup_type')
+        ..add(serializers.serialize(object.signup_type,
+            specifiedType: const FullType(String)));
+    }
+    if (object.current_city != null) {
+      result
+        ..add('current_city')
+        ..add(serializers.serialize(object.current_city,
+            specifiedType: const FullType(String)));
+    }
+    if (object.origin_city != null) {
+      result
+        ..add('origin_city')
+        ..add(serializers.serialize(object.origin_city,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_fast_forward != null) {
+      result
+        ..add('is_fast_forward')
+        ..add(serializers.serialize(object.is_fast_forward,
+            specifiedType: const FullType(String)));
+    }
+    if (object.default_tip != null) {
+      result
+        ..add('default_tip')
+        ..add(serializers.serialize(object.default_tip,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -233,8 +409,10 @@ class _$UserSerializer implements StructuredSerializer<User> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'recommended_services':
-          result.recommended_services = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.recommended_services.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<dynamic>);
           break;
         case 'recommended_stories':
           result.recommended_stories = serializers.deserialize(value,
@@ -469,7 +647,7 @@ class _$User extends User {
   @override
   final String profile_pic;
   @override
-  final String recommended_services;
+  final BuiltList<String> recommended_services;
   @override
   final String recommended_stories;
   @override
@@ -640,184 +818,7 @@ class _$User extends User {
       this.origin_city,
       this.is_fast_forward,
       this.default_tip})
-      : super._() {
-    if (user_id == null) {
-      throw new BuiltValueNullFieldError('User', 'user_id');
-    }
-    if (full_name == null) {
-      throw new BuiltValueNullFieldError('User', 'full_name');
-    }
-    if (phone_number == null) {
-      throw new BuiltValueNullFieldError('User', 'phone_number');
-    }
-    if (profile_pic == null) {
-      throw new BuiltValueNullFieldError('User', 'profile_pic');
-    }
-    if (recommended_services == null) {
-      throw new BuiltValueNullFieldError('User', 'recommended_services');
-    }
-    if (recommended_stories == null) {
-      throw new BuiltValueNullFieldError('User', 'recommended_stories');
-    }
-    if (recommended_categories == null) {
-      throw new BuiltValueNullFieldError('User', 'recommended_categories');
-    }
-    if (recommended_services_in_each_recommended_category == null) {
-      throw new BuiltValueNullFieldError(
-          'User', 'recommended_services_in_each_recommended_category');
-    }
-    if (notifications == null) {
-      throw new BuiltValueNullFieldError('User', 'notifications');
-    }
-    if (profile_completion_steps_pending == null) {
-      throw new BuiltValueNullFieldError(
-          'User', 'profile_completion_steps_pending');
-    }
-    if (segment == null) {
-      throw new BuiltValueNullFieldError('User', 'segment');
-    }
-    if (age == null) {
-      throw new BuiltValueNullFieldError('User', 'age');
-    }
-    if (longitude == null) {
-      throw new BuiltValueNullFieldError('User', 'longitude');
-    }
-    if (latitude == null) {
-      throw new BuiltValueNullFieldError('User', 'latitude');
-    }
-    if (friends == null) {
-      throw new BuiltValueNullFieldError('User', 'friends');
-    }
-    if (rating == null) {
-      throw new BuiltValueNullFieldError('User', 'rating');
-    }
-    if (orders == null) {
-      throw new BuiltValueNullFieldError('User', 'orders');
-    }
-    if (payment_methods == null) {
-      throw new BuiltValueNullFieldError('User', 'payment_methods');
-    }
-    if (address == null) {
-      throw new BuiltValueNullFieldError('User', 'address');
-    }
-    if (password_reset_token == null) {
-      throw new BuiltValueNullFieldError('User', 'password_reset_token');
-    }
-    if (is_blocked == null) {
-      throw new BuiltValueNullFieldError('User', 'is_blocked');
-    }
-    if (vendor_image == null) {
-      throw new BuiltValueNullFieldError('User', 'vendor_image');
-    }
-    if (device_type == null) {
-      throw new BuiltValueNullFieldError('User', 'device_type');
-    }
-    if (app_versioncode == null) {
-      throw new BuiltValueNullFieldError('User', 'app_versioncode');
-    }
-    if (language == null) {
-      throw new BuiltValueNullFieldError('User', 'language');
-    }
-    if (last_login_date_time == null) {
-      throw new BuiltValueNullFieldError('User', 'last_login_date_time');
-    }
-    if (creation_datetime == null) {
-      throw new BuiltValueNullFieldError('User', 'creation_datetime');
-    }
-    if (vendor_api_key == null) {
-      throw new BuiltValueNullFieldError('User', 'vendor_api_key');
-    }
-    if (is_phone_verified == null) {
-      throw new BuiltValueNullFieldError('User', 'is_phone_verified');
-    }
-    if (credits == null) {
-      throw new BuiltValueNullFieldError('User', 'credits');
-    }
-    if (pending_amount == null) {
-      throw new BuiltValueNullFieldError('User', 'pending_amount');
-    }
-    if (successful_task_count == null) {
-      throw new BuiltValueNullFieldError('User', 'successful_task_count');
-    }
-    if (referral_code == null) {
-      throw new BuiltValueNullFieldError('User', 'referral_code');
-    }
-    if (referrer_id == null) {
-      throw new BuiltValueNullFieldError('User', 'referrer_id');
-    }
-    if (reference_id == null) {
-      throw new BuiltValueNullFieldError('User', 'reference_id');
-    }
-    if (is_first_login == null) {
-      throw new BuiltValueNullFieldError('User', 'is_first_login');
-    }
-    if (registration_status == null) {
-      throw new BuiltValueNullFieldError('User', 'registration_status');
-    }
-    if (push_device_type == null) {
-      throw new BuiltValueNullFieldError('User', 'push_device_type');
-    }
-    if (login_from == null) {
-      throw new BuiltValueNullFieldError('User', 'login_from');
-    }
-    if (custom_field_status == null) {
-      throw new BuiltValueNullFieldError('User', 'custom_field_status');
-    }
-    if (subscription_plan == null) {
-      throw new BuiltValueNullFieldError('User', 'subscription_plan');
-    }
-    if (is_subscribed == null) {
-      throw new BuiltValueNullFieldError('User', 'is_subscribed');
-    }
-    if (chat_enabled == null) {
-      throw new BuiltValueNullFieldError('User', 'chat_enabled');
-    }
-    if (cookie_accepted == null) {
-      throw new BuiltValueNullFieldError('User', 'cookie_accepted');
-    }
-    if (dob == null) {
-      throw new BuiltValueNullFieldError('User', 'dob');
-    }
-    if (creation_date == null) {
-      throw new BuiltValueNullFieldError('User', 'creation_date');
-    }
-    if (changed_email == null) {
-      throw new BuiltValueNullFieldError('User', 'changed_email');
-    }
-    if (is_email_verified == null) {
-      throw new BuiltValueNullFieldError('User', 'is_email_verified');
-    }
-    if (is_vendor_verified == null) {
-      throw new BuiltValueNullFieldError('User', 'is_vendor_verified');
-    }
-    if (reason_of_rejection == null) {
-      throw new BuiltValueNullFieldError('User', 'reason_of_rejection');
-    }
-    if (last_payment_method == null) {
-      throw new BuiltValueNullFieldError('User', 'last_payment_method');
-    }
-    if (is_cash_on_delivery == null) {
-      throw new BuiltValueNullFieldError('User', 'is_cash_on_delivery');
-    }
-    if (is_deleted == null) {
-      throw new BuiltValueNullFieldError('User', 'is_deleted');
-    }
-    if (signup_type == null) {
-      throw new BuiltValueNullFieldError('User', 'signup_type');
-    }
-    if (current_city == null) {
-      throw new BuiltValueNullFieldError('User', 'current_city');
-    }
-    if (origin_city == null) {
-      throw new BuiltValueNullFieldError('User', 'origin_city');
-    }
-    if (is_fast_forward == null) {
-      throw new BuiltValueNullFieldError('User', 'is_fast_forward');
-    }
-    if (default_tip == null) {
-      throw new BuiltValueNullFieldError('User', 'default_tip');
-    }
-  }
+      : super._();
 
   @override
   User rebuild(void Function(UserBuilder) updates) =>
@@ -1026,9 +1027,10 @@ class UserBuilder implements Builder<User, UserBuilder> {
   String get profile_pic => _$this._profile_pic;
   set profile_pic(String profile_pic) => _$this._profile_pic = profile_pic;
 
-  String _recommended_services;
-  String get recommended_services => _$this._recommended_services;
-  set recommended_services(String recommended_services) =>
+  ListBuilder<String> _recommended_services;
+  ListBuilder<String> get recommended_services =>
+      _$this._recommended_services ??= new ListBuilder<String>();
+  set recommended_services(ListBuilder<String> recommended_services) =>
       _$this._recommended_services = recommended_services;
 
   String _recommended_stories;
@@ -1288,7 +1290,7 @@ class UserBuilder implements Builder<User, UserBuilder> {
       _full_name = _$v.full_name;
       _phone_number = _$v.phone_number;
       _profile_pic = _$v.profile_pic;
-      _recommended_services = _$v.recommended_services;
+      _recommended_services = _$v.recommended_services?.toBuilder();
       _recommended_stories = _$v.recommended_stories;
       _recommended_categories = _$v.recommended_categories;
       _recommended_services_in_each_recommended_category =
@@ -1363,68 +1365,82 @@ class UserBuilder implements Builder<User, UserBuilder> {
 
   @override
   _$User build() {
-    final _$result = _$v ??
-        new _$User._(
-            id: id,
-            user_id: user_id,
-            full_name: full_name,
-            phone_number: phone_number,
-            profile_pic: profile_pic,
-            recommended_services: recommended_services,
-            recommended_stories: recommended_stories,
-            recommended_categories: recommended_categories,
-            recommended_services_in_each_recommended_category:
-                recommended_services_in_each_recommended_category,
-            notifications: notifications,
-            profile_completion_steps_pending: profile_completion_steps_pending,
-            segment: segment,
-            age: age,
-            longitude: longitude,
-            latitude: latitude,
-            friends: friends,
-            rating: rating,
-            orders: orders,
-            payment_methods: payment_methods,
-            address: address,
-            password_reset_token: password_reset_token,
-            is_blocked: is_blocked,
-            vendor_image: vendor_image,
-            device_type: device_type,
-            app_versioncode: app_versioncode,
-            language: language,
-            last_login_date_time: last_login_date_time,
-            creation_datetime: creation_datetime,
-            vendor_api_key: vendor_api_key,
-            is_phone_verified: is_phone_verified,
-            credits: credits,
-            pending_amount: pending_amount,
-            successful_task_count: successful_task_count,
-            referral_code: referral_code,
-            referrer_id: referrer_id,
-            reference_id: reference_id,
-            is_first_login: is_first_login,
-            registration_status: registration_status,
-            push_device_type: push_device_type,
-            login_from: login_from,
-            custom_field_status: custom_field_status,
-            subscription_plan: subscription_plan,
-            is_subscribed: is_subscribed,
-            chat_enabled: chat_enabled,
-            cookie_accepted: cookie_accepted,
-            dob: dob,
-            creation_date: creation_date,
-            changed_email: changed_email,
-            is_email_verified: is_email_verified,
-            is_vendor_verified: is_vendor_verified,
-            reason_of_rejection: reason_of_rejection,
-            last_payment_method: last_payment_method,
-            is_cash_on_delivery: is_cash_on_delivery,
-            is_deleted: is_deleted,
-            signup_type: signup_type,
-            current_city: current_city,
-            origin_city: origin_city,
-            is_fast_forward: is_fast_forward,
-            default_tip: default_tip);
+    _$User _$result;
+    try {
+      _$result = _$v ??
+          new _$User._(
+              id: id,
+              user_id: user_id,
+              full_name: full_name,
+              phone_number: phone_number,
+              profile_pic: profile_pic,
+              recommended_services: _recommended_services?.build(),
+              recommended_stories: recommended_stories,
+              recommended_categories: recommended_categories,
+              recommended_services_in_each_recommended_category:
+                  recommended_services_in_each_recommended_category,
+              notifications: notifications,
+              profile_completion_steps_pending:
+                  profile_completion_steps_pending,
+              segment: segment,
+              age: age,
+              longitude: longitude,
+              latitude: latitude,
+              friends: friends,
+              rating: rating,
+              orders: orders,
+              payment_methods: payment_methods,
+              address: address,
+              password_reset_token: password_reset_token,
+              is_blocked: is_blocked,
+              vendor_image: vendor_image,
+              device_type: device_type,
+              app_versioncode: app_versioncode,
+              language: language,
+              last_login_date_time: last_login_date_time,
+              creation_datetime: creation_datetime,
+              vendor_api_key: vendor_api_key,
+              is_phone_verified: is_phone_verified,
+              credits: credits,
+              pending_amount: pending_amount,
+              successful_task_count: successful_task_count,
+              referral_code: referral_code,
+              referrer_id: referrer_id,
+              reference_id: reference_id,
+              is_first_login: is_first_login,
+              registration_status: registration_status,
+              push_device_type: push_device_type,
+              login_from: login_from,
+              custom_field_status: custom_field_status,
+              subscription_plan: subscription_plan,
+              is_subscribed: is_subscribed,
+              chat_enabled: chat_enabled,
+              cookie_accepted: cookie_accepted,
+              dob: dob,
+              creation_date: creation_date,
+              changed_email: changed_email,
+              is_email_verified: is_email_verified,
+              is_vendor_verified: is_vendor_verified,
+              reason_of_rejection: reason_of_rejection,
+              last_payment_method: last_payment_method,
+              is_cash_on_delivery: is_cash_on_delivery,
+              is_deleted: is_deleted,
+              signup_type: signup_type,
+              current_city: current_city,
+              origin_city: origin_city,
+              is_fast_forward: is_fast_forward,
+              default_tip: default_tip);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'recommended_services';
+        _recommended_services?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'User', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

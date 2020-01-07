@@ -17,19 +17,36 @@ class _$ServiceSerializer implements StructuredSerializer<Service> {
   @override
   Iterable<Object> serialize(Serializers serializers, Service object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'service',
-      serializers.serialize(object.service,
-          specifiedType: const FullType(String)),
-      'percentage_match',
-      serializers.serialize(object.percentage_match,
-          specifiedType: const FullType(String)),
-    ];
+    final result = <Object>[];
     if (object.id != null) {
       result
         ..add('id')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
+    }
+    if (object.service != null) {
+      result
+        ..add('service')
+        ..add(serializers.serialize(object.service,
+            specifiedType: const FullType(String)));
+    }
+    if (object.percentage_match != null) {
+      result
+        ..add('percentage_match')
+        ..add(serializers.serialize(object.percentage_match,
+            specifiedType: const FullType(String)));
+    }
+    if (object.service_name != null) {
+      result
+        ..add('service_name')
+        ..add(serializers.serialize(object.service_name,
+            specifiedType: const FullType(String)));
+    }
+    if (object.price != null) {
+      result
+        ..add('price')
+        ..add(serializers.serialize(object.price,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -57,6 +74,14 @@ class _$ServiceSerializer implements StructuredSerializer<Service> {
           result.percentage_match = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'service_name':
+          result.service_name = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'price':
+          result.price = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
       }
     }
 
@@ -71,18 +96,21 @@ class _$Service extends Service {
   final String service;
   @override
   final String percentage_match;
+  @override
+  final String service_name;
+  @override
+  final String price;
 
   factory _$Service([void Function(ServiceBuilder) updates]) =>
       (new ServiceBuilder()..update(updates)).build();
 
-  _$Service._({this.id, this.service, this.percentage_match}) : super._() {
-    if (service == null) {
-      throw new BuiltValueNullFieldError('Service', 'service');
-    }
-    if (percentage_match == null) {
-      throw new BuiltValueNullFieldError('Service', 'percentage_match');
-    }
-  }
+  _$Service._(
+      {this.id,
+      this.service,
+      this.percentage_match,
+      this.service_name,
+      this.price})
+      : super._();
 
   @override
   Service rebuild(void Function(ServiceBuilder) updates) =>
@@ -97,13 +125,19 @@ class _$Service extends Service {
     return other is Service &&
         id == other.id &&
         service == other.service &&
-        percentage_match == other.percentage_match;
+        percentage_match == other.percentage_match &&
+        service_name == other.service_name &&
+        price == other.price;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc(0, id.hashCode), service.hashCode), percentage_match.hashCode));
+        $jc(
+            $jc($jc($jc(0, id.hashCode), service.hashCode),
+                percentage_match.hashCode),
+            service_name.hashCode),
+        price.hashCode));
   }
 
   @override
@@ -111,7 +145,9 @@ class _$Service extends Service {
     return (newBuiltValueToStringHelper('Service')
           ..add('id', id)
           ..add('service', service)
-          ..add('percentage_match', percentage_match))
+          ..add('percentage_match', percentage_match)
+          ..add('service_name', service_name)
+          ..add('price', price))
         .toString();
   }
 }
@@ -132,6 +168,14 @@ class ServiceBuilder implements Builder<Service, ServiceBuilder> {
   set percentage_match(String percentage_match) =>
       _$this._percentage_match = percentage_match;
 
+  String _service_name;
+  String get service_name => _$this._service_name;
+  set service_name(String service_name) => _$this._service_name = service_name;
+
+  String _price;
+  String get price => _$this._price;
+  set price(String price) => _$this._price = price;
+
   ServiceBuilder();
 
   ServiceBuilder get _$this {
@@ -139,6 +183,8 @@ class ServiceBuilder implements Builder<Service, ServiceBuilder> {
       _id = _$v.id;
       _service = _$v.service;
       _percentage_match = _$v.percentage_match;
+      _service_name = _$v.service_name;
+      _price = _$v.price;
       _$v = null;
     }
     return this;
@@ -161,7 +207,11 @@ class ServiceBuilder implements Builder<Service, ServiceBuilder> {
   _$Service build() {
     final _$result = _$v ??
         new _$Service._(
-            id: id, service: service, percentage_match: percentage_match);
+            id: id,
+            service: service,
+            percentage_match: percentage_match,
+            service_name: service_name,
+            price: price);
     replace(_$result);
     return _$result;
   }

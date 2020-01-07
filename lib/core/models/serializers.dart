@@ -19,6 +19,8 @@ import 'package:servplatform/core/models/order/order.dart';
 import 'package:servplatform/core/models/review/review.dart';
 import 'package:servplatform/core/models/task/task.dart';
 import 'package:servplatform/core/models/team/team.dart';
+import 'package:built_collection/built_collection.dart';
+
 
 part 'serializers.g.dart';
 

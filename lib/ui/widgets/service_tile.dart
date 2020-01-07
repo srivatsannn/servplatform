@@ -15,13 +15,13 @@ class ServiceTile extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
       child: ListTile(
         title: Text(
-          service.service,
+          service.service_name,
           style: textTheme.subhead.copyWith(
             fontWeight: FontWeight.w500,
           ),
         ),
         subtitle: Text(
-          service.percentage_match,
+          service.price,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
         ),
