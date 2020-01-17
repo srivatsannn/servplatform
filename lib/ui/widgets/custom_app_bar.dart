@@ -3,45 +3,40 @@ import 'package:flutter/material.dart';
 class CustomAppBar extends StatelessWidget {
   final String heading;
 
-
- const CustomAppBar({Key key, @required this.heading}) : super(key: key);
+  const CustomAppBar({Key key, @required this.heading}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return             Stack(
+    return Stack(
       children: <Widget>[
         Positioned(
           top: 10,
           right: 20,
-          child: Align(
-              alignment: Alignment.topRight,
-              child: Icon(Icons.menu)),
+          child: Align(alignment: Alignment.topRight, child: Icon(Icons.menu)),
         ),
-
         Positioned(
           top: 10,
-
           right: 60,
           child: Align(
-              alignment: Alignment.topRight,
-              child: Icon(Icons.shopping_cart)),
+              alignment: Alignment.topRight, child: Icon(Icons.shopping_cart)),
         ),
-
         Positioned(
           top: 10,
-
           right: 100,
-          child: Align(
-              alignment: Alignment.topRight,
-              child: Icon(Icons.person)),
+          child:
+              Align(alignment: Alignment.topRight, child: Icon(Icons.person)),
         ),
-
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text('What are\nyou Shopping for?', style: TextStyle(fontSize: 30, color: Colors.black.withOpacity(0.6), fontWeight: FontWeight.w400),),
+          child: Text(
+            'What are\nyou Shopping for?',
+            style: TextStyle(
+                fontSize: 30,
+                color: Colors.black.withOpacity(0.6),
+                fontWeight: FontWeight.w400),
+          ),
         ),
       ],
-    )
-    ;
+    );
   }
 }

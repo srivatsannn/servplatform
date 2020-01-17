@@ -37,7 +37,7 @@ class Router {
 
       case ViewRoutes.provider_page:
         return ProviderPageView();
-      
+
       default:
         return Scaffold(
           body: Center(

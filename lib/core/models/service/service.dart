@@ -21,15 +21,15 @@ abstract class Service implements Built<Service, ServiceBuilder> {
 
   @nullable
   String get service_name;
- 
- @nullable
+
+  @nullable
   String get currency;
 
   @nullable
   String get price;
   @nullable
   String get logo_url;
-  
+
   String toJson() {
     return json.encode(serializers.serializeWith(Service.serializer, this));
   }

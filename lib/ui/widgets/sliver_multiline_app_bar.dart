@@ -6,45 +6,35 @@ class SliverMultilineAppBar extends StatelessWidget {
   final Widget leading;
   final List<Widget> actions;
 
-  SliverMultilineAppBar({this.title,this.subtitle, this.leading, this.actions});
+  SliverMultilineAppBar(
+      {this.title, this.subtitle, this.leading, this.actions});
 
-   @override
+  @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-        final textTheme = Theme.of(context).textTheme;
-
+    final textTheme = Theme.of(context).textTheme;
 
     double availableWidth = mediaQuery.size.width - 160;
-    
+
     return SliverAppBar(
       expandedHeight: 200.0,
       backgroundColor: Colors.white,
-     floating: true,
+      floating: true,
       leading: leading,
       actions: actions,
       flexibleSpace: FlexibleSpaceBar(
-        title: Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    mainAxisAlignment: MainAxisAlignment.end,
-    children: <Widget>[
-      ConstrainedBox(
-          constraints: BoxConstraints(
-            maxWidth: availableWidth,
-          ),
-          child: Text(title,style: textTheme.title),
-        ),
-
-        Text(subtitle, style: textTheme.caption)
-    ])
-
-        
-        
-
-
-
-      ),
+          title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+            ConstrainedBox(
+              constraints: BoxConstraints(
+                maxWidth: availableWidth,
+              ),
+              child: Text(title, style: textTheme.title),
+            ),
+            Text(subtitle, style: textTheme.caption)
+          ])),
     );
   }
 }
-
-

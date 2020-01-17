@@ -68,8 +68,7 @@ class _Services extends ProviderWidget<HomeViewModel> {
   }
 }
 
-
-  /* SliverFillRemaining(
+/* SliverFillRemaining(
   child: Column(
 
     children: List<int>.generate(model.services.length, (index) => index)
