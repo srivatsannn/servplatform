@@ -42,10 +42,22 @@ class _$ServiceSerializer implements StructuredSerializer<Service> {
         ..add(serializers.serialize(object.service_name,
             specifiedType: const FullType(String)));
     }
+    if (object.currency != null) {
+      result
+        ..add('currency')
+        ..add(serializers.serialize(object.currency,
+            specifiedType: const FullType(String)));
+    }
     if (object.price != null) {
       result
         ..add('price')
         ..add(serializers.serialize(object.price,
+            specifiedType: const FullType(String)));
+    }
+    if (object.logo_url != null) {
+      result
+        ..add('logo_url')
+        ..add(serializers.serialize(object.logo_url,
             specifiedType: const FullType(String)));
     }
     return result;
@@ -78,8 +90,16 @@ class _$ServiceSerializer implements StructuredSerializer<Service> {
           result.service_name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'currency':
+          result.currency = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
         case 'price':
           result.price = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'logo_url':
+          result.logo_url = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
       }
@@ -99,7 +119,11 @@ class _$Service extends Service {
   @override
   final String service_name;
   @override
+  final String currency;
+  @override
   final String price;
+  @override
+  final String logo_url;
 
   factory _$Service([void Function(ServiceBuilder) updates]) =>
       (new ServiceBuilder()..update(updates)).build();
@@ -109,7 +133,9 @@ class _$Service extends Service {
       this.service,
       this.percentage_match,
       this.service_name,
-      this.price})
+      this.currency,
+      this.price,
+      this.logo_url})
       : super._();
 
   @override
@@ -127,17 +153,23 @@ class _$Service extends Service {
         service == other.service &&
         percentage_match == other.percentage_match &&
         service_name == other.service_name &&
-        price == other.price;
+        currency == other.currency &&
+        price == other.price &&
+        logo_url == other.logo_url;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
         $jc(
-            $jc($jc($jc(0, id.hashCode), service.hashCode),
-                percentage_match.hashCode),
-            service_name.hashCode),
-        price.hashCode));
+            $jc(
+                $jc(
+                    $jc($jc($jc(0, id.hashCode), service.hashCode),
+                        percentage_match.hashCode),
+                    service_name.hashCode),
+                currency.hashCode),
+            price.hashCode),
+        logo_url.hashCode));
   }
 
   @override
@@ -147,7 +179,9 @@ class _$Service extends Service {
           ..add('service', service)
           ..add('percentage_match', percentage_match)
           ..add('service_name', service_name)
-          ..add('price', price))
+          ..add('currency', currency)
+          ..add('price', price)
+          ..add('logo_url', logo_url))
         .toString();
   }
 }
@@ -172,9 +206,17 @@ class ServiceBuilder implements Builder<Service, ServiceBuilder> {
   String get service_name => _$this._service_name;
   set service_name(String service_name) => _$this._service_name = service_name;
 
+  String _currency;
+  String get currency => _$this._currency;
+  set currency(String currency) => _$this._currency = currency;
+
   String _price;
   String get price => _$this._price;
   set price(String price) => _$this._price = price;
+
+  String _logo_url;
+  String get logo_url => _$this._logo_url;
+  set logo_url(String logo_url) => _$this._logo_url = logo_url;
 
   ServiceBuilder();
 
@@ -184,7 +226,9 @@ class ServiceBuilder implements Builder<Service, ServiceBuilder> {
       _service = _$v.service;
       _percentage_match = _$v.percentage_match;
       _service_name = _$v.service_name;
+      _currency = _$v.currency;
       _price = _$v.price;
+      _logo_url = _$v.logo_url;
       _$v = null;
     }
     return this;
@@ -211,7 +255,9 @@ class ServiceBuilder implements Builder<Service, ServiceBuilder> {
             service: service,
             percentage_match: percentage_match,
             service_name: service_name,
-            price: price);
+            currency: currency,
+            price: price,
+            logo_url: logo_url);
     replace(_$result);
     return _$result;
   }

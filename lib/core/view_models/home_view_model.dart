@@ -1,3 +1,5 @@
+
+import 'package:flutter/material.dart';
 import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
 import 'package:servplatform/core/models/service/service.dart';
@@ -5,6 +7,7 @@ import 'package:servplatform/core/models/user/user.dart';
 import 'package:servplatform/core/repositories/services_repository/services_repository.dart';
 import 'package:servplatform/core/repositories/users_repository/users_repository.dart';
 import 'package:servplatform/core/services/auth/auth_service.dart';
+import 'package:servplatform/core/constant/view_routes.dart';
 
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
@@ -20,13 +23,21 @@ class HomeViewModel extends BaseViewModel {
 
   List<Service> _services = [];
   List<Service> get services => _services;
+  final TextEditingController _searchControl = TextEditingController();
+  TextEditingController get searchControl => _searchControl;
+
 
   Future<void> init() async {
     setState(ViewState.Busy);
+    
+  
 
     try {
+
+
       if (!keyStorageService.hasLoggedIn) {
         await _authService.signInAnon();
+        
       } //check if logged in, if not logged in login anonymous
 
       //TO-DO
@@ -35,8 +46,10 @@ class HomeViewModel extends BaseViewModel {
 
       //final String userId = keyStorageService.userId;
       //Mocked user_id
+      
       final String userId = 'mg8519';
       final User _user = await _usersRepository.getUserById(userId);
+
       final recommended_services = _user.recommended_services;
       for (var serviceKey in recommended_services) {
         Service serviceItem =
@@ -58,6 +71,21 @@ class HomeViewModel extends BaseViewModel {
   }
 
   Future<void> onUserLocationUpdate() async {}
+
+  onTap(Service service,BuildContext context)  {
+
+             Navigator.of(context).pushNamed(
+            ViewRoutes.provider_page,
+            arguments: service,
+          );
+    }
+    
+
+  onAddButton(Service service)  {
+
+    }
+
+
 
   //update location() = navigate to locatios Screen
   //update when required => open diaglog update navigate screen

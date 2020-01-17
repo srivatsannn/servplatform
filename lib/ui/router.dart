@@ -4,6 +4,7 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:servplatform/core/constant/view_routes.dart';
 import 'package:servplatform/ui/views/login_view.dart';
 import 'package:servplatform/ui/views/main_view.dart';
+import 'package:servplatform/ui/views/provider_page_view.dart';
 import 'package:servplatform/ui/views/splash_view.dart';
 
 /// Class that generates routes for the application
@@ -34,6 +35,9 @@ class Router {
       case ViewRoutes.splash:
         return SplashView();
 
+      case ViewRoutes.provider_page:
+        return ProviderPageView();
+      
       default:
         return Scaffold(
           body: Center(
