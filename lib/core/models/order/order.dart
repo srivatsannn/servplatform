@@ -45,7 +45,7 @@ abstract class Order implements Built<Order, OrderBuilder> {
   String get long_description_json;
   String get customer;
   String get date_time;
-  String get type;
+  //String get type;
   String get location_of_agent;
   String get is_scheduled;
   String get status;
@@ -71,6 +71,7 @@ abstract class Order implements Built<Order, OrderBuilder> {
   String get payment_type;
   String get merchant_email;
   String get customer_rating;
+  String get merchant_id;
 
   Map<String, dynamic> toMap() {
     //Real weird way to resolve error on firebase

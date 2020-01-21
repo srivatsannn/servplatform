@@ -15,6 +15,7 @@ abstract class User implements Built<User, UserBuilder> {
   @nullable
   int get id;
   @nullable
+  String get email;
   String get user_id;
   @nullable
   String get full_name;
@@ -29,8 +30,7 @@ abstract class User implements Built<User, UserBuilder> {
   @nullable
   String get recommended_categories;
   @nullable
-  String get recommended_services_in_each_recommended_category;
-  @nullable
+ // String get recommended_services_in_each_recommended_category;
   String get notifications;
   @nullable
   String get profile_completion_steps_pending;

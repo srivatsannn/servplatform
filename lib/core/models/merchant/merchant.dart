@@ -22,12 +22,12 @@ abstract class Merchant implements Built<Merchant, MerchantBuilder> {
   String get company_address;
   String get display_address;
   String get business_category_id;
-  String get is_active;
   String get phone_number;
   String get country_code;
   String get first_name;
   String get last_name;
   String get store_name;
+  String get display_Name;
   String get description;
   String get logo;
   String get thumb_url;
@@ -41,6 +41,7 @@ abstract class Merchant implements Built<Merchant, MerchantBuilder> {
   String get latitude;
   String get longitude;
   String get serving_distance;
+  String get is_active;
   String get is_blocked;
   String get creation_datetime;
   String get update_datetime;

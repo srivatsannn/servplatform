@@ -24,6 +24,7 @@ abstract class Review implements Built<Review, ReviewBuilder> {
   String get insights;
   String get multi_mg_url;
   String get agent;
+  String get title;
   String get price;
   String get review_for;
   String get suggested_compliments_list;

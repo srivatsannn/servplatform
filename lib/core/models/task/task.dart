@@ -42,6 +42,20 @@ abstract class Task implements Built<Task, TaskBuilder> {
   String get priority;
   String get agents;
   String get p_ref_images;
+  String get customer_email;
+  String get timezone;
+  String get tags;
+  String get customer_username;
+  String get customer_phone;
+  String get customer_address;
+  String get longitude;
+  String get latitude;
+  String get job_pickup_datetime;
+  String get job_delivery_datetime;
+  String get job_id;
+  String get tracking_link;
+
+
 
   Map<String, dynamic> toMap() {
     //Real weird way to resolve error on firebase
