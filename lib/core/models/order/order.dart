@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:servplatform/core/models/serializers.dart';
+import 'package:built_collection/built_collection.dart' ;
 
 part 'order.g.dart';
 
@@ -51,7 +52,7 @@ abstract class Order implements Built<Order, OrderBuilder> {
   String get status;
   String get eta;
   String get agent_assigned;
-  String get follow_up_order_recommendations;
+  BuiltList<String> get follow_up_order_recommendations;
   String get has_delivery;
   String get has_pickup;
   String get coupon_discount;

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:servplatform/core/models/serializers.dart';
+import 'package:built_collection/built_collection.dart' ;
 
 part 'service.g.dart';
 
@@ -26,7 +27,7 @@ abstract class Service implements Built<Service, ServiceBuilder> {
   String get category_key;
   String get parent_category_key;
 
-  String get customization;
+  BuiltList<String> get customization;
   String get inventory_enabled;
   String get available_quantity;
   String get minimum_quatity;

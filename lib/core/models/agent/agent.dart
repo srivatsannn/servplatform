@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:servplatform/core/models/serializers.dart';
+import 'package:built_collection/built_collection.dart' ;
 
 part 'agent.g.dart';
 
@@ -16,13 +17,18 @@ abstract class Agent implements Built<Agent, AgentBuilder> {
 
   String get agent_key;
   String get user_key;
-  String get name;
+  String get username;
+  String get password;
+  String get phone;
+  String get email;
+  String get first_name;
+  String get last_name;
   String get current_location;
   String get geofence;
   String get status;
   String get is_verified;
-  String get team_key;
-  String get tags;
+  BuiltList<String> get team_key;
+  BuiltList<String> get tags;
   String get fleet_id;
   String get transport_type;
   String get transport_desc;
@@ -39,9 +45,11 @@ abstract class Agent implements Built<Agent, AgentBuilder> {
   String get own_a_space;
   String get team_id;
   String get rule_id;
+  String get date;
+  String get limit;
   String get block_status;
   String get message;
-  String get skills;
+  BuiltList<String> get skills;
   String get availability;
   String get earnings;
   String get providers;

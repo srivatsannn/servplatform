@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:servplatform/core/models/serializers.dart';
+import 'package:built_collection/built_collection.dart' ;
 
 part 'task.g.dart';
 
@@ -41,7 +42,7 @@ abstract class Task implements Built<Task, TaskBuilder> {
   String get task_dependencies;
   String get priority;
   String get agents;
-  String get p_ref_images;
+  BuiltList<String> get p_ref_images;
   String get customer_email;
   String get timezone;
   String get tags;
@@ -53,7 +54,7 @@ abstract class Task implements Built<Task, TaskBuilder> {
   String get job_pickup_datetime;
   String get job_delivery_datetime;
   String get job_id;
-  String get tracking_link;
+ 
 
 
 

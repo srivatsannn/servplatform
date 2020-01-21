@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:servplatform/core/models/serializers.dart';
+import 'package:built_collection/built_collection.dart' ;
+
 
 part 'merchant.g.dart';
 
@@ -16,7 +18,7 @@ abstract class Merchant implements Built<Merchant, MerchantBuilder> {
 
   String get merchant_key;
   String get user_key;
-  String get provider_key;
+  BuiltList<String> get provider_key;
   String get earnings;
   String get is_verified;
   String get company_address;

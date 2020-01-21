@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:servplatform/core/models/serializers.dart';
+import 'package:built_collection/built_collection.dart' ;
 
 part 'provider.g.dart';
 
@@ -27,7 +28,7 @@ abstract class Provider implements Built<Provider, ProviderBuilder> {
   String get logo_url;
   String get description;
   String get long_description;
-  String get key_highlights;
+  BuiltList<String> get key_highlights;
   String get introduction;
   String get multi_image_url;
   String get reviews_key;
@@ -36,7 +37,7 @@ abstract class Provider implements Built<Provider, ProviderBuilder> {
   String get total_earnings;
   String get number_of_steps_left;
   String get setup_level;
-  String get merchant_permission;
+  BuiltList<String> get merchant_permission;
   String get view_task;
   String get add_task;
   String get add_team;

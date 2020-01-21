@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:servplatform/core/models/serializers.dart';
+import 'package:built_collection/built_collection.dart' ;
 
 part 'category.g.dart';
 
@@ -16,7 +17,7 @@ abstract class Category implements Built<Category, CategoryBuilder> {
 
   String get category_key;
   String get category;
-  String get category_examples;
+  BuiltList<String> get category_examples;
   String get count_of_services_in_category;
   String get parent_category_id;
   String get super_catalogue_id;

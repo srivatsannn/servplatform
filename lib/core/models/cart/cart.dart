@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:servplatform/core/models/serializers.dart';
+import 'package:built_collection/built_collection.dart' ;
 
 part 'cart.g.dart';
 
@@ -15,7 +16,7 @@ abstract class Cart implements Built<Cart, CartBuilder> {
   int get id;
 
   String get cart_key;
-  String get provider_key;
+  BuiltList<String> get provider_key;
   String get service_key;
   String get url;
   String get location;
