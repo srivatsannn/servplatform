@@ -15,7 +15,7 @@ class AddButton extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
 
     return MaterialButton(
-      onPressed: () {},
+      onPressed: onAddButton,
       textColor: Colors.black,
       padding: EdgeInsets.all(0.0),
       child: Container(

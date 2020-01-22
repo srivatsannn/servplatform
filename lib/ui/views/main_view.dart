@@ -17,29 +17,13 @@ class MainView extends StatelessWidget {
 
     return ViewModelProvider<MainViewModel>.withConsumer(
       viewModel: MainViewModel(),
-      builder: (context, model, child) => PlatformScaffold(
-        body: IndexedStack(
-          index: model.index,
-          children: <Widget>[
+      builder: (context, model, child) => Scaffold(
+        
+        body: 
             HomeView(),
-            SettingsView(),
-          ],
+           
         ),
-        bottomNavBar: PlatformNavBar(
-          currentIndex: model.index,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              title: Text(local.homeViewTitle),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              title: Text(local.settingsViewTitle),
-            ),
-          ],
-          itemChanged: model.changeTab,
-        ),
-      ),
-    );
+        
+      );
   }
 }

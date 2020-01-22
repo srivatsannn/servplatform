@@ -72,7 +72,10 @@ class HomeViewModel extends BaseViewModel {
     );
   }
 
-  onAddButton(Service service) {}
+  onAddButton(Service service) {
+
+    
+  }
 
   //update location() = navigate to locatios Screen
   //update when required => open diaglog update navigate screen

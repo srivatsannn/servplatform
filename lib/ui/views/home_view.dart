@@ -14,87 +14,74 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     final local = AppLocalizations.of(context);
     final textTheme = Theme.of(context).textTheme;
+    final bottomAppBarTheme = Theme.of(context).bottomAppBarTheme;
+    final iconTheme = Theme.of(context).iconTheme;
+
 
     return ViewModelProvider<HomeViewModel>.withoutConsumer(
         viewModel: HomeViewModel(),
         onModelReady: (model) => model.init(),
         builder: (context, model, child) => Scaffold(
+
+
               body: CustomScrollView(slivers: <Widget>[
+                
                 SliverMultilineAppBar(
                   title: 'Choose a Service for you below',
                   subtitle: 'or swipe up to browse 2, 124 active services',
-                  leading: IconButton(
-                    color: Colors.grey[400],
-                    onPressed: () {},
-                    icon: Icon(Icons.menu),
-                  ),
-                  actions: <Widget>[
-                    IconButton(
-                      color: Colors.grey[400],
-                      onPressed: () {},
-                      icon: Icon(Icons.search),
-                    ),
-                    IconButton(
-                      color: Colors.grey[400],
-                      onPressed: () {},
-                      icon: Icon(Icons.more_vert),
-                    ),
-                  ],
+                  
                 ),
                 SliverList(
                   delegate: SliverChildListDelegate([SearchField()]),
                 ),
 
-                /* SliverList(
-        delegate: SliverChildBuilderDelegate(
-
-      
-           (context, index) => ListTile(
-        key: Key('${model.services[index].id}'),
-         title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-          Text( 
-          model.services[index].service_name,
-          style: textTheme.subtitle
-          ),
-                     
-            ],
-           ),
-
-      
-          onTap: null,
-      ),
-        childCount: model.services.length
-        ),
-    ),
- */
+                
 
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
-                    (context, index) => ServiceTile(
+                    (context, index) { 
+                      if (model.state == ViewState.Busy) {
+                    return _LoadingAnimation();
+                        }
+
+                      if (model.services.isEmpty) {
+                         return _NoServices();
+                        }
+                      
+                      return ServiceTile(
                       key: Key('${model.services[index].id}'),
                       service: model.services[index],
                       onAddButton: model.onAddButton(model.services[index]),
                       onTap: null,
-                    ),
+                    );
+                    },
                     childCount: model.services.length,
                   ),
                 ),
+
+
+
+                
               ]),
+
+
               bottomNavigationBar: BottomAppBar(
+                elevation: bottomAppBarTheme.elevation,
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
+                    Text('More',style: textTheme.caption),
                     IconButton(
                       icon: Icon(Icons.menu),
+                      color: iconTheme.color,
                       onPressed: () {},
                     ),
                   ],
                 ),
               ),
-            ));
+            )
+            );
   }
 }
 

@@ -33,17 +33,12 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: providers,
       child: CoreManager(
-        child: PlatformApp(
-          android: (_) => MaterialAppData(
+        child: MaterialApp(
+          
             theme: themes.primaryMaterialTheme,
             darkTheme: themes.darkMaterialTheme,
-          ),
-          ios: (_) => CupertinoAppData(
-            theme: themes.primaryCupertinoTheme,
-            // TODO: Uncomment when flutter adds dark cupertino support
-            // https://github.com/flutter/flutter/projects/40
-            // darkTheme: darkCupertinoTheme,
-          ),
+          
+          
           localizationsDelegates: localizationsDelegates,
           supportedLocales: supportedLocales,
           localeResolutionCallback: loadSupportedLocals,
