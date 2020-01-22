@@ -18,12 +18,8 @@ class MainView extends StatelessWidget {
     return ViewModelProvider<MainViewModel>.withConsumer(
       viewModel: MainViewModel(),
       builder: (context, model, child) => Scaffold(
-        
-        body: 
-            HomeView(),
-           
-        ),
-        
-      );
+        body: HomeView(),
+      ),
+    );
   }
 }

@@ -34,11 +34,8 @@ class MyApp extends StatelessWidget {
       providers: providers,
       child: CoreManager(
         child: MaterialApp(
-          
-            theme: themes.primaryMaterialTheme,
-            darkTheme: themes.darkMaterialTheme,
-          
-          
+          theme: themes.primaryMaterialTheme,
+          darkTheme: themes.darkMaterialTheme,
           localizationsDelegates: localizationsDelegates,
           supportedLocales: supportedLocales,
           localeResolutionCallback: loadSupportedLocals,

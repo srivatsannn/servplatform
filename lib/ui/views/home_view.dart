@@ -17,61 +17,47 @@ class HomeView extends StatelessWidget {
     final bottomAppBarTheme = Theme.of(context).bottomAppBarTheme;
     final iconTheme = Theme.of(context).iconTheme;
 
-
     return ViewModelProvider<HomeViewModel>.withoutConsumer(
         viewModel: HomeViewModel(),
         onModelReady: (model) => model.init(),
         builder: (context, model, child) => Scaffold(
-
-
               body: CustomScrollView(slivers: <Widget>[
-                
                 SliverMultilineAppBar(
                   title: 'Choose a Service for you below',
                   subtitle: 'or swipe up to browse 2, 124 active services',
-                  
                 ),
                 SliverList(
                   delegate: SliverChildListDelegate([SearchField()]),
                 ),
-
-                
-
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
-                    (context, index) { 
+                    (context, index) {
                       if (model.state == ViewState.Busy) {
-                    return _LoadingAnimation();
-                        }
+                        return _LoadingAnimation();
+                      }
 
                       if (model.services.isEmpty) {
-                         return _NoServices();
-                        }
-                      
+                        return _NoServices();
+                      }
+
                       return ServiceTile(
-                      key: Key('${model.services[index].id}'),
-                      service: model.services[index],
-                      onAddButton: model.onAddButton(model.services[index]),
-                      onTap: null,
-                    );
+                        key: Key('${model.services[index].id}'),
+                        service: model.services[index],
+                        onAddButton: model.onAddButton(model.services[index]),
+                        onTap: null,
+                      );
                     },
                     childCount: model.services.length,
                   ),
                 ),
-
-
-
-                
               ]),
-
-
               bottomNavigationBar: BottomAppBar(
                 elevation: bottomAppBarTheme.elevation,
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    Text('More',style: textTheme.caption),
+                    Text('More', style: textTheme.caption),
                     IconButton(
                       icon: Icon(Icons.menu),
                       color: iconTheme.color,
@@ -80,8 +66,7 @@ class HomeView extends StatelessWidget {
                   ],
                 ),
               ),
-            )
-            );
+            ));
   }
 }
 
