@@ -18,7 +18,7 @@ abstract class Provider implements Built<Provider, ProviderBuilder> {
   String get provider_key;
   String get provider_name;
   String get discount_and_other_info;
-  String get area_serviced_geofence;
+  BuiltList<String> get area_serviced_geofence;
   String get company_address;
   String get display_address;
   String get company_longitude;
@@ -41,7 +41,7 @@ abstract class Provider implements Built<Provider, ProviderBuilder> {
   String get view_task;
   String get add_task;
   String get add_team;
-  String get view_team;
+  BuiltList<String> get view_team;
   String get add_region;
   String get view_region;
   String get add_agent;

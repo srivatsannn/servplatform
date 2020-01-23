@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:servplatform/core/models/serializers.dart';
+import 'package:built_collection/built_collection.dart' ;
 
 part 'team.g.dart';
 
@@ -15,7 +16,7 @@ abstract class Team implements Built<Team, TeamBuilder> {
   int get id;
 
   String get team_name;
-  String get agents;
+  BuiltList<String> get agents;
   String get battery_usage;
   String get tags;
   String get capacity;

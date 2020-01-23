@@ -27,7 +27,7 @@ abstract class Service implements Built<Service, ServiceBuilder> {
   String get category_key;
   String get parent_category_key;
 
-  BuiltList<String> get customization;
+  BuiltList<String> get customization; // it is an object
   String get inventory_enabled;
   String get available_quantity;
   String get minimum_quatity;

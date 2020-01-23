@@ -26,12 +26,12 @@ abstract class User implements Built<User, UserBuilder> {
   @nullable
   BuiltList<String> get recommended_services;
   @nullable
-  String get recommended_stories;
+  BuiltList<String> get recommended_stories;
   @nullable
-  String get recommended_categories;
+  BuiltList<String> get recommended_categories;
   @nullable
  // String get recommended_services_in_each_recommended_category;
-  String get notifications;
+  BuiltList<String> get notifications;
   @nullable
   String get profile_completion_steps_pending;
   @nullable
@@ -43,7 +43,7 @@ abstract class User implements Built<User, UserBuilder> {
   @nullable
   String get latitude;
   @nullable
-  String get friends;
+  BuiltList<String> get friends;
   @nullable
   String get rating;
   @nullable

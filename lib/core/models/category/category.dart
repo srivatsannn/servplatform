@@ -17,7 +17,7 @@ abstract class Category implements Built<Category, CategoryBuilder> {
 
   String get category_key;
   String get category;
-  BuiltList<String> get category_examples;
+  String get category_examples;
   String get count_of_services_in_category;
   String get parent_category_id;
   String get super_catalogue_id;
