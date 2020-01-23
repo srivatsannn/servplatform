@@ -14,45 +14,83 @@ part 'agent.g.dart';
 abstract class Agent implements Built<Agent, AgentBuilder> {
   @nullable
   int get id;
-
+  @nullable
   String get agent_key;
+  @nullable
   String get user_key;
+  @nullable
   String get username;
+  @nullable
   String get password;
+  @nullable
   String get phone;
+  @nullable
   String get email;
+  @nullable
   String get first_name;
+  @nullable
   String get last_name;
+  @nullable
   String get current_location;
+  @nullable
   String get geofence;
+  @nullable
   String get status;
+  @nullable
   String get is_verified;
+  @nullable
   BuiltList<String> get team_key;
+  @nullable
   BuiltList<String> get tags;
+  @nullable
   String get fleet_id;
+  @nullable
   String get transport_type;
+  @nullable
   String get transport_desc;
+  @nullable
   String get license;
+  @nullable
   String get color;
+  @nullable
   String get url;
+  @nullable
   String get min_visits;
+  @nullable
   String get capacity;
+  @nullable
   String get payment;
+  @nullable
   String get recommended_merchants_to_join;
+  @nullable
   String get recommended_promotions;
+  @nullable
   String get user_id;
+  @nullable
   String get own_a_vehicle;
+  @nullable
   String get own_a_space;
+  @nullable
   String get team_id;
+  @nullable
   String get rule_id;
+  @nullable
   String get date;
+  @nullable
   String get limit;
+  @nullable
   String get block_status;
+  @nullable
   String get message;
+  @nullable
   BuiltList<String> get skills;
+  @nullable
   String get availability;
+  @nullable
   String get earnings;
+  @nullable
   String get providers;
+  @nullable
   String get pending_proifle_steps;
 
   Map<String, dynamic> toMap() {

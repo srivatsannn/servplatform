@@ -14,20 +14,33 @@ part 'cart.g.dart';
 abstract class Cart implements Built<Cart, CartBuilder> {
   @nullable
   int get id;
-
+  @nullable
   String get cart_key;
+  @nullable
   BuiltList<String> get provider_key;
+  @nullable
   String get service_key;
+  @nullable
   String get url;
+  @nullable
   String get location;
+  @nullable
   String get eta;
+  @nullable
   String get discount_options;
+  @nullable
   String get delivery_note;
+  @nullable
   String get order_key;
+  @nullable
   String get bill_summary_collection;
+  @nullable
   String get payment_methods;
+  @nullable
   String get promo_codes;
+  @nullable
   String get tip;
+  
 
   Map<String, dynamic> toMap() {
     //Real weird way to resolve error on firebase

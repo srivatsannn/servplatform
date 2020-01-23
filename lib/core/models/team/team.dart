@@ -15,13 +15,23 @@ abstract class Team implements Built<Team, TeamBuilder> {
   @nullable
   int get id;
 
+  @nullable
   String get team_name;
+  @nullable
   BuiltList<String> get agents;
+  @nullable
   String get battery_usage;
+  @nullable
   String get tags;
+  @nullable
   String get capacity;
+  @nullable
   String get type;
+  @nullable
   String get speed;
+
+
+
 
   Map<String, dynamic> toMap() {
     //Real weird way to resolve error on firebase

@@ -14,14 +14,23 @@ abstract class Story implements Built<Story, StoryBuilder> {
   @nullable
   int get id;
 
+  @nullable
   String get story_key;
+  @nullable
   String get multi_img_url;
+  @nullable
   String get provider;
+  @nullable
   String get service_key;
+  @nullable
   String get time_sec;
+  @nullable
   String get claps;
+  @nullable
   String get user;
+  @nullable
   String get publishedAt;
+
 
   Map<String, dynamic> toMap() {
     //Real weird way to resolve error on firebase

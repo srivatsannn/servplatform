@@ -5,10 +5,11 @@ part 'alert_request.g.dart';
 /// Model that a dialog in the [DialogManager] accepts as input
 abstract class AlertRequest
     implements Built<AlertRequest, AlertRequestBuilder> {
+  @nullable    
   String get title;
-
+  @nullable
   String get description;
-
+  @nullable
   String get buttonTitle;
 
   AlertRequest._();

@@ -11,13 +11,15 @@ part 'post.g.dart';
 ///   - @BuiltValueField: is the key that is in the JSON you
 ///     receive from an API
 abstract class Post implements Built<Post, PostBuilder> {
+  @nullable
   int get id;
-
+  @nullable
   String get title;
-
+  @nullable
   @BuiltValueField(wireName: 'body')
+  @nullable
   String get description;
-
+  @nullable
   int get userId;
 
   String toJson() {

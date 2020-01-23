@@ -13,13 +13,19 @@ part 'earning.g.dart';
 abstract class Earning implements Built<Earning, EarningBuilder> {
   @nullable
   int get id;
-
+  @nullable
   String get type_agent;
+  @nullable
   String get today;
+  @nullable
   String get today_no_ofTrips_completed;
+  @nullable
   String get last_week;
+  @nullable
   String get today_no_oftrips_completed;
+  @nullable
   String get goal;
+  @nullable
   String get goal_descrpiton;
 
   Map<String, dynamic> toMap() {

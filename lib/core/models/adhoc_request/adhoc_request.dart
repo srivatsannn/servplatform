@@ -14,12 +14,17 @@ abstract class AdhocRequest
     implements Built<AdhocRequest, AdhocRequestBuilder> {
   @nullable
   int get id;
-
+  @nullable
   String get user_key;
+  @nullable
   String get request_title;
+  @nullable
   String get request_description;
+  @nullable
   String get created_at;
+  @nullable
   String get status;
+  @nullable
   String get story_key;
 
   Map<String, dynamic> toMap() {

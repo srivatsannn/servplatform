@@ -14,22 +14,42 @@ abstract class Review implements Built<Review, ReviewBuilder> {
   @nullable
   int get id;
 
+  @nullable 
   String get reviewer_key;
+  @nullable
   String get provider_key;
+  @nullable
   String get service_key;
+  @nullable
   String get review_descrpitpn;
+  @nullable
   String get revieewee;
+  @nullable
   String get date;
+  @nullable
   String get star_rating;
+  @nullable
   String get insights;
+  @nullable
   String get multi_mg_url;
+  @nullable
   String get agent;
+  @nullable
   String get title;
+  @nullable
   String get price;
+  @nullable
   String get review_for;
+  @nullable
   String get suggested_compliments_list;
+  @nullable
   String get negative_feedback;
+  @nullable
   String get video_url;
+ 
+
+
+
 
   Map<String, dynamic> toMap() {
     //Real weird way to resolve error on firebase

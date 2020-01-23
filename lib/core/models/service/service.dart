@@ -19,21 +19,34 @@ abstract class Service implements Built<Service, ServiceBuilder> {
 
   String get provider_key;
   @nullable
-  String get percentage_match;
+   @nullable String get percentage_match;
+  @nullable
   String get service_description;
+  @nullable
   String get service_time;
+  @nullable
   String get unit;
+  @nullable
   String get multi_img_url;
+  @nullable
   String get category_key;
+  @nullable
   String get parent_category_key;
-
+  @nullable
   BuiltList<String> get customization; // it is an object
   String get inventory_enabled;
+  @nullable
   String get available_quantity;
+  @nullable
   String get minimum_quatity;
+  @nullable
   String get is_side_order;
+  @nullable
   String get has_pickup;
+  @nullable
   String get has_delivery;
+
+
 
   @nullable
   String get service_name;

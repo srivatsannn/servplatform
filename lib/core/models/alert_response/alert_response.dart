@@ -4,6 +4,7 @@ part 'alert_response.g.dart';
 
 abstract class AlertResponse
     implements Built<AlertResponse, AlertResponseBuilder> {
+  @nullable
   bool get confirmed;
 
   AlertResponse._();

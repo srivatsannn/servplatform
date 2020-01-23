@@ -13,14 +13,21 @@ part 'chat.g.dart';
 abstract class Chat implements Built<Chat, ChatBuilder> {
   @nullable
   int get id;
-
+  @nullable
   String get text;
+  @nullable
   String get type;
+  @nullable
   String get content;
+  @nullable
   String get from;
+  @nullable
   String get to;
+  @nullable
   String get isSeen;
+  @nullable
   String get publishedAt;
+  @nullable
   String get groupId;
 
   Map<String, dynamic> toMap() {
