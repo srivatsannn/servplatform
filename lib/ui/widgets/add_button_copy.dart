@@ -9,13 +9,14 @@ class AddButton extends StatelessWidget {
 
   const AddButton({Key key, @required this.onAddButton, @required this.service})
       : super(key: key);
+      
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
     return MaterialButton(
-      onPressed: () {},
+      onPressed: onAddButton,
       textColor: Colors.black,
       padding: EdgeInsets.all(0.0),
       child: Container(

@@ -1,50 +1,201 @@
+library rounded_loading_button;
+
 import 'package:flutter/material.dart';
-import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
-import 'package:servplatform/core/models/service/service.dart';
-//import 'package:real_rich_text/real_rich_text.dart';
 
-class AddButton extends StatelessWidget {
-  final Function onAddButton;
-  final Service service;
+class AddButton extends StatefulWidget {
+  final AddButtonController controller;
 
-  const AddButton({Key key, @required this.onAddButton, @required this.service})
-      : super(key: key);
+  final VoidCallback onPressed;
+
+  final Widget child;
+
+  final Color color;
+
+  final double height;
+
+  AddButton(
+      {Key key,
+      this.controller,
+      this.onPressed,
+      this.child,
+      this.color = Colors.white,
+      this.height = 30});
+
+  @override
+  State<StatefulWidget> createState() => AddButtonState();
+}
+
+class AddButtonState extends State<AddButton>
+    with TickerProviderStateMixin {
+  AnimationController _buttonController;
+  AnimationController _checkButtonControler;
+
+  Animation _squeezeAnimation;
+  Animation _bounceAnimation;
+
+  bool _isSuccessful = false;
+  bool _isErrored = false;
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-
-    return MaterialButton(
-      onPressed: onAddButton,
-      textColor: Colors.black,
-      padding: EdgeInsets.all(0.0),
-      child: Container(
-        width: 88,
-        height: 30,
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(15),
-            boxShadow: [
-              BoxShadow(
-                blurRadius: 8,
-                offset: Offset(0, 15),
-                color: Colors.grey.withOpacity(.6),
-                spreadRadius: -9,
-              ),
-            ]),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Icon(Icons.add),
-            SizedBox(
-              width: 6,
-            ),
-            //TODO once currency symbol variable is added Text("${service.currency} ${service.price}"),
-            //Text('\$'),
-            Text('\$ ${service.price}'),
-          ],
+    var _check = Container(
+        alignment: FractionalOffset.center,
+        decoration: new BoxDecoration(
+          color: widget.color,
+          borderRadius:
+              new BorderRadius.all(Radius.circular(_bounceAnimation.value / 2)),
         ),
-      ),
+        width: _bounceAnimation.value,
+        height: _bounceAnimation.value,
+        child: _bounceAnimation.value > 20
+            ? Icon(
+                Icons.check,
+                color: Colors.green,
+              )
+            : null);
+
+    var _cross = Container(
+        alignment: FractionalOffset.center,
+        decoration: new BoxDecoration(
+          color: Colors.red,
+          borderRadius:
+              new BorderRadius.all(Radius.circular(_bounceAnimation.value / 2)),
+        ),
+        width: _bounceAnimation.value,
+        height: _bounceAnimation.value,
+        child: _bounceAnimation.value > 20
+            ? Icon(
+                Icons.close,
+                color: Colors.white,
+              )
+            : null);
+
+    var _loader = SizedBox(
+        height: widget.height - 10,
+        width: widget.height - 10,
+        child: CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+            strokeWidth: 1.5));
+
+    var _btn = ButtonTheme(
+      shape:
+          RoundedRectangleBorder(borderRadius: new BorderRadius.circular(35)),
+      minWidth: _squeezeAnimation.value,
+      height: widget.height,
+      child: RaisedButton(
+              padding: EdgeInsets.all(0) ,
+
+          child: _squeezeAnimation.value > 150 ? widget.child : _loader,
+          color: widget.color,
+          onPressed: () async {
+            _start();
+          }),
     );
+
+    return Container(
+        height: widget.height,
+        child:
+            Center(child: _isErrored ? _cross : _isSuccessful ? _check : _btn));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    _buttonController = new AnimationController(
+        duration: new Duration(milliseconds: 500), vsync: this);
+
+    _checkButtonControler = new AnimationController(
+        duration: new Duration(milliseconds: 1000), vsync: this);
+
+    _bounceAnimation = Tween<double>(begin: 0, end: widget.height).animate(
+        new CurvedAnimation(
+            parent: _checkButtonControler, curve: Curves.elasticOut));
+    _bounceAnimation.addListener(() {
+      setState(() {});
+    });
+
+    _squeezeAnimation = Tween<double>(begin: 300, end: widget.height).animate(
+        new CurvedAnimation(
+            parent: _buttonController, curve: Curves.easeInOutCirc));
+    _squeezeAnimation.addListener(() {
+      setState(() {});
+    });
+
+    _squeezeAnimation.addStatusListener((state) {
+      if (state == AnimationStatus.completed) {
+        widget.onPressed();
+      }
+    });
+
+    widget.controller?._addListeners(_start, _stop, _success, _error, _reset);
+  }
+
+  _start() {
+    _buttonController.forward();
+  }
+
+  _stop() {
+    _isSuccessful = false;
+    _isErrored = false;
+    _buttonController.reverse();
+  }
+
+  _success() {
+    _isSuccessful = true;
+    _isErrored = false;
+    _checkButtonControler.forward();
+  }
+
+  _error() {
+    _isErrored = true;
+    _checkButtonControler.forward();
+  }
+
+  _reset() {
+    _isSuccessful = false;
+    _isErrored = false;
+    _buttonController.reverse();
+  }
+}
+
+class AddButtonController {
+  VoidCallback _startListener;
+  VoidCallback _stopListener;
+  VoidCallback _successListener;
+  VoidCallback _errorListener;
+  VoidCallback _resetListener;
+
+  _addListeners(
+      VoidCallback startListener,
+      VoidCallback stopListener,
+      VoidCallback successListener,
+      VoidCallback errorListener,
+      VoidCallback resetListener) {
+    this._startListener = startListener;
+    this._stopListener = stopListener;
+    this._successListener = successListener;
+    this._errorListener = errorListener;
+    this._resetListener = resetListener;
+  }
+
+  start() {
+    _startListener();
+  }
+
+  stop() {
+    _stopListener();
+  }
+
+  success() {
+    _successListener();
+  }
+
+  error() {
+    _errorListener();
+  }
+
+  reset() {
+    _resetListener();
   }
 }

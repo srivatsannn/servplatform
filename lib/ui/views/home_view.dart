@@ -29,27 +29,10 @@ class HomeView extends StatelessWidget {
                 SliverList(
                   delegate: SliverChildListDelegate([SearchField()]),
                 ),
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                      if (model.state == ViewState.Busy) {
-                        return _LoadingAnimation();
-                      }
 
-                      if (model.services.isEmpty) {
-                        return _NoServices();
-                      }
-
-                      return ServiceTile(
-                        key: Key('${model.services[index].id}'),
-                        service: model.services[index],
-                        onAddButton: model.onAddButton(model.services[index]),
-                        onTap: null,
-                      );
-                    },
-                    childCount: model.services.length,
-                  ),
-                ),
+                _RecommendedServices(),
+                
+                
               ]),
               bottomNavigationBar: BottomAppBar(
                 elevation: bottomAppBarTheme.elevation,
@@ -70,48 +53,61 @@ class HomeView extends StatelessWidget {
   }
 }
 
-/* List<Widget> _SliverChildList(model){
-
-List<Widget> widget_list = [];
-widget_list.add(SearchField());
-//widget_list[..[_Services(model)]];
- if (model.state == ViewState.Busy) {
-   widget_list.add(_LoadingAnimation());
+class _RecommendedServices extends ProviderWidget<HomeViewModel> {
+  @override
+  Widget build(BuildContext context, HomeViewModel model) {
+    if (model.state == ViewState.Busy) {
+      return _LoadingAnimation();
     }
 
     if (model.services.isEmpty) {
-         widget_list.add(_NoServices());
+      return _NoServices();
     }
 
-    (context, index) => ServiceTile(
-        key: Key('${model.services[index].id}'),
-        service: model.services[index],
-      );
+    return SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                     
 
+                      return ServiceTile(
+                        key: Key('${model.services[index].id}'),
+                        service: model.services[index],
 
+                        onPressedAddButton: model.onPressedAddButton,
+                        addbtnController:model.btnController, 
+                        onTap: null,
+                      );
+                    },
+                    childCount: model.services.length,
+                  ),
+                );
+  }
+}
 
-
-
-return widget_list;
-} */
 
 class _NoServices extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final local = AppLocalizations.of(context);
 
-    return Center(
+    return SliverList(
+                  delegate: SliverChildListDelegate([Center(
       child: Text(local.homeViewNoServices),
-    );
+    )]),
+                );
+    
+    
   }
 }
 
 class _LoadingAnimation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return SliverList(
+                  delegate: SliverChildListDelegate([Center(
       child: PlatformCircularProgressIndicator(),
-    );
+    )]),
+                );
   }
 }
 
