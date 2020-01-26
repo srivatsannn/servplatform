@@ -25,8 +25,7 @@ class AddButton extends StatefulWidget {
   State<StatefulWidget> createState() => AddButtonState();
 }
 
-class AddButtonState extends State<AddButton>
-    with TickerProviderStateMixin {
+class AddButtonState extends State<AddButton> with TickerProviderStateMixin {
   AnimationController _buttonController;
   AnimationController _checkButtonControler;
 
@@ -83,8 +82,7 @@ class AddButtonState extends State<AddButton>
       minWidth: _squeezeAnimation.value,
       height: widget.height,
       child: RaisedButton(
-              padding: EdgeInsets.all(0) ,
-
+          padding: EdgeInsets.all(0),
           child: _squeezeAnimation.value > 150 ? widget.child : _loader,
           color: widget.color,
           onPressed: () async {

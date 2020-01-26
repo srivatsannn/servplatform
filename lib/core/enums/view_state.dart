@@ -21,7 +21,4 @@ enum ViewState {
 
   /// The starting state that a form view is in
   WaitingForInput,
-
-  
-
 }

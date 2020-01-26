@@ -9,7 +9,6 @@ class AddButton extends StatelessWidget {
 
   const AddButton({Key key, @required this.onAddButton, @required this.service})
       : super(key: key);
-      
 
   @override
   Widget build(BuildContext context) {

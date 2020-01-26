@@ -80,15 +80,10 @@ class HomeViewModel extends BaseViewModel {
   }
 
   void onPressedAddButton() async {
-    Timer(Duration(seconds: 3), () 
-    
-    {
-
+    Timer(Duration(seconds: 3), () {
       _btnController.success();
     });
   }
-
-
 
   //update location() = navigate to locatios Screen
   //update when required => open diaglog update navigate screen

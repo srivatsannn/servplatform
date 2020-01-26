@@ -46,9 +46,7 @@ class ProviderPageView extends StatelessWidget {
                     ),
                   ],
                 ),
-              
               ]),
             ));
   }
 }
-

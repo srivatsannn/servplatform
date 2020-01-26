@@ -15,8 +15,8 @@ class ServiceTile extends StatelessWidget {
   const ServiceTile(
       {Key key,
       @required this.service,
-      @required this.onTap, 
-      @required this.onPressedAddButton, 
+      @required this.onTap,
+      @required this.onPressedAddButton,
       @required this.addbtnController})
       : super(key: key);
 
@@ -84,25 +84,26 @@ class ServiceTile extends StatelessWidget {
             )),
         trailing: Container(
           width: 80,
-          
           child: AddButton(
-              child: 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-            
-            //TODO once currency symbol variable is added Text("${service.currency} ${service.price}"),
-            //Text('\$'),
-            Text('\$ ${service.price}',style: textTheme.caption.copyWith(
-                        color: Colors.black,
-                      )),
-            Icon(Icons.add, size: 20,color: Colors.grey,),
-          ],
-        ),
-              
-              controller: addbtnController,
-              onPressed: onPressedAddButton,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                //TODO once currency symbol variable is added Text("${service.currency} ${service.price}"),
+                //Text('\$'),
+                Text('\$ ${service.price}',
+                    style: textTheme.caption.copyWith(
+                      color: Colors.black,
+                    )),
+                Icon(
+                  Icons.add,
+                  size: 20,
+                  color: Colors.grey,
+                ),
+              ],
             ),
+            controller: addbtnController,
+            onPressed: onPressedAddButton,
+          ),
         ),
         onTap: () {
           Navigator.of(context).pushNamed(

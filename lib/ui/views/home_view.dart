@@ -29,10 +29,7 @@ class HomeView extends StatelessWidget {
                 SliverList(
                   delegate: SliverChildListDelegate([SearchField()]),
                 ),
-
                 _RecommendedServices(),
-                
-                
               ]),
               bottomNavigationBar: BottomAppBar(
                 elevation: bottomAppBarTheme.elevation,
@@ -65,25 +62,21 @@ class _RecommendedServices extends ProviderWidget<HomeViewModel> {
     }
 
     return SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                     
-
-                      return ServiceTile(
-                        key: Key('${model.services[index].id}'),
-                        service: model.services[index],
-
-                        onPressedAddButton: model.onPressedAddButton,
-                        addbtnController:model.btnController, 
-                        onTap: null,
-                      );
-                    },
-                    childCount: model.services.length,
-                  ),
-                );
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
+          return ServiceTile(
+            key: Key('${model.services[index].id}'),
+            service: model.services[index],
+            onPressedAddButton: model.onPressedAddButton,
+            addbtnController: model.btnController,
+            onTap: null,
+          );
+        },
+        childCount: model.services.length,
+      ),
+    );
   }
 }
-
 
 class _NoServices extends StatelessWidget {
   @override
@@ -91,12 +84,12 @@ class _NoServices extends StatelessWidget {
     final local = AppLocalizations.of(context);
 
     return SliverList(
-                  delegate: SliverChildListDelegate([Center(
-      child: Text(local.homeViewNoServices),
-    )]),
-                );
-    
-    
+      delegate: SliverChildListDelegate([
+        Center(
+          child: Text(local.homeViewNoServices),
+        )
+      ]),
+    );
   }
 }
 
@@ -104,10 +97,12 @@ class _LoadingAnimation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverList(
-                  delegate: SliverChildListDelegate([Center(
-      child: PlatformCircularProgressIndicator(),
-    )]),
-                );
+      delegate: SliverChildListDelegate([
+        Center(
+          child: PlatformCircularProgressIndicator(),
+        )
+      ]),
+    );
   }
 }
 
