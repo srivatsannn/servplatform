@@ -13,16 +13,12 @@ import 'package:servplatform/core/constant/view_routes.dart';
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 import 'package:servplatform/core/services/key_storage/key_storage_service.dart';
-import 'package:servplatform/ui/widgets/add_button.dart';
 
 class HomeViewModel extends BaseViewModel {
   final _usersRepository = locator<UsersRepository>();
   final _authService = locator<AuthService>();
   final _servicesRepository = locator<ServicesRepository>();
   final keyStorageService = locator<KeyStorageService>();
-  final AddButtonController _btnController = new AddButtonController();
-
-  AddButtonController get btnController => _btnController;
 
   User _user;
   User get user => _user;
@@ -77,12 +73,6 @@ class HomeViewModel extends BaseViewModel {
       ViewRoutes.provider_page,
       arguments: service,
     );
-  }
-
-  void onPressedAddButton() async {
-    Timer(Duration(seconds: 3), () {
-      _btnController.success();
-    });
   }
 
   //update location() = navigate to locatios Screen

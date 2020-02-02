@@ -1,3 +1,4 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:provider_architecture/provider_architecture.dart';
@@ -38,9 +39,8 @@ class HomeView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
                     Text('More', style: textTheme.caption),
-                    IconButton(
-                      icon: Icon(Icons.menu),
-                      color: iconTheme.color,
+                    LiveIconButton(
+                      icon: AnimatedIcons.menu_close,
                       onPressed: () {},
                     ),
                   ],
@@ -67,8 +67,6 @@ class _RecommendedServices extends ProviderWidget<HomeViewModel> {
           return ServiceTile(
             key: Key('${model.services[index].id}'),
             service: model.services[index],
-            onPressedAddButton: model.onPressedAddButton,
-            addbtnController: model.btnController,
             onTap: null,
           );
         },
@@ -105,23 +103,3 @@ class _LoadingAnimation extends StatelessWidget {
     );
   }
 }
-
-/* _Services(model){
-  
-    if (model.state == ViewState.Busy) {
-      return [_LoadingAnimation()];
-    }
-
-    if (model.services.isEmpty) {
-      return [_NoServices()];
-    }
-
-    return List<int>.generate(model.services.length, (index) => index)
-        .map((index) => ServiceTile(
-        key: Key('${model.services[index].id}'),
-        service: model.services[index],
-        onTap: model.onTap,
-        onAddButton: model.onAddButton,
-      ))
-        .toList();
-} */

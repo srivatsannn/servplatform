@@ -9,16 +9,12 @@ import 'package:servplatform/ui/widgets/add_button.dart';
 class ServiceTile extends StatelessWidget {
   final Service service;
   final Function onTap;
-  final Function onPressedAddButton;
-  final AddButtonController addbtnController;
 
-  const ServiceTile(
-      {Key key,
-      @required this.service,
-      @required this.onTap,
-      @required this.onPressedAddButton,
-      @required this.addbtnController})
-      : super(key: key);
+  const ServiceTile({
+    Key key,
+    @required this.service,
+    @required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -85,25 +81,16 @@ class ServiceTile extends StatelessWidget {
         trailing: Container(
           width: 80,
           child: AddButton(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                //TODO once currency symbol variable is added Text("${service.currency} ${service.price}"),
-                //Text('\$'),
-                Text('\$ ${service.price}',
-                    style: textTheme.caption.copyWith(
-                      color: Colors.black,
-                    )),
-                Icon(
-                  Icons.add,
-                  size: 20,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-            controller: addbtnController,
-            onPressed: onPressedAddButton,
-          ),
+              //TODO once currency symbol variable is added Text("${service.currency} ${service.price}"),
+              //Text('\$'),
+              // Text('\$ ${model.service.price}',
+
+              onTap: () {},
+              onUpdateQuantity: (value) {},
+              onRemove: () {},
+              text: '\$ ${service.price}',
+              is_multiple: service.is_multiple,
+              initialValue: 1),
         ),
         onTap: () {
           Navigator.of(context).pushNamed(

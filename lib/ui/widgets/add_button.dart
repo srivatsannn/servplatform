@@ -1,25 +1,27 @@
-library rounded_loading_button;
+import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:servplatform/core/models/service/service.dart';
+import 'package:servplatform/ui/widgets/stepper_touch.dart';
+import 'package:servplatform/ui/widgets/switcher_touch.dart';
 
 class AddButton extends StatefulWidget {
-  final AddButtonController controller;
+  final Function onTap;
+  final Function onUpdateQuantity;
+  final Function onRemove;
 
-  final VoidCallback onPressed;
-
-  final Widget child;
-
-  final Color color;
-
-  final double height;
+  final String text;
+  final String is_multiple;
+  final int initialValue;
 
   AddButton(
       {Key key,
-      this.controller,
-      this.onPressed,
-      this.child,
-      this.color = Colors.white,
-      this.height = 30});
+      this.onTap,
+      this.onUpdateQuantity,
+      this.onRemove,
+      this.text,
+      this.is_multiple,
+      this.initialValue});
 
   @override
   State<StatefulWidget> createState() => AddButtonState();
@@ -34,13 +36,16 @@ class AddButtonState extends State<AddButton> with TickerProviderStateMixin {
 
   bool _isSuccessful = false;
   bool _isErrored = false;
+  int _value = 1;
 
   @override
   Widget build(BuildContext context) {
-    var _check = Container(
+    final textTheme = Theme.of(context).textTheme;
+
+    /* var _check = Container(
         alignment: FractionalOffset.center,
         decoration: new BoxDecoration(
-          color: widget.color,
+          color: Colors.white,
           borderRadius:
               new BorderRadius.all(Radius.circular(_bounceAnimation.value / 2)),
         ),
@@ -50,8 +55,16 @@ class AddButtonState extends State<AddButton> with TickerProviderStateMixin {
             ? Icon(
                 Icons.check,
                 color: Colors.green,
+                size: 20
               )
-            : null);
+            : null); */
+
+    var _check = SwitcherTouch(
+        initialValue: widget.initialValue,
+        direction: Axis.horizontal,
+        withSpring: true,
+        onChanged: (int value) =>
+            {setState(() => _value = value), _onUpdateQuantity(_value)});
 
     var _cross = Container(
         alignment: FractionalOffset.center,
@@ -70,35 +83,66 @@ class AddButtonState extends State<AddButton> with TickerProviderStateMixin {
             : null);
 
     var _loader = SizedBox(
-        height: widget.height - 10,
-        width: widget.height - 10,
+        height: 20,
+        width: 20,
         child: CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
             strokeWidth: 1.5));
+
+    var _stepper = StepperTouch(
+        initialValue: widget.initialValue,
+        direction: Axis.horizontal,
+        withSpring: true,
+        onChanged: (int value) =>
+            {setState(() => _value = value), _onUpdateQuantity(_value)});
 
     var _btn = ButtonTheme(
       shape:
           RoundedRectangleBorder(borderRadius: new BorderRadius.circular(35)),
       minWidth: _squeezeAnimation.value,
-      height: widget.height,
+      height: 30,
       child: RaisedButton(
           padding: EdgeInsets.all(0),
-          child: _squeezeAnimation.value > 150 ? widget.child : _loader,
-          color: widget.color,
+          child: _squeezeAnimation.value > 150
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    //TODO once currency symbol variable is added Text("${service.currency} ${service.price}"),
+                    //Text('\$'),
+                    // Text('\$ ${model.service.price}',
+                    Text(widget.text,
+                        style: textTheme.caption.copyWith(
+                          color: Colors.black,
+                        )),
+                    Icon(
+                      Icons.add,
+                      size: 18,
+                      color: Colors.blue,
+                    ),
+                  ],
+                )
+              : _loader,
+          color: Colors.white,
           onPressed: () async {
             _start();
           }),
     );
 
     return Container(
-        height: widget.height,
-        child:
-            Center(child: _isErrored ? _cross : _isSuccessful ? _check : _btn));
+        height: 30,
+        child: Center(
+            child: _isErrored
+                ? _cross
+                : _isSuccessful
+                    ? widget.is_multiple == '1' ? _stepper : _check
+                    : _btn));
   }
 
   @override
   void initState() {
     super.initState();
+
+    AddButtonController _btnController = new AddButtonController();
 
     _buttonController = new AnimationController(
         duration: new Duration(milliseconds: 500), vsync: this);
@@ -106,14 +150,14 @@ class AddButtonState extends State<AddButton> with TickerProviderStateMixin {
     _checkButtonControler = new AnimationController(
         duration: new Duration(milliseconds: 1000), vsync: this);
 
-    _bounceAnimation = Tween<double>(begin: 0, end: widget.height).animate(
+    _bounceAnimation = Tween<double>(begin: 0, end: 30).animate(
         new CurvedAnimation(
             parent: _checkButtonControler, curve: Curves.elasticOut));
     _bounceAnimation.addListener(() {
       setState(() {});
     });
 
-    _squeezeAnimation = Tween<double>(begin: 300, end: widget.height).animate(
+    _squeezeAnimation = Tween<double>(begin: 300, end: 30).animate(
         new CurvedAnimation(
             parent: _buttonController, curve: Curves.easeInOutCirc));
     _squeezeAnimation.addListener(() {
@@ -122,11 +166,17 @@ class AddButtonState extends State<AddButton> with TickerProviderStateMixin {
 
     _squeezeAnimation.addStatusListener((state) {
       if (state == AnimationStatus.completed) {
-        widget.onPressed();
+        _onTap(_btnController);
       }
     });
 
-    widget.controller?._addListeners(_start, _stop, _success, _error, _reset);
+    _btnController?._addListeners(
+      _start,
+      _stop,
+      _success,
+      _error,
+      _reset,
+    );
   }
 
   _start() {
@@ -154,6 +204,22 @@ class AddButtonState extends State<AddButton> with TickerProviderStateMixin {
     _isSuccessful = false;
     _isErrored = false;
     _buttonController.reverse();
+  }
+
+  void _onTap(AddButtonController _btnController) async {
+    widget.onTap();
+    _btnController.success();
+  }
+
+  void _onUpdateQuantity(int _v) async {
+    if (_v == 0) {
+      widget.onRemove();
+      _isSuccessful = false;
+      _isErrored = false;
+      _buttonController.reverse();
+    } else {
+      widget.onUpdateQuantity(_v);
+    }
   }
 }
 

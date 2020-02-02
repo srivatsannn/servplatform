@@ -30,6 +30,9 @@ abstract class Service implements Built<Service, ServiceBuilder> {
   @nullable
   String get logo_url;
 
+  @nullable
+  String get is_multiple;
+
   String toJson() {
     return json.encode(serializers.serializeWith(Service.serializer, this));
   }
