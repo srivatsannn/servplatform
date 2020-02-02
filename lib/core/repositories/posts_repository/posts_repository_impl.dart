@@ -1,64 +1,44 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
-import 'package:servplatform/core/constant/api_routes.dart';
-import 'package:servplatform/core/constant/repository_exception_messages.dart';
+import 'package:servplatform/core/data_sources/posts/posts_local_data_source.dart';
+import 'package:servplatform/core/data_sources/posts/posts_remote_data_source.dart';
+import 'package:servplatform/core/exceptions/cache_exception.dart';
 import 'package:servplatform/core/exceptions/network_exception.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
-import 'package:servplatform/core/hive_models/post_h.dart';
+import 'package:servplatform/core/models/post/post.dart';
 import 'package:servplatform/core/repositories/posts_repository/posts_repository.dart';
-import 'package:servplatform/core/serializers/post.dart';
 import 'package:servplatform/core/services/connectivity/connectivity_service.dart';
-import 'package:servplatform/core/services/http/http_service.dart';
-import 'package:servplatform/core/services/local_storage/local_storage_service.dart';
-import 'package:servplatform/locator.dart';
+import 'package:servplatform/core/utils/logger.dart';
 
 class PostsRepositoryImpl implements PostsRepository {
-  final _httpService = locator<HttpService>();
-  final _localStorageService = locator<LocalStorageService>();
-  final _connectionService = locator<ConnectivityService>();
+  final PostsRemoteDataSource remoteDataSource;
+  final PostsLocalDataSource localDataSource;
+  final ConnectivityService connectivityService;
+
+  PostsRepositoryImpl({
+    @required this.remoteDataSource,
+    @required this.localDataSource,
+    @required this.connectivityService,
+  });
 
   @override
   Future<List<Post>> fetchPosts() async {
     try {
-      if (await _connectionService.isConnected()) {
-        final posts = await compute(_fetchPosts, _httpService);
-        await _storePostsLocally(posts);
+      if (await connectivityService.isConnected) {
+        final posts = await remoteDataSource.fetchPosts();
+        await localDataSource.cachePosts(posts);
         return posts;
       } else {
-        final posts = _fetchPostsLocally();
+        final posts = localDataSource.fetchPosts();
         return posts;
       }
-    } on NetworkException {
-      throw RepositoryException(RepositoryExceptionMessages.general_posts);
+    } on NetworkException catch (e) {
+      Logger.e('Failed to fetch posts remotely');
+      throw RepositoryException(e.message);
+    } on CacheException catch (e) {
+      Logger.e('Failed to fetch posts locally');
+      throw RepositoryException(e.message);
     }
-  }
-
-  static Future<List<Post>> _fetchPosts(HttpService httpService) async {
-    final postsJsonData =
-        await httpService.getHttp(ApiRoutes.posts) as List<dynamic>;
-
-    final posts = postsJsonData
-        .map((data) => data as Map<String, dynamic>)
-        .map(Post.fromMap)
-        .toList();
-
-    return posts;
-  }
-
-  List<Post> _fetchPostsLocally() {
-    if (_localStorageService.postsBox.isEmpty) {
-      throw RepositoryException(RepositoryExceptionMessages.posts_local);
-    }
-
-    return _localStorageService.postsBox.values
-        .cast<PostH>()
-        .map((postH) => Post.fromMap(postH.toMap()))
-        .toList();
-  }
-
-  Future<void> _storePostsLocally(List<Post> posts) async {
-    final postsMap = <int, PostH>{};
-    posts.forEach((post) => postsMap.addAll({post.id: PostH.fromPost(post)}));
-
-    await _localStorageService.postsBox.putAll(postsMap);
   }
 }

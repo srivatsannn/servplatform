@@ -8,17 +8,20 @@ import 'package:servplatform/core/managers/dialog_manager.dart';
 import 'package:servplatform/core/services/dialog/dialog_service.dart';
 import 'package:servplatform/core/services/key_storage/key_storage_service.dart';
 import 'package:servplatform/core/services/navigation/navigation_service.dart';
+import 'package:servplatform/core/utils/logger.dart';
 import 'package:servplatform/locator.dart';
 import 'package:servplatform/provider_setup.dart';
 import 'package:servplatform/ui/router.dart';
 import 'package:servplatform/ui/shared/themes.dart' as themes;
-import 'package:servplatform/ui/views/login/login_view.dart';
-import 'package:servplatform/ui/views/splash/splash_view.dart';
 import 'package:servplatform/local_setup.dart';
+import 'package:servplatform/ui/views/login_view.dart';
+import 'package:servplatform/ui/views/splash_view.dart';
 
 void main() async {
-  await setupLocator();
+  WidgetsFlutterBinding.ensureInitialized();
 
+  setupLogger();
+  await setupLocator();
   runApp(MyApp());
 }
 
@@ -37,7 +40,8 @@ class MyApp extends StatelessWidget {
           ),
           ios: (_) => CupertinoAppData(
             theme: themes.primaryCupertinoTheme,
-            // TODO: When flutter adds dark cupertino support
+            // TODO: Uncomment when flutter adds dark cupertino support
+            // https://github.com/flutter/flutter/projects/40
             // darkTheme: darkCupertinoTheme,
           ),
           localizationsDelegates: localizationsDelegates,

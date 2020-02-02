@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:connectivity/connectivity.dart';
-import 'package:flutter/foundation.dart' show debugPrint;
 import 'package:servplatform/core/enums/connectivity_status.dart';
 import 'package:servplatform/core/services/connectivity/connectivity_service.dart';
+import 'package:servplatform/core/utils/logger.dart';
 
 class ConnectivityServiceImpl implements ConnectivityService {
   final _connectivityResultController = StreamController<ConnectivityStatus>();
@@ -11,21 +11,20 @@ class ConnectivityServiceImpl implements ConnectivityService {
 
   StreamSubscription<ConnectivityResult> _subscription;
   ConnectivityResult _lastResult;
-  bool _serviceStoped = false;
+  bool _serviceStopped = false;
 
   @override
   Stream<ConnectivityStatus> get connectivity$ =>
       _connectivityResultController.stream;
 
-  bool get serviceStopped => _serviceStoped;
+  bool get serviceStopped => _serviceStopped;
 
   ConnectivityServiceImpl() {
-    debugPrint('(TRACE) ConnectivityService started');
     _subscription =
         _connectivity.onConnectivityChanged.listen(_emitConnectivity);
   }
 
-  Future<bool> isConnected() async {
+  Future<bool> get isConnected async {
     final result = await _connectivity.checkConnectivity();
 
     switch (result) {
@@ -40,8 +39,8 @@ class ConnectivityServiceImpl implements ConnectivityService {
 
   @override
   void start() async {
-    debugPrint('(TRACE) ConnectivityService resumed');
-    _serviceStoped = false;
+    Logger.d('ConnectivityService resumed');
+    _serviceStopped = false;
 
     await _resumeSignal();
     _subscription.resume();
@@ -49,8 +48,8 @@ class ConnectivityServiceImpl implements ConnectivityService {
 
   @override
   void stop() {
-    debugPrint('(TRACE) ConnectivityService paused');
-    _serviceStoped = true;
+    Logger.d('ConnectivityService paused');
+    _serviceStopped = true;
 
     _subscription.pause(_resumeSignal());
   }
@@ -58,7 +57,7 @@ class ConnectivityServiceImpl implements ConnectivityService {
   void _emitConnectivity(ConnectivityResult event) {
     if (event == _lastResult) return;
 
-    debugPrint('(TRACE) Connectivity status changed to $event');
+    Logger.d('Connectivity status changed to $event');
     _connectivityResultController.add(_convertResult(event));
     _lastResult = event;
   }

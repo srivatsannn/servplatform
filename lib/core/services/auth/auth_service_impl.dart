@@ -1,11 +1,13 @@
-import 'package:servplatform/core/constant/auth_exception_messages.dart';
+import 'package:flutter/foundation.dart';
 import 'package:servplatform/core/exceptions/auth_exception.dart';
 import 'package:servplatform/core/services/auth/auth_service.dart';
 import 'package:servplatform/core/services/key_storage/key_storage_service.dart';
-import 'package:servplatform/locator.dart';
+import 'package:servplatform/core/utils/logger.dart';
 
 class AuthServiceImpl implements AuthService {
-  final _keyStorageService = locator<KeyStorageService>();
+  final KeyStorageService keyStorageService;
+
+  const AuthServiceImpl({@required this.keyStorageService});
 
   @override
   Future<void> signUpWithEmailPassword(
@@ -15,9 +17,10 @@ class AuthServiceImpl implements AuthService {
   ) async {
     try {
       await Future.delayed(Duration(milliseconds: 250));
-      _keyStorageService.hasLoggedIn = true;
-    } on Exception catch (_) {
-      throw AuthException(AuthExceptionMessages.general);
+      keyStorageService.hasLoggedIn = true;
+    } on Exception {
+      Logger.e('AuthService: Error signing up');
+      throw AuthException('Error signing up');
     }
   }
 
@@ -28,9 +31,33 @@ class AuthServiceImpl implements AuthService {
   ) async {
     try {
       await Future.delayed(Duration(milliseconds: 250));
-      _keyStorageService.hasLoggedIn = true;
-    } on Exception catch (_) {
-      throw AuthException(AuthExceptionMessages.general);
+      //FirebaseUser user = await FirebaseAuth.instance
+      //.signInWithEmailAndPassword(email: email, password: password);
+
+      //keyStorageService.user_id = user.user_id
+      keyStorageService.hasLoggedIn = true;
+    } on Exception {
+      Logger.e('AuthService: Error signing in');
+      throw AuthException('Error signing in');
     }
+  }
+
+  @override
+  Future<void> signInAnon() async {
+    try {
+      await Future.delayed(Duration(milliseconds: 250));
+      keyStorageService.hasLoggedIn = true;
+      //keyStorageService.user_id = user.user_id
+      keyStorageService.userId = 'mg_8519';
+    } on Exception {
+      Logger.e('AuthService: Error signing in');
+      throw AuthException('Error signing in');
+    }
+  }
+
+  @override
+  Future<void> signOut() async {
+    await Future.delayed(Duration(milliseconds: 250));
+    keyStorageService.hasLoggedIn = false;
   }
 }

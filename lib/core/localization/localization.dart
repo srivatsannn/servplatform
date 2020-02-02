@@ -10,6 +10,8 @@ class AppLocalizations {
   final Locale locale;
   Map<String, String> _sentences;
 
+  var serviceHintText;
+
   AppLocalizations(this.locale);
 
   static AppLocalizations of(BuildContext context) =>
@@ -32,27 +34,35 @@ class AppLocalizations {
     return _sentences[key];
   }
 
-  // List of available sentences that correspond to the /assets/lang/<local>.json files
+  // List of available local strings that the app can use
+  //  - translated from the corresponding /assets/lang/<local>.json files
   String get appTitle => _translate('app-title');
+
   String get homeViewTitle => _translate('home-view-title');
+  String get merchanthomeViewTitle => _translate('merchant-home-view-title');
+
+  String get homeViewNoPosts => _translate('home-view-no-posts');
+  String get homeViewNoServices => _translate('home-view-no-services');
+
   String get settingsViewTitle => _translate('settings-view-title');
   String get settingsViewPermissions => _translate('settings-view-permissions');
   String get settingsViewPermissionsDesc =>
       _translate('settings-view-permissions-desc');
-  String get settingsViewAlert => _translate('settings-view-alert');
-  String get settingsViewAlertDesc => _translate('settings-view-alert-desc');
-  String get settingsViewNightMode => _translate('settings-view-night-mode');
-  String get settingsViewNightModeDesc =>
-      _translate('settings-view-night-mode-desc');
   String get settingsViewAppSettings =>
       _translate('settings-view-app-settings');
   String get settingsViewAppSettingsDesc =>
       _translate('settings-view-app-settings-desc');
+  String get settingsViewLocation => _translate('settings-view-location');
   String get settingsViewSignOut => _translate('settings-view-sign-out');
   String get settingsViewSignOutDesc =>
       _translate('settings-view-sign-out-desc');
+
   String get loginViewTitle => _translate('login-view-title');
+  String get merchantHomeViewTitle => _translate('merchant-home-view-title');
+
   String get loginButtonText => _translate('login-button-text');
+  String get addServiceButtonText => _translate('add_service-button-text');
+
   String get buttonTextCancel => _translate('button-text-cancel');
   String get buttonTextConfirm => _translate('button-text-confirm');
 
@@ -64,30 +74,14 @@ class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const AppLocalizationsDelegate();
 
   @override
-  bool isSupported(Locale locale) =>
-      supportedLocalCodes.contains(locale.languageCode);
-
-  /* @override
-  Future<AppLocalizations> load(Locale locale) async {
-
-
-    final localizations = AppLocalizations(locale);
-    await localizations.load();
-    return localizations;
-  } */
+  bool isSupported(Locale locale) {
+    return supportedLocalCodes.contains(locale.languageCode);
+  }
 
   @override
   Future<AppLocalizations> load(Locale locale) async {
-    // flutter 0.11 localeResolutionCallback fix, change it if fixed
-    if (locale == null || isSupported(locale) == false) {
-      debugPrint('*app_locale_delegate* fallback to locale ');
-
-      locale = Locale('en', 'US'); // fallback to default language
-    }
-
-    AppLocalizations localizations = new AppLocalizations(locale);
+    final localizations = AppLocalizations(locale);
     await localizations.load();
-
     return localizations;
   }
 
@@ -100,11 +94,14 @@ class FallbackCupertinoLocalizationsDelegate
   const FallbackCupertinoLocalizationsDelegate();
 
   @override
-  bool isSupported(Locale locale) => true;
+  bool isSupported(Locale locale) {
+    return supportedLocalCodes.contains(locale.languageCode);
+  }
 
   @override
-  Future<CupertinoLocalizations> load(Locale locale) =>
-      DefaultCupertinoLocalizations.load(locale);
+  Future<CupertinoLocalizations> load(Locale locale) {
+    return DefaultCupertinoLocalizations.load(locale);
+  }
 
   @override
   bool shouldReload(FallbackCupertinoLocalizationsDelegate old) => false;

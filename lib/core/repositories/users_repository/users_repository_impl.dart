@@ -1,53 +1,59 @@
-import 'package:servplatform/core/constant/api_routes.dart';
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:servplatform/core/constant/firebase_paths.dart';
+
 import 'package:servplatform/core/constant/repository_exception_messages.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
-import 'package:servplatform/core/hive_models/user_h.dart';
+
 import 'package:servplatform/core/repositories/users_repository/users_repository.dart';
-import 'package:servplatform/core/serializers/user.dart';
-import 'package:servplatform/core/services/connectivity/connectivity_service.dart';
-import 'package:servplatform/core/services/http/http_service.dart';
-import 'package:servplatform/core/services/local_storage/local_storage_service.dart';
+import 'package:servplatform/core/models/user/user.dart';
+import 'package:servplatform/core/services/firebase/firebase_service.dart';
+
 import 'package:servplatform/locator.dart';
 
+import '../../../locator.dart';
+
 class UsersRepositoryImpl implements UsersRepository {
-  final _httpService = locator<HttpService>();
-  final _localStorageService = locator<LocalStorageService>();
-  final _connectionService = locator<ConnectivityService>();
+  final _firebaseService = locator<FirebaseService>();
+  List<User> users;
 
   @override
-  Future<User> fetchUser(int userId) async {
+  Future<List<User>> fetchUsers() async {
     try {
-      if (await _connectionService.isConnected()) {
-        final user = await _fetchUserRemotely(userId);
-        await _storeUserLocally(user);
-
-        return user;
-      } else {
-        return _fetchUserLocally(userId);
-      }
+      final usersJsonData =
+          await _firebaseService.getDataCollection(FirebasePaths.users);
+      final users = usersJsonData.map((doc) => User.fromMap(doc.data)).toList();
+      return users;
     } catch (e) {
-      throw RepositoryException(RepositoryExceptionMessages.general_user);
+      throw RepositoryException(RepositoryExceptionMessages.general_service);
     }
   }
 
-  Future<User> _fetchUserRemotely(int userId) async {
-    final postsMap = await _httpService.getHttp('${ApiRoutes.users}/$userId')
-        as Map<String, dynamic>;
-
-    final user = User.fromMap(postsMap);
-    return user;
+  Stream<QuerySnapshot> fetchUsersAsStream() {
+    return _firebaseService.streamDataCollection(FirebasePaths.users);
   }
 
-  Future<void> _storeUserLocally(User user) async {
-    await _localStorageService.usersBox.put(user.id, UserH.fromUser(user));
+  Future<User> getUserById(String id) async {
+    var doc = await _firebaseService.getDocumentById(FirebasePaths.users, id);
+    return User.fromMap(doc.data);
   }
 
-  User _fetchUserLocally(int userId) {
-    final userH = _localStorageService.usersBox.get(userId);
-    if (userH == null) {
-      throw RepositoryException(RepositoryExceptionMessages.user_local);
-    }
+  Future removeUser(String id) async {
+    await _firebaseService.removeDocument(FirebasePaths.users, id);
+    return;
+  }
 
-    return User.fromMap(userH.toMap());
+  Future updateUser(User data, String id) async {
+    await _firebaseService.updateDocument(
+        FirebasePaths.users, data.toMap(), id);
+    return;
+  }
+
+  Future addUser(User data) async {
+    var result =
+        await _firebaseService.addDocument(FirebasePaths.users, data.toMap());
+
+    return;
   }
 }

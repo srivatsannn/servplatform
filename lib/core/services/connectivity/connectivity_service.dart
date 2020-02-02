@@ -4,5 +4,5 @@ import 'package:servplatform/core/services/stoppable_service.dart';
 abstract class ConnectivityService implements StoppableService {
   Stream<ConnectivityStatus> get connectivity$;
 
-  Future<bool> isConnected();
+  Future<bool> get isConnected;
 }

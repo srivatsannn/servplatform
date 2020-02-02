@@ -9,4 +9,8 @@ abstract class AuthService {
     String email,
     String password,
   );
+
+  Future<void> signInAnon();
+
+  Future<void> signOut();
 }

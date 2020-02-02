@@ -1,6 +1,12 @@
-import 'package:servplatform/core/serializers/user.dart';
+import 'package:servplatform/core/models/user/user.dart';
 
 abstract class UsersRepository {
-  /// - throws `RepositoryException` if fetch fails
-  Future<User> fetchUser(int userId);
+  Future<List<User>> fetchUsers();
+  Future<User> getUserById(String id);
+  Future removeUser(String id) ;
+  Future updateUser(User data, String id);
+  Future addUser(User data);
+
+
+  
 }

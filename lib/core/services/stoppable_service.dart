@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 ///   - Stoppable service must be able to start
 ///   - Stoppable service must be able to stop
 abstract class StoppableService {
-  bool _serviceStoped = false;
-  bool get serviceStopped => _serviceStoped;
+  bool _serviceStopped = false;
+  bool get serviceStopped => _serviceStopped;
 
   @mustCallSuper
   void stop() {
-    _serviceStoped = true;
+    _serviceStopped = true;
   }
 
   @mustCallSuper
   void start() {
-    _serviceStoped = false;
+    _serviceStopped = false;
   }
 }
