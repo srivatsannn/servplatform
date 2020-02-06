@@ -8,9 +8,53 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:563574805348:android:038b6113ed603098faa071",
+        "mobilesdk_app_id": "1:563574805348:android:cfcef4db8a9d4360faa071",
         "android_client_info": {
-          "package_name": "com.servplarform.servplatform"
+          "package_name": "com.example.servplatform"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "563574805348-jvd0vcqtkcmr7c6p2or5nurqgc8o4sve.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.servplatform",
+            "certificate_hash": "ac5e92f9bc804fa723383366b4cf28bc667449d5"
+          }
+        },
+        {
+          "client_id": "563574805348-ectd6vbpljv589d20ehleab6ltas8e2o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKk2x1DRYlFJeQdZ5tmpmgWO-ynJ2ZllM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "563574805348-ectd6vbpljv589d20ehleab6ltas8e2o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "563574805348-e39sejctr57faqen2h701tea798q9s9j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.servplatform.servplatform"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563574805348:android:a7e2a5eaa66fb81cfaa071",
+        "android_client_info": {
+          "package_name": "com.servplatform.servplatform"
         }
       },
       "oauth_client": [
@@ -30,6 +74,13 @@
             {
               "client_id": "563574805348-ectd6vbpljv589d20ehleab6ltas8e2o.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "563574805348-e39sejctr57faqen2h701tea798q9s9j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.servplatform.servplatform"
+              }
             }
           ]
         }
