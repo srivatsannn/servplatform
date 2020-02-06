@@ -60,6 +60,12 @@ class _$ServiceSerializer implements StructuredSerializer<Service> {
         ..add(serializers.serialize(object.logo_url,
             specifiedType: const FullType(String)));
     }
+    if (object.is_multiple != null) {
+      result
+        ..add('is_multiple')
+        ..add(serializers.serialize(object.is_multiple,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -102,6 +108,10 @@ class _$ServiceSerializer implements StructuredSerializer<Service> {
           result.logo_url = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'is_multiple':
+          result.is_multiple = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
       }
     }
 
@@ -124,6 +134,8 @@ class _$Service extends Service {
   final String price;
   @override
   final String logo_url;
+  @override
+  final String is_multiple;
 
   factory _$Service([void Function(ServiceBuilder) updates]) =>
       (new ServiceBuilder()..update(updates)).build();
@@ -135,7 +147,8 @@ class _$Service extends Service {
       this.service_name,
       this.currency,
       this.price,
-      this.logo_url})
+      this.logo_url,
+      this.is_multiple})
       : super._();
 
   @override
@@ -155,7 +168,8 @@ class _$Service extends Service {
         service_name == other.service_name &&
         currency == other.currency &&
         price == other.price &&
-        logo_url == other.logo_url;
+        logo_url == other.logo_url &&
+        is_multiple == other.is_multiple;
   }
 
   @override
@@ -164,12 +178,14 @@ class _$Service extends Service {
         $jc(
             $jc(
                 $jc(
-                    $jc($jc($jc(0, id.hashCode), service.hashCode),
-                        percentage_match.hashCode),
-                    service_name.hashCode),
-                currency.hashCode),
-            price.hashCode),
-        logo_url.hashCode));
+                    $jc(
+                        $jc($jc($jc(0, id.hashCode), service.hashCode),
+                            percentage_match.hashCode),
+                        service_name.hashCode),
+                    currency.hashCode),
+                price.hashCode),
+            logo_url.hashCode),
+        is_multiple.hashCode));
   }
 
   @override
@@ -181,7 +197,8 @@ class _$Service extends Service {
           ..add('service_name', service_name)
           ..add('currency', currency)
           ..add('price', price)
-          ..add('logo_url', logo_url))
+          ..add('logo_url', logo_url)
+          ..add('is_multiple', is_multiple))
         .toString();
   }
 }
@@ -218,6 +235,10 @@ class ServiceBuilder implements Builder<Service, ServiceBuilder> {
   String get logo_url => _$this._logo_url;
   set logo_url(String logo_url) => _$this._logo_url = logo_url;
 
+  String _is_multiple;
+  String get is_multiple => _$this._is_multiple;
+  set is_multiple(String is_multiple) => _$this._is_multiple = is_multiple;
+
   ServiceBuilder();
 
   ServiceBuilder get _$this {
@@ -229,6 +250,7 @@ class ServiceBuilder implements Builder<Service, ServiceBuilder> {
       _currency = _$v.currency;
       _price = _$v.price;
       _logo_url = _$v.logo_url;
+      _is_multiple = _$v.is_multiple;
       _$v = null;
     }
     return this;
@@ -257,7 +279,8 @@ class ServiceBuilder implements Builder<Service, ServiceBuilder> {
             service_name: service_name,
             currency: currency,
             price: price,
-            logo_url: logo_url);
+            logo_url: logo_url,
+            is_multiple: is_multiple);
     replace(_$result);
     return _$result;
   }

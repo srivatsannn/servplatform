@@ -9,14 +9,12 @@ import 'package:servplatform/ui/widgets/add_button.dart';
 class ServiceTile extends StatelessWidget {
   final Service service;
   final Function onTap;
-  final Function onAddButton;
 
-  const ServiceTile(
-      {Key key,
-      @required this.service,
-      @required this.onTap,
-      @required this.onAddButton})
-      : super(key: key);
+  const ServiceTile({
+    Key key,
+    @required this.service,
+    @required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -81,11 +79,18 @@ class ServiceTile extends StatelessWidget {
               ),
             )),
         trailing: Container(
-          width: 100,
+          width: 80,
           child: AddButton(
-            onAddButton: onAddButton,
-            service: service,
-          ),
+              //TODO once currency symbol variable is added Text("${service.currency} ${service.price}"),
+              //Text('\$'),
+              // Text('\$ ${model.service.price}',
+
+              onTap: () {},
+              onUpdateQuantity: (value) {},
+              onRemove: () {},
+              text: '\$ ${service.price}',
+              is_multiple: service.is_multiple,
+              initialValue: 1),
         ),
         onTap: () {
           Navigator.of(context).pushNamed(

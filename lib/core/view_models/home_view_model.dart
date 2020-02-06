@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
@@ -17,6 +19,7 @@ class HomeViewModel extends BaseViewModel {
   final _authService = locator<AuthService>();
   final _servicesRepository = locator<ServicesRepository>();
   final keyStorageService = locator<KeyStorageService>();
+
   User _user;
   User get user => _user;
 
@@ -65,14 +68,12 @@ class HomeViewModel extends BaseViewModel {
 
   Future<void> onUserLocationUpdate() async {}
 
-  onTap(Service service, BuildContext context) {
+  void onTap(Service service, BuildContext context) {
     Navigator.of(context).pushNamed(
       ViewRoutes.provider_page,
       arguments: service,
     );
   }
-
-  onAddButton(Service service) {}
 
   //update location() = navigate to locatios Screen
   //update when required => open diaglog update navigate screen

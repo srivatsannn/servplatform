@@ -1,6 +1,4 @@
 import 'package:get_it/get_it.dart';
-import 'package:servplatform/core/data_sources/posts/posts_local_data_source.dart';
-import 'package:servplatform/core/data_sources/posts/posts_remote_data_source.dart';
 import 'package:servplatform/core/repositories/adhoc_requests_repository/adhoc_requests_repository.dart';
 import 'package:servplatform/core/repositories/adhoc_requests_repository/adhoc_requests_repository_impl.dart';
 import 'package:servplatform/core/repositories/agents_repository/agents_repository.dart';
@@ -31,8 +29,6 @@ import 'package:servplatform/core/services/http/http_service.dart';
 import 'package:servplatform/core/services/http/http_service_impl.dart';
 import 'package:servplatform/core/services/key_storage/key_storage_service.dart';
 import 'package:servplatform/core/services/key_storage/key_storage_service_impl.dart';
-import 'package:servplatform/core/repositories/posts_repository/posts_repository.dart';
-import 'package:servplatform/core/repositories/posts_repository/posts_repository_impl.dart';
 import 'package:servplatform/core/repositories/users_repository/users_repository.dart';
 import 'package:servplatform/core/repositories/users_repository/users_repository_impl.dart';
 import 'package:servplatform/core/repositories/services_repository/services_repository.dart';
@@ -83,21 +79,7 @@ Future<void> setupLocator() async {
     () => FirebaseServiceImpl(),
   );
 
-  // Data sources
-  locator.registerLazySingleton<PostsLocalDataSource>(
-    () => PostsLocalDataSourceImpl(localStorageService: locator()),
-  );
-  locator.registerLazySingleton<PostsRemoteDataSource>(
-    () => PostsRemoteDataSourceImpl(httpService: locator()),
-  );
-  // Repositories
-  locator.registerLazySingleton<PostsRepository>(
-    () => PostsRepositoryImpl(
-      localDataSource: locator(),
-      connectivityService: locator(),
-      remoteDataSource: locator(),
-    ),
-  );
+  
 
   locator.registerLazySingleton<ServicesRepository>(
     () => ServicesRepositoryImpl(),

@@ -20,5 +20,5 @@ enum ViewState {
   Success,
 
   /// The starting state that a form view is in
-  WaitingForInput
+  WaitingForInput,
 }

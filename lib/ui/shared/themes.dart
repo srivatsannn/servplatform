@@ -1,21 +1,30 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-final primaryMaterialTheme = ThemeData.light();
+final primaryMaterialTheme = ThemeData(
+    brightness: Brightness.light,
+    scaffoldBackgroundColor: Colors.white,
+    bottomAppBarTheme: BottomAppBarTheme(elevation: 0),
+    iconTheme: IconThemeData(color: Colors.grey[400]));
+
 //  ..textTheme.apply(fontFamily: 'Open Sans');
 final darkMaterialTheme = ThemeData.dark();
 // ..textTheme.apply(fontFamily: 'Open Sans');
 
-final primaryCupertinoTheme = CupertinoThemeData(
-  primaryColor: Colors.purple,
+/* final primaryCupertinoTheme = CupertinoThemeData(
+  primaryColor: Colors.grey,
+  scaffoldBackgroundColor: Colors.white,
   brightness: Brightness.light,
+
+
+
   textTheme: CupertinoTextThemeData(
-    primaryColor: Colors.purple,
+    primaryColor: Colors.grey,
     navTitleTextStyle: TextStyle(
-      color: Colors.purple,
+      color: Colors.grey,
     ),
     tabLabelTextStyle: TextStyle(
-      color: Colors.purple,
+      color: Colors.grey,
     ),
   ),
 );
@@ -34,4 +43,4 @@ final darkCupertinoTheme = CupertinoThemeData(
       color: Colors.blue,
     ),
   ),
-);
+); */
