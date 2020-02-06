@@ -9,6 +9,8 @@ import 'package:servplatform/ui/widgets/list_header.dart';
 import 'package:servplatform/ui/widgets/search_field.dart';
 import 'package:servplatform/ui/widgets/service_tile.dart';
 import 'package:servplatform/ui/widgets/sliver_multiline_app_bar.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
+
 
 class HomeView extends StatelessWidget {
   @override
@@ -18,35 +20,58 @@ class HomeView extends StatelessWidget {
     final bottomAppBarTheme = Theme.of(context).bottomAppBarTheme;
     final iconTheme = Theme.of(context).iconTheme;
 
+    
+
+
     return ViewModelProvider<HomeViewModel>.withoutConsumer(
         viewModel: HomeViewModel(),
         onModelReady: (model) => model.init(),
-        builder: (context, model, child) => Scaffold(
-              body: CustomScrollView(slivers: <Widget>[
-                SliverMultilineAppBar(
-                  title: 'Choose a Service for you below',
-                  subtitle: 'or swipe up to browse 2, 124 active services',
-                ),
-                SliverList(
-                  delegate: SliverChildListDelegate([SearchField()]),
-                ),
-                _RecommendedServices(),
-              ]),
-              bottomNavigationBar: BottomAppBar(
-                elevation: bottomAppBarTheme.elevation,
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    Text('More', style: textTheme.caption),
-                    LiveIconButton(
-                      icon: AnimatedIcons.menu_close,
-                      onPressed: () {},
+        builder: (context, model, child) => 
+        
+        
+        SlidingUpPanel(
+          renderPanelSheet: false,
+          backdropEnabled: true,
+          controller: model.pc,
+          //collapsed: _floatingCollapsed(context),
+
+      
+        panel: _floatingPanel(context,model.pc),
+      body:
+        Scaffold(
+               
+      body: Center(
+      
+                                child: CustomScrollView(slivers: <Widget>[
+                    SliverMultilineAppBar(
+                      title: 'Choose a Service for you below',
+                      subtitle: 'or swipe up to browse 2, 124 active services',
                     ),
-                  ],
+                    SliverList(
+                      delegate: SliverChildListDelegate([SearchField()]),
+                    ),
+                    _RecommendedServices(),
+                  ]),
                 ),
+                /* bottomNavigationBar: BottomAppBar(
+                  elevation: bottomAppBarTheme.elevation,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Text('More', style: textTheme.caption),
+                      LiveIconButton(
+                        icon: AnimatedIcons.menu_close,
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                ), */
+              )
               ),
-            ));
+        )
+    
+            ;
   }
 }
 
@@ -102,4 +127,84 @@ class _LoadingAnimation extends StatelessWidget {
       ]),
     );
   }
+}
+
+
+/* Widget _floatingCollapsed(context){
+    final textTheme = Theme.of(context).textTheme;
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(24.0), topRight: Radius.circular(24.0)),
+      ),
+      //margin: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
+      child: Center(
+        child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Text('More', style: textTheme.caption),
+                      LiveIconButton(
+                        icon: AnimatedIcons.menu_close,
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                ), 
+
+    
+  );
+} */
+
+Widget _floatingPanel(context,pc){
+      final textTheme = Theme.of(context).textTheme;
+
+  return Container(
+    decoration: BoxDecoration(
+      color: Colors.white,
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(24.0), topRight: Radius.circular(24.0)),
+      /* boxShadow: [
+        BoxShadow(
+          blurRadius: 20.0,
+          color: Colors.grey,
+        ), 
+      ]*/
+    ),
+    //margin: const EdgeInsets.all(24.0),
+    child: Column(
+      children: <Widget>[
+        Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Text('More', style: textTheme.caption),
+                      LiveIconButton(
+                        icon: AnimatedIcons.menu_close,
+                        onPressed: () {
+
+                            pc.show();
+                          //onTapMenu(context);
+
+                        },
+                      ),
+                    ],
+                  ),
+ Text("This is the SlidingUpPanel when open"),
+    Text('Deliver features faster'),
+    Text('Craft beautiful UIs'),
+    Expanded(
+      child: FittedBox(
+        fit: BoxFit.contain, // otherwise the logo will be tiny
+        child: const FlutterLogo(),
+      ),
+    ),
+  ],
+
+      
+      
+      
+      
+     
+    ),
+  );
 }

@@ -43,6 +43,7 @@ dependencies:
   # UI Utilities
   flutter_platform_widgets: ^0.30.1
   auto_animated: any
+  sliding_up_panel: ^1.0.0
 
   # UI Widgets
   flare_splash_screen: any

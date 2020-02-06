@@ -5,6 +5,7 @@ import 'package:servplatform/core/constant/view_routes.dart';
 import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/localization/localization.dart';
 import 'package:servplatform/core/view_models/home_view_model.dart';
+import 'package:servplatform/core/view_models/provider_setup_view_model.dart';
 import 'package:servplatform/ui/widgets/list_header.dart';
 import 'package:servplatform/ui/widgets/service_tile.dart';
 import 'package:servplatform/ui/widgets/sliver_multiline_app_bar.dart';
@@ -15,8 +16,8 @@ class ProviderPageView extends StatelessWidget {
     final local = AppLocalizations.of(context);
     final textTheme = Theme.of(context).textTheme;
 
-    return ViewModelProvider<HomeViewModel>.withoutConsumer(
-        viewModel: HomeViewModel(),
+    return ViewModelProvider<ProviderSetupViewModel>.withoutConsumer(
+        viewModel: ProviderSetupViewModel(),
         onModelReady: (model) => model.init(),
         builder: (context, model, child) => Scaffold(
               body: CustomScrollView(slivers: <Widget>[

@@ -13,12 +13,14 @@ import 'package:servplatform/core/constant/view_routes.dart';
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 import 'package:servplatform/core/services/key_storage/key_storage_service.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class HomeViewModel extends BaseViewModel {
   final _usersRepository = locator<UsersRepository>();
   final _authService = locator<AuthService>();
   final _servicesRepository = locator<ServicesRepository>();
   final keyStorageService = locator<KeyStorageService>();
+
 
   User _user;
   User get user => _user;
@@ -27,6 +29,12 @@ class HomeViewModel extends BaseViewModel {
   List<Service> get services => _services;
   final TextEditingController _searchControl = TextEditingController();
   TextEditingController get searchControl => _searchControl;
+             PanelController _pc = new PanelController();
+ 
+  get pc => _pc;
+
+
+
 
   Future<void> init() async {
     setState(ViewState.Busy);
@@ -42,6 +50,8 @@ class HomeViewModel extends BaseViewModel {
 
       //final String userId = keyStorageService.userId;
       //Mocked user_id
+        PanelController _pc = new PanelController();
+
 
       final String userId = 'mg8519';
       final User _user = await _usersRepository.getUserById(userId);
@@ -76,6 +86,7 @@ class HomeViewModel extends BaseViewModel {
   }
   void onTapMenu(BuildContext context){
 
+        pc.show();
 
   }
 
