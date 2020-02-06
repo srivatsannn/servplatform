@@ -24,6 +24,12 @@ class _$UserSerializer implements StructuredSerializer<User> {
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
     }
+    if (object.email != null) {
+      result
+        ..add('email')
+        ..add(serializers.serialize(object.email,
+            specifiedType: const FullType(String)));
+    }
     if (object.user_id != null) {
       result
         ..add('user_id')
@@ -59,26 +65,22 @@ class _$UserSerializer implements StructuredSerializer<User> {
       result
         ..add('recommended_stories')
         ..add(serializers.serialize(object.recommended_stories,
-            specifiedType: const FullType(String)));
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.recommended_categories != null) {
       result
         ..add('recommended_categories')
         ..add(serializers.serialize(object.recommended_categories,
-            specifiedType: const FullType(String)));
-    }
-    if (object.recommended_services_in_each_recommended_category != null) {
-      result
-        ..add('recommended_services_in_each_recommended_category')
-        ..add(serializers.serialize(
-            object.recommended_services_in_each_recommended_category,
-            specifiedType: const FullType(String)));
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.notifications != null) {
       result
         ..add('notifications')
         ..add(serializers.serialize(object.notifications,
-            specifiedType: const FullType(String)));
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.profile_completion_steps_pending != null) {
       result
@@ -114,7 +116,8 @@ class _$UserSerializer implements StructuredSerializer<User> {
       result
         ..add('friends')
         ..add(serializers.serialize(object.friends,
-            specifiedType: const FullType(String)));
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.rating != null) {
       result
@@ -392,6 +395,10 @@ class _$UserSerializer implements StructuredSerializer<User> {
           result.id = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
+        case 'email':
+          result.email = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
         case 'user_id':
           result.user_id = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
@@ -415,21 +422,22 @@ class _$UserSerializer implements StructuredSerializer<User> {
               as BuiltList<dynamic>);
           break;
         case 'recommended_stories':
-          result.recommended_stories = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.recommended_stories.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<dynamic>);
           break;
         case 'recommended_categories':
-          result.recommended_categories = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'recommended_services_in_each_recommended_category':
-          result.recommended_services_in_each_recommended_category = serializers
-                  .deserialize(value, specifiedType: const FullType(String))
-              as String;
+          result.recommended_categories.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<dynamic>);
           break;
         case 'notifications':
-          result.notifications = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.notifications.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<dynamic>);
           break;
         case 'profile_completion_steps_pending':
           result.profile_completion_steps_pending = serializers.deserialize(
@@ -453,8 +461,10 @@ class _$UserSerializer implements StructuredSerializer<User> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'friends':
-          result.friends = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.friends.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<dynamic>);
           break;
         case 'rating':
           result.rating = serializers.deserialize(value,
@@ -639,6 +649,8 @@ class _$User extends User {
   @override
   final int id;
   @override
+  final String email;
+  @override
   final String user_id;
   @override
   final String full_name;
@@ -649,13 +661,11 @@ class _$User extends User {
   @override
   final BuiltList<String> recommended_services;
   @override
-  final String recommended_stories;
+  final BuiltList<String> recommended_stories;
   @override
-  final String recommended_categories;
+  final BuiltList<String> recommended_categories;
   @override
-  final String recommended_services_in_each_recommended_category;
-  @override
-  final String notifications;
+  final BuiltList<String> notifications;
   @override
   final String profile_completion_steps_pending;
   @override
@@ -667,7 +677,7 @@ class _$User extends User {
   @override
   final String latitude;
   @override
-  final String friends;
+  final BuiltList<String> friends;
   @override
   final String rating;
   @override
@@ -760,6 +770,7 @@ class _$User extends User {
 
   _$User._(
       {this.id,
+      this.email,
       this.user_id,
       this.full_name,
       this.phone_number,
@@ -767,7 +778,6 @@ class _$User extends User {
       this.recommended_services,
       this.recommended_stories,
       this.recommended_categories,
-      this.recommended_services_in_each_recommended_category,
       this.notifications,
       this.profile_completion_steps_pending,
       this.segment,
@@ -832,6 +842,7 @@ class _$User extends User {
     if (identical(other, this)) return true;
     return other is User &&
         id == other.id &&
+        email == other.email &&
         user_id == other.user_id &&
         full_name == other.full_name &&
         phone_number == other.phone_number &&
@@ -839,8 +850,6 @@ class _$User extends User {
         recommended_services == other.recommended_services &&
         recommended_stories == other.recommended_stories &&
         recommended_categories == other.recommended_categories &&
-        recommended_services_in_each_recommended_category ==
-            other.recommended_services_in_each_recommended_category &&
         notifications == other.notifications &&
         profile_completion_steps_pending ==
             other.profile_completion_steps_pending &&
@@ -914,7 +923,7 @@ class _$User extends User {
                                                                 $jc(
                                                                     $jc(
                                                                         $jc(
-                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, id.hashCode), user_id.hashCode), full_name.hashCode), phone_number.hashCode), profile_pic.hashCode), recommended_services.hashCode), recommended_stories.hashCode), recommended_categories.hashCode), recommended_services_in_each_recommended_category.hashCode), notifications.hashCode), profile_completion_steps_pending.hashCode), segment.hashCode), age.hashCode), longitude.hashCode), latitude.hashCode), friends.hashCode), rating.hashCode), orders.hashCode), payment_methods.hashCode), address.hashCode), password_reset_token.hashCode), is_blocked.hashCode), vendor_image.hashCode), device_type.hashCode), app_versioncode.hashCode), language.hashCode), last_login_date_time.hashCode), creation_datetime.hashCode), vendor_api_key.hashCode), is_phone_verified.hashCode), credits.hashCode), pending_amount.hashCode), successful_task_count.hashCode), referral_code.hashCode), referrer_id.hashCode), reference_id.hashCode), is_first_login.hashCode), registration_status.hashCode), push_device_type.hashCode), login_from.hashCode),
+                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, id.hashCode), email.hashCode), user_id.hashCode), full_name.hashCode), phone_number.hashCode), profile_pic.hashCode), recommended_services.hashCode), recommended_stories.hashCode), recommended_categories.hashCode), notifications.hashCode), profile_completion_steps_pending.hashCode), segment.hashCode), age.hashCode), longitude.hashCode), latitude.hashCode), friends.hashCode), rating.hashCode), orders.hashCode), payment_methods.hashCode), address.hashCode), password_reset_token.hashCode), is_blocked.hashCode), vendor_image.hashCode), device_type.hashCode), app_versioncode.hashCode), language.hashCode), last_login_date_time.hashCode), creation_datetime.hashCode), vendor_api_key.hashCode), is_phone_verified.hashCode), credits.hashCode), pending_amount.hashCode), successful_task_count.hashCode), referral_code.hashCode), referrer_id.hashCode), reference_id.hashCode), is_first_login.hashCode), registration_status.hashCode), push_device_type.hashCode), login_from.hashCode),
                                                                                 custom_field_status.hashCode),
                                                                             subscription_plan.hashCode),
                                                                         is_subscribed.hashCode),
@@ -940,6 +949,7 @@ class _$User extends User {
   String toString() {
     return (newBuiltValueToStringHelper('User')
           ..add('id', id)
+          ..add('email', email)
           ..add('user_id', user_id)
           ..add('full_name', full_name)
           ..add('phone_number', phone_number)
@@ -947,8 +957,6 @@ class _$User extends User {
           ..add('recommended_services', recommended_services)
           ..add('recommended_stories', recommended_stories)
           ..add('recommended_categories', recommended_categories)
-          ..add('recommended_services_in_each_recommended_category',
-              recommended_services_in_each_recommended_category)
           ..add('notifications', notifications)
           ..add('profile_completion_steps_pending',
               profile_completion_steps_pending)
@@ -1011,6 +1019,10 @@ class UserBuilder implements Builder<User, UserBuilder> {
   int get id => _$this._id;
   set id(int id) => _$this._id = id;
 
+  String _email;
+  String get email => _$this._email;
+  set email(String email) => _$this._email = email;
+
   String _user_id;
   String get user_id => _$this._user_id;
   set user_id(String user_id) => _$this._user_id = user_id;
@@ -1033,27 +1045,22 @@ class UserBuilder implements Builder<User, UserBuilder> {
   set recommended_services(ListBuilder<String> recommended_services) =>
       _$this._recommended_services = recommended_services;
 
-  String _recommended_stories;
-  String get recommended_stories => _$this._recommended_stories;
-  set recommended_stories(String recommended_stories) =>
+  ListBuilder<String> _recommended_stories;
+  ListBuilder<String> get recommended_stories =>
+      _$this._recommended_stories ??= new ListBuilder<String>();
+  set recommended_stories(ListBuilder<String> recommended_stories) =>
       _$this._recommended_stories = recommended_stories;
 
-  String _recommended_categories;
-  String get recommended_categories => _$this._recommended_categories;
-  set recommended_categories(String recommended_categories) =>
+  ListBuilder<String> _recommended_categories;
+  ListBuilder<String> get recommended_categories =>
+      _$this._recommended_categories ??= new ListBuilder<String>();
+  set recommended_categories(ListBuilder<String> recommended_categories) =>
       _$this._recommended_categories = recommended_categories;
 
-  String _recommended_services_in_each_recommended_category;
-  String get recommended_services_in_each_recommended_category =>
-      _$this._recommended_services_in_each_recommended_category;
-  set recommended_services_in_each_recommended_category(
-          String recommended_services_in_each_recommended_category) =>
-      _$this._recommended_services_in_each_recommended_category =
-          recommended_services_in_each_recommended_category;
-
-  String _notifications;
-  String get notifications => _$this._notifications;
-  set notifications(String notifications) =>
+  ListBuilder<String> _notifications;
+  ListBuilder<String> get notifications =>
+      _$this._notifications ??= new ListBuilder<String>();
+  set notifications(ListBuilder<String> notifications) =>
       _$this._notifications = notifications;
 
   String _profile_completion_steps_pending;
@@ -1080,9 +1087,10 @@ class UserBuilder implements Builder<User, UserBuilder> {
   String get latitude => _$this._latitude;
   set latitude(String latitude) => _$this._latitude = latitude;
 
-  String _friends;
-  String get friends => _$this._friends;
-  set friends(String friends) => _$this._friends = friends;
+  ListBuilder<String> _friends;
+  ListBuilder<String> get friends =>
+      _$this._friends ??= new ListBuilder<String>();
+  set friends(ListBuilder<String> friends) => _$this._friends = friends;
 
   String _rating;
   String get rating => _$this._rating;
@@ -1286,22 +1294,21 @@ class UserBuilder implements Builder<User, UserBuilder> {
   UserBuilder get _$this {
     if (_$v != null) {
       _id = _$v.id;
+      _email = _$v.email;
       _user_id = _$v.user_id;
       _full_name = _$v.full_name;
       _phone_number = _$v.phone_number;
       _profile_pic = _$v.profile_pic;
       _recommended_services = _$v.recommended_services?.toBuilder();
-      _recommended_stories = _$v.recommended_stories;
-      _recommended_categories = _$v.recommended_categories;
-      _recommended_services_in_each_recommended_category =
-          _$v.recommended_services_in_each_recommended_category;
-      _notifications = _$v.notifications;
+      _recommended_stories = _$v.recommended_stories?.toBuilder();
+      _recommended_categories = _$v.recommended_categories?.toBuilder();
+      _notifications = _$v.notifications?.toBuilder();
       _profile_completion_steps_pending = _$v.profile_completion_steps_pending;
       _segment = _$v.segment;
       _age = _$v.age;
       _longitude = _$v.longitude;
       _latitude = _$v.latitude;
-      _friends = _$v.friends;
+      _friends = _$v.friends?.toBuilder();
       _rating = _$v.rating;
       _orders = _$v.orders;
       _payment_methods = _$v.payment_methods;
@@ -1370,23 +1377,22 @@ class UserBuilder implements Builder<User, UserBuilder> {
       _$result = _$v ??
           new _$User._(
               id: id,
+              email: email,
               user_id: user_id,
               full_name: full_name,
               phone_number: phone_number,
               profile_pic: profile_pic,
               recommended_services: _recommended_services?.build(),
-              recommended_stories: recommended_stories,
-              recommended_categories: recommended_categories,
-              recommended_services_in_each_recommended_category:
-                  recommended_services_in_each_recommended_category,
-              notifications: notifications,
+              recommended_stories: _recommended_stories?.build(),
+              recommended_categories: _recommended_categories?.build(),
+              notifications: _notifications?.build(),
               profile_completion_steps_pending:
                   profile_completion_steps_pending,
               segment: segment,
               age: age,
               longitude: longitude,
               latitude: latitude,
-              friends: friends,
+              friends: _friends?.build(),
               rating: rating,
               orders: orders,
               payment_methods: payment_methods,
@@ -1435,6 +1441,15 @@ class UserBuilder implements Builder<User, UserBuilder> {
       try {
         _$failedField = 'recommended_services';
         _recommended_services?.build();
+        _$failedField = 'recommended_stories';
+        _recommended_stories?.build();
+        _$failedField = 'recommended_categories';
+        _recommended_categories?.build();
+        _$failedField = 'notifications';
+        _notifications?.build();
+
+        _$failedField = 'friends';
+        _friends?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'User', _$failedField, e.toString());

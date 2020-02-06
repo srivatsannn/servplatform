@@ -17,180 +17,355 @@ class _$MerchantSerializer implements StructuredSerializer<Merchant> {
   @override
   Iterable<Object> serialize(Serializers serializers, Merchant object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'merchant_key',
-      serializers.serialize(object.merchant_key,
-          specifiedType: const FullType(String)),
-      'user_key',
-      serializers.serialize(object.user_key,
-          specifiedType: const FullType(String)),
-      'provider_key',
-      serializers.serialize(object.provider_key,
-          specifiedType: const FullType(String)),
-      'earnings',
-      serializers.serialize(object.earnings,
-          specifiedType: const FullType(String)),
-      'is_verified',
-      serializers.serialize(object.is_verified,
-          specifiedType: const FullType(String)),
-      'company_address',
-      serializers.serialize(object.company_address,
-          specifiedType: const FullType(String)),
-      'display_address',
-      serializers.serialize(object.display_address,
-          specifiedType: const FullType(String)),
-      'business_category_id',
-      serializers.serialize(object.business_category_id,
-          specifiedType: const FullType(String)),
-      'is_active',
-      serializers.serialize(object.is_active,
-          specifiedType: const FullType(String)),
-      'phone_number',
-      serializers.serialize(object.phone_number,
-          specifiedType: const FullType(String)),
-      'country_code',
-      serializers.serialize(object.country_code,
-          specifiedType: const FullType(String)),
-      'first_name',
-      serializers.serialize(object.first_name,
-          specifiedType: const FullType(String)),
-      'last_name',
-      serializers.serialize(object.last_name,
-          specifiedType: const FullType(String)),
-      'store_name',
-      serializers.serialize(object.store_name,
-          specifiedType: const FullType(String)),
-      'description',
-      serializers.serialize(object.description,
-          specifiedType: const FullType(String)),
-      'logo',
-      serializers.serialize(object.logo, specifiedType: const FullType(String)),
-      'thumb_url',
-      serializers.serialize(object.thumb_url,
-          specifiedType: const FullType(String)),
-      'thumb_list',
-      serializers.serialize(object.thumb_list,
-          specifiedType: const FullType(String)),
-      'banner_image',
-      serializers.serialize(object.banner_image,
-          specifiedType: const FullType(String)),
-      'mobile_banner_image',
-      serializers.serialize(object.mobile_banner_image,
-          specifiedType: const FullType(String)),
-      'device_token',
-      serializers.serialize(object.device_token,
-          specifiedType: const FullType(String)),
-      'country_id',
-      serializers.serialize(object.country_id,
-          specifiedType: const FullType(String)),
-      'state_id',
-      serializers.serialize(object.state_id,
-          specifiedType: const FullType(String)),
-      'city_id',
-      serializers.serialize(object.city_id,
-          specifiedType: const FullType(String)),
-      'latitude',
-      serializers.serialize(object.latitude,
-          specifiedType: const FullType(String)),
-      'longitude',
-      serializers.serialize(object.longitude,
-          specifiedType: const FullType(String)),
-      'serving_distance',
-      serializers.serialize(object.serving_distance,
-          specifiedType: const FullType(String)),
-      'is_blocked',
-      serializers.serialize(object.is_blocked,
-          specifiedType: const FullType(String)),
-      'creation_datetime',
-      serializers.serialize(object.creation_datetime,
-          specifiedType: const FullType(String)),
-      'update_datetime',
-      serializers.serialize(object.update_datetime,
-          specifiedType: const FullType(String)),
-      'tookan_team_id',
-      serializers.serialize(object.tookan_team_id,
-          specifiedType: const FullType(String)),
-      'store_rating',
-      serializers.serialize(object.store_rating,
-          specifiedType: const FullType(String)),
-      'total_ratings_count',
-      serializers.serialize(object.total_ratings_count,
-          specifiedType: const FullType(String)),
-      'total_review_count',
-      serializers.serialize(object.total_review_count,
-          specifiedType: const FullType(String)),
-      'total_ratings_sum',
-      serializers.serialize(object.total_ratings_sum,
-          specifiedType: const FullType(String)),
-      'last_review_rating',
-      serializers.serialize(object.last_review_rating,
-          specifiedType: const FullType(String)),
-      'schedule_type',
-      serializers.serialize(object.schedule_type,
-          specifiedType: const FullType(String)),
-      'open_close_busy',
-      serializers.serialize(object.open_close_busy,
-          specifiedType: const FullType(String)),
-      'partial_open_close_text',
-      serializers.serialize(object.partial_open_close_text,
-          specifiedType: const FullType(String)),
-      'new_email',
-      serializers.serialize(object.new_email,
-          specifiedType: const FullType(String)),
-      'email_verification_token',
-      serializers.serialize(object.email_verification_token,
-          specifiedType: const FullType(String)),
-      'commission_type',
-      serializers.serialize(object.commission_type,
-          specifiedType: const FullType(String)),
-      'commission_value',
-      serializers.serialize(object.commission_value,
-          specifiedType: const FullType(String)),
-      'is_deleted',
-      serializers.serialize(object.is_deleted,
-          specifiedType: const FullType(String)),
-      'verification_status',
-      serializers.serialize(object.verification_status,
-          specifiedType: const FullType(String)),
-      'seo_fields',
-      serializers.serialize(object.seo_fields,
-          specifiedType: const FullType(String)),
-      'storepage_slug',
-      serializers.serialize(object.storepage_slug,
-          specifiedType: const FullType(String)),
-      'stripe_connect_currency',
-      serializers.serialize(object.stripe_connect_currency,
-          specifiedType: const FullType(String)),
-      'stripe_connect_country',
-      serializers.serialize(object.stripe_connect_country,
-          specifiedType: const FullType(String)),
-      'delivery_charges',
-      serializers.serialize(object.delivery_charges,
-          specifiedType: const FullType(String)),
-      'enable_merchant_delivery_charges',
-      serializers.serialize(object.enable_merchant_delivery_charges,
-          specifiedType: const FullType(String)),
-      'dynamic_delivery_charges',
-      serializers.serialize(object.dynamic_delivery_charges,
-          specifiedType: const FullType(String)),
-      'template_name',
-      serializers.serialize(object.template_name,
-          specifiedType: const FullType(String)),
-      'order_Details',
-      serializers.serialize(object.order_Details,
-          specifiedType: const FullType(String)),
-      'has_categories',
-      serializers.serialize(object.has_categories,
-          specifiedType: const FullType(String)),
-      'sponsorship_is_active',
-      serializers.serialize(object.sponsorship_is_active,
-          specifiedType: const FullType(String)),
-    ];
+    final result = <Object>[];
     if (object.id != null) {
       result
         ..add('id')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
+    }
+    if (object.merchant_key != null) {
+      result
+        ..add('merchant_key')
+        ..add(serializers.serialize(object.merchant_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.user_key != null) {
+      result
+        ..add('user_key')
+        ..add(serializers.serialize(object.user_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.provider_key != null) {
+      result
+        ..add('provider_key')
+        ..add(serializers.serialize(object.provider_key,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    if (object.earnings != null) {
+      result
+        ..add('earnings')
+        ..add(serializers.serialize(object.earnings,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_verified != null) {
+      result
+        ..add('is_verified')
+        ..add(serializers.serialize(object.is_verified,
+            specifiedType: const FullType(String)));
+    }
+    if (object.company_address != null) {
+      result
+        ..add('company_address')
+        ..add(serializers.serialize(object.company_address,
+            specifiedType: const FullType(String)));
+    }
+    if (object.display_address != null) {
+      result
+        ..add('display_address')
+        ..add(serializers.serialize(object.display_address,
+            specifiedType: const FullType(String)));
+    }
+    if (object.business_category_id != null) {
+      result
+        ..add('business_category_id')
+        ..add(serializers.serialize(object.business_category_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.phone_number != null) {
+      result
+        ..add('phone_number')
+        ..add(serializers.serialize(object.phone_number,
+            specifiedType: const FullType(String)));
+    }
+    if (object.country_code != null) {
+      result
+        ..add('country_code')
+        ..add(serializers.serialize(object.country_code,
+            specifiedType: const FullType(String)));
+    }
+    if (object.first_name != null) {
+      result
+        ..add('first_name')
+        ..add(serializers.serialize(object.first_name,
+            specifiedType: const FullType(String)));
+    }
+    if (object.last_name != null) {
+      result
+        ..add('last_name')
+        ..add(serializers.serialize(object.last_name,
+            specifiedType: const FullType(String)));
+    }
+    if (object.store_name != null) {
+      result
+        ..add('store_name')
+        ..add(serializers.serialize(object.store_name,
+            specifiedType: const FullType(String)));
+    }
+    if (object.display_Name != null) {
+      result
+        ..add('display_Name')
+        ..add(serializers.serialize(object.display_Name,
+            specifiedType: const FullType(String)));
+    }
+    if (object.description != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(object.description,
+            specifiedType: const FullType(String)));
+    }
+    if (object.logo != null) {
+      result
+        ..add('logo')
+        ..add(serializers.serialize(object.logo,
+            specifiedType: const FullType(String)));
+    }
+    if (object.thumb_url != null) {
+      result
+        ..add('thumb_url')
+        ..add(serializers.serialize(object.thumb_url,
+            specifiedType: const FullType(String)));
+    }
+    if (object.thumb_list != null) {
+      result
+        ..add('thumb_list')
+        ..add(serializers.serialize(object.thumb_list,
+            specifiedType: const FullType(String)));
+    }
+    if (object.banner_image != null) {
+      result
+        ..add('banner_image')
+        ..add(serializers.serialize(object.banner_image,
+            specifiedType: const FullType(String)));
+    }
+    if (object.mobile_banner_image != null) {
+      result
+        ..add('mobile_banner_image')
+        ..add(serializers.serialize(object.mobile_banner_image,
+            specifiedType: const FullType(String)));
+    }
+    if (object.device_token != null) {
+      result
+        ..add('device_token')
+        ..add(serializers.serialize(object.device_token,
+            specifiedType: const FullType(String)));
+    }
+    if (object.country_id != null) {
+      result
+        ..add('country_id')
+        ..add(serializers.serialize(object.country_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.state_id != null) {
+      result
+        ..add('state_id')
+        ..add(serializers.serialize(object.state_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.city_id != null) {
+      result
+        ..add('city_id')
+        ..add(serializers.serialize(object.city_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.latitude != null) {
+      result
+        ..add('latitude')
+        ..add(serializers.serialize(object.latitude,
+            specifiedType: const FullType(String)));
+    }
+    if (object.longitude != null) {
+      result
+        ..add('longitude')
+        ..add(serializers.serialize(object.longitude,
+            specifiedType: const FullType(String)));
+    }
+    if (object.serving_distance != null) {
+      result
+        ..add('serving_distance')
+        ..add(serializers.serialize(object.serving_distance,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_active != null) {
+      result
+        ..add('is_active')
+        ..add(serializers.serialize(object.is_active,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_blocked != null) {
+      result
+        ..add('is_blocked')
+        ..add(serializers.serialize(object.is_blocked,
+            specifiedType: const FullType(String)));
+    }
+    if (object.creation_datetime != null) {
+      result
+        ..add('creation_datetime')
+        ..add(serializers.serialize(object.creation_datetime,
+            specifiedType: const FullType(String)));
+    }
+    if (object.update_datetime != null) {
+      result
+        ..add('update_datetime')
+        ..add(serializers.serialize(object.update_datetime,
+            specifiedType: const FullType(String)));
+    }
+    if (object.tookan_team_id != null) {
+      result
+        ..add('tookan_team_id')
+        ..add(serializers.serialize(object.tookan_team_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.store_rating != null) {
+      result
+        ..add('store_rating')
+        ..add(serializers.serialize(object.store_rating,
+            specifiedType: const FullType(String)));
+    }
+    if (object.total_ratings_count != null) {
+      result
+        ..add('total_ratings_count')
+        ..add(serializers.serialize(object.total_ratings_count,
+            specifiedType: const FullType(String)));
+    }
+    if (object.total_review_count != null) {
+      result
+        ..add('total_review_count')
+        ..add(serializers.serialize(object.total_review_count,
+            specifiedType: const FullType(String)));
+    }
+    if (object.total_ratings_sum != null) {
+      result
+        ..add('total_ratings_sum')
+        ..add(serializers.serialize(object.total_ratings_sum,
+            specifiedType: const FullType(String)));
+    }
+    if (object.last_review_rating != null) {
+      result
+        ..add('last_review_rating')
+        ..add(serializers.serialize(object.last_review_rating,
+            specifiedType: const FullType(String)));
+    }
+    if (object.schedule_type != null) {
+      result
+        ..add('schedule_type')
+        ..add(serializers.serialize(object.schedule_type,
+            specifiedType: const FullType(String)));
+    }
+    if (object.open_close_busy != null) {
+      result
+        ..add('open_close_busy')
+        ..add(serializers.serialize(object.open_close_busy,
+            specifiedType: const FullType(String)));
+    }
+    if (object.partial_open_close_text != null) {
+      result
+        ..add('partial_open_close_text')
+        ..add(serializers.serialize(object.partial_open_close_text,
+            specifiedType: const FullType(String)));
+    }
+    if (object.new_email != null) {
+      result
+        ..add('new_email')
+        ..add(serializers.serialize(object.new_email,
+            specifiedType: const FullType(String)));
+    }
+    if (object.email_verification_token != null) {
+      result
+        ..add('email_verification_token')
+        ..add(serializers.serialize(object.email_verification_token,
+            specifiedType: const FullType(String)));
+    }
+    if (object.commission_type != null) {
+      result
+        ..add('commission_type')
+        ..add(serializers.serialize(object.commission_type,
+            specifiedType: const FullType(String)));
+    }
+    if (object.commission_value != null) {
+      result
+        ..add('commission_value')
+        ..add(serializers.serialize(object.commission_value,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_deleted != null) {
+      result
+        ..add('is_deleted')
+        ..add(serializers.serialize(object.is_deleted,
+            specifiedType: const FullType(String)));
+    }
+    if (object.verification_status != null) {
+      result
+        ..add('verification_status')
+        ..add(serializers.serialize(object.verification_status,
+            specifiedType: const FullType(String)));
+    }
+    if (object.seo_fields != null) {
+      result
+        ..add('seo_fields')
+        ..add(serializers.serialize(object.seo_fields,
+            specifiedType: const FullType(String)));
+    }
+    if (object.storepage_slug != null) {
+      result
+        ..add('storepage_slug')
+        ..add(serializers.serialize(object.storepage_slug,
+            specifiedType: const FullType(String)));
+    }
+    if (object.stripe_connect_currency != null) {
+      result
+        ..add('stripe_connect_currency')
+        ..add(serializers.serialize(object.stripe_connect_currency,
+            specifiedType: const FullType(String)));
+    }
+    if (object.stripe_connect_country != null) {
+      result
+        ..add('stripe_connect_country')
+        ..add(serializers.serialize(object.stripe_connect_country,
+            specifiedType: const FullType(String)));
+    }
+    if (object.delivery_charges != null) {
+      result
+        ..add('delivery_charges')
+        ..add(serializers.serialize(object.delivery_charges,
+            specifiedType: const FullType(String)));
+    }
+    if (object.enable_merchant_delivery_charges != null) {
+      result
+        ..add('enable_merchant_delivery_charges')
+        ..add(serializers.serialize(object.enable_merchant_delivery_charges,
+            specifiedType: const FullType(String)));
+    }
+    if (object.dynamic_delivery_charges != null) {
+      result
+        ..add('dynamic_delivery_charges')
+        ..add(serializers.serialize(object.dynamic_delivery_charges,
+            specifiedType: const FullType(String)));
+    }
+    if (object.template_name != null) {
+      result
+        ..add('template_name')
+        ..add(serializers.serialize(object.template_name,
+            specifiedType: const FullType(String)));
+    }
+    if (object.order_Details != null) {
+      result
+        ..add('order_Details')
+        ..add(serializers.serialize(object.order_Details,
+            specifiedType: const FullType(String)));
+    }
+    if (object.has_categories != null) {
+      result
+        ..add('has_categories')
+        ..add(serializers.serialize(object.has_categories,
+            specifiedType: const FullType(String)));
+    }
+    if (object.sponsorship_is_active != null) {
+      result
+        ..add('sponsorship_is_active')
+        ..add(serializers.serialize(object.sponsorship_is_active,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -219,8 +394,10 @@ class _$MerchantSerializer implements StructuredSerializer<Merchant> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'provider_key':
-          result.provider_key = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.provider_key.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<dynamic>);
           break;
         case 'earnings':
           result.earnings = serializers.deserialize(value,
@@ -242,10 +419,6 @@ class _$MerchantSerializer implements StructuredSerializer<Merchant> {
           result.business_category_id = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'is_active':
-          result.is_active = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
         case 'phone_number':
           result.phone_number = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
@@ -264,6 +437,10 @@ class _$MerchantSerializer implements StructuredSerializer<Merchant> {
           break;
         case 'store_name':
           result.store_name = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'display_Name':
+          result.display_Name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
         case 'description':
@@ -316,6 +493,10 @@ class _$MerchantSerializer implements StructuredSerializer<Merchant> {
           break;
         case 'serving_distance':
           result.serving_distance = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'is_active':
+          result.is_active = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
         case 'is_blocked':
@@ -450,7 +631,7 @@ class _$Merchant extends Merchant {
   @override
   final String user_key;
   @override
-  final String provider_key;
+  final BuiltList<String> provider_key;
   @override
   final String earnings;
   @override
@@ -462,8 +643,6 @@ class _$Merchant extends Merchant {
   @override
   final String business_category_id;
   @override
-  final String is_active;
-  @override
   final String phone_number;
   @override
   final String country_code;
@@ -473,6 +652,8 @@ class _$Merchant extends Merchant {
   final String last_name;
   @override
   final String store_name;
+  @override
+  final String display_Name;
   @override
   final String description;
   @override
@@ -499,6 +680,8 @@ class _$Merchant extends Merchant {
   final String longitude;
   @override
   final String serving_distance;
+  @override
+  final String is_active;
   @override
   final String is_blocked;
   @override
@@ -571,12 +754,12 @@ class _$Merchant extends Merchant {
       this.company_address,
       this.display_address,
       this.business_category_id,
-      this.is_active,
       this.phone_number,
       this.country_code,
       this.first_name,
       this.last_name,
       this.store_name,
+      this.display_Name,
       this.description,
       this.logo,
       this.thumb_url,
@@ -590,6 +773,7 @@ class _$Merchant extends Merchant {
       this.latitude,
       this.longitude,
       this.serving_distance,
+      this.is_active,
       this.is_blocked,
       this.creation_datetime,
       this.update_datetime,
@@ -619,179 +803,7 @@ class _$Merchant extends Merchant {
       this.order_Details,
       this.has_categories,
       this.sponsorship_is_active})
-      : super._() {
-    if (merchant_key == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'merchant_key');
-    }
-    if (user_key == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'user_key');
-    }
-    if (provider_key == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'provider_key');
-    }
-    if (earnings == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'earnings');
-    }
-    if (is_verified == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'is_verified');
-    }
-    if (company_address == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'company_address');
-    }
-    if (display_address == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'display_address');
-    }
-    if (business_category_id == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'business_category_id');
-    }
-    if (is_active == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'is_active');
-    }
-    if (phone_number == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'phone_number');
-    }
-    if (country_code == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'country_code');
-    }
-    if (first_name == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'first_name');
-    }
-    if (last_name == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'last_name');
-    }
-    if (store_name == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'store_name');
-    }
-    if (description == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'description');
-    }
-    if (logo == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'logo');
-    }
-    if (thumb_url == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'thumb_url');
-    }
-    if (thumb_list == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'thumb_list');
-    }
-    if (banner_image == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'banner_image');
-    }
-    if (mobile_banner_image == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'mobile_banner_image');
-    }
-    if (device_token == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'device_token');
-    }
-    if (country_id == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'country_id');
-    }
-    if (state_id == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'state_id');
-    }
-    if (city_id == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'city_id');
-    }
-    if (latitude == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'latitude');
-    }
-    if (longitude == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'longitude');
-    }
-    if (serving_distance == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'serving_distance');
-    }
-    if (is_blocked == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'is_blocked');
-    }
-    if (creation_datetime == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'creation_datetime');
-    }
-    if (update_datetime == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'update_datetime');
-    }
-    if (tookan_team_id == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'tookan_team_id');
-    }
-    if (store_rating == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'store_rating');
-    }
-    if (total_ratings_count == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'total_ratings_count');
-    }
-    if (total_review_count == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'total_review_count');
-    }
-    if (total_ratings_sum == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'total_ratings_sum');
-    }
-    if (last_review_rating == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'last_review_rating');
-    }
-    if (schedule_type == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'schedule_type');
-    }
-    if (open_close_busy == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'open_close_busy');
-    }
-    if (partial_open_close_text == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'partial_open_close_text');
-    }
-    if (new_email == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'new_email');
-    }
-    if (email_verification_token == null) {
-      throw new BuiltValueNullFieldError(
-          'Merchant', 'email_verification_token');
-    }
-    if (commission_type == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'commission_type');
-    }
-    if (commission_value == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'commission_value');
-    }
-    if (is_deleted == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'is_deleted');
-    }
-    if (verification_status == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'verification_status');
-    }
-    if (seo_fields == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'seo_fields');
-    }
-    if (storepage_slug == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'storepage_slug');
-    }
-    if (stripe_connect_currency == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'stripe_connect_currency');
-    }
-    if (stripe_connect_country == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'stripe_connect_country');
-    }
-    if (delivery_charges == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'delivery_charges');
-    }
-    if (enable_merchant_delivery_charges == null) {
-      throw new BuiltValueNullFieldError(
-          'Merchant', 'enable_merchant_delivery_charges');
-    }
-    if (dynamic_delivery_charges == null) {
-      throw new BuiltValueNullFieldError(
-          'Merchant', 'dynamic_delivery_charges');
-    }
-    if (template_name == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'template_name');
-    }
-    if (order_Details == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'order_Details');
-    }
-    if (has_categories == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'has_categories');
-    }
-    if (sponsorship_is_active == null) {
-      throw new BuiltValueNullFieldError('Merchant', 'sponsorship_is_active');
-    }
-  }
+      : super._();
 
   @override
   Merchant rebuild(void Function(MerchantBuilder) updates) =>
@@ -813,12 +825,12 @@ class _$Merchant extends Merchant {
         company_address == other.company_address &&
         display_address == other.display_address &&
         business_category_id == other.business_category_id &&
-        is_active == other.is_active &&
         phone_number == other.phone_number &&
         country_code == other.country_code &&
         first_name == other.first_name &&
         last_name == other.last_name &&
         store_name == other.store_name &&
+        display_Name == other.display_Name &&
         description == other.description &&
         logo == other.logo &&
         thumb_url == other.thumb_url &&
@@ -832,6 +844,7 @@ class _$Merchant extends Merchant {
         latitude == other.latitude &&
         longitude == other.longitude &&
         serving_distance == other.serving_distance &&
+        is_active == other.is_active &&
         is_blocked == other.is_blocked &&
         creation_datetime == other.creation_datetime &&
         update_datetime == other.update_datetime &&
@@ -884,7 +897,7 @@ class _$Merchant extends Merchant {
                                                                 $jc(
                                                                     $jc(
                                                                         $jc(
-                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, id.hashCode), merchant_key.hashCode), user_key.hashCode), provider_key.hashCode), earnings.hashCode), is_verified.hashCode), company_address.hashCode), display_address.hashCode), business_category_id.hashCode), is_active.hashCode), phone_number.hashCode), country_code.hashCode), first_name.hashCode), last_name.hashCode), store_name.hashCode), description.hashCode), logo.hashCode), thumb_url.hashCode), thumb_list.hashCode), banner_image.hashCode), mobile_banner_image.hashCode), device_token.hashCode), country_id.hashCode), state_id.hashCode), city_id.hashCode), latitude.hashCode), longitude.hashCode), serving_distance.hashCode), is_blocked.hashCode), creation_datetime.hashCode), update_datetime.hashCode), tookan_team_id.hashCode), store_rating.hashCode), total_ratings_count.hashCode), total_review_count.hashCode), total_ratings_sum.hashCode), last_review_rating.hashCode), schedule_type.hashCode),
+                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, id.hashCode), merchant_key.hashCode), user_key.hashCode), provider_key.hashCode), earnings.hashCode), is_verified.hashCode), company_address.hashCode), display_address.hashCode), business_category_id.hashCode), phone_number.hashCode), country_code.hashCode), first_name.hashCode), last_name.hashCode), store_name.hashCode), display_Name.hashCode), description.hashCode), logo.hashCode), thumb_url.hashCode), thumb_list.hashCode), banner_image.hashCode), mobile_banner_image.hashCode), device_token.hashCode), country_id.hashCode), state_id.hashCode), city_id.hashCode), latitude.hashCode), longitude.hashCode), serving_distance.hashCode), is_active.hashCode), is_blocked.hashCode), creation_datetime.hashCode), update_datetime.hashCode), tookan_team_id.hashCode), store_rating.hashCode), total_ratings_count.hashCode), total_review_count.hashCode), total_ratings_sum.hashCode), last_review_rating.hashCode), schedule_type.hashCode),
                                                                                 open_close_busy.hashCode),
                                                                             partial_open_close_text.hashCode),
                                                                         new_email.hashCode),
@@ -918,12 +931,12 @@ class _$Merchant extends Merchant {
           ..add('company_address', company_address)
           ..add('display_address', display_address)
           ..add('business_category_id', business_category_id)
-          ..add('is_active', is_active)
           ..add('phone_number', phone_number)
           ..add('country_code', country_code)
           ..add('first_name', first_name)
           ..add('last_name', last_name)
           ..add('store_name', store_name)
+          ..add('display_Name', display_Name)
           ..add('description', description)
           ..add('logo', logo)
           ..add('thumb_url', thumb_url)
@@ -937,6 +950,7 @@ class _$Merchant extends Merchant {
           ..add('latitude', latitude)
           ..add('longitude', longitude)
           ..add('serving_distance', serving_distance)
+          ..add('is_active', is_active)
           ..add('is_blocked', is_blocked)
           ..add('creation_datetime', creation_datetime)
           ..add('update_datetime', update_datetime)
@@ -986,9 +1000,11 @@ class MerchantBuilder implements Builder<Merchant, MerchantBuilder> {
   String get user_key => _$this._user_key;
   set user_key(String user_key) => _$this._user_key = user_key;
 
-  String _provider_key;
-  String get provider_key => _$this._provider_key;
-  set provider_key(String provider_key) => _$this._provider_key = provider_key;
+  ListBuilder<String> _provider_key;
+  ListBuilder<String> get provider_key =>
+      _$this._provider_key ??= new ListBuilder<String>();
+  set provider_key(ListBuilder<String> provider_key) =>
+      _$this._provider_key = provider_key;
 
   String _earnings;
   String get earnings => _$this._earnings;
@@ -1013,10 +1029,6 @@ class MerchantBuilder implements Builder<Merchant, MerchantBuilder> {
   set business_category_id(String business_category_id) =>
       _$this._business_category_id = business_category_id;
 
-  String _is_active;
-  String get is_active => _$this._is_active;
-  set is_active(String is_active) => _$this._is_active = is_active;
-
   String _phone_number;
   String get phone_number => _$this._phone_number;
   set phone_number(String phone_number) => _$this._phone_number = phone_number;
@@ -1036,6 +1048,10 @@ class MerchantBuilder implements Builder<Merchant, MerchantBuilder> {
   String _store_name;
   String get store_name => _$this._store_name;
   set store_name(String store_name) => _$this._store_name = store_name;
+
+  String _display_Name;
+  String get display_Name => _$this._display_Name;
+  set display_Name(String display_Name) => _$this._display_Name = display_Name;
 
   String _description;
   String get description => _$this._description;
@@ -1090,6 +1106,10 @@ class MerchantBuilder implements Builder<Merchant, MerchantBuilder> {
   String get serving_distance => _$this._serving_distance;
   set serving_distance(String serving_distance) =>
       _$this._serving_distance = serving_distance;
+
+  String _is_active;
+  String get is_active => _$this._is_active;
+  set is_active(String is_active) => _$this._is_active = is_active;
 
   String _is_blocked;
   String get is_blocked => _$this._is_blocked;
@@ -1241,18 +1261,18 @@ class MerchantBuilder implements Builder<Merchant, MerchantBuilder> {
       _id = _$v.id;
       _merchant_key = _$v.merchant_key;
       _user_key = _$v.user_key;
-      _provider_key = _$v.provider_key;
+      _provider_key = _$v.provider_key?.toBuilder();
       _earnings = _$v.earnings;
       _is_verified = _$v.is_verified;
       _company_address = _$v.company_address;
       _display_address = _$v.display_address;
       _business_category_id = _$v.business_category_id;
-      _is_active = _$v.is_active;
       _phone_number = _$v.phone_number;
       _country_code = _$v.country_code;
       _first_name = _$v.first_name;
       _last_name = _$v.last_name;
       _store_name = _$v.store_name;
+      _display_Name = _$v.display_Name;
       _description = _$v.description;
       _logo = _$v.logo;
       _thumb_url = _$v.thumb_url;
@@ -1266,6 +1286,7 @@ class MerchantBuilder implements Builder<Merchant, MerchantBuilder> {
       _latitude = _$v.latitude;
       _longitude = _$v.longitude;
       _serving_distance = _$v.serving_distance;
+      _is_active = _$v.is_active;
       _is_blocked = _$v.is_blocked;
       _creation_datetime = _$v.creation_datetime;
       _update_datetime = _$v.update_datetime;
@@ -1315,65 +1336,80 @@ class MerchantBuilder implements Builder<Merchant, MerchantBuilder> {
 
   @override
   _$Merchant build() {
-    final _$result = _$v ??
-        new _$Merchant._(
-            id: id,
-            merchant_key: merchant_key,
-            user_key: user_key,
-            provider_key: provider_key,
-            earnings: earnings,
-            is_verified: is_verified,
-            company_address: company_address,
-            display_address: display_address,
-            business_category_id: business_category_id,
-            is_active: is_active,
-            phone_number: phone_number,
-            country_code: country_code,
-            first_name: first_name,
-            last_name: last_name,
-            store_name: store_name,
-            description: description,
-            logo: logo,
-            thumb_url: thumb_url,
-            thumb_list: thumb_list,
-            banner_image: banner_image,
-            mobile_banner_image: mobile_banner_image,
-            device_token: device_token,
-            country_id: country_id,
-            state_id: state_id,
-            city_id: city_id,
-            latitude: latitude,
-            longitude: longitude,
-            serving_distance: serving_distance,
-            is_blocked: is_blocked,
-            creation_datetime: creation_datetime,
-            update_datetime: update_datetime,
-            tookan_team_id: tookan_team_id,
-            store_rating: store_rating,
-            total_ratings_count: total_ratings_count,
-            total_review_count: total_review_count,
-            total_ratings_sum: total_ratings_sum,
-            last_review_rating: last_review_rating,
-            schedule_type: schedule_type,
-            open_close_busy: open_close_busy,
-            partial_open_close_text: partial_open_close_text,
-            new_email: new_email,
-            email_verification_token: email_verification_token,
-            commission_type: commission_type,
-            commission_value: commission_value,
-            is_deleted: is_deleted,
-            verification_status: verification_status,
-            seo_fields: seo_fields,
-            storepage_slug: storepage_slug,
-            stripe_connect_currency: stripe_connect_currency,
-            stripe_connect_country: stripe_connect_country,
-            delivery_charges: delivery_charges,
-            enable_merchant_delivery_charges: enable_merchant_delivery_charges,
-            dynamic_delivery_charges: dynamic_delivery_charges,
-            template_name: template_name,
-            order_Details: order_Details,
-            has_categories: has_categories,
-            sponsorship_is_active: sponsorship_is_active);
+    _$Merchant _$result;
+    try {
+      _$result = _$v ??
+          new _$Merchant._(
+              id: id,
+              merchant_key: merchant_key,
+              user_key: user_key,
+              provider_key: _provider_key?.build(),
+              earnings: earnings,
+              is_verified: is_verified,
+              company_address: company_address,
+              display_address: display_address,
+              business_category_id: business_category_id,
+              phone_number: phone_number,
+              country_code: country_code,
+              first_name: first_name,
+              last_name: last_name,
+              store_name: store_name,
+              display_Name: display_Name,
+              description: description,
+              logo: logo,
+              thumb_url: thumb_url,
+              thumb_list: thumb_list,
+              banner_image: banner_image,
+              mobile_banner_image: mobile_banner_image,
+              device_token: device_token,
+              country_id: country_id,
+              state_id: state_id,
+              city_id: city_id,
+              latitude: latitude,
+              longitude: longitude,
+              serving_distance: serving_distance,
+              is_active: is_active,
+              is_blocked: is_blocked,
+              creation_datetime: creation_datetime,
+              update_datetime: update_datetime,
+              tookan_team_id: tookan_team_id,
+              store_rating: store_rating,
+              total_ratings_count: total_ratings_count,
+              total_review_count: total_review_count,
+              total_ratings_sum: total_ratings_sum,
+              last_review_rating: last_review_rating,
+              schedule_type: schedule_type,
+              open_close_busy: open_close_busy,
+              partial_open_close_text: partial_open_close_text,
+              new_email: new_email,
+              email_verification_token: email_verification_token,
+              commission_type: commission_type,
+              commission_value: commission_value,
+              is_deleted: is_deleted,
+              verification_status: verification_status,
+              seo_fields: seo_fields,
+              storepage_slug: storepage_slug,
+              stripe_connect_currency: stripe_connect_currency,
+              stripe_connect_country: stripe_connect_country,
+              delivery_charges: delivery_charges,
+              enable_merchant_delivery_charges:
+                  enable_merchant_delivery_charges,
+              dynamic_delivery_charges: dynamic_delivery_charges,
+              template_name: template_name,
+              order_Details: order_Details,
+              has_categories: has_categories,
+              sponsorship_is_active: sponsorship_is_active);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'provider_key';
+        _provider_key?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'Merchant', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

@@ -74,6 +74,10 @@ class HomeViewModel extends BaseViewModel {
       arguments: service,
     );
   }
+  void onTapMenu(BuildContext context){
+
+
+  }
 
   //update location() = navigate to locatios Screen
   //update when required => open diaglog update navigate screen

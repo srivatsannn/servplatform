@@ -18,17 +18,7 @@ class _$AlertRequest extends AlertRequest {
       (new AlertRequestBuilder()..update(updates)).build();
 
   _$AlertRequest._({this.title, this.description, this.buttonTitle})
-      : super._() {
-    if (title == null) {
-      throw new BuiltValueNullFieldError('AlertRequest', 'title');
-    }
-    if (description == null) {
-      throw new BuiltValueNullFieldError('AlertRequest', 'description');
-    }
-    if (buttonTitle == null) {
-      throw new BuiltValueNullFieldError('AlertRequest', 'buttonTitle');
-    }
-  }
+      : super._();
 
   @override
   AlertRequest rebuild(void Function(AlertRequestBuilder) updates) =>

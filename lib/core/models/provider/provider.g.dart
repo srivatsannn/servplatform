@@ -17,118 +17,226 @@ class _$ProviderSerializer implements StructuredSerializer<Provider> {
   @override
   Iterable<Object> serialize(Serializers serializers, Provider object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'provider_key',
-      serializers.serialize(object.provider_key,
-          specifiedType: const FullType(String)),
-      'provider_name',
-      serializers.serialize(object.provider_name,
-          specifiedType: const FullType(String)),
-      'discount_and_other_info',
-      serializers.serialize(object.discount_and_other_info,
-          specifiedType: const FullType(String)),
-      'area_serviced_geofence',
-      serializers.serialize(object.area_serviced_geofence,
-          specifiedType: const FullType(String)),
-      'company_address',
-      serializers.serialize(object.company_address,
-          specifiedType: const FullType(String)),
-      'display_address',
-      serializers.serialize(object.display_address,
-          specifiedType: const FullType(String)),
-      'company_longitude',
-      serializers.serialize(object.company_longitude,
-          specifiedType: const FullType(String)),
-      'company_latitude',
-      serializers.serialize(object.company_latitude,
-          specifiedType: const FullType(String)),
-      'phone',
-      serializers.serialize(object.phone,
-          specifiedType: const FullType(String)),
-      'is_active',
-      serializers.serialize(object.is_active,
-          specifiedType: const FullType(String)),
-      'logo_url',
-      serializers.serialize(object.logo_url,
-          specifiedType: const FullType(String)),
-      'description',
-      serializers.serialize(object.description,
-          specifiedType: const FullType(String)),
-      'long_description',
-      serializers.serialize(object.long_description,
-          specifiedType: const FullType(String)),
-      'key_highlights',
-      serializers.serialize(object.key_highlights,
-          specifiedType: const FullType(String)),
-      'introduction',
-      serializers.serialize(object.introduction,
-          specifiedType: const FullType(String)),
-      'multi_image_url',
-      serializers.serialize(object.multi_image_url,
-          specifiedType: const FullType(String)),
-      'reviews_key',
-      serializers.serialize(object.reviews_key,
-          specifiedType: const FullType(String)),
-      'story_key',
-      serializers.serialize(object.story_key,
-          specifiedType: const FullType(String)),
-      'is_blocked',
-      serializers.serialize(object.is_blocked,
-          specifiedType: const FullType(String)),
-      'total_earnings',
-      serializers.serialize(object.total_earnings,
-          specifiedType: const FullType(String)),
-      'number_of_steps_left',
-      serializers.serialize(object.number_of_steps_left,
-          specifiedType: const FullType(String)),
-      'setup_level',
-      serializers.serialize(object.setup_level,
-          specifiedType: const FullType(String)),
-      'merchant_permission',
-      serializers.serialize(object.merchant_permission,
-          specifiedType: const FullType(String)),
-      'view_task',
-      serializers.serialize(object.view_task,
-          specifiedType: const FullType(String)),
-      'add_task',
-      serializers.serialize(object.add_task,
-          specifiedType: const FullType(String)),
-      'add_team',
-      serializers.serialize(object.add_team,
-          specifiedType: const FullType(String)),
-      'view_team',
-      serializers.serialize(object.view_team,
-          specifiedType: const FullType(String)),
-      'add_region',
-      serializers.serialize(object.add_region,
-          specifiedType: const FullType(String)),
-      'view_region',
-      serializers.serialize(object.view_region,
-          specifiedType: const FullType(String)),
-      'add_agent',
-      serializers.serialize(object.add_agent,
-          specifiedType: const FullType(String)),
-      'view_agent',
-      serializers.serialize(object.view_agent,
-          specifiedType: const FullType(String)),
-      'view_fleet_availability',
-      serializers.serialize(object.view_fleet_availability,
-          specifiedType: const FullType(String)),
-      'edit_fleet_availability',
-      serializers.serialize(object.edit_fleet_availability,
-          specifiedType: const FullType(String)),
-      'teams',
-      serializers.serialize(object.teams,
-          specifiedType: const FullType(String)),
-      'commission_percentage',
-      serializers.serialize(object.commission_percentage,
-          specifiedType: const FullType(String)),
-    ];
+    final result = <Object>[];
     if (object.id != null) {
       result
         ..add('id')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
+    }
+    if (object.provider_key != null) {
+      result
+        ..add('provider_key')
+        ..add(serializers.serialize(object.provider_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.provider_name != null) {
+      result
+        ..add('provider_name')
+        ..add(serializers.serialize(object.provider_name,
+            specifiedType: const FullType(String)));
+    }
+    if (object.discount_and_other_info != null) {
+      result
+        ..add('discount_and_other_info')
+        ..add(serializers.serialize(object.discount_and_other_info,
+            specifiedType: const FullType(String)));
+    }
+    if (object.area_serviced_geofence != null) {
+      result
+        ..add('area_serviced_geofence')
+        ..add(serializers.serialize(object.area_serviced_geofence,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    if (object.company_address != null) {
+      result
+        ..add('company_address')
+        ..add(serializers.serialize(object.company_address,
+            specifiedType: const FullType(String)));
+    }
+    if (object.display_address != null) {
+      result
+        ..add('display_address')
+        ..add(serializers.serialize(object.display_address,
+            specifiedType: const FullType(String)));
+    }
+    if (object.company_longitude != null) {
+      result
+        ..add('company_longitude')
+        ..add(serializers.serialize(object.company_longitude,
+            specifiedType: const FullType(String)));
+    }
+    if (object.company_latitude != null) {
+      result
+        ..add('company_latitude')
+        ..add(serializers.serialize(object.company_latitude,
+            specifiedType: const FullType(String)));
+    }
+    if (object.phone != null) {
+      result
+        ..add('phone')
+        ..add(serializers.serialize(object.phone,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_active != null) {
+      result
+        ..add('is_active')
+        ..add(serializers.serialize(object.is_active,
+            specifiedType: const FullType(String)));
+    }
+    if (object.logo_url != null) {
+      result
+        ..add('logo_url')
+        ..add(serializers.serialize(object.logo_url,
+            specifiedType: const FullType(String)));
+    }
+    if (object.description != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(object.description,
+            specifiedType: const FullType(String)));
+    }
+    if (object.long_description != null) {
+      result
+        ..add('long_description')
+        ..add(serializers.serialize(object.long_description,
+            specifiedType: const FullType(String)));
+    }
+    if (object.key_highlights != null) {
+      result
+        ..add('key_highlights')
+        ..add(serializers.serialize(object.key_highlights,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    if (object.introduction != null) {
+      result
+        ..add('introduction')
+        ..add(serializers.serialize(object.introduction,
+            specifiedType: const FullType(String)));
+    }
+    if (object.multi_image_url != null) {
+      result
+        ..add('multi_image_url')
+        ..add(serializers.serialize(object.multi_image_url,
+            specifiedType: const FullType(String)));
+    }
+    if (object.reviews_key != null) {
+      result
+        ..add('reviews_key')
+        ..add(serializers.serialize(object.reviews_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.story_key != null) {
+      result
+        ..add('story_key')
+        ..add(serializers.serialize(object.story_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_blocked != null) {
+      result
+        ..add('is_blocked')
+        ..add(serializers.serialize(object.is_blocked,
+            specifiedType: const FullType(String)));
+    }
+    if (object.total_earnings != null) {
+      result
+        ..add('total_earnings')
+        ..add(serializers.serialize(object.total_earnings,
+            specifiedType: const FullType(String)));
+    }
+    if (object.number_of_steps_left != null) {
+      result
+        ..add('number_of_steps_left')
+        ..add(serializers.serialize(object.number_of_steps_left,
+            specifiedType: const FullType(String)));
+    }
+    if (object.setup_level != null) {
+      result
+        ..add('setup_level')
+        ..add(serializers.serialize(object.setup_level,
+            specifiedType: const FullType(String)));
+    }
+    if (object.merchant_permission != null) {
+      result
+        ..add('merchant_permission')
+        ..add(serializers.serialize(object.merchant_permission,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    if (object.view_task != null) {
+      result
+        ..add('view_task')
+        ..add(serializers.serialize(object.view_task,
+            specifiedType: const FullType(String)));
+    }
+    if (object.add_task != null) {
+      result
+        ..add('add_task')
+        ..add(serializers.serialize(object.add_task,
+            specifiedType: const FullType(String)));
+    }
+    if (object.add_team != null) {
+      result
+        ..add('add_team')
+        ..add(serializers.serialize(object.add_team,
+            specifiedType: const FullType(String)));
+    }
+    if (object.view_team != null) {
+      result
+        ..add('view_team')
+        ..add(serializers.serialize(object.view_team,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    if (object.add_region != null) {
+      result
+        ..add('add_region')
+        ..add(serializers.serialize(object.add_region,
+            specifiedType: const FullType(String)));
+    }
+    if (object.view_region != null) {
+      result
+        ..add('view_region')
+        ..add(serializers.serialize(object.view_region,
+            specifiedType: const FullType(String)));
+    }
+    if (object.add_agent != null) {
+      result
+        ..add('add_agent')
+        ..add(serializers.serialize(object.add_agent,
+            specifiedType: const FullType(String)));
+    }
+    if (object.view_agent != null) {
+      result
+        ..add('view_agent')
+        ..add(serializers.serialize(object.view_agent,
+            specifiedType: const FullType(String)));
+    }
+    if (object.view_fleet_availability != null) {
+      result
+        ..add('view_fleet_availability')
+        ..add(serializers.serialize(object.view_fleet_availability,
+            specifiedType: const FullType(String)));
+    }
+    if (object.edit_fleet_availability != null) {
+      result
+        ..add('edit_fleet_availability')
+        ..add(serializers.serialize(object.edit_fleet_availability,
+            specifiedType: const FullType(String)));
+    }
+    if (object.teams != null) {
+      result
+        ..add('teams')
+        ..add(serializers.serialize(object.teams,
+            specifiedType: const FullType(String)));
+    }
+    if (object.commission_percentage != null) {
+      result
+        ..add('commission_percentage')
+        ..add(serializers.serialize(object.commission_percentage,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -161,8 +269,10 @@ class _$ProviderSerializer implements StructuredSerializer<Provider> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'area_serviced_geofence':
-          result.area_serviced_geofence = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.area_serviced_geofence.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<dynamic>);
           break;
         case 'company_address':
           result.company_address = serializers.deserialize(value,
@@ -201,8 +311,10 @@ class _$ProviderSerializer implements StructuredSerializer<Provider> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'key_highlights':
-          result.key_highlights = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.key_highlights.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<dynamic>);
           break;
         case 'introduction':
           result.introduction = serializers.deserialize(value,
@@ -237,8 +349,10 @@ class _$ProviderSerializer implements StructuredSerializer<Provider> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'merchant_permission':
-          result.merchant_permission = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.merchant_permission.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<dynamic>);
           break;
         case 'view_task':
           result.view_task = serializers.deserialize(value,
@@ -253,8 +367,10 @@ class _$ProviderSerializer implements StructuredSerializer<Provider> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'view_team':
-          result.view_team = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.view_team.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<dynamic>);
           break;
         case 'add_region':
           result.add_region = serializers.deserialize(value,
@@ -305,7 +421,7 @@ class _$Provider extends Provider {
   @override
   final String discount_and_other_info;
   @override
-  final String area_serviced_geofence;
+  final BuiltList<String> area_serviced_geofence;
   @override
   final String company_address;
   @override
@@ -325,7 +441,7 @@ class _$Provider extends Provider {
   @override
   final String long_description;
   @override
-  final String key_highlights;
+  final BuiltList<String> key_highlights;
   @override
   final String introduction;
   @override
@@ -343,7 +459,7 @@ class _$Provider extends Provider {
   @override
   final String setup_level;
   @override
-  final String merchant_permission;
+  final BuiltList<String> merchant_permission;
   @override
   final String view_task;
   @override
@@ -351,7 +467,7 @@ class _$Provider extends Provider {
   @override
   final String add_team;
   @override
-  final String view_team;
+  final BuiltList<String> view_team;
   @override
   final String add_region;
   @override
@@ -409,113 +525,7 @@ class _$Provider extends Provider {
       this.edit_fleet_availability,
       this.teams,
       this.commission_percentage})
-      : super._() {
-    if (provider_key == null) {
-      throw new BuiltValueNullFieldError('Provider', 'provider_key');
-    }
-    if (provider_name == null) {
-      throw new BuiltValueNullFieldError('Provider', 'provider_name');
-    }
-    if (discount_and_other_info == null) {
-      throw new BuiltValueNullFieldError('Provider', 'discount_and_other_info');
-    }
-    if (area_serviced_geofence == null) {
-      throw new BuiltValueNullFieldError('Provider', 'area_serviced_geofence');
-    }
-    if (company_address == null) {
-      throw new BuiltValueNullFieldError('Provider', 'company_address');
-    }
-    if (display_address == null) {
-      throw new BuiltValueNullFieldError('Provider', 'display_address');
-    }
-    if (company_longitude == null) {
-      throw new BuiltValueNullFieldError('Provider', 'company_longitude');
-    }
-    if (company_latitude == null) {
-      throw new BuiltValueNullFieldError('Provider', 'company_latitude');
-    }
-    if (phone == null) {
-      throw new BuiltValueNullFieldError('Provider', 'phone');
-    }
-    if (is_active == null) {
-      throw new BuiltValueNullFieldError('Provider', 'is_active');
-    }
-    if (logo_url == null) {
-      throw new BuiltValueNullFieldError('Provider', 'logo_url');
-    }
-    if (description == null) {
-      throw new BuiltValueNullFieldError('Provider', 'description');
-    }
-    if (long_description == null) {
-      throw new BuiltValueNullFieldError('Provider', 'long_description');
-    }
-    if (key_highlights == null) {
-      throw new BuiltValueNullFieldError('Provider', 'key_highlights');
-    }
-    if (introduction == null) {
-      throw new BuiltValueNullFieldError('Provider', 'introduction');
-    }
-    if (multi_image_url == null) {
-      throw new BuiltValueNullFieldError('Provider', 'multi_image_url');
-    }
-    if (reviews_key == null) {
-      throw new BuiltValueNullFieldError('Provider', 'reviews_key');
-    }
-    if (story_key == null) {
-      throw new BuiltValueNullFieldError('Provider', 'story_key');
-    }
-    if (is_blocked == null) {
-      throw new BuiltValueNullFieldError('Provider', 'is_blocked');
-    }
-    if (total_earnings == null) {
-      throw new BuiltValueNullFieldError('Provider', 'total_earnings');
-    }
-    if (number_of_steps_left == null) {
-      throw new BuiltValueNullFieldError('Provider', 'number_of_steps_left');
-    }
-    if (setup_level == null) {
-      throw new BuiltValueNullFieldError('Provider', 'setup_level');
-    }
-    if (merchant_permission == null) {
-      throw new BuiltValueNullFieldError('Provider', 'merchant_permission');
-    }
-    if (view_task == null) {
-      throw new BuiltValueNullFieldError('Provider', 'view_task');
-    }
-    if (add_task == null) {
-      throw new BuiltValueNullFieldError('Provider', 'add_task');
-    }
-    if (add_team == null) {
-      throw new BuiltValueNullFieldError('Provider', 'add_team');
-    }
-    if (view_team == null) {
-      throw new BuiltValueNullFieldError('Provider', 'view_team');
-    }
-    if (add_region == null) {
-      throw new BuiltValueNullFieldError('Provider', 'add_region');
-    }
-    if (view_region == null) {
-      throw new BuiltValueNullFieldError('Provider', 'view_region');
-    }
-    if (add_agent == null) {
-      throw new BuiltValueNullFieldError('Provider', 'add_agent');
-    }
-    if (view_agent == null) {
-      throw new BuiltValueNullFieldError('Provider', 'view_agent');
-    }
-    if (view_fleet_availability == null) {
-      throw new BuiltValueNullFieldError('Provider', 'view_fleet_availability');
-    }
-    if (edit_fleet_availability == null) {
-      throw new BuiltValueNullFieldError('Provider', 'edit_fleet_availability');
-    }
-    if (teams == null) {
-      throw new BuiltValueNullFieldError('Provider', 'teams');
-    }
-    if (commission_percentage == null) {
-      throw new BuiltValueNullFieldError('Provider', 'commission_percentage');
-    }
-  }
+      : super._();
 
   @override
   Provider rebuild(void Function(ProviderBuilder) updates) =>
@@ -672,9 +682,10 @@ class ProviderBuilder implements Builder<Provider, ProviderBuilder> {
   set discount_and_other_info(String discount_and_other_info) =>
       _$this._discount_and_other_info = discount_and_other_info;
 
-  String _area_serviced_geofence;
-  String get area_serviced_geofence => _$this._area_serviced_geofence;
-  set area_serviced_geofence(String area_serviced_geofence) =>
+  ListBuilder<String> _area_serviced_geofence;
+  ListBuilder<String> get area_serviced_geofence =>
+      _$this._area_serviced_geofence ??= new ListBuilder<String>();
+  set area_serviced_geofence(ListBuilder<String> area_serviced_geofence) =>
       _$this._area_serviced_geofence = area_serviced_geofence;
 
   String _company_address;
@@ -718,9 +729,10 @@ class ProviderBuilder implements Builder<Provider, ProviderBuilder> {
   set long_description(String long_description) =>
       _$this._long_description = long_description;
 
-  String _key_highlights;
-  String get key_highlights => _$this._key_highlights;
-  set key_highlights(String key_highlights) =>
+  ListBuilder<String> _key_highlights;
+  ListBuilder<String> get key_highlights =>
+      _$this._key_highlights ??= new ListBuilder<String>();
+  set key_highlights(ListBuilder<String> key_highlights) =>
       _$this._key_highlights = key_highlights;
 
   String _introduction;
@@ -758,9 +770,10 @@ class ProviderBuilder implements Builder<Provider, ProviderBuilder> {
   String get setup_level => _$this._setup_level;
   set setup_level(String setup_level) => _$this._setup_level = setup_level;
 
-  String _merchant_permission;
-  String get merchant_permission => _$this._merchant_permission;
-  set merchant_permission(String merchant_permission) =>
+  ListBuilder<String> _merchant_permission;
+  ListBuilder<String> get merchant_permission =>
+      _$this._merchant_permission ??= new ListBuilder<String>();
+  set merchant_permission(ListBuilder<String> merchant_permission) =>
       _$this._merchant_permission = merchant_permission;
 
   String _view_task;
@@ -775,9 +788,10 @@ class ProviderBuilder implements Builder<Provider, ProviderBuilder> {
   String get add_team => _$this._add_team;
   set add_team(String add_team) => _$this._add_team = add_team;
 
-  String _view_team;
-  String get view_team => _$this._view_team;
-  set view_team(String view_team) => _$this._view_team = view_team;
+  ListBuilder<String> _view_team;
+  ListBuilder<String> get view_team =>
+      _$this._view_team ??= new ListBuilder<String>();
+  set view_team(ListBuilder<String> view_team) => _$this._view_team = view_team;
 
   String _add_region;
   String get add_region => _$this._add_region;
@@ -822,7 +836,7 @@ class ProviderBuilder implements Builder<Provider, ProviderBuilder> {
       _provider_key = _$v.provider_key;
       _provider_name = _$v.provider_name;
       _discount_and_other_info = _$v.discount_and_other_info;
-      _area_serviced_geofence = _$v.area_serviced_geofence;
+      _area_serviced_geofence = _$v.area_serviced_geofence?.toBuilder();
       _company_address = _$v.company_address;
       _display_address = _$v.display_address;
       _company_longitude = _$v.company_longitude;
@@ -832,7 +846,7 @@ class ProviderBuilder implements Builder<Provider, ProviderBuilder> {
       _logo_url = _$v.logo_url;
       _description = _$v.description;
       _long_description = _$v.long_description;
-      _key_highlights = _$v.key_highlights;
+      _key_highlights = _$v.key_highlights?.toBuilder();
       _introduction = _$v.introduction;
       _multi_image_url = _$v.multi_image_url;
       _reviews_key = _$v.reviews_key;
@@ -841,11 +855,11 @@ class ProviderBuilder implements Builder<Provider, ProviderBuilder> {
       _total_earnings = _$v.total_earnings;
       _number_of_steps_left = _$v.number_of_steps_left;
       _setup_level = _$v.setup_level;
-      _merchant_permission = _$v.merchant_permission;
+      _merchant_permission = _$v.merchant_permission?.toBuilder();
       _view_task = _$v.view_task;
       _add_task = _$v.add_task;
       _add_team = _$v.add_team;
-      _view_team = _$v.view_team;
+      _view_team = _$v.view_team?.toBuilder();
       _add_region = _$v.add_region;
       _view_region = _$v.view_region;
       _add_agent = _$v.add_agent;
@@ -874,44 +888,66 @@ class ProviderBuilder implements Builder<Provider, ProviderBuilder> {
 
   @override
   _$Provider build() {
-    final _$result = _$v ??
-        new _$Provider._(
-            id: id,
-            provider_key: provider_key,
-            provider_name: provider_name,
-            discount_and_other_info: discount_and_other_info,
-            area_serviced_geofence: area_serviced_geofence,
-            company_address: company_address,
-            display_address: display_address,
-            company_longitude: company_longitude,
-            company_latitude: company_latitude,
-            phone: phone,
-            is_active: is_active,
-            logo_url: logo_url,
-            description: description,
-            long_description: long_description,
-            key_highlights: key_highlights,
-            introduction: introduction,
-            multi_image_url: multi_image_url,
-            reviews_key: reviews_key,
-            story_key: story_key,
-            is_blocked: is_blocked,
-            total_earnings: total_earnings,
-            number_of_steps_left: number_of_steps_left,
-            setup_level: setup_level,
-            merchant_permission: merchant_permission,
-            view_task: view_task,
-            add_task: add_task,
-            add_team: add_team,
-            view_team: view_team,
-            add_region: add_region,
-            view_region: view_region,
-            add_agent: add_agent,
-            view_agent: view_agent,
-            view_fleet_availability: view_fleet_availability,
-            edit_fleet_availability: edit_fleet_availability,
-            teams: teams,
-            commission_percentage: commission_percentage);
+    _$Provider _$result;
+    try {
+      _$result = _$v ??
+          new _$Provider._(
+              id: id,
+              provider_key: provider_key,
+              provider_name: provider_name,
+              discount_and_other_info: discount_and_other_info,
+              area_serviced_geofence: _area_serviced_geofence?.build(),
+              company_address: company_address,
+              display_address: display_address,
+              company_longitude: company_longitude,
+              company_latitude: company_latitude,
+              phone: phone,
+              is_active: is_active,
+              logo_url: logo_url,
+              description: description,
+              long_description: long_description,
+              key_highlights: _key_highlights?.build(),
+              introduction: introduction,
+              multi_image_url: multi_image_url,
+              reviews_key: reviews_key,
+              story_key: story_key,
+              is_blocked: is_blocked,
+              total_earnings: total_earnings,
+              number_of_steps_left: number_of_steps_left,
+              setup_level: setup_level,
+              merchant_permission: _merchant_permission?.build(),
+              view_task: view_task,
+              add_task: add_task,
+              add_team: add_team,
+              view_team: _view_team?.build(),
+              add_region: add_region,
+              view_region: view_region,
+              add_agent: add_agent,
+              view_agent: view_agent,
+              view_fleet_availability: view_fleet_availability,
+              edit_fleet_availability: edit_fleet_availability,
+              teams: teams,
+              commission_percentage: commission_percentage);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'area_serviced_geofence';
+        _area_serviced_geofence?.build();
+
+        _$failedField = 'key_highlights';
+        _key_highlights?.build();
+
+        _$failedField = 'merchant_permission';
+        _merchant_permission?.build();
+
+        _$failedField = 'view_team';
+        _view_team?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'Provider', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

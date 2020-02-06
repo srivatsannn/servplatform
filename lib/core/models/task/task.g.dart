@@ -17,97 +17,247 @@ class _$TaskSerializer implements StructuredSerializer<Task> {
   @override
   Iterable<Object> serialize(Serializers serializers, Task object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'mission_id',
-      serializers.serialize(object.mission_id,
-          specifiedType: const FullType(String)),
-      'service_key',
-      serializers.serialize(object.service_key,
-          specifiedType: const FullType(String)),
-      'descption',
-      serializers.serialize(object.descption,
-          specifiedType: const FullType(String)),
-      'order_id',
-      serializers.serialize(object.order_id,
-          specifiedType: const FullType(String)),
-      'status',
-      serializers.serialize(object.status,
-          specifiedType: const FullType(String)),
-      'predicted_satisfaction',
-      serializers.serialize(object.predicted_satisfaction,
-          specifiedType: const FullType(String)),
-      'wait_time',
-      serializers.serialize(object.wait_time,
-          specifiedType: const FullType(String)),
-      'earning_id',
-      serializers.serialize(object.earning_id,
-          specifiedType: const FullType(String)),
-      'has_pickup',
-      serializers.serialize(object.has_pickup,
-          specifiedType: const FullType(String)),
-      'layout_type',
-      serializers.serialize(object.layout_type,
-          specifiedType: const FullType(String)),
-      'has_delivery',
-      serializers.serialize(object.has_delivery,
-          specifiedType: const FullType(String)),
-      'tracking_link',
-      serializers.serialize(object.tracking_link,
-          specifiedType: const FullType(String)),
-      'custom_field_template',
-      serializers.serialize(object.custom_field_template,
-          specifiedType: const FullType(String)),
-      'pickup_meta_data',
-      serializers.serialize(object.pickup_meta_data,
-          specifiedType: const FullType(String)),
-      'delivery_notes',
-      serializers.serialize(object.delivery_notes,
-          specifiedType: const FullType(String)),
-      'order_notes',
-      serializers.serialize(object.order_notes,
-          specifiedType: const FullType(String)),
-      'team_id',
-      serializers.serialize(object.team_id,
-          specifiedType: const FullType(String)),
-      'manager_id',
-      serializers.serialize(object.manager_id,
-          specifiedType: const FullType(String)),
-      'auto_assignment',
-      serializers.serialize(object.auto_assignment,
-          specifiedType: const FullType(String)),
-      'fleet_id',
-      serializers.serialize(object.fleet_id,
-          specifiedType: const FullType(String)),
-      'rules_based',
-      serializers.serialize(object.rules_based,
-          specifiedType: const FullType(String)),
-      'broadcast',
-      serializers.serialize(object.broadcast,
-          specifiedType: const FullType(String)),
-      'geofencing',
-      serializers.serialize(object.geofencing,
-          specifiedType: const FullType(String)),
-      'task_windows',
-      serializers.serialize(object.task_windows,
-          specifiedType: const FullType(String)),
-      'task_dependencies',
-      serializers.serialize(object.task_dependencies,
-          specifiedType: const FullType(String)),
-      'priority',
-      serializers.serialize(object.priority,
-          specifiedType: const FullType(String)),
-      'agents',
-      serializers.serialize(object.agents,
-          specifiedType: const FullType(String)),
-      'p_ref_images',
-      serializers.serialize(object.p_ref_images,
-          specifiedType: const FullType(String)),
-    ];
+    final result = <Object>[];
     if (object.id != null) {
       result
         ..add('id')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
+    }
+    if (object.mission_id != null) {
+      result
+        ..add('mission_id')
+        ..add(serializers.serialize(object.mission_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.service_key != null) {
+      result
+        ..add('service_key')
+        ..add(serializers.serialize(object.service_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.descption != null) {
+      result
+        ..add('descption')
+        ..add(serializers.serialize(object.descption,
+            specifiedType: const FullType(String)));
+    }
+    if (object.order_id != null) {
+      result
+        ..add('order_id')
+        ..add(serializers.serialize(object.order_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.status != null) {
+      result
+        ..add('status')
+        ..add(serializers.serialize(object.status,
+            specifiedType: const FullType(String)));
+    }
+    if (object.predicted_satisfaction != null) {
+      result
+        ..add('predicted_satisfaction')
+        ..add(serializers.serialize(object.predicted_satisfaction,
+            specifiedType: const FullType(String)));
+    }
+    if (object.wait_time != null) {
+      result
+        ..add('wait_time')
+        ..add(serializers.serialize(object.wait_time,
+            specifiedType: const FullType(String)));
+    }
+    if (object.earning_id != null) {
+      result
+        ..add('earning_id')
+        ..add(serializers.serialize(object.earning_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.has_pickup != null) {
+      result
+        ..add('has_pickup')
+        ..add(serializers.serialize(object.has_pickup,
+            specifiedType: const FullType(String)));
+    }
+    if (object.layout_type != null) {
+      result
+        ..add('layout_type')
+        ..add(serializers.serialize(object.layout_type,
+            specifiedType: const FullType(String)));
+    }
+    if (object.has_delivery != null) {
+      result
+        ..add('has_delivery')
+        ..add(serializers.serialize(object.has_delivery,
+            specifiedType: const FullType(String)));
+    }
+    if (object.tracking_link != null) {
+      result
+        ..add('tracking_link')
+        ..add(serializers.serialize(object.tracking_link,
+            specifiedType: const FullType(String)));
+    }
+    if (object.custom_field_template != null) {
+      result
+        ..add('custom_field_template')
+        ..add(serializers.serialize(object.custom_field_template,
+            specifiedType: const FullType(String)));
+    }
+    if (object.pickup_meta_data != null) {
+      result
+        ..add('pickup_meta_data')
+        ..add(serializers.serialize(object.pickup_meta_data,
+            specifiedType: const FullType(String)));
+    }
+    if (object.delivery_notes != null) {
+      result
+        ..add('delivery_notes')
+        ..add(serializers.serialize(object.delivery_notes,
+            specifiedType: const FullType(String)));
+    }
+    if (object.order_notes != null) {
+      result
+        ..add('order_notes')
+        ..add(serializers.serialize(object.order_notes,
+            specifiedType: const FullType(String)));
+    }
+    if (object.team_id != null) {
+      result
+        ..add('team_id')
+        ..add(serializers.serialize(object.team_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.manager_id != null) {
+      result
+        ..add('manager_id')
+        ..add(serializers.serialize(object.manager_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.auto_assignment != null) {
+      result
+        ..add('auto_assignment')
+        ..add(serializers.serialize(object.auto_assignment,
+            specifiedType: const FullType(String)));
+    }
+    if (object.fleet_id != null) {
+      result
+        ..add('fleet_id')
+        ..add(serializers.serialize(object.fleet_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.rules_based != null) {
+      result
+        ..add('rules_based')
+        ..add(serializers.serialize(object.rules_based,
+            specifiedType: const FullType(String)));
+    }
+    if (object.broadcast != null) {
+      result
+        ..add('broadcast')
+        ..add(serializers.serialize(object.broadcast,
+            specifiedType: const FullType(String)));
+    }
+    if (object.geofencing != null) {
+      result
+        ..add('geofencing')
+        ..add(serializers.serialize(object.geofencing,
+            specifiedType: const FullType(String)));
+    }
+    if (object.task_windows != null) {
+      result
+        ..add('task_windows')
+        ..add(serializers.serialize(object.task_windows,
+            specifiedType: const FullType(String)));
+    }
+    if (object.task_dependencies != null) {
+      result
+        ..add('task_dependencies')
+        ..add(serializers.serialize(object.task_dependencies,
+            specifiedType: const FullType(String)));
+    }
+    if (object.priority != null) {
+      result
+        ..add('priority')
+        ..add(serializers.serialize(object.priority,
+            specifiedType: const FullType(String)));
+    }
+    if (object.agents != null) {
+      result
+        ..add('agents')
+        ..add(serializers.serialize(object.agents,
+            specifiedType: const FullType(String)));
+    }
+    if (object.p_ref_images != null) {
+      result
+        ..add('p_ref_images')
+        ..add(serializers.serialize(object.p_ref_images,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    if (object.customer_email != null) {
+      result
+        ..add('customer_email')
+        ..add(serializers.serialize(object.customer_email,
+            specifiedType: const FullType(String)));
+    }
+    if (object.timezone != null) {
+      result
+        ..add('timezone')
+        ..add(serializers.serialize(object.timezone,
+            specifiedType: const FullType(String)));
+    }
+    if (object.tags != null) {
+      result
+        ..add('tags')
+        ..add(serializers.serialize(object.tags,
+            specifiedType: const FullType(String)));
+    }
+    if (object.customer_username != null) {
+      result
+        ..add('customer_username')
+        ..add(serializers.serialize(object.customer_username,
+            specifiedType: const FullType(String)));
+    }
+    if (object.customer_phone != null) {
+      result
+        ..add('customer_phone')
+        ..add(serializers.serialize(object.customer_phone,
+            specifiedType: const FullType(String)));
+    }
+    if (object.customer_address != null) {
+      result
+        ..add('customer_address')
+        ..add(serializers.serialize(object.customer_address,
+            specifiedType: const FullType(String)));
+    }
+    if (object.longitude != null) {
+      result
+        ..add('longitude')
+        ..add(serializers.serialize(object.longitude,
+            specifiedType: const FullType(String)));
+    }
+    if (object.latitude != null) {
+      result
+        ..add('latitude')
+        ..add(serializers.serialize(object.latitude,
+            specifiedType: const FullType(String)));
+    }
+    if (object.job_pickup_datetime != null) {
+      result
+        ..add('job_pickup_datetime')
+        ..add(serializers.serialize(object.job_pickup_datetime,
+            specifiedType: const FullType(String)));
+    }
+    if (object.job_delivery_datetime != null) {
+      result
+        ..add('job_delivery_datetime')
+        ..add(serializers.serialize(object.job_delivery_datetime,
+            specifiedType: const FullType(String)));
+    }
+    if (object.job_id != null) {
+      result
+        ..add('job_id')
+        ..add(serializers.serialize(object.job_id,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -236,7 +386,53 @@ class _$TaskSerializer implements StructuredSerializer<Task> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'p_ref_images':
-          result.p_ref_images = serializers.deserialize(value,
+          result.p_ref_images.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<dynamic>);
+          break;
+        case 'customer_email':
+          result.customer_email = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'timezone':
+          result.timezone = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'tags':
+          result.tags = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'customer_username':
+          result.customer_username = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'customer_phone':
+          result.customer_phone = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'customer_address':
+          result.customer_address = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'longitude':
+          result.longitude = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'latitude':
+          result.latitude = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'job_pickup_datetime':
+          result.job_pickup_datetime = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'job_delivery_datetime':
+          result.job_delivery_datetime = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'job_id':
+          result.job_id = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
       }
@@ -304,7 +500,29 @@ class _$Task extends Task {
   @override
   final String agents;
   @override
-  final String p_ref_images;
+  final BuiltList<String> p_ref_images;
+  @override
+  final String customer_email;
+  @override
+  final String timezone;
+  @override
+  final String tags;
+  @override
+  final String customer_username;
+  @override
+  final String customer_phone;
+  @override
+  final String customer_address;
+  @override
+  final String longitude;
+  @override
+  final String latitude;
+  @override
+  final String job_pickup_datetime;
+  @override
+  final String job_delivery_datetime;
+  @override
+  final String job_id;
 
   factory _$Task([void Function(TaskBuilder) updates]) =>
       (new TaskBuilder()..update(updates)).build();
@@ -338,93 +556,19 @@ class _$Task extends Task {
       this.task_dependencies,
       this.priority,
       this.agents,
-      this.p_ref_images})
-      : super._() {
-    if (mission_id == null) {
-      throw new BuiltValueNullFieldError('Task', 'mission_id');
-    }
-    if (service_key == null) {
-      throw new BuiltValueNullFieldError('Task', 'service_key');
-    }
-    if (descption == null) {
-      throw new BuiltValueNullFieldError('Task', 'descption');
-    }
-    if (order_id == null) {
-      throw new BuiltValueNullFieldError('Task', 'order_id');
-    }
-    if (status == null) {
-      throw new BuiltValueNullFieldError('Task', 'status');
-    }
-    if (predicted_satisfaction == null) {
-      throw new BuiltValueNullFieldError('Task', 'predicted_satisfaction');
-    }
-    if (wait_time == null) {
-      throw new BuiltValueNullFieldError('Task', 'wait_time');
-    }
-    if (earning_id == null) {
-      throw new BuiltValueNullFieldError('Task', 'earning_id');
-    }
-    if (has_pickup == null) {
-      throw new BuiltValueNullFieldError('Task', 'has_pickup');
-    }
-    if (layout_type == null) {
-      throw new BuiltValueNullFieldError('Task', 'layout_type');
-    }
-    if (has_delivery == null) {
-      throw new BuiltValueNullFieldError('Task', 'has_delivery');
-    }
-    if (tracking_link == null) {
-      throw new BuiltValueNullFieldError('Task', 'tracking_link');
-    }
-    if (custom_field_template == null) {
-      throw new BuiltValueNullFieldError('Task', 'custom_field_template');
-    }
-    if (pickup_meta_data == null) {
-      throw new BuiltValueNullFieldError('Task', 'pickup_meta_data');
-    }
-    if (delivery_notes == null) {
-      throw new BuiltValueNullFieldError('Task', 'delivery_notes');
-    }
-    if (order_notes == null) {
-      throw new BuiltValueNullFieldError('Task', 'order_notes');
-    }
-    if (team_id == null) {
-      throw new BuiltValueNullFieldError('Task', 'team_id');
-    }
-    if (manager_id == null) {
-      throw new BuiltValueNullFieldError('Task', 'manager_id');
-    }
-    if (auto_assignment == null) {
-      throw new BuiltValueNullFieldError('Task', 'auto_assignment');
-    }
-    if (fleet_id == null) {
-      throw new BuiltValueNullFieldError('Task', 'fleet_id');
-    }
-    if (rules_based == null) {
-      throw new BuiltValueNullFieldError('Task', 'rules_based');
-    }
-    if (broadcast == null) {
-      throw new BuiltValueNullFieldError('Task', 'broadcast');
-    }
-    if (geofencing == null) {
-      throw new BuiltValueNullFieldError('Task', 'geofencing');
-    }
-    if (task_windows == null) {
-      throw new BuiltValueNullFieldError('Task', 'task_windows');
-    }
-    if (task_dependencies == null) {
-      throw new BuiltValueNullFieldError('Task', 'task_dependencies');
-    }
-    if (priority == null) {
-      throw new BuiltValueNullFieldError('Task', 'priority');
-    }
-    if (agents == null) {
-      throw new BuiltValueNullFieldError('Task', 'agents');
-    }
-    if (p_ref_images == null) {
-      throw new BuiltValueNullFieldError('Task', 'p_ref_images');
-    }
-  }
+      this.p_ref_images,
+      this.customer_email,
+      this.timezone,
+      this.tags,
+      this.customer_username,
+      this.customer_phone,
+      this.customer_address,
+      this.longitude,
+      this.latitude,
+      this.job_pickup_datetime,
+      this.job_delivery_datetime,
+      this.job_id})
+      : super._();
 
   @override
   Task rebuild(void Function(TaskBuilder) updates) =>
@@ -465,7 +609,18 @@ class _$Task extends Task {
         task_dependencies == other.task_dependencies &&
         priority == other.priority &&
         agents == other.agents &&
-        p_ref_images == other.p_ref_images;
+        p_ref_images == other.p_ref_images &&
+        customer_email == other.customer_email &&
+        timezone == other.timezone &&
+        tags == other.tags &&
+        customer_username == other.customer_username &&
+        customer_phone == other.customer_phone &&
+        customer_address == other.customer_address &&
+        longitude == other.longitude &&
+        latitude == other.latitude &&
+        job_pickup_datetime == other.job_pickup_datetime &&
+        job_delivery_datetime == other.job_delivery_datetime &&
+        job_id == other.job_id;
   }
 
   @override
@@ -488,26 +643,26 @@ class _$Task extends Task {
                                                                 $jc(
                                                                     $jc(
                                                                         $jc(
-                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, id.hashCode), mission_id.hashCode), service_key.hashCode), descption.hashCode), order_id.hashCode), status.hashCode), predicted_satisfaction.hashCode), wait_time.hashCode), earning_id.hashCode), has_pickup.hashCode),
-                                                                                layout_type.hashCode),
-                                                                            has_delivery.hashCode),
-                                                                        tracking_link.hashCode),
-                                                                    custom_field_template.hashCode),
-                                                                pickup_meta_data.hashCode),
-                                                            delivery_notes.hashCode),
-                                                        order_notes.hashCode),
-                                                    team_id.hashCode),
-                                                manager_id.hashCode),
-                                            auto_assignment.hashCode),
-                                        fleet_id.hashCode),
-                                    rules_based.hashCode),
-                                broadcast.hashCode),
-                            geofencing.hashCode),
-                        task_windows.hashCode),
-                    task_dependencies.hashCode),
-                priority.hashCode),
-            agents.hashCode),
-        p_ref_images.hashCode));
+                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, id.hashCode), mission_id.hashCode), service_key.hashCode), descption.hashCode), order_id.hashCode), status.hashCode), predicted_satisfaction.hashCode), wait_time.hashCode), earning_id.hashCode), has_pickup.hashCode), layout_type.hashCode), has_delivery.hashCode), tracking_link.hashCode), custom_field_template.hashCode), pickup_meta_data.hashCode), delivery_notes.hashCode), order_notes.hashCode), team_id.hashCode), manager_id.hashCode), auto_assignment.hashCode), fleet_id.hashCode),
+                                                                                rules_based.hashCode),
+                                                                            broadcast.hashCode),
+                                                                        geofencing.hashCode),
+                                                                    task_windows.hashCode),
+                                                                task_dependencies.hashCode),
+                                                            priority.hashCode),
+                                                        agents.hashCode),
+                                                    p_ref_images.hashCode),
+                                                customer_email.hashCode),
+                                            timezone.hashCode),
+                                        tags.hashCode),
+                                    customer_username.hashCode),
+                                customer_phone.hashCode),
+                            customer_address.hashCode),
+                        longitude.hashCode),
+                    latitude.hashCode),
+                job_pickup_datetime.hashCode),
+            job_delivery_datetime.hashCode),
+        job_id.hashCode));
   }
 
   @override
@@ -541,7 +696,18 @@ class _$Task extends Task {
           ..add('task_dependencies', task_dependencies)
           ..add('priority', priority)
           ..add('agents', agents)
-          ..add('p_ref_images', p_ref_images))
+          ..add('p_ref_images', p_ref_images)
+          ..add('customer_email', customer_email)
+          ..add('timezone', timezone)
+          ..add('tags', tags)
+          ..add('customer_username', customer_username)
+          ..add('customer_phone', customer_phone)
+          ..add('customer_address', customer_address)
+          ..add('longitude', longitude)
+          ..add('latitude', latitude)
+          ..add('job_pickup_datetime', job_pickup_datetime)
+          ..add('job_delivery_datetime', job_delivery_datetime)
+          ..add('job_id', job_id))
         .toString();
   }
 }
@@ -668,9 +834,61 @@ class TaskBuilder implements Builder<Task, TaskBuilder> {
   String get agents => _$this._agents;
   set agents(String agents) => _$this._agents = agents;
 
-  String _p_ref_images;
-  String get p_ref_images => _$this._p_ref_images;
-  set p_ref_images(String p_ref_images) => _$this._p_ref_images = p_ref_images;
+  ListBuilder<String> _p_ref_images;
+  ListBuilder<String> get p_ref_images =>
+      _$this._p_ref_images ??= new ListBuilder<String>();
+  set p_ref_images(ListBuilder<String> p_ref_images) =>
+      _$this._p_ref_images = p_ref_images;
+
+  String _customer_email;
+  String get customer_email => _$this._customer_email;
+  set customer_email(String customer_email) =>
+      _$this._customer_email = customer_email;
+
+  String _timezone;
+  String get timezone => _$this._timezone;
+  set timezone(String timezone) => _$this._timezone = timezone;
+
+  String _tags;
+  String get tags => _$this._tags;
+  set tags(String tags) => _$this._tags = tags;
+
+  String _customer_username;
+  String get customer_username => _$this._customer_username;
+  set customer_username(String customer_username) =>
+      _$this._customer_username = customer_username;
+
+  String _customer_phone;
+  String get customer_phone => _$this._customer_phone;
+  set customer_phone(String customer_phone) =>
+      _$this._customer_phone = customer_phone;
+
+  String _customer_address;
+  String get customer_address => _$this._customer_address;
+  set customer_address(String customer_address) =>
+      _$this._customer_address = customer_address;
+
+  String _longitude;
+  String get longitude => _$this._longitude;
+  set longitude(String longitude) => _$this._longitude = longitude;
+
+  String _latitude;
+  String get latitude => _$this._latitude;
+  set latitude(String latitude) => _$this._latitude = latitude;
+
+  String _job_pickup_datetime;
+  String get job_pickup_datetime => _$this._job_pickup_datetime;
+  set job_pickup_datetime(String job_pickup_datetime) =>
+      _$this._job_pickup_datetime = job_pickup_datetime;
+
+  String _job_delivery_datetime;
+  String get job_delivery_datetime => _$this._job_delivery_datetime;
+  set job_delivery_datetime(String job_delivery_datetime) =>
+      _$this._job_delivery_datetime = job_delivery_datetime;
+
+  String _job_id;
+  String get job_id => _$this._job_id;
+  set job_id(String job_id) => _$this._job_id = job_id;
 
   TaskBuilder();
 
@@ -704,7 +922,18 @@ class TaskBuilder implements Builder<Task, TaskBuilder> {
       _task_dependencies = _$v.task_dependencies;
       _priority = _$v.priority;
       _agents = _$v.agents;
-      _p_ref_images = _$v.p_ref_images;
+      _p_ref_images = _$v.p_ref_images?.toBuilder();
+      _customer_email = _$v.customer_email;
+      _timezone = _$v.timezone;
+      _tags = _$v.tags;
+      _customer_username = _$v.customer_username;
+      _customer_phone = _$v.customer_phone;
+      _customer_address = _$v.customer_address;
+      _longitude = _$v.longitude;
+      _latitude = _$v.latitude;
+      _job_pickup_datetime = _$v.job_pickup_datetime;
+      _job_delivery_datetime = _$v.job_delivery_datetime;
+      _job_id = _$v.job_id;
       _$v = null;
     }
     return this;
@@ -725,37 +954,61 @@ class TaskBuilder implements Builder<Task, TaskBuilder> {
 
   @override
   _$Task build() {
-    final _$result = _$v ??
-        new _$Task._(
-            id: id,
-            mission_id: mission_id,
-            service_key: service_key,
-            descption: descption,
-            order_id: order_id,
-            status: status,
-            predicted_satisfaction: predicted_satisfaction,
-            wait_time: wait_time,
-            earning_id: earning_id,
-            has_pickup: has_pickup,
-            layout_type: layout_type,
-            has_delivery: has_delivery,
-            tracking_link: tracking_link,
-            custom_field_template: custom_field_template,
-            pickup_meta_data: pickup_meta_data,
-            delivery_notes: delivery_notes,
-            order_notes: order_notes,
-            team_id: team_id,
-            manager_id: manager_id,
-            auto_assignment: auto_assignment,
-            fleet_id: fleet_id,
-            rules_based: rules_based,
-            broadcast: broadcast,
-            geofencing: geofencing,
-            task_windows: task_windows,
-            task_dependencies: task_dependencies,
-            priority: priority,
-            agents: agents,
-            p_ref_images: p_ref_images);
+    _$Task _$result;
+    try {
+      _$result = _$v ??
+          new _$Task._(
+              id: id,
+              mission_id: mission_id,
+              service_key: service_key,
+              descption: descption,
+              order_id: order_id,
+              status: status,
+              predicted_satisfaction: predicted_satisfaction,
+              wait_time: wait_time,
+              earning_id: earning_id,
+              has_pickup: has_pickup,
+              layout_type: layout_type,
+              has_delivery: has_delivery,
+              tracking_link: tracking_link,
+              custom_field_template: custom_field_template,
+              pickup_meta_data: pickup_meta_data,
+              delivery_notes: delivery_notes,
+              order_notes: order_notes,
+              team_id: team_id,
+              manager_id: manager_id,
+              auto_assignment: auto_assignment,
+              fleet_id: fleet_id,
+              rules_based: rules_based,
+              broadcast: broadcast,
+              geofencing: geofencing,
+              task_windows: task_windows,
+              task_dependencies: task_dependencies,
+              priority: priority,
+              agents: agents,
+              p_ref_images: _p_ref_images?.build(),
+              customer_email: customer_email,
+              timezone: timezone,
+              tags: tags,
+              customer_username: customer_username,
+              customer_phone: customer_phone,
+              customer_address: customer_address,
+              longitude: longitude,
+              latitude: latitude,
+              job_pickup_datetime: job_pickup_datetime,
+              job_delivery_datetime: job_delivery_datetime,
+              job_id: job_id);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'p_ref_images';
+        _p_ref_images?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'Task', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

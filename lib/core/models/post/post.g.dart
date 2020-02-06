@@ -17,19 +17,31 @@ class _$PostSerializer implements StructuredSerializer<Post> {
   @override
   Iterable<Object> serialize(Serializers serializers, Post object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
-      'title',
-      serializers.serialize(object.title,
-          specifiedType: const FullType(String)),
-      'body',
-      serializers.serialize(object.description,
-          specifiedType: const FullType(String)),
-      'userId',
-      serializers.serialize(object.userId, specifiedType: const FullType(int)),
-    ];
-
+    final result = <Object>[];
+    if (object.id != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(object.id,
+            specifiedType: const FullType(int)));
+    }
+    if (object.title != null) {
+      result
+        ..add('title')
+        ..add(serializers.serialize(object.title,
+            specifiedType: const FullType(String)));
+    }
+    if (object.description != null) {
+      result
+        ..add('body')
+        ..add(serializers.serialize(object.description,
+            specifiedType: const FullType(String)));
+    }
+    if (object.userId != null) {
+      result
+        ..add('userId')
+        ..add(serializers.serialize(object.userId,
+            specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -80,20 +92,7 @@ class _$Post extends Post {
   factory _$Post([void Function(PostBuilder) updates]) =>
       (new PostBuilder()..update(updates)).build();
 
-  _$Post._({this.id, this.title, this.description, this.userId}) : super._() {
-    if (id == null) {
-      throw new BuiltValueNullFieldError('Post', 'id');
-    }
-    if (title == null) {
-      throw new BuiltValueNullFieldError('Post', 'title');
-    }
-    if (description == null) {
-      throw new BuiltValueNullFieldError('Post', 'description');
-    }
-    if (userId == null) {
-      throw new BuiltValueNullFieldError('Post', 'userId');
-    }
-  }
+  _$Post._({this.id, this.title, this.description, this.userId}) : super._();
 
   @override
   Post rebuild(void Function(PostBuilder) updates) =>

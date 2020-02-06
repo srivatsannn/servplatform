@@ -18,31 +18,48 @@ class _$AdhocRequestSerializer implements StructuredSerializer<AdhocRequest> {
   @override
   Iterable<Object> serialize(Serializers serializers, AdhocRequest object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'user_key',
-      serializers.serialize(object.user_key,
-          specifiedType: const FullType(String)),
-      'request_title',
-      serializers.serialize(object.request_title,
-          specifiedType: const FullType(String)),
-      'request_description',
-      serializers.serialize(object.request_description,
-          specifiedType: const FullType(String)),
-      'created_at',
-      serializers.serialize(object.created_at,
-          specifiedType: const FullType(String)),
-      'status',
-      serializers.serialize(object.status,
-          specifiedType: const FullType(String)),
-      'story_key',
-      serializers.serialize(object.story_key,
-          specifiedType: const FullType(String)),
-    ];
+    final result = <Object>[];
     if (object.id != null) {
       result
         ..add('id')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
+    }
+    if (object.user_key != null) {
+      result
+        ..add('user_key')
+        ..add(serializers.serialize(object.user_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.request_title != null) {
+      result
+        ..add('request_title')
+        ..add(serializers.serialize(object.request_title,
+            specifiedType: const FullType(String)));
+    }
+    if (object.request_description != null) {
+      result
+        ..add('request_description')
+        ..add(serializers.serialize(object.request_description,
+            specifiedType: const FullType(String)));
+    }
+    if (object.created_at != null) {
+      result
+        ..add('created_at')
+        ..add(serializers.serialize(object.created_at,
+            specifiedType: const FullType(String)));
+    }
+    if (object.status != null) {
+      result
+        ..add('status')
+        ..add(serializers.serialize(object.status,
+            specifiedType: const FullType(String)));
+    }
+    if (object.story_key != null) {
+      result
+        ..add('story_key')
+        ..add(serializers.serialize(object.story_key,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -120,26 +137,7 @@ class _$AdhocRequest extends AdhocRequest {
       this.created_at,
       this.status,
       this.story_key})
-      : super._() {
-    if (user_key == null) {
-      throw new BuiltValueNullFieldError('AdhocRequest', 'user_key');
-    }
-    if (request_title == null) {
-      throw new BuiltValueNullFieldError('AdhocRequest', 'request_title');
-    }
-    if (request_description == null) {
-      throw new BuiltValueNullFieldError('AdhocRequest', 'request_description');
-    }
-    if (created_at == null) {
-      throw new BuiltValueNullFieldError('AdhocRequest', 'created_at');
-    }
-    if (status == null) {
-      throw new BuiltValueNullFieldError('AdhocRequest', 'status');
-    }
-    if (story_key == null) {
-      throw new BuiltValueNullFieldError('AdhocRequest', 'story_key');
-    }
-  }
+      : super._();
 
   @override
   AdhocRequest rebuild(void Function(AdhocRequestBuilder) updates) =>

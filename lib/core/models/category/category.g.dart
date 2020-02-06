@@ -17,82 +17,150 @@ class _$CategorySerializer implements StructuredSerializer<Category> {
   @override
   Iterable<Object> serialize(Serializers serializers, Category object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'category_key',
-      serializers.serialize(object.category_key,
-          specifiedType: const FullType(String)),
-      'category',
-      serializers.serialize(object.category,
-          specifiedType: const FullType(String)),
-      'category_examples',
-      serializers.serialize(object.category_examples,
-          specifiedType: const FullType(String)),
-      'count_of_services_in_category',
-      serializers.serialize(object.count_of_services_in_category,
-          specifiedType: const FullType(String)),
-      'parent_category_id',
-      serializers.serialize(object.parent_category_id,
-          specifiedType: const FullType(String)),
-      'super_catalogue_id',
-      serializers.serialize(object.super_catalogue_id,
-          specifiedType: const FullType(String)),
-      'layout_type',
-      serializers.serialize(object.layout_type,
-          specifiedType: const FullType(String)),
-      'layout_id',
-      serializers.serialize(object.layout_id,
-          specifiedType: const FullType(String)),
-      'priority',
-      serializers.serialize(object.priority,
-          specifiedType: const FullType(String)),
-      'is_dummy',
-      serializers.serialize(object.is_dummy,
-          specifiedType: const FullType(String)),
-      'is_enabled',
-      serializers.serialize(object.is_enabled,
-          specifiedType: const FullType(String)),
-      'level',
-      serializers.serialize(object.level,
-          specifiedType: const FullType(String)),
-      'has_children',
-      serializers.serialize(object.has_children,
-          specifiedType: const FullType(String)),
-      'has_products',
-      serializers.serialize(object.has_products,
-          specifiedType: const FullType(String)),
-      'is_deleted',
-      serializers.serialize(object.is_deleted,
-          specifiedType: const FullType(String)),
-      'child_layout_type',
-      serializers.serialize(object.child_layout_type,
-          specifiedType: const FullType(String)),
-      'admin_catalogue_id',
-      serializers.serialize(object.admin_catalogue_id,
-          specifiedType: const FullType(String)),
-      'products_has_image',
-      serializers.serialize(object.products_has_image,
-          specifiedType: const FullType(String)),
-      'is_side_order',
-      serializers.serialize(object.is_side_order,
-          specifiedType: const FullType(String)),
-      'show_catalog',
-      serializers.serialize(object.show_catalog,
-          specifiedType: const FullType(String)),
-      'has_active_children',
-      serializers.serialize(object.has_active_children,
-          specifiedType: const FullType(String)),
-      'is_required',
-      serializers.serialize(object.is_required,
-          specifiedType: const FullType(String)),
-      'depth',
-      serializers.serialize(object.depth,
-          specifiedType: const FullType(String)),
-    ];
+    final result = <Object>[];
     if (object.id != null) {
       result
         ..add('id')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
+    }
+    if (object.category_key != null) {
+      result
+        ..add('category_key')
+        ..add(serializers.serialize(object.category_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.category != null) {
+      result
+        ..add('category')
+        ..add(serializers.serialize(object.category,
+            specifiedType: const FullType(String)));
+    }
+    if (object.category_examples != null) {
+      result
+        ..add('category_examples')
+        ..add(serializers.serialize(object.category_examples,
+            specifiedType: const FullType(String)));
+    }
+    if (object.count_of_services_in_category != null) {
+      result
+        ..add('count_of_services_in_category')
+        ..add(serializers.serialize(object.count_of_services_in_category,
+            specifiedType: const FullType(String)));
+    }
+    if (object.parent_category_id != null) {
+      result
+        ..add('parent_category_id')
+        ..add(serializers.serialize(object.parent_category_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.super_catalogue_id != null) {
+      result
+        ..add('super_catalogue_id')
+        ..add(serializers.serialize(object.super_catalogue_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.layout_type != null) {
+      result
+        ..add('layout_type')
+        ..add(serializers.serialize(object.layout_type,
+            specifiedType: const FullType(String)));
+    }
+    if (object.layout_id != null) {
+      result
+        ..add('layout_id')
+        ..add(serializers.serialize(object.layout_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.priority != null) {
+      result
+        ..add('priority')
+        ..add(serializers.serialize(object.priority,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_dummy != null) {
+      result
+        ..add('is_dummy')
+        ..add(serializers.serialize(object.is_dummy,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_enabled != null) {
+      result
+        ..add('is_enabled')
+        ..add(serializers.serialize(object.is_enabled,
+            specifiedType: const FullType(String)));
+    }
+    if (object.level != null) {
+      result
+        ..add('level')
+        ..add(serializers.serialize(object.level,
+            specifiedType: const FullType(String)));
+    }
+    if (object.has_children != null) {
+      result
+        ..add('has_children')
+        ..add(serializers.serialize(object.has_children,
+            specifiedType: const FullType(String)));
+    }
+    if (object.has_products != null) {
+      result
+        ..add('has_products')
+        ..add(serializers.serialize(object.has_products,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_deleted != null) {
+      result
+        ..add('is_deleted')
+        ..add(serializers.serialize(object.is_deleted,
+            specifiedType: const FullType(String)));
+    }
+    if (object.child_layout_type != null) {
+      result
+        ..add('child_layout_type')
+        ..add(serializers.serialize(object.child_layout_type,
+            specifiedType: const FullType(String)));
+    }
+    if (object.admin_catalogue_id != null) {
+      result
+        ..add('admin_catalogue_id')
+        ..add(serializers.serialize(object.admin_catalogue_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.products_has_image != null) {
+      result
+        ..add('products_has_image')
+        ..add(serializers.serialize(object.products_has_image,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_side_order != null) {
+      result
+        ..add('is_side_order')
+        ..add(serializers.serialize(object.is_side_order,
+            specifiedType: const FullType(String)));
+    }
+    if (object.show_catalog != null) {
+      result
+        ..add('show_catalog')
+        ..add(serializers.serialize(object.show_catalog,
+            specifiedType: const FullType(String)));
+    }
+    if (object.has_active_children != null) {
+      result
+        ..add('has_active_children')
+        ..add(serializers.serialize(object.has_active_children,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_required != null) {
+      result
+        ..add('is_required')
+        ..add(serializers.serialize(object.is_required,
+            specifiedType: const FullType(String)));
+    }
+    if (object.depth != null) {
+      result
+        ..add('depth')
+        ..add(serializers.serialize(object.depth,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -289,78 +357,7 @@ class _$Category extends Category {
       this.has_active_children,
       this.is_required,
       this.depth})
-      : super._() {
-    if (category_key == null) {
-      throw new BuiltValueNullFieldError('Category', 'category_key');
-    }
-    if (category == null) {
-      throw new BuiltValueNullFieldError('Category', 'category');
-    }
-    if (category_examples == null) {
-      throw new BuiltValueNullFieldError('Category', 'category_examples');
-    }
-    if (count_of_services_in_category == null) {
-      throw new BuiltValueNullFieldError(
-          'Category', 'count_of_services_in_category');
-    }
-    if (parent_category_id == null) {
-      throw new BuiltValueNullFieldError('Category', 'parent_category_id');
-    }
-    if (super_catalogue_id == null) {
-      throw new BuiltValueNullFieldError('Category', 'super_catalogue_id');
-    }
-    if (layout_type == null) {
-      throw new BuiltValueNullFieldError('Category', 'layout_type');
-    }
-    if (layout_id == null) {
-      throw new BuiltValueNullFieldError('Category', 'layout_id');
-    }
-    if (priority == null) {
-      throw new BuiltValueNullFieldError('Category', 'priority');
-    }
-    if (is_dummy == null) {
-      throw new BuiltValueNullFieldError('Category', 'is_dummy');
-    }
-    if (is_enabled == null) {
-      throw new BuiltValueNullFieldError('Category', 'is_enabled');
-    }
-    if (level == null) {
-      throw new BuiltValueNullFieldError('Category', 'level');
-    }
-    if (has_children == null) {
-      throw new BuiltValueNullFieldError('Category', 'has_children');
-    }
-    if (has_products == null) {
-      throw new BuiltValueNullFieldError('Category', 'has_products');
-    }
-    if (is_deleted == null) {
-      throw new BuiltValueNullFieldError('Category', 'is_deleted');
-    }
-    if (child_layout_type == null) {
-      throw new BuiltValueNullFieldError('Category', 'child_layout_type');
-    }
-    if (admin_catalogue_id == null) {
-      throw new BuiltValueNullFieldError('Category', 'admin_catalogue_id');
-    }
-    if (products_has_image == null) {
-      throw new BuiltValueNullFieldError('Category', 'products_has_image');
-    }
-    if (is_side_order == null) {
-      throw new BuiltValueNullFieldError('Category', 'is_side_order');
-    }
-    if (show_catalog == null) {
-      throw new BuiltValueNullFieldError('Category', 'show_catalog');
-    }
-    if (has_active_children == null) {
-      throw new BuiltValueNullFieldError('Category', 'has_active_children');
-    }
-    if (is_required == null) {
-      throw new BuiltValueNullFieldError('Category', 'is_required');
-    }
-    if (depth == null) {
-      throw new BuiltValueNullFieldError('Category', 'depth');
-    }
-  }
+      : super._();
 
   @override
   Category rebuild(void Function(CategoryBuilder) updates) =>

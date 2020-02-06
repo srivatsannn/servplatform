@@ -272,8 +272,6 @@ PODS:
     - gRPC-Core/Interface (= 1.21.0)
     - nanopb (~> 0.3)
   - gRPC-Core/Interface (1.21.0)
-  - image_picker_saver (0.0.1):
-    - Flutter
   - leveldb-library (1.22)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
@@ -298,7 +296,6 @@ DEPENDENCIES:
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_core_web (from `.symlinks/plugins/firebase_core_web/ios`)
   - Flutter (from `Flutter`)
-  - image_picker_saver (from `.symlinks/plugins/image_picker_saver/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
   - shared_preferences_macos (from `.symlinks/plugins/shared_preferences_macos/ios`)
@@ -341,8 +338,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_core_web/ios"
   Flutter:
     :path: Flutter
-  image_picker_saver:
-    :path: ".symlinks/plugins/image_picker_saver/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
   shared_preferences:
@@ -376,7 +371,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 29bd0d8f850efbd28cff6d99e8b7da1f8d236bcf
   "gRPC-C++": 9dfe7b44821e7b3e44aacad2af29d2c21f7cde83
   gRPC-Core: c9aef9a261a1247e881b18059b84d597293c9947
-  image_picker_saver: 4f28bd70e1efdca68ad88beab0f11d22cffe04f6
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   path_provider: fb74bd0465e96b594bb3b5088ee4a4e7bb1f2a9d

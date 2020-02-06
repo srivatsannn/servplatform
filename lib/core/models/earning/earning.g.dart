@@ -17,33 +17,54 @@ class _$EarningSerializer implements StructuredSerializer<Earning> {
   @override
   Iterable<Object> serialize(Serializers serializers, Earning object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'type_agent',
-      serializers.serialize(object.type_agent,
-          specifiedType: const FullType(String)),
-      'today',
-      serializers.serialize(object.today,
-          specifiedType: const FullType(String)),
-      'today_no_ofTrips_completed',
-      serializers.serialize(object.today_no_ofTrips_completed,
-          specifiedType: const FullType(String)),
-      'last_week',
-      serializers.serialize(object.last_week,
-          specifiedType: const FullType(String)),
-      'today_no_oftrips_completed',
-      serializers.serialize(object.today_no_oftrips_completed,
-          specifiedType: const FullType(String)),
-      'goal',
-      serializers.serialize(object.goal, specifiedType: const FullType(String)),
-      'goal_descrpiton',
-      serializers.serialize(object.goal_descrpiton,
-          specifiedType: const FullType(String)),
-    ];
+    final result = <Object>[];
     if (object.id != null) {
       result
         ..add('id')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
+    }
+    if (object.type_agent != null) {
+      result
+        ..add('type_agent')
+        ..add(serializers.serialize(object.type_agent,
+            specifiedType: const FullType(String)));
+    }
+    if (object.today != null) {
+      result
+        ..add('today')
+        ..add(serializers.serialize(object.today,
+            specifiedType: const FullType(String)));
+    }
+    if (object.today_no_ofTrips_completed != null) {
+      result
+        ..add('today_no_ofTrips_completed')
+        ..add(serializers.serialize(object.today_no_ofTrips_completed,
+            specifiedType: const FullType(String)));
+    }
+    if (object.last_week != null) {
+      result
+        ..add('last_week')
+        ..add(serializers.serialize(object.last_week,
+            specifiedType: const FullType(String)));
+    }
+    if (object.today_no_oftrips_completed != null) {
+      result
+        ..add('today_no_oftrips_completed')
+        ..add(serializers.serialize(object.today_no_oftrips_completed,
+            specifiedType: const FullType(String)));
+    }
+    if (object.goal != null) {
+      result
+        ..add('goal')
+        ..add(serializers.serialize(object.goal,
+            specifiedType: const FullType(String)));
+    }
+    if (object.goal_descrpiton != null) {
+      result
+        ..add('goal_descrpiton')
+        ..add(serializers.serialize(object.goal_descrpiton,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -128,31 +149,7 @@ class _$Earning extends Earning {
       this.today_no_oftrips_completed,
       this.goal,
       this.goal_descrpiton})
-      : super._() {
-    if (type_agent == null) {
-      throw new BuiltValueNullFieldError('Earning', 'type_agent');
-    }
-    if (today == null) {
-      throw new BuiltValueNullFieldError('Earning', 'today');
-    }
-    if (today_no_ofTrips_completed == null) {
-      throw new BuiltValueNullFieldError(
-          'Earning', 'today_no_ofTrips_completed');
-    }
-    if (last_week == null) {
-      throw new BuiltValueNullFieldError('Earning', 'last_week');
-    }
-    if (today_no_oftrips_completed == null) {
-      throw new BuiltValueNullFieldError(
-          'Earning', 'today_no_oftrips_completed');
-    }
-    if (goal == null) {
-      throw new BuiltValueNullFieldError('Earning', 'goal');
-    }
-    if (goal_descrpiton == null) {
-      throw new BuiltValueNullFieldError('Earning', 'goal_descrpiton');
-    }
-  }
+      : super._();
 
   @override
   Earning rebuild(void Function(EarningBuilder) updates) =>

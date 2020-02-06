@@ -17,106 +17,249 @@ class _$AgentSerializer implements StructuredSerializer<Agent> {
   @override
   Iterable<Object> serialize(Serializers serializers, Agent object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'agent_key',
-      serializers.serialize(object.agent_key,
-          specifiedType: const FullType(String)),
-      'user_key',
-      serializers.serialize(object.user_key,
-          specifiedType: const FullType(String)),
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-      'current_location',
-      serializers.serialize(object.current_location,
-          specifiedType: const FullType(String)),
-      'geofence',
-      serializers.serialize(object.geofence,
-          specifiedType: const FullType(String)),
-      'status',
-      serializers.serialize(object.status,
-          specifiedType: const FullType(String)),
-      'is_verified',
-      serializers.serialize(object.is_verified,
-          specifiedType: const FullType(String)),
-      'team_key',
-      serializers.serialize(object.team_key,
-          specifiedType: const FullType(String)),
-      'tags',
-      serializers.serialize(object.tags, specifiedType: const FullType(String)),
-      'fleet_id',
-      serializers.serialize(object.fleet_id,
-          specifiedType: const FullType(String)),
-      'transport_type',
-      serializers.serialize(object.transport_type,
-          specifiedType: const FullType(String)),
-      'transport_desc',
-      serializers.serialize(object.transport_desc,
-          specifiedType: const FullType(String)),
-      'license',
-      serializers.serialize(object.license,
-          specifiedType: const FullType(String)),
-      'color',
-      serializers.serialize(object.color,
-          specifiedType: const FullType(String)),
-      'url',
-      serializers.serialize(object.url, specifiedType: const FullType(String)),
-      'min_visits',
-      serializers.serialize(object.min_visits,
-          specifiedType: const FullType(String)),
-      'capacity',
-      serializers.serialize(object.capacity,
-          specifiedType: const FullType(String)),
-      'payment',
-      serializers.serialize(object.payment,
-          specifiedType: const FullType(String)),
-      'recommended_merchants_to_join',
-      serializers.serialize(object.recommended_merchants_to_join,
-          specifiedType: const FullType(String)),
-      'recommended_promotions',
-      serializers.serialize(object.recommended_promotions,
-          specifiedType: const FullType(String)),
-      'user_id',
-      serializers.serialize(object.user_id,
-          specifiedType: const FullType(String)),
-      'own_a_vehicle',
-      serializers.serialize(object.own_a_vehicle,
-          specifiedType: const FullType(String)),
-      'own_a_space',
-      serializers.serialize(object.own_a_space,
-          specifiedType: const FullType(String)),
-      'team_id',
-      serializers.serialize(object.team_id,
-          specifiedType: const FullType(String)),
-      'rule_id',
-      serializers.serialize(object.rule_id,
-          specifiedType: const FullType(String)),
-      'block_status',
-      serializers.serialize(object.block_status,
-          specifiedType: const FullType(String)),
-      'message',
-      serializers.serialize(object.message,
-          specifiedType: const FullType(String)),
-      'skills',
-      serializers.serialize(object.skills,
-          specifiedType: const FullType(String)),
-      'availability',
-      serializers.serialize(object.availability,
-          specifiedType: const FullType(String)),
-      'earnings',
-      serializers.serialize(object.earnings,
-          specifiedType: const FullType(String)),
-      'providers',
-      serializers.serialize(object.providers,
-          specifiedType: const FullType(String)),
-      'pending_proifle_steps',
-      serializers.serialize(object.pending_proifle_steps,
-          specifiedType: const FullType(String)),
-    ];
+    final result = <Object>[];
     if (object.id != null) {
       result
         ..add('id')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
+    }
+    if (object.agent_key != null) {
+      result
+        ..add('agent_key')
+        ..add(serializers.serialize(object.agent_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.user_key != null) {
+      result
+        ..add('user_key')
+        ..add(serializers.serialize(object.user_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.username != null) {
+      result
+        ..add('username')
+        ..add(serializers.serialize(object.username,
+            specifiedType: const FullType(String)));
+    }
+    if (object.password != null) {
+      result
+        ..add('password')
+        ..add(serializers.serialize(object.password,
+            specifiedType: const FullType(String)));
+    }
+    if (object.phone != null) {
+      result
+        ..add('phone')
+        ..add(serializers.serialize(object.phone,
+            specifiedType: const FullType(String)));
+    }
+    if (object.email != null) {
+      result
+        ..add('email')
+        ..add(serializers.serialize(object.email,
+            specifiedType: const FullType(String)));
+    }
+    if (object.first_name != null) {
+      result
+        ..add('first_name')
+        ..add(serializers.serialize(object.first_name,
+            specifiedType: const FullType(String)));
+    }
+    if (object.last_name != null) {
+      result
+        ..add('last_name')
+        ..add(serializers.serialize(object.last_name,
+            specifiedType: const FullType(String)));
+    }
+    if (object.current_location != null) {
+      result
+        ..add('current_location')
+        ..add(serializers.serialize(object.current_location,
+            specifiedType: const FullType(String)));
+    }
+    if (object.geofence != null) {
+      result
+        ..add('geofence')
+        ..add(serializers.serialize(object.geofence,
+            specifiedType: const FullType(String)));
+    }
+    if (object.status != null) {
+      result
+        ..add('status')
+        ..add(serializers.serialize(object.status,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_verified != null) {
+      result
+        ..add('is_verified')
+        ..add(serializers.serialize(object.is_verified,
+            specifiedType: const FullType(String)));
+    }
+    if (object.team_key != null) {
+      result
+        ..add('team_key')
+        ..add(serializers.serialize(object.team_key,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    if (object.tags != null) {
+      result
+        ..add('tags')
+        ..add(serializers.serialize(object.tags,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    if (object.fleet_id != null) {
+      result
+        ..add('fleet_id')
+        ..add(serializers.serialize(object.fleet_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.transport_type != null) {
+      result
+        ..add('transport_type')
+        ..add(serializers.serialize(object.transport_type,
+            specifiedType: const FullType(String)));
+    }
+    if (object.transport_desc != null) {
+      result
+        ..add('transport_desc')
+        ..add(serializers.serialize(object.transport_desc,
+            specifiedType: const FullType(String)));
+    }
+    if (object.license != null) {
+      result
+        ..add('license')
+        ..add(serializers.serialize(object.license,
+            specifiedType: const FullType(String)));
+    }
+    if (object.color != null) {
+      result
+        ..add('color')
+        ..add(serializers.serialize(object.color,
+            specifiedType: const FullType(String)));
+    }
+    if (object.url != null) {
+      result
+        ..add('url')
+        ..add(serializers.serialize(object.url,
+            specifiedType: const FullType(String)));
+    }
+    if (object.min_visits != null) {
+      result
+        ..add('min_visits')
+        ..add(serializers.serialize(object.min_visits,
+            specifiedType: const FullType(String)));
+    }
+    if (object.capacity != null) {
+      result
+        ..add('capacity')
+        ..add(serializers.serialize(object.capacity,
+            specifiedType: const FullType(String)));
+    }
+    if (object.payment != null) {
+      result
+        ..add('payment')
+        ..add(serializers.serialize(object.payment,
+            specifiedType: const FullType(String)));
+    }
+    if (object.recommended_merchants_to_join != null) {
+      result
+        ..add('recommended_merchants_to_join')
+        ..add(serializers.serialize(object.recommended_merchants_to_join,
+            specifiedType: const FullType(String)));
+    }
+    if (object.recommended_promotions != null) {
+      result
+        ..add('recommended_promotions')
+        ..add(serializers.serialize(object.recommended_promotions,
+            specifiedType: const FullType(String)));
+    }
+    if (object.user_id != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(object.user_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.own_a_vehicle != null) {
+      result
+        ..add('own_a_vehicle')
+        ..add(serializers.serialize(object.own_a_vehicle,
+            specifiedType: const FullType(String)));
+    }
+    if (object.own_a_space != null) {
+      result
+        ..add('own_a_space')
+        ..add(serializers.serialize(object.own_a_space,
+            specifiedType: const FullType(String)));
+    }
+    if (object.team_id != null) {
+      result
+        ..add('team_id')
+        ..add(serializers.serialize(object.team_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.rule_id != null) {
+      result
+        ..add('rule_id')
+        ..add(serializers.serialize(object.rule_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.date != null) {
+      result
+        ..add('date')
+        ..add(serializers.serialize(object.date,
+            specifiedType: const FullType(String)));
+    }
+    if (object.limit != null) {
+      result
+        ..add('limit')
+        ..add(serializers.serialize(object.limit,
+            specifiedType: const FullType(String)));
+    }
+    if (object.block_status != null) {
+      result
+        ..add('block_status')
+        ..add(serializers.serialize(object.block_status,
+            specifiedType: const FullType(String)));
+    }
+    if (object.message != null) {
+      result
+        ..add('message')
+        ..add(serializers.serialize(object.message,
+            specifiedType: const FullType(String)));
+    }
+    if (object.skills != null) {
+      result
+        ..add('skills')
+        ..add(serializers.serialize(object.skills,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    if (object.availability != null) {
+      result
+        ..add('availability')
+        ..add(serializers.serialize(object.availability,
+            specifiedType: const FullType(String)));
+    }
+    if (object.earnings != null) {
+      result
+        ..add('earnings')
+        ..add(serializers.serialize(object.earnings,
+            specifiedType: const FullType(String)));
+    }
+    if (object.providers != null) {
+      result
+        ..add('providers')
+        ..add(serializers.serialize(object.providers,
+            specifiedType: const FullType(String)));
+    }
+    if (object.pending_proifle_steps != null) {
+      result
+        ..add('pending_proifle_steps')
+        ..add(serializers.serialize(object.pending_proifle_steps,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -144,8 +287,28 @@ class _$AgentSerializer implements StructuredSerializer<Agent> {
           result.user_key = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'name':
-          result.name = serializers.deserialize(value,
+        case 'username':
+          result.username = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'password':
+          result.password = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'phone':
+          result.phone = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'email':
+          result.email = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'first_name':
+          result.first_name = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'last_name':
+          result.last_name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
         case 'current_location':
@@ -165,12 +328,16 @@ class _$AgentSerializer implements StructuredSerializer<Agent> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'team_key':
-          result.team_key = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.team_key.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<dynamic>);
           break;
         case 'tags':
-          result.tags = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.tags.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<dynamic>);
           break;
         case 'fleet_id':
           result.fleet_id = serializers.deserialize(value,
@@ -236,6 +403,14 @@ class _$AgentSerializer implements StructuredSerializer<Agent> {
           result.rule_id = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'date':
+          result.date = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'limit':
+          result.limit = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
         case 'block_status':
           result.block_status = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
@@ -245,8 +420,10 @@ class _$AgentSerializer implements StructuredSerializer<Agent> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'skills':
-          result.skills = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.skills.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<dynamic>);
           break;
         case 'availability':
           result.availability = serializers.deserialize(value,
@@ -279,7 +456,17 @@ class _$Agent extends Agent {
   @override
   final String user_key;
   @override
-  final String name;
+  final String username;
+  @override
+  final String password;
+  @override
+  final String phone;
+  @override
+  final String email;
+  @override
+  final String first_name;
+  @override
+  final String last_name;
   @override
   final String current_location;
   @override
@@ -289,9 +476,9 @@ class _$Agent extends Agent {
   @override
   final String is_verified;
   @override
-  final String team_key;
+  final BuiltList<String> team_key;
   @override
-  final String tags;
+  final BuiltList<String> tags;
   @override
   final String fleet_id;
   @override
@@ -325,11 +512,15 @@ class _$Agent extends Agent {
   @override
   final String rule_id;
   @override
+  final String date;
+  @override
+  final String limit;
+  @override
   final String block_status;
   @override
   final String message;
   @override
-  final String skills;
+  final BuiltList<String> skills;
   @override
   final String availability;
   @override
@@ -346,7 +537,12 @@ class _$Agent extends Agent {
       {this.id,
       this.agent_key,
       this.user_key,
-      this.name,
+      this.username,
+      this.password,
+      this.phone,
+      this.email,
+      this.first_name,
+      this.last_name,
       this.current_location,
       this.geofence,
       this.status,
@@ -369,6 +565,8 @@ class _$Agent extends Agent {
       this.own_a_space,
       this.team_id,
       this.rule_id,
+      this.date,
+      this.limit,
       this.block_status,
       this.message,
       this.skills,
@@ -376,105 +574,7 @@ class _$Agent extends Agent {
       this.earnings,
       this.providers,
       this.pending_proifle_steps})
-      : super._() {
-    if (agent_key == null) {
-      throw new BuiltValueNullFieldError('Agent', 'agent_key');
-    }
-    if (user_key == null) {
-      throw new BuiltValueNullFieldError('Agent', 'user_key');
-    }
-    if (name == null) {
-      throw new BuiltValueNullFieldError('Agent', 'name');
-    }
-    if (current_location == null) {
-      throw new BuiltValueNullFieldError('Agent', 'current_location');
-    }
-    if (geofence == null) {
-      throw new BuiltValueNullFieldError('Agent', 'geofence');
-    }
-    if (status == null) {
-      throw new BuiltValueNullFieldError('Agent', 'status');
-    }
-    if (is_verified == null) {
-      throw new BuiltValueNullFieldError('Agent', 'is_verified');
-    }
-    if (team_key == null) {
-      throw new BuiltValueNullFieldError('Agent', 'team_key');
-    }
-    if (tags == null) {
-      throw new BuiltValueNullFieldError('Agent', 'tags');
-    }
-    if (fleet_id == null) {
-      throw new BuiltValueNullFieldError('Agent', 'fleet_id');
-    }
-    if (transport_type == null) {
-      throw new BuiltValueNullFieldError('Agent', 'transport_type');
-    }
-    if (transport_desc == null) {
-      throw new BuiltValueNullFieldError('Agent', 'transport_desc');
-    }
-    if (license == null) {
-      throw new BuiltValueNullFieldError('Agent', 'license');
-    }
-    if (color == null) {
-      throw new BuiltValueNullFieldError('Agent', 'color');
-    }
-    if (url == null) {
-      throw new BuiltValueNullFieldError('Agent', 'url');
-    }
-    if (min_visits == null) {
-      throw new BuiltValueNullFieldError('Agent', 'min_visits');
-    }
-    if (capacity == null) {
-      throw new BuiltValueNullFieldError('Agent', 'capacity');
-    }
-    if (payment == null) {
-      throw new BuiltValueNullFieldError('Agent', 'payment');
-    }
-    if (recommended_merchants_to_join == null) {
-      throw new BuiltValueNullFieldError(
-          'Agent', 'recommended_merchants_to_join');
-    }
-    if (recommended_promotions == null) {
-      throw new BuiltValueNullFieldError('Agent', 'recommended_promotions');
-    }
-    if (user_id == null) {
-      throw new BuiltValueNullFieldError('Agent', 'user_id');
-    }
-    if (own_a_vehicle == null) {
-      throw new BuiltValueNullFieldError('Agent', 'own_a_vehicle');
-    }
-    if (own_a_space == null) {
-      throw new BuiltValueNullFieldError('Agent', 'own_a_space');
-    }
-    if (team_id == null) {
-      throw new BuiltValueNullFieldError('Agent', 'team_id');
-    }
-    if (rule_id == null) {
-      throw new BuiltValueNullFieldError('Agent', 'rule_id');
-    }
-    if (block_status == null) {
-      throw new BuiltValueNullFieldError('Agent', 'block_status');
-    }
-    if (message == null) {
-      throw new BuiltValueNullFieldError('Agent', 'message');
-    }
-    if (skills == null) {
-      throw new BuiltValueNullFieldError('Agent', 'skills');
-    }
-    if (availability == null) {
-      throw new BuiltValueNullFieldError('Agent', 'availability');
-    }
-    if (earnings == null) {
-      throw new BuiltValueNullFieldError('Agent', 'earnings');
-    }
-    if (providers == null) {
-      throw new BuiltValueNullFieldError('Agent', 'providers');
-    }
-    if (pending_proifle_steps == null) {
-      throw new BuiltValueNullFieldError('Agent', 'pending_proifle_steps');
-    }
-  }
+      : super._();
 
   @override
   Agent rebuild(void Function(AgentBuilder) updates) =>
@@ -490,7 +590,12 @@ class _$Agent extends Agent {
         id == other.id &&
         agent_key == other.agent_key &&
         user_key == other.user_key &&
-        name == other.name &&
+        username == other.username &&
+        password == other.password &&
+        phone == other.phone &&
+        email == other.email &&
+        first_name == other.first_name &&
+        last_name == other.last_name &&
         current_location == other.current_location &&
         geofence == other.geofence &&
         status == other.status &&
@@ -513,6 +618,8 @@ class _$Agent extends Agent {
         own_a_space == other.own_a_space &&
         team_id == other.team_id &&
         rule_id == other.rule_id &&
+        date == other.date &&
+        limit == other.limit &&
         block_status == other.block_status &&
         message == other.message &&
         skills == other.skills &&
@@ -542,19 +649,19 @@ class _$Agent extends Agent {
                                                                 $jc(
                                                                     $jc(
                                                                         $jc(
-                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, id.hashCode), agent_key.hashCode), user_key.hashCode), name.hashCode), current_location.hashCode), geofence.hashCode), status.hashCode), is_verified.hashCode), team_key.hashCode), tags.hashCode), fleet_id.hashCode), transport_type.hashCode), transport_desc.hashCode), license.hashCode),
-                                                                                color.hashCode),
-                                                                            url.hashCode),
-                                                                        min_visits.hashCode),
-                                                                    capacity.hashCode),
-                                                                payment.hashCode),
-                                                            recommended_merchants_to_join.hashCode),
-                                                        recommended_promotions.hashCode),
-                                                    user_id.hashCode),
-                                                own_a_vehicle.hashCode),
-                                            own_a_space.hashCode),
-                                        team_id.hashCode),
-                                    rule_id.hashCode),
+                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, id.hashCode), agent_key.hashCode), user_key.hashCode), username.hashCode), password.hashCode), phone.hashCode), email.hashCode), first_name.hashCode), last_name.hashCode), current_location.hashCode), geofence.hashCode), status.hashCode), is_verified.hashCode), team_key.hashCode), tags.hashCode), fleet_id.hashCode), transport_type.hashCode), transport_desc.hashCode), license.hashCode), color.hashCode), url.hashCode),
+                                                                                min_visits.hashCode),
+                                                                            capacity.hashCode),
+                                                                        payment.hashCode),
+                                                                    recommended_merchants_to_join.hashCode),
+                                                                recommended_promotions.hashCode),
+                                                            user_id.hashCode),
+                                                        own_a_vehicle.hashCode),
+                                                    own_a_space.hashCode),
+                                                team_id.hashCode),
+                                            rule_id.hashCode),
+                                        date.hashCode),
+                                    limit.hashCode),
                                 block_status.hashCode),
                             message.hashCode),
                         skills.hashCode),
@@ -570,7 +677,12 @@ class _$Agent extends Agent {
           ..add('id', id)
           ..add('agent_key', agent_key)
           ..add('user_key', user_key)
-          ..add('name', name)
+          ..add('username', username)
+          ..add('password', password)
+          ..add('phone', phone)
+          ..add('email', email)
+          ..add('first_name', first_name)
+          ..add('last_name', last_name)
           ..add('current_location', current_location)
           ..add('geofence', geofence)
           ..add('status', status)
@@ -593,6 +705,8 @@ class _$Agent extends Agent {
           ..add('own_a_space', own_a_space)
           ..add('team_id', team_id)
           ..add('rule_id', rule_id)
+          ..add('date', date)
+          ..add('limit', limit)
           ..add('block_status', block_status)
           ..add('message', message)
           ..add('skills', skills)
@@ -619,9 +733,29 @@ class AgentBuilder implements Builder<Agent, AgentBuilder> {
   String get user_key => _$this._user_key;
   set user_key(String user_key) => _$this._user_key = user_key;
 
-  String _name;
-  String get name => _$this._name;
-  set name(String name) => _$this._name = name;
+  String _username;
+  String get username => _$this._username;
+  set username(String username) => _$this._username = username;
+
+  String _password;
+  String get password => _$this._password;
+  set password(String password) => _$this._password = password;
+
+  String _phone;
+  String get phone => _$this._phone;
+  set phone(String phone) => _$this._phone = phone;
+
+  String _email;
+  String get email => _$this._email;
+  set email(String email) => _$this._email = email;
+
+  String _first_name;
+  String get first_name => _$this._first_name;
+  set first_name(String first_name) => _$this._first_name = first_name;
+
+  String _last_name;
+  String get last_name => _$this._last_name;
+  set last_name(String last_name) => _$this._last_name = last_name;
 
   String _current_location;
   String get current_location => _$this._current_location;
@@ -640,13 +774,14 @@ class AgentBuilder implements Builder<Agent, AgentBuilder> {
   String get is_verified => _$this._is_verified;
   set is_verified(String is_verified) => _$this._is_verified = is_verified;
 
-  String _team_key;
-  String get team_key => _$this._team_key;
-  set team_key(String team_key) => _$this._team_key = team_key;
+  ListBuilder<String> _team_key;
+  ListBuilder<String> get team_key =>
+      _$this._team_key ??= new ListBuilder<String>();
+  set team_key(ListBuilder<String> team_key) => _$this._team_key = team_key;
 
-  String _tags;
-  String get tags => _$this._tags;
-  set tags(String tags) => _$this._tags = tags;
+  ListBuilder<String> _tags;
+  ListBuilder<String> get tags => _$this._tags ??= new ListBuilder<String>();
+  set tags(ListBuilder<String> tags) => _$this._tags = tags;
 
   String _fleet_id;
   String get fleet_id => _$this._fleet_id;
@@ -718,6 +853,14 @@ class AgentBuilder implements Builder<Agent, AgentBuilder> {
   String get rule_id => _$this._rule_id;
   set rule_id(String rule_id) => _$this._rule_id = rule_id;
 
+  String _date;
+  String get date => _$this._date;
+  set date(String date) => _$this._date = date;
+
+  String _limit;
+  String get limit => _$this._limit;
+  set limit(String limit) => _$this._limit = limit;
+
   String _block_status;
   String get block_status => _$this._block_status;
   set block_status(String block_status) => _$this._block_status = block_status;
@@ -726,9 +869,10 @@ class AgentBuilder implements Builder<Agent, AgentBuilder> {
   String get message => _$this._message;
   set message(String message) => _$this._message = message;
 
-  String _skills;
-  String get skills => _$this._skills;
-  set skills(String skills) => _$this._skills = skills;
+  ListBuilder<String> _skills;
+  ListBuilder<String> get skills =>
+      _$this._skills ??= new ListBuilder<String>();
+  set skills(ListBuilder<String> skills) => _$this._skills = skills;
 
   String _availability;
   String get availability => _$this._availability;
@@ -754,13 +898,18 @@ class AgentBuilder implements Builder<Agent, AgentBuilder> {
       _id = _$v.id;
       _agent_key = _$v.agent_key;
       _user_key = _$v.user_key;
-      _name = _$v.name;
+      _username = _$v.username;
+      _password = _$v.password;
+      _phone = _$v.phone;
+      _email = _$v.email;
+      _first_name = _$v.first_name;
+      _last_name = _$v.last_name;
       _current_location = _$v.current_location;
       _geofence = _$v.geofence;
       _status = _$v.status;
       _is_verified = _$v.is_verified;
-      _team_key = _$v.team_key;
-      _tags = _$v.tags;
+      _team_key = _$v.team_key?.toBuilder();
+      _tags = _$v.tags?.toBuilder();
       _fleet_id = _$v.fleet_id;
       _transport_type = _$v.transport_type;
       _transport_desc = _$v.transport_desc;
@@ -777,9 +926,11 @@ class AgentBuilder implements Builder<Agent, AgentBuilder> {
       _own_a_space = _$v.own_a_space;
       _team_id = _$v.team_id;
       _rule_id = _$v.rule_id;
+      _date = _$v.date;
+      _limit = _$v.limit;
       _block_status = _$v.block_status;
       _message = _$v.message;
-      _skills = _$v.skills;
+      _skills = _$v.skills?.toBuilder();
       _availability = _$v.availability;
       _earnings = _$v.earnings;
       _providers = _$v.providers;
@@ -804,41 +955,66 @@ class AgentBuilder implements Builder<Agent, AgentBuilder> {
 
   @override
   _$Agent build() {
-    final _$result = _$v ??
-        new _$Agent._(
-            id: id,
-            agent_key: agent_key,
-            user_key: user_key,
-            name: name,
-            current_location: current_location,
-            geofence: geofence,
-            status: status,
-            is_verified: is_verified,
-            team_key: team_key,
-            tags: tags,
-            fleet_id: fleet_id,
-            transport_type: transport_type,
-            transport_desc: transport_desc,
-            license: license,
-            color: color,
-            url: url,
-            min_visits: min_visits,
-            capacity: capacity,
-            payment: payment,
-            recommended_merchants_to_join: recommended_merchants_to_join,
-            recommended_promotions: recommended_promotions,
-            user_id: user_id,
-            own_a_vehicle: own_a_vehicle,
-            own_a_space: own_a_space,
-            team_id: team_id,
-            rule_id: rule_id,
-            block_status: block_status,
-            message: message,
-            skills: skills,
-            availability: availability,
-            earnings: earnings,
-            providers: providers,
-            pending_proifle_steps: pending_proifle_steps);
+    _$Agent _$result;
+    try {
+      _$result = _$v ??
+          new _$Agent._(
+              id: id,
+              agent_key: agent_key,
+              user_key: user_key,
+              username: username,
+              password: password,
+              phone: phone,
+              email: email,
+              first_name: first_name,
+              last_name: last_name,
+              current_location: current_location,
+              geofence: geofence,
+              status: status,
+              is_verified: is_verified,
+              team_key: _team_key?.build(),
+              tags: _tags?.build(),
+              fleet_id: fleet_id,
+              transport_type: transport_type,
+              transport_desc: transport_desc,
+              license: license,
+              color: color,
+              url: url,
+              min_visits: min_visits,
+              capacity: capacity,
+              payment: payment,
+              recommended_merchants_to_join: recommended_merchants_to_join,
+              recommended_promotions: recommended_promotions,
+              user_id: user_id,
+              own_a_vehicle: own_a_vehicle,
+              own_a_space: own_a_space,
+              team_id: team_id,
+              rule_id: rule_id,
+              date: date,
+              limit: limit,
+              block_status: block_status,
+              message: message,
+              skills: _skills?.build(),
+              availability: availability,
+              earnings: earnings,
+              providers: providers,
+              pending_proifle_steps: pending_proifle_steps);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'team_key';
+        _team_key?.build();
+        _$failedField = 'tags';
+        _tags?.build();
+
+        _$failedField = 'skills';
+        _skills?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'Agent', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

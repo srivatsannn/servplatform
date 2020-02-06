@@ -13,11 +13,7 @@ class _$AlertResponse extends AlertResponse {
   factory _$AlertResponse([void Function(AlertResponseBuilder) updates]) =>
       (new AlertResponseBuilder()..update(updates)).build();
 
-  _$AlertResponse._({this.confirmed}) : super._() {
-    if (confirmed == null) {
-      throw new BuiltValueNullFieldError('AlertResponse', 'confirmed');
-    }
-  }
+  _$AlertResponse._({this.confirmed}) : super._();
 
   @override
   AlertResponse rebuild(void Function(AlertResponseBuilder) updates) =>

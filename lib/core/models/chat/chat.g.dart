@@ -17,33 +17,60 @@ class _$ChatSerializer implements StructuredSerializer<Chat> {
   @override
   Iterable<Object> serialize(Serializers serializers, Chat object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'text',
-      serializers.serialize(object.text, specifiedType: const FullType(String)),
-      'type',
-      serializers.serialize(object.type, specifiedType: const FullType(String)),
-      'content',
-      serializers.serialize(object.content,
-          specifiedType: const FullType(String)),
-      'from',
-      serializers.serialize(object.from, specifiedType: const FullType(String)),
-      'to',
-      serializers.serialize(object.to, specifiedType: const FullType(String)),
-      'isSeen',
-      serializers.serialize(object.isSeen,
-          specifiedType: const FullType(String)),
-      'publishedAt',
-      serializers.serialize(object.publishedAt,
-          specifiedType: const FullType(String)),
-      'groupId',
-      serializers.serialize(object.groupId,
-          specifiedType: const FullType(String)),
-    ];
+    final result = <Object>[];
     if (object.id != null) {
       result
         ..add('id')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
+    }
+    if (object.text != null) {
+      result
+        ..add('text')
+        ..add(serializers.serialize(object.text,
+            specifiedType: const FullType(String)));
+    }
+    if (object.type != null) {
+      result
+        ..add('type')
+        ..add(serializers.serialize(object.type,
+            specifiedType: const FullType(String)));
+    }
+    if (object.content != null) {
+      result
+        ..add('content')
+        ..add(serializers.serialize(object.content,
+            specifiedType: const FullType(String)));
+    }
+    if (object.from != null) {
+      result
+        ..add('from')
+        ..add(serializers.serialize(object.from,
+            specifiedType: const FullType(String)));
+    }
+    if (object.to != null) {
+      result
+        ..add('to')
+        ..add(serializers.serialize(object.to,
+            specifiedType: const FullType(String)));
+    }
+    if (object.isSeen != null) {
+      result
+        ..add('isSeen')
+        ..add(serializers.serialize(object.isSeen,
+            specifiedType: const FullType(String)));
+    }
+    if (object.publishedAt != null) {
+      result
+        ..add('publishedAt')
+        ..add(serializers.serialize(object.publishedAt,
+            specifiedType: const FullType(String)));
+    }
+    if (object.groupId != null) {
+      result
+        ..add('groupId')
+        ..add(serializers.serialize(object.groupId,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -135,32 +162,7 @@ class _$Chat extends Chat {
       this.isSeen,
       this.publishedAt,
       this.groupId})
-      : super._() {
-    if (text == null) {
-      throw new BuiltValueNullFieldError('Chat', 'text');
-    }
-    if (type == null) {
-      throw new BuiltValueNullFieldError('Chat', 'type');
-    }
-    if (content == null) {
-      throw new BuiltValueNullFieldError('Chat', 'content');
-    }
-    if (from == null) {
-      throw new BuiltValueNullFieldError('Chat', 'from');
-    }
-    if (to == null) {
-      throw new BuiltValueNullFieldError('Chat', 'to');
-    }
-    if (isSeen == null) {
-      throw new BuiltValueNullFieldError('Chat', 'isSeen');
-    }
-    if (publishedAt == null) {
-      throw new BuiltValueNullFieldError('Chat', 'publishedAt');
-    }
-    if (groupId == null) {
-      throw new BuiltValueNullFieldError('Chat', 'groupId');
-    }
-  }
+      : super._();
 
   @override
   Chat rebuild(void Function(ChatBuilder) updates) =>

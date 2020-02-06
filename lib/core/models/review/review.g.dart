@@ -17,57 +17,108 @@ class _$ReviewSerializer implements StructuredSerializer<Review> {
   @override
   Iterable<Object> serialize(Serializers serializers, Review object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'reviewer_key',
-      serializers.serialize(object.reviewer_key,
-          specifiedType: const FullType(String)),
-      'provider_key',
-      serializers.serialize(object.provider_key,
-          specifiedType: const FullType(String)),
-      'service_key',
-      serializers.serialize(object.service_key,
-          specifiedType: const FullType(String)),
-      'review_descrpitpn',
-      serializers.serialize(object.review_descrpitpn,
-          specifiedType: const FullType(String)),
-      'revieewee',
-      serializers.serialize(object.revieewee,
-          specifiedType: const FullType(String)),
-      'date',
-      serializers.serialize(object.date, specifiedType: const FullType(String)),
-      'star_rating',
-      serializers.serialize(object.star_rating,
-          specifiedType: const FullType(String)),
-      'insights',
-      serializers.serialize(object.insights,
-          specifiedType: const FullType(String)),
-      'multi_mg_url',
-      serializers.serialize(object.multi_mg_url,
-          specifiedType: const FullType(String)),
-      'agent',
-      serializers.serialize(object.agent,
-          specifiedType: const FullType(String)),
-      'price',
-      serializers.serialize(object.price,
-          specifiedType: const FullType(String)),
-      'review_for',
-      serializers.serialize(object.review_for,
-          specifiedType: const FullType(String)),
-      'suggested_compliments_list',
-      serializers.serialize(object.suggested_compliments_list,
-          specifiedType: const FullType(String)),
-      'negative_feedback',
-      serializers.serialize(object.negative_feedback,
-          specifiedType: const FullType(String)),
-      'video_url',
-      serializers.serialize(object.video_url,
-          specifiedType: const FullType(String)),
-    ];
+    final result = <Object>[];
     if (object.id != null) {
       result
         ..add('id')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
+    }
+    if (object.reviewer_key != null) {
+      result
+        ..add('reviewer_key')
+        ..add(serializers.serialize(object.reviewer_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.provider_key != null) {
+      result
+        ..add('provider_key')
+        ..add(serializers.serialize(object.provider_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.service_key != null) {
+      result
+        ..add('service_key')
+        ..add(serializers.serialize(object.service_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.review_descrpitpn != null) {
+      result
+        ..add('review_descrpitpn')
+        ..add(serializers.serialize(object.review_descrpitpn,
+            specifiedType: const FullType(String)));
+    }
+    if (object.revieewee != null) {
+      result
+        ..add('revieewee')
+        ..add(serializers.serialize(object.revieewee,
+            specifiedType: const FullType(String)));
+    }
+    if (object.date != null) {
+      result
+        ..add('date')
+        ..add(serializers.serialize(object.date,
+            specifiedType: const FullType(String)));
+    }
+    if (object.star_rating != null) {
+      result
+        ..add('star_rating')
+        ..add(serializers.serialize(object.star_rating,
+            specifiedType: const FullType(String)));
+    }
+    if (object.insights != null) {
+      result
+        ..add('insights')
+        ..add(serializers.serialize(object.insights,
+            specifiedType: const FullType(String)));
+    }
+    if (object.multi_mg_url != null) {
+      result
+        ..add('multi_mg_url')
+        ..add(serializers.serialize(object.multi_mg_url,
+            specifiedType: const FullType(String)));
+    }
+    if (object.agent != null) {
+      result
+        ..add('agent')
+        ..add(serializers.serialize(object.agent,
+            specifiedType: const FullType(String)));
+    }
+    if (object.title != null) {
+      result
+        ..add('title')
+        ..add(serializers.serialize(object.title,
+            specifiedType: const FullType(String)));
+    }
+    if (object.price != null) {
+      result
+        ..add('price')
+        ..add(serializers.serialize(object.price,
+            specifiedType: const FullType(String)));
+    }
+    if (object.review_for != null) {
+      result
+        ..add('review_for')
+        ..add(serializers.serialize(object.review_for,
+            specifiedType: const FullType(String)));
+    }
+    if (object.suggested_compliments_list != null) {
+      result
+        ..add('suggested_compliments_list')
+        ..add(serializers.serialize(object.suggested_compliments_list,
+            specifiedType: const FullType(String)));
+    }
+    if (object.negative_feedback != null) {
+      result
+        ..add('negative_feedback')
+        ..add(serializers.serialize(object.negative_feedback,
+            specifiedType: const FullType(String)));
+    }
+    if (object.video_url != null) {
+      result
+        ..add('video_url')
+        ..add(serializers.serialize(object.video_url,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -127,6 +178,10 @@ class _$ReviewSerializer implements StructuredSerializer<Review> {
           result.agent = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'title':
+          result.title = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
         case 'price':
           result.price = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
@@ -178,6 +233,8 @@ class _$Review extends Review {
   @override
   final String agent;
   @override
+  final String title;
+  @override
   final String price;
   @override
   final String review_for;
@@ -203,59 +260,13 @@ class _$Review extends Review {
       this.insights,
       this.multi_mg_url,
       this.agent,
+      this.title,
       this.price,
       this.review_for,
       this.suggested_compliments_list,
       this.negative_feedback,
       this.video_url})
-      : super._() {
-    if (reviewer_key == null) {
-      throw new BuiltValueNullFieldError('Review', 'reviewer_key');
-    }
-    if (provider_key == null) {
-      throw new BuiltValueNullFieldError('Review', 'provider_key');
-    }
-    if (service_key == null) {
-      throw new BuiltValueNullFieldError('Review', 'service_key');
-    }
-    if (review_descrpitpn == null) {
-      throw new BuiltValueNullFieldError('Review', 'review_descrpitpn');
-    }
-    if (revieewee == null) {
-      throw new BuiltValueNullFieldError('Review', 'revieewee');
-    }
-    if (date == null) {
-      throw new BuiltValueNullFieldError('Review', 'date');
-    }
-    if (star_rating == null) {
-      throw new BuiltValueNullFieldError('Review', 'star_rating');
-    }
-    if (insights == null) {
-      throw new BuiltValueNullFieldError('Review', 'insights');
-    }
-    if (multi_mg_url == null) {
-      throw new BuiltValueNullFieldError('Review', 'multi_mg_url');
-    }
-    if (agent == null) {
-      throw new BuiltValueNullFieldError('Review', 'agent');
-    }
-    if (price == null) {
-      throw new BuiltValueNullFieldError('Review', 'price');
-    }
-    if (review_for == null) {
-      throw new BuiltValueNullFieldError('Review', 'review_for');
-    }
-    if (suggested_compliments_list == null) {
-      throw new BuiltValueNullFieldError(
-          'Review', 'suggested_compliments_list');
-    }
-    if (negative_feedback == null) {
-      throw new BuiltValueNullFieldError('Review', 'negative_feedback');
-    }
-    if (video_url == null) {
-      throw new BuiltValueNullFieldError('Review', 'video_url');
-    }
-  }
+      : super._();
 
   @override
   Review rebuild(void Function(ReviewBuilder) updates) =>
@@ -279,6 +290,7 @@ class _$Review extends Review {
         insights == other.insights &&
         multi_mg_url == other.multi_mg_url &&
         agent == other.agent &&
+        title == other.title &&
         price == other.price &&
         review_for == other.review_for &&
         suggested_compliments_list == other.suggested_compliments_list &&
@@ -304,21 +316,25 @@ class _$Review extends Review {
                                                         $jc(
                                                             $jc(
                                                                 $jc(
-                                                                    0,
-                                                                    id
+                                                                    $jc(
+                                                                        0,
+                                                                        id
+                                                                            .hashCode),
+                                                                    reviewer_key
                                                                         .hashCode),
-                                                                reviewer_key
+                                                                provider_key
                                                                     .hashCode),
-                                                            provider_key
+                                                            service_key
                                                                 .hashCode),
-                                                        service_key.hashCode),
-                                                    review_descrpitpn.hashCode),
-                                                revieewee.hashCode),
-                                            date.hashCode),
-                                        star_rating.hashCode),
-                                    insights.hashCode),
-                                multi_mg_url.hashCode),
-                            agent.hashCode),
+                                                        review_descrpitpn
+                                                            .hashCode),
+                                                    revieewee.hashCode),
+                                                date.hashCode),
+                                            star_rating.hashCode),
+                                        insights.hashCode),
+                                    multi_mg_url.hashCode),
+                                agent.hashCode),
+                            title.hashCode),
                         price.hashCode),
                     review_for.hashCode),
                 suggested_compliments_list.hashCode),
@@ -340,6 +356,7 @@ class _$Review extends Review {
           ..add('insights', insights)
           ..add('multi_mg_url', multi_mg_url)
           ..add('agent', agent)
+          ..add('title', title)
           ..add('price', price)
           ..add('review_for', review_for)
           ..add('suggested_compliments_list', suggested_compliments_list)
@@ -397,6 +414,10 @@ class ReviewBuilder implements Builder<Review, ReviewBuilder> {
   String get agent => _$this._agent;
   set agent(String agent) => _$this._agent = agent;
 
+  String _title;
+  String get title => _$this._title;
+  set title(String title) => _$this._title = title;
+
   String _price;
   String get price => _$this._price;
   set price(String price) => _$this._price = price;
@@ -434,6 +455,7 @@ class ReviewBuilder implements Builder<Review, ReviewBuilder> {
       _insights = _$v.insights;
       _multi_mg_url = _$v.multi_mg_url;
       _agent = _$v.agent;
+      _title = _$v.title;
       _price = _$v.price;
       _review_for = _$v.review_for;
       _suggested_compliments_list = _$v.suggested_compliments_list;
@@ -472,6 +494,7 @@ class ReviewBuilder implements Builder<Review, ReviewBuilder> {
             insights: insights,
             multi_mg_url: multi_mg_url,
             agent: agent,
+            title: title,
             price: price,
             review_for: review_for,
             suggested_compliments_list: suggested_compliments_list,

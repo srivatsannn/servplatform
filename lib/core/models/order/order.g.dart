@@ -17,180 +17,355 @@ class _$OrderSerializer implements StructuredSerializer<Order> {
   @override
   Iterable<Object> serialize(Serializers serializers, Order object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'order_id',
-      serializers.serialize(object.order_id,
-          specifiedType: const FullType(String)),
-      'job_type',
-      serializers.serialize(object.job_type,
-          specifiedType: const FullType(String)),
-      'business_type',
-      serializers.serialize(object.business_type,
-          specifiedType: const FullType(String)),
-      'provider',
-      serializers.serialize(object.provider,
-          specifiedType: const FullType(String)),
-      'order_summary_collection',
-      serializers.serialize(object.order_summary_collection,
-          specifiedType: const FullType(String)),
-      'description_json',
-      serializers.serialize(object.description_json,
-          specifiedType: const FullType(String)),
-      'parent_category_id',
-      serializers.serialize(object.parent_category_id,
-          specifiedType: const FullType(String)),
-      'is_enabled',
-      serializers.serialize(object.is_enabled,
-          specifiedType: const FullType(String)),
-      'is_recurring_enabled',
-      serializers.serialize(object.is_recurring_enabled,
-          specifiedType: const FullType(String)),
-      'is_side_order',
-      serializers.serialize(object.is_side_order,
-          specifiedType: const FullType(String)),
-      'service_time',
-      serializers.serialize(object.service_time,
-          specifiedType: const FullType(String)),
-      'available_quantity',
-      serializers.serialize(object.available_quantity,
-          specifiedType: const FullType(String)),
-      'is_deleted',
-      serializers.serialize(object.is_deleted,
-          specifiedType: const FullType(String)),
-      'cost_price',
-      serializers.serialize(object.cost_price,
-          specifiedType: const FullType(String)),
-      'price',
-      serializers.serialize(object.price,
-          specifiedType: const FullType(String)),
-      'unit_type',
-      serializers.serialize(object.unit_type,
-          specifiedType: const FullType(String)),
-      'unit',
-      serializers.serialize(object.unit, specifiedType: const FullType(String)),
-      'steps_collection',
-      serializers.serialize(object.steps_collection,
-          specifiedType: const FullType(String)),
-      'customer_id',
-      serializers.serialize(object.customer_id,
-          specifiedType: const FullType(String)),
-      'customer_phone',
-      serializers.serialize(object.customer_phone,
-          specifiedType: const FullType(String)),
-      'cart_id',
-      serializers.serialize(object.cart_id,
-          specifiedType: const FullType(String)),
-      'amount',
-      serializers.serialize(object.amount,
-          specifiedType: const FullType(String)),
-      'delivery_charge',
-      serializers.serialize(object.delivery_charge,
-          specifiedType: const FullType(String)),
-      'currency_id',
-      serializers.serialize(object.currency_id,
-          specifiedType: const FullType(String)),
-      'self_pickup',
-      serializers.serialize(object.self_pickup,
-          specifiedType: const FullType(String)),
-      'store_id',
-      serializers.serialize(object.store_id,
-          specifiedType: const FullType(String)),
-      'refunded_amount_optional',
-      serializers.serialize(object.refunded_amount_optional,
-          specifiedType: const FullType(String)),
-      'accept_reject',
-      serializers.serialize(object.accept_reject,
-          specifiedType: const FullType(String)),
-      'long_description_json',
-      serializers.serialize(object.long_description_json,
-          specifiedType: const FullType(String)),
-      'customer',
-      serializers.serialize(object.customer,
-          specifiedType: const FullType(String)),
-      'date_time',
-      serializers.serialize(object.date_time,
-          specifiedType: const FullType(String)),
-      'type',
-      serializers.serialize(object.type, specifiedType: const FullType(String)),
-      'location_of_agent',
-      serializers.serialize(object.location_of_agent,
-          specifiedType: const FullType(String)),
-      'is_scheduled',
-      serializers.serialize(object.is_scheduled,
-          specifiedType: const FullType(String)),
-      'status',
-      serializers.serialize(object.status,
-          specifiedType: const FullType(String)),
-      'eta',
-      serializers.serialize(object.eta, specifiedType: const FullType(String)),
-      'agent_assigned',
-      serializers.serialize(object.agent_assigned,
-          specifiedType: const FullType(String)),
-      'follow_up_order_recommendations',
-      serializers.serialize(object.follow_up_order_recommendations,
-          specifiedType: const FullType(String)),
-      'has_delivery',
-      serializers.serialize(object.has_delivery,
-          specifiedType: const FullType(String)),
-      'has_pickup',
-      serializers.serialize(object.has_pickup,
-          specifiedType: const FullType(String)),
-      'coupon_discount',
-      serializers.serialize(object.coupon_discount,
-          specifiedType: const FullType(String)),
-      'job_pickup_phone',
-      serializers.serialize(object.job_pickup_phone,
-          specifiedType: const FullType(String)),
-      'job_pickup_address',
-      serializers.serialize(object.job_pickup_address,
-          specifiedType: const FullType(String)),
-      'return_enabled',
-      serializers.serialize(object.return_enabled,
-          specifiedType: const FullType(String)),
-      'job_pickup_datetime',
-      serializers.serialize(object.job_pickup_datetime,
-          specifiedType: const FullType(String)),
-      'job_delivery_datetime',
-      serializers.serialize(object.job_delivery_datetime,
-          specifiedType: const FullType(String)),
-      'fleet_id',
-      serializers.serialize(object.fleet_id,
-          specifiedType: const FullType(String)),
-      'marketplace_user_id_68757',
-      serializers.serialize(object.marketplace_user_id_68757,
-          specifiedType: const FullType(String)),
-      'form_id',
-      serializers.serialize(object.form_id,
-          specifiedType: const FullType(String)),
-      'transaction_id',
-      serializers.serialize(object.transaction_id,
-          specifiedType: const FullType(String)),
-      'remaining_balance',
-      serializers.serialize(object.remaining_balance,
-          specifiedType: const FullType(String)),
-      'tax',
-      serializers.serialize(object.tax, specifiedType: const FullType(String)),
-      'total_amount',
-      serializers.serialize(object.total_amount,
-          specifiedType: const FullType(String)),
-      'order_amount',
-      serializers.serialize(object.order_amount,
-          specifiedType: const FullType(String)),
-      'payment_type',
-      serializers.serialize(object.payment_type,
-          specifiedType: const FullType(String)),
-      'merchant_email',
-      serializers.serialize(object.merchant_email,
-          specifiedType: const FullType(String)),
-      'customer_rating',
-      serializers.serialize(object.customer_rating,
-          specifiedType: const FullType(String)),
-    ];
+    final result = <Object>[];
     if (object.id != null) {
       result
         ..add('id')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
+    }
+    if (object.order_id != null) {
+      result
+        ..add('order_id')
+        ..add(serializers.serialize(object.order_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.job_type != null) {
+      result
+        ..add('job_type')
+        ..add(serializers.serialize(object.job_type,
+            specifiedType: const FullType(String)));
+    }
+    if (object.business_type != null) {
+      result
+        ..add('business_type')
+        ..add(serializers.serialize(object.business_type,
+            specifiedType: const FullType(String)));
+    }
+    if (object.provider != null) {
+      result
+        ..add('provider')
+        ..add(serializers.serialize(object.provider,
+            specifiedType: const FullType(String)));
+    }
+    if (object.order_summary_collection != null) {
+      result
+        ..add('order_summary_collection')
+        ..add(serializers.serialize(object.order_summary_collection,
+            specifiedType: const FullType(String)));
+    }
+    if (object.description_json != null) {
+      result
+        ..add('description_json')
+        ..add(serializers.serialize(object.description_json,
+            specifiedType: const FullType(String)));
+    }
+    if (object.parent_category_id != null) {
+      result
+        ..add('parent_category_id')
+        ..add(serializers.serialize(object.parent_category_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_enabled != null) {
+      result
+        ..add('is_enabled')
+        ..add(serializers.serialize(object.is_enabled,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_recurring_enabled != null) {
+      result
+        ..add('is_recurring_enabled')
+        ..add(serializers.serialize(object.is_recurring_enabled,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_side_order != null) {
+      result
+        ..add('is_side_order')
+        ..add(serializers.serialize(object.is_side_order,
+            specifiedType: const FullType(String)));
+    }
+    if (object.service_time != null) {
+      result
+        ..add('service_time')
+        ..add(serializers.serialize(object.service_time,
+            specifiedType: const FullType(String)));
+    }
+    if (object.available_quantity != null) {
+      result
+        ..add('available_quantity')
+        ..add(serializers.serialize(object.available_quantity,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_deleted != null) {
+      result
+        ..add('is_deleted')
+        ..add(serializers.serialize(object.is_deleted,
+            specifiedType: const FullType(String)));
+    }
+    if (object.cost_price != null) {
+      result
+        ..add('cost_price')
+        ..add(serializers.serialize(object.cost_price,
+            specifiedType: const FullType(String)));
+    }
+    if (object.price != null) {
+      result
+        ..add('price')
+        ..add(serializers.serialize(object.price,
+            specifiedType: const FullType(String)));
+    }
+    if (object.unit_type != null) {
+      result
+        ..add('unit_type')
+        ..add(serializers.serialize(object.unit_type,
+            specifiedType: const FullType(String)));
+    }
+    if (object.unit != null) {
+      result
+        ..add('unit')
+        ..add(serializers.serialize(object.unit,
+            specifiedType: const FullType(String)));
+    }
+    if (object.steps_collection != null) {
+      result
+        ..add('steps_collection')
+        ..add(serializers.serialize(object.steps_collection,
+            specifiedType: const FullType(String)));
+    }
+    if (object.customer_id != null) {
+      result
+        ..add('customer_id')
+        ..add(serializers.serialize(object.customer_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.customer_phone != null) {
+      result
+        ..add('customer_phone')
+        ..add(serializers.serialize(object.customer_phone,
+            specifiedType: const FullType(String)));
+    }
+    if (object.cart_id != null) {
+      result
+        ..add('cart_id')
+        ..add(serializers.serialize(object.cart_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.amount != null) {
+      result
+        ..add('amount')
+        ..add(serializers.serialize(object.amount,
+            specifiedType: const FullType(String)));
+    }
+    if (object.delivery_charge != null) {
+      result
+        ..add('delivery_charge')
+        ..add(serializers.serialize(object.delivery_charge,
+            specifiedType: const FullType(String)));
+    }
+    if (object.currency_id != null) {
+      result
+        ..add('currency_id')
+        ..add(serializers.serialize(object.currency_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.self_pickup != null) {
+      result
+        ..add('self_pickup')
+        ..add(serializers.serialize(object.self_pickup,
+            specifiedType: const FullType(String)));
+    }
+    if (object.store_id != null) {
+      result
+        ..add('store_id')
+        ..add(serializers.serialize(object.store_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.refunded_amount_optional != null) {
+      result
+        ..add('refunded_amount_optional')
+        ..add(serializers.serialize(object.refunded_amount_optional,
+            specifiedType: const FullType(String)));
+    }
+    if (object.accept_reject != null) {
+      result
+        ..add('accept_reject')
+        ..add(serializers.serialize(object.accept_reject,
+            specifiedType: const FullType(String)));
+    }
+    if (object.long_description_json != null) {
+      result
+        ..add('long_description_json')
+        ..add(serializers.serialize(object.long_description_json,
+            specifiedType: const FullType(String)));
+    }
+    if (object.customer != null) {
+      result
+        ..add('customer')
+        ..add(serializers.serialize(object.customer,
+            specifiedType: const FullType(String)));
+    }
+    if (object.date_time != null) {
+      result
+        ..add('date_time')
+        ..add(serializers.serialize(object.date_time,
+            specifiedType: const FullType(String)));
+    }
+    if (object.location_of_agent != null) {
+      result
+        ..add('location_of_agent')
+        ..add(serializers.serialize(object.location_of_agent,
+            specifiedType: const FullType(String)));
+    }
+    if (object.is_scheduled != null) {
+      result
+        ..add('is_scheduled')
+        ..add(serializers.serialize(object.is_scheduled,
+            specifiedType: const FullType(String)));
+    }
+    if (object.status != null) {
+      result
+        ..add('status')
+        ..add(serializers.serialize(object.status,
+            specifiedType: const FullType(String)));
+    }
+    if (object.eta != null) {
+      result
+        ..add('eta')
+        ..add(serializers.serialize(object.eta,
+            specifiedType: const FullType(String)));
+    }
+    if (object.agent_assigned != null) {
+      result
+        ..add('agent_assigned')
+        ..add(serializers.serialize(object.agent_assigned,
+            specifiedType: const FullType(String)));
+    }
+    if (object.follow_up_order_recommendations != null) {
+      result
+        ..add('follow_up_order_recommendations')
+        ..add(serializers.serialize(object.follow_up_order_recommendations,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    if (object.has_delivery != null) {
+      result
+        ..add('has_delivery')
+        ..add(serializers.serialize(object.has_delivery,
+            specifiedType: const FullType(String)));
+    }
+    if (object.has_pickup != null) {
+      result
+        ..add('has_pickup')
+        ..add(serializers.serialize(object.has_pickup,
+            specifiedType: const FullType(String)));
+    }
+    if (object.coupon_discount != null) {
+      result
+        ..add('coupon_discount')
+        ..add(serializers.serialize(object.coupon_discount,
+            specifiedType: const FullType(String)));
+    }
+    if (object.job_pickup_phone != null) {
+      result
+        ..add('job_pickup_phone')
+        ..add(serializers.serialize(object.job_pickup_phone,
+            specifiedType: const FullType(String)));
+    }
+    if (object.job_pickup_address != null) {
+      result
+        ..add('job_pickup_address')
+        ..add(serializers.serialize(object.job_pickup_address,
+            specifiedType: const FullType(String)));
+    }
+    if (object.return_enabled != null) {
+      result
+        ..add('return_enabled')
+        ..add(serializers.serialize(object.return_enabled,
+            specifiedType: const FullType(String)));
+    }
+    if (object.job_pickup_datetime != null) {
+      result
+        ..add('job_pickup_datetime')
+        ..add(serializers.serialize(object.job_pickup_datetime,
+            specifiedType: const FullType(String)));
+    }
+    if (object.job_delivery_datetime != null) {
+      result
+        ..add('job_delivery_datetime')
+        ..add(serializers.serialize(object.job_delivery_datetime,
+            specifiedType: const FullType(String)));
+    }
+    if (object.fleet_id != null) {
+      result
+        ..add('fleet_id')
+        ..add(serializers.serialize(object.fleet_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.marketplace_user_id_68757 != null) {
+      result
+        ..add('marketplace_user_id_68757')
+        ..add(serializers.serialize(object.marketplace_user_id_68757,
+            specifiedType: const FullType(String)));
+    }
+    if (object.form_id != null) {
+      result
+        ..add('form_id')
+        ..add(serializers.serialize(object.form_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.transaction_id != null) {
+      result
+        ..add('transaction_id')
+        ..add(serializers.serialize(object.transaction_id,
+            specifiedType: const FullType(String)));
+    }
+    if (object.remaining_balance != null) {
+      result
+        ..add('remaining_balance')
+        ..add(serializers.serialize(object.remaining_balance,
+            specifiedType: const FullType(String)));
+    }
+    if (object.tax != null) {
+      result
+        ..add('tax')
+        ..add(serializers.serialize(object.tax,
+            specifiedType: const FullType(String)));
+    }
+    if (object.total_amount != null) {
+      result
+        ..add('total_amount')
+        ..add(serializers.serialize(object.total_amount,
+            specifiedType: const FullType(String)));
+    }
+    if (object.order_amount != null) {
+      result
+        ..add('order_amount')
+        ..add(serializers.serialize(object.order_amount,
+            specifiedType: const FullType(String)));
+    }
+    if (object.payment_type != null) {
+      result
+        ..add('payment_type')
+        ..add(serializers.serialize(object.payment_type,
+            specifiedType: const FullType(String)));
+    }
+    if (object.merchant_email != null) {
+      result
+        ..add('merchant_email')
+        ..add(serializers.serialize(object.merchant_email,
+            specifiedType: const FullType(String)));
+    }
+    if (object.customer_rating != null) {
+      result
+        ..add('customer_rating')
+        ..add(serializers.serialize(object.customer_rating,
+            specifiedType: const FullType(String)));
+    }
+    if (object.merchant_id != null) {
+      result
+        ..add('merchant_id')
+        ..add(serializers.serialize(object.merchant_id,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -334,10 +509,6 @@ class _$OrderSerializer implements StructuredSerializer<Order> {
           result.date_time = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'type':
-          result.type = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
         case 'location_of_agent':
           result.location_of_agent = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
@@ -359,9 +530,11 @@ class _$OrderSerializer implements StructuredSerializer<Order> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'follow_up_order_recommendations':
-          result.follow_up_order_recommendations = serializers.deserialize(
-              value,
-              specifiedType: const FullType(String)) as String;
+          result.follow_up_order_recommendations.replace(
+              serializers.deserialize(value,
+                      specifiedType: const FullType(
+                          BuiltList, const [const FullType(String)]))
+                  as BuiltList<dynamic>);
           break;
         case 'has_delivery':
           result.has_delivery = serializers.deserialize(value,
@@ -439,6 +612,10 @@ class _$OrderSerializer implements StructuredSerializer<Order> {
           result.customer_rating = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'merchant_id':
+          result.merchant_id = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
       }
     }
 
@@ -512,8 +689,6 @@ class _$Order extends Order {
   @override
   final String date_time;
   @override
-  final String type;
-  @override
   final String location_of_agent;
   @override
   final String is_scheduled;
@@ -524,7 +699,7 @@ class _$Order extends Order {
   @override
   final String agent_assigned;
   @override
-  final String follow_up_order_recommendations;
+  final BuiltList<String> follow_up_order_recommendations;
   @override
   final String has_delivery;
   @override
@@ -563,6 +738,8 @@ class _$Order extends Order {
   final String merchant_email;
   @override
   final String customer_rating;
+  @override
+  final String merchant_id;
 
   factory _$Order([void Function(OrderBuilder) updates]) =>
       (new OrderBuilder()..update(updates)).build();
@@ -600,7 +777,6 @@ class _$Order extends Order {
       this.long_description_json,
       this.customer,
       this.date_time,
-      this.type,
       this.location_of_agent,
       this.is_scheduled,
       this.status,
@@ -625,181 +801,9 @@ class _$Order extends Order {
       this.order_amount,
       this.payment_type,
       this.merchant_email,
-      this.customer_rating})
-      : super._() {
-    if (order_id == null) {
-      throw new BuiltValueNullFieldError('Order', 'order_id');
-    }
-    if (job_type == null) {
-      throw new BuiltValueNullFieldError('Order', 'job_type');
-    }
-    if (business_type == null) {
-      throw new BuiltValueNullFieldError('Order', 'business_type');
-    }
-    if (provider == null) {
-      throw new BuiltValueNullFieldError('Order', 'provider');
-    }
-    if (order_summary_collection == null) {
-      throw new BuiltValueNullFieldError('Order', 'order_summary_collection');
-    }
-    if (description_json == null) {
-      throw new BuiltValueNullFieldError('Order', 'description_json');
-    }
-    if (parent_category_id == null) {
-      throw new BuiltValueNullFieldError('Order', 'parent_category_id');
-    }
-    if (is_enabled == null) {
-      throw new BuiltValueNullFieldError('Order', 'is_enabled');
-    }
-    if (is_recurring_enabled == null) {
-      throw new BuiltValueNullFieldError('Order', 'is_recurring_enabled');
-    }
-    if (is_side_order == null) {
-      throw new BuiltValueNullFieldError('Order', 'is_side_order');
-    }
-    if (service_time == null) {
-      throw new BuiltValueNullFieldError('Order', 'service_time');
-    }
-    if (available_quantity == null) {
-      throw new BuiltValueNullFieldError('Order', 'available_quantity');
-    }
-    if (is_deleted == null) {
-      throw new BuiltValueNullFieldError('Order', 'is_deleted');
-    }
-    if (cost_price == null) {
-      throw new BuiltValueNullFieldError('Order', 'cost_price');
-    }
-    if (price == null) {
-      throw new BuiltValueNullFieldError('Order', 'price');
-    }
-    if (unit_type == null) {
-      throw new BuiltValueNullFieldError('Order', 'unit_type');
-    }
-    if (unit == null) {
-      throw new BuiltValueNullFieldError('Order', 'unit');
-    }
-    if (steps_collection == null) {
-      throw new BuiltValueNullFieldError('Order', 'steps_collection');
-    }
-    if (customer_id == null) {
-      throw new BuiltValueNullFieldError('Order', 'customer_id');
-    }
-    if (customer_phone == null) {
-      throw new BuiltValueNullFieldError('Order', 'customer_phone');
-    }
-    if (cart_id == null) {
-      throw new BuiltValueNullFieldError('Order', 'cart_id');
-    }
-    if (amount == null) {
-      throw new BuiltValueNullFieldError('Order', 'amount');
-    }
-    if (delivery_charge == null) {
-      throw new BuiltValueNullFieldError('Order', 'delivery_charge');
-    }
-    if (currency_id == null) {
-      throw new BuiltValueNullFieldError('Order', 'currency_id');
-    }
-    if (self_pickup == null) {
-      throw new BuiltValueNullFieldError('Order', 'self_pickup');
-    }
-    if (store_id == null) {
-      throw new BuiltValueNullFieldError('Order', 'store_id');
-    }
-    if (refunded_amount_optional == null) {
-      throw new BuiltValueNullFieldError('Order', 'refunded_amount_optional');
-    }
-    if (accept_reject == null) {
-      throw new BuiltValueNullFieldError('Order', 'accept_reject');
-    }
-    if (long_description_json == null) {
-      throw new BuiltValueNullFieldError('Order', 'long_description_json');
-    }
-    if (customer == null) {
-      throw new BuiltValueNullFieldError('Order', 'customer');
-    }
-    if (date_time == null) {
-      throw new BuiltValueNullFieldError('Order', 'date_time');
-    }
-    if (type == null) {
-      throw new BuiltValueNullFieldError('Order', 'type');
-    }
-    if (location_of_agent == null) {
-      throw new BuiltValueNullFieldError('Order', 'location_of_agent');
-    }
-    if (is_scheduled == null) {
-      throw new BuiltValueNullFieldError('Order', 'is_scheduled');
-    }
-    if (status == null) {
-      throw new BuiltValueNullFieldError('Order', 'status');
-    }
-    if (eta == null) {
-      throw new BuiltValueNullFieldError('Order', 'eta');
-    }
-    if (agent_assigned == null) {
-      throw new BuiltValueNullFieldError('Order', 'agent_assigned');
-    }
-    if (follow_up_order_recommendations == null) {
-      throw new BuiltValueNullFieldError(
-          'Order', 'follow_up_order_recommendations');
-    }
-    if (has_delivery == null) {
-      throw new BuiltValueNullFieldError('Order', 'has_delivery');
-    }
-    if (has_pickup == null) {
-      throw new BuiltValueNullFieldError('Order', 'has_pickup');
-    }
-    if (coupon_discount == null) {
-      throw new BuiltValueNullFieldError('Order', 'coupon_discount');
-    }
-    if (job_pickup_phone == null) {
-      throw new BuiltValueNullFieldError('Order', 'job_pickup_phone');
-    }
-    if (job_pickup_address == null) {
-      throw new BuiltValueNullFieldError('Order', 'job_pickup_address');
-    }
-    if (return_enabled == null) {
-      throw new BuiltValueNullFieldError('Order', 'return_enabled');
-    }
-    if (job_pickup_datetime == null) {
-      throw new BuiltValueNullFieldError('Order', 'job_pickup_datetime');
-    }
-    if (job_delivery_datetime == null) {
-      throw new BuiltValueNullFieldError('Order', 'job_delivery_datetime');
-    }
-    if (fleet_id == null) {
-      throw new BuiltValueNullFieldError('Order', 'fleet_id');
-    }
-    if (marketplace_user_id_68757 == null) {
-      throw new BuiltValueNullFieldError('Order', 'marketplace_user_id_68757');
-    }
-    if (form_id == null) {
-      throw new BuiltValueNullFieldError('Order', 'form_id');
-    }
-    if (transaction_id == null) {
-      throw new BuiltValueNullFieldError('Order', 'transaction_id');
-    }
-    if (remaining_balance == null) {
-      throw new BuiltValueNullFieldError('Order', 'remaining_balance');
-    }
-    if (tax == null) {
-      throw new BuiltValueNullFieldError('Order', 'tax');
-    }
-    if (total_amount == null) {
-      throw new BuiltValueNullFieldError('Order', 'total_amount');
-    }
-    if (order_amount == null) {
-      throw new BuiltValueNullFieldError('Order', 'order_amount');
-    }
-    if (payment_type == null) {
-      throw new BuiltValueNullFieldError('Order', 'payment_type');
-    }
-    if (merchant_email == null) {
-      throw new BuiltValueNullFieldError('Order', 'merchant_email');
-    }
-    if (customer_rating == null) {
-      throw new BuiltValueNullFieldError('Order', 'customer_rating');
-    }
-  }
+      this.customer_rating,
+      this.merchant_id})
+      : super._();
 
   @override
   Order rebuild(void Function(OrderBuilder) updates) =>
@@ -844,7 +848,6 @@ class _$Order extends Order {
         long_description_json == other.long_description_json &&
         customer == other.customer &&
         date_time == other.date_time &&
-        type == other.type &&
         location_of_agent == other.location_of_agent &&
         is_scheduled == other.is_scheduled &&
         status == other.status &&
@@ -870,7 +873,8 @@ class _$Order extends Order {
         order_amount == other.order_amount &&
         payment_type == other.payment_type &&
         merchant_email == other.merchant_email &&
-        customer_rating == other.customer_rating;
+        customer_rating == other.customer_rating &&
+        merchant_id == other.merchant_id;
   }
 
   @override
@@ -893,26 +897,26 @@ class _$Order extends Order {
                                                                 $jc(
                                                                     $jc(
                                                                         $jc(
-                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, id.hashCode), order_id.hashCode), job_type.hashCode), business_type.hashCode), provider.hashCode), order_summary_collection.hashCode), description_json.hashCode), parent_category_id.hashCode), is_enabled.hashCode), is_recurring_enabled.hashCode), is_side_order.hashCode), service_time.hashCode), available_quantity.hashCode), is_deleted.hashCode), cost_price.hashCode), price.hashCode), unit_type.hashCode), unit.hashCode), steps_collection.hashCode), customer_id.hashCode), customer_phone.hashCode), cart_id.hashCode), amount.hashCode), delivery_charge.hashCode), currency_id.hashCode), self_pickup.hashCode), store_id.hashCode), refunded_amount_optional.hashCode), accept_reject.hashCode), long_description_json.hashCode), customer.hashCode), date_time.hashCode), type.hashCode), location_of_agent.hashCode), is_scheduled.hashCode), status.hashCode), eta.hashCode), agent_assigned.hashCode), follow_up_order_recommendations.hashCode),
-                                                                                has_delivery.hashCode),
-                                                                            has_pickup.hashCode),
-                                                                        coupon_discount.hashCode),
-                                                                    job_pickup_phone.hashCode),
-                                                                job_pickup_address.hashCode),
-                                                            return_enabled.hashCode),
-                                                        job_pickup_datetime.hashCode),
-                                                    job_delivery_datetime.hashCode),
-                                                fleet_id.hashCode),
-                                            marketplace_user_id_68757.hashCode),
-                                        form_id.hashCode),
-                                    transaction_id.hashCode),
-                                remaining_balance.hashCode),
-                            tax.hashCode),
-                        total_amount.hashCode),
-                    order_amount.hashCode),
-                payment_type.hashCode),
-            merchant_email.hashCode),
-        customer_rating.hashCode));
+                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, id.hashCode), order_id.hashCode), job_type.hashCode), business_type.hashCode), provider.hashCode), order_summary_collection.hashCode), description_json.hashCode), parent_category_id.hashCode), is_enabled.hashCode), is_recurring_enabled.hashCode), is_side_order.hashCode), service_time.hashCode), available_quantity.hashCode), is_deleted.hashCode), cost_price.hashCode), price.hashCode), unit_type.hashCode), unit.hashCode), steps_collection.hashCode), customer_id.hashCode), customer_phone.hashCode), cart_id.hashCode), amount.hashCode), delivery_charge.hashCode), currency_id.hashCode), self_pickup.hashCode), store_id.hashCode), refunded_amount_optional.hashCode), accept_reject.hashCode), long_description_json.hashCode), customer.hashCode), date_time.hashCode), location_of_agent.hashCode), is_scheduled.hashCode), status.hashCode), eta.hashCode), agent_assigned.hashCode), follow_up_order_recommendations.hashCode), has_delivery.hashCode),
+                                                                                has_pickup.hashCode),
+                                                                            coupon_discount.hashCode),
+                                                                        job_pickup_phone.hashCode),
+                                                                    job_pickup_address.hashCode),
+                                                                return_enabled.hashCode),
+                                                            job_pickup_datetime.hashCode),
+                                                        job_delivery_datetime.hashCode),
+                                                    fleet_id.hashCode),
+                                                marketplace_user_id_68757.hashCode),
+                                            form_id.hashCode),
+                                        transaction_id.hashCode),
+                                    remaining_balance.hashCode),
+                                tax.hashCode),
+                            total_amount.hashCode),
+                        order_amount.hashCode),
+                    payment_type.hashCode),
+                merchant_email.hashCode),
+            customer_rating.hashCode),
+        merchant_id.hashCode));
   }
 
   @override
@@ -950,7 +954,6 @@ class _$Order extends Order {
           ..add('long_description_json', long_description_json)
           ..add('customer', customer)
           ..add('date_time', date_time)
-          ..add('type', type)
           ..add('location_of_agent', location_of_agent)
           ..add('is_scheduled', is_scheduled)
           ..add('status', status)
@@ -976,7 +979,8 @@ class _$Order extends Order {
           ..add('order_amount', order_amount)
           ..add('payment_type', payment_type)
           ..add('merchant_email', merchant_email)
-          ..add('customer_rating', customer_rating))
+          ..add('customer_rating', customer_rating)
+          ..add('merchant_id', merchant_id))
         .toString();
   }
 }
@@ -1125,10 +1129,6 @@ class OrderBuilder implements Builder<Order, OrderBuilder> {
   String get date_time => _$this._date_time;
   set date_time(String date_time) => _$this._date_time = date_time;
 
-  String _type;
-  String get type => _$this._type;
-  set type(String type) => _$this._type = type;
-
   String _location_of_agent;
   String get location_of_agent => _$this._location_of_agent;
   set location_of_agent(String location_of_agent) =>
@@ -1151,10 +1151,11 @@ class OrderBuilder implements Builder<Order, OrderBuilder> {
   set agent_assigned(String agent_assigned) =>
       _$this._agent_assigned = agent_assigned;
 
-  String _follow_up_order_recommendations;
-  String get follow_up_order_recommendations =>
-      _$this._follow_up_order_recommendations;
-  set follow_up_order_recommendations(String follow_up_order_recommendations) =>
+  ListBuilder<String> _follow_up_order_recommendations;
+  ListBuilder<String> get follow_up_order_recommendations =>
+      _$this._follow_up_order_recommendations ??= new ListBuilder<String>();
+  set follow_up_order_recommendations(
+          ListBuilder<String> follow_up_order_recommendations) =>
       _$this._follow_up_order_recommendations = follow_up_order_recommendations;
 
   String _has_delivery;
@@ -1244,6 +1245,10 @@ class OrderBuilder implements Builder<Order, OrderBuilder> {
   set customer_rating(String customer_rating) =>
       _$this._customer_rating = customer_rating;
 
+  String _merchant_id;
+  String get merchant_id => _$this._merchant_id;
+  set merchant_id(String merchant_id) => _$this._merchant_id = merchant_id;
+
   OrderBuilder();
 
   OrderBuilder get _$this {
@@ -1280,13 +1285,13 @@ class OrderBuilder implements Builder<Order, OrderBuilder> {
       _long_description_json = _$v.long_description_json;
       _customer = _$v.customer;
       _date_time = _$v.date_time;
-      _type = _$v.type;
       _location_of_agent = _$v.location_of_agent;
       _is_scheduled = _$v.is_scheduled;
       _status = _$v.status;
       _eta = _$v.eta;
       _agent_assigned = _$v.agent_assigned;
-      _follow_up_order_recommendations = _$v.follow_up_order_recommendations;
+      _follow_up_order_recommendations =
+          _$v.follow_up_order_recommendations?.toBuilder();
       _has_delivery = _$v.has_delivery;
       _has_pickup = _$v.has_pickup;
       _coupon_discount = _$v.coupon_discount;
@@ -1306,6 +1311,7 @@ class OrderBuilder implements Builder<Order, OrderBuilder> {
       _payment_type = _$v.payment_type;
       _merchant_email = _$v.merchant_email;
       _customer_rating = _$v.customer_rating;
+      _merchant_id = _$v.merchant_id;
       _$v = null;
     }
     return this;
@@ -1326,66 +1332,80 @@ class OrderBuilder implements Builder<Order, OrderBuilder> {
 
   @override
   _$Order build() {
-    final _$result = _$v ??
-        new _$Order._(
-            id: id,
-            order_id: order_id,
-            job_type: job_type,
-            business_type: business_type,
-            provider: provider,
-            order_summary_collection: order_summary_collection,
-            description_json: description_json,
-            parent_category_id: parent_category_id,
-            is_enabled: is_enabled,
-            is_recurring_enabled: is_recurring_enabled,
-            is_side_order: is_side_order,
-            service_time: service_time,
-            available_quantity: available_quantity,
-            is_deleted: is_deleted,
-            cost_price: cost_price,
-            price: price,
-            unit_type: unit_type,
-            unit: unit,
-            steps_collection: steps_collection,
-            customer_id: customer_id,
-            customer_phone: customer_phone,
-            cart_id: cart_id,
-            amount: amount,
-            delivery_charge: delivery_charge,
-            currency_id: currency_id,
-            self_pickup: self_pickup,
-            store_id: store_id,
-            refunded_amount_optional: refunded_amount_optional,
-            accept_reject: accept_reject,
-            long_description_json: long_description_json,
-            customer: customer,
-            date_time: date_time,
-            type: type,
-            location_of_agent: location_of_agent,
-            is_scheduled: is_scheduled,
-            status: status,
-            eta: eta,
-            agent_assigned: agent_assigned,
-            follow_up_order_recommendations: follow_up_order_recommendations,
-            has_delivery: has_delivery,
-            has_pickup: has_pickup,
-            coupon_discount: coupon_discount,
-            job_pickup_phone: job_pickup_phone,
-            job_pickup_address: job_pickup_address,
-            return_enabled: return_enabled,
-            job_pickup_datetime: job_pickup_datetime,
-            job_delivery_datetime: job_delivery_datetime,
-            fleet_id: fleet_id,
-            marketplace_user_id_68757: marketplace_user_id_68757,
-            form_id: form_id,
-            transaction_id: transaction_id,
-            remaining_balance: remaining_balance,
-            tax: tax,
-            total_amount: total_amount,
-            order_amount: order_amount,
-            payment_type: payment_type,
-            merchant_email: merchant_email,
-            customer_rating: customer_rating);
+    _$Order _$result;
+    try {
+      _$result = _$v ??
+          new _$Order._(
+              id: id,
+              order_id: order_id,
+              job_type: job_type,
+              business_type: business_type,
+              provider: provider,
+              order_summary_collection: order_summary_collection,
+              description_json: description_json,
+              parent_category_id: parent_category_id,
+              is_enabled: is_enabled,
+              is_recurring_enabled: is_recurring_enabled,
+              is_side_order: is_side_order,
+              service_time: service_time,
+              available_quantity: available_quantity,
+              is_deleted: is_deleted,
+              cost_price: cost_price,
+              price: price,
+              unit_type: unit_type,
+              unit: unit,
+              steps_collection: steps_collection,
+              customer_id: customer_id,
+              customer_phone: customer_phone,
+              cart_id: cart_id,
+              amount: amount,
+              delivery_charge: delivery_charge,
+              currency_id: currency_id,
+              self_pickup: self_pickup,
+              store_id: store_id,
+              refunded_amount_optional: refunded_amount_optional,
+              accept_reject: accept_reject,
+              long_description_json: long_description_json,
+              customer: customer,
+              date_time: date_time,
+              location_of_agent: location_of_agent,
+              is_scheduled: is_scheduled,
+              status: status,
+              eta: eta,
+              agent_assigned: agent_assigned,
+              follow_up_order_recommendations:
+                  _follow_up_order_recommendations?.build(),
+              has_delivery: has_delivery,
+              has_pickup: has_pickup,
+              coupon_discount: coupon_discount,
+              job_pickup_phone: job_pickup_phone,
+              job_pickup_address: job_pickup_address,
+              return_enabled: return_enabled,
+              job_pickup_datetime: job_pickup_datetime,
+              job_delivery_datetime: job_delivery_datetime,
+              fleet_id: fleet_id,
+              marketplace_user_id_68757: marketplace_user_id_68757,
+              form_id: form_id,
+              transaction_id: transaction_id,
+              remaining_balance: remaining_balance,
+              tax: tax,
+              total_amount: total_amount,
+              order_amount: order_amount,
+              payment_type: payment_type,
+              merchant_email: merchant_email,
+              customer_rating: customer_rating,
+              merchant_id: merchant_id);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'follow_up_order_recommendations';
+        _follow_up_order_recommendations?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'Order', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

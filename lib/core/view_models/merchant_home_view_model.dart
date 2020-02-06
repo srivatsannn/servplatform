@@ -10,6 +10,9 @@ class MerchantHomeViewModel extends BaseViewModel {
 
   List<Merchant> _merchants = [];
   List<Merchant> get merchants => _merchants;
+  /* List<Task> get tasks => _tasks;
+  List<Provider>
+ */
 
   Future<void> init() async {
     setState(ViewState.Busy);
@@ -20,5 +23,8 @@ class MerchantHomeViewModel extends BaseViewModel {
       setState(ViewState.Error);
     }
     setState(ViewState.Idle);
+
+    _tasks = [{name:'',},{}]
+
   }
 }

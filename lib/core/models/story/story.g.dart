@@ -17,36 +17,60 @@ class _$StorySerializer implements StructuredSerializer<Story> {
   @override
   Iterable<Object> serialize(Serializers serializers, Story object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'story_key',
-      serializers.serialize(object.story_key,
-          specifiedType: const FullType(String)),
-      'multi_img_url',
-      serializers.serialize(object.multi_img_url,
-          specifiedType: const FullType(String)),
-      'provider',
-      serializers.serialize(object.provider,
-          specifiedType: const FullType(String)),
-      'service_key',
-      serializers.serialize(object.service_key,
-          specifiedType: const FullType(String)),
-      'time_sec',
-      serializers.serialize(object.time_sec,
-          specifiedType: const FullType(String)),
-      'claps',
-      serializers.serialize(object.claps,
-          specifiedType: const FullType(String)),
-      'user',
-      serializers.serialize(object.user, specifiedType: const FullType(String)),
-      'publishedAt',
-      serializers.serialize(object.publishedAt,
-          specifiedType: const FullType(String)),
-    ];
+    final result = <Object>[];
     if (object.id != null) {
       result
         ..add('id')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
+    }
+    if (object.story_key != null) {
+      result
+        ..add('story_key')
+        ..add(serializers.serialize(object.story_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.multi_img_url != null) {
+      result
+        ..add('multi_img_url')
+        ..add(serializers.serialize(object.multi_img_url,
+            specifiedType: const FullType(String)));
+    }
+    if (object.provider != null) {
+      result
+        ..add('provider')
+        ..add(serializers.serialize(object.provider,
+            specifiedType: const FullType(String)));
+    }
+    if (object.service_key != null) {
+      result
+        ..add('service_key')
+        ..add(serializers.serialize(object.service_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.time_sec != null) {
+      result
+        ..add('time_sec')
+        ..add(serializers.serialize(object.time_sec,
+            specifiedType: const FullType(String)));
+    }
+    if (object.claps != null) {
+      result
+        ..add('claps')
+        ..add(serializers.serialize(object.claps,
+            specifiedType: const FullType(String)));
+    }
+    if (object.user != null) {
+      result
+        ..add('user')
+        ..add(serializers.serialize(object.user,
+            specifiedType: const FullType(String)));
+    }
+    if (object.publishedAt != null) {
+      result
+        ..add('publishedAt')
+        ..add(serializers.serialize(object.publishedAt,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -138,32 +162,7 @@ class _$Story extends Story {
       this.claps,
       this.user,
       this.publishedAt})
-      : super._() {
-    if (story_key == null) {
-      throw new BuiltValueNullFieldError('Story', 'story_key');
-    }
-    if (multi_img_url == null) {
-      throw new BuiltValueNullFieldError('Story', 'multi_img_url');
-    }
-    if (provider == null) {
-      throw new BuiltValueNullFieldError('Story', 'provider');
-    }
-    if (service_key == null) {
-      throw new BuiltValueNullFieldError('Story', 'service_key');
-    }
-    if (time_sec == null) {
-      throw new BuiltValueNullFieldError('Story', 'time_sec');
-    }
-    if (claps == null) {
-      throw new BuiltValueNullFieldError('Story', 'claps');
-    }
-    if (user == null) {
-      throw new BuiltValueNullFieldError('Story', 'user');
-    }
-    if (publishedAt == null) {
-      throw new BuiltValueNullFieldError('Story', 'publishedAt');
-    }
-  }
+      : super._();
 
   @override
   Story rebuild(void Function(StoryBuilder) updates) =>

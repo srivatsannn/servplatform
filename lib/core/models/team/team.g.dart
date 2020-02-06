@@ -17,32 +17,55 @@ class _$TeamSerializer implements StructuredSerializer<Team> {
   @override
   Iterable<Object> serialize(Serializers serializers, Team object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'team_name',
-      serializers.serialize(object.team_name,
-          specifiedType: const FullType(String)),
-      'agents',
-      serializers.serialize(object.agents,
-          specifiedType: const FullType(String)),
-      'battery_usage',
-      serializers.serialize(object.battery_usage,
-          specifiedType: const FullType(String)),
-      'tags',
-      serializers.serialize(object.tags, specifiedType: const FullType(String)),
-      'capacity',
-      serializers.serialize(object.capacity,
-          specifiedType: const FullType(String)),
-      'type',
-      serializers.serialize(object.type, specifiedType: const FullType(String)),
-      'speed',
-      serializers.serialize(object.speed,
-          specifiedType: const FullType(String)),
-    ];
+    final result = <Object>[];
     if (object.id != null) {
       result
         ..add('id')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
+    }
+    if (object.team_name != null) {
+      result
+        ..add('team_name')
+        ..add(serializers.serialize(object.team_name,
+            specifiedType: const FullType(String)));
+    }
+    if (object.agents != null) {
+      result
+        ..add('agents')
+        ..add(serializers.serialize(object.agents,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    if (object.battery_usage != null) {
+      result
+        ..add('battery_usage')
+        ..add(serializers.serialize(object.battery_usage,
+            specifiedType: const FullType(String)));
+    }
+    if (object.tags != null) {
+      result
+        ..add('tags')
+        ..add(serializers.serialize(object.tags,
+            specifiedType: const FullType(String)));
+    }
+    if (object.capacity != null) {
+      result
+        ..add('capacity')
+        ..add(serializers.serialize(object.capacity,
+            specifiedType: const FullType(String)));
+    }
+    if (object.type != null) {
+      result
+        ..add('type')
+        ..add(serializers.serialize(object.type,
+            specifiedType: const FullType(String)));
+    }
+    if (object.speed != null) {
+      result
+        ..add('speed')
+        ..add(serializers.serialize(object.speed,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -67,8 +90,10 @@ class _$TeamSerializer implements StructuredSerializer<Team> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'agents':
-          result.agents = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.agents.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<dynamic>);
           break;
         case 'battery_usage':
           result.battery_usage = serializers.deserialize(value,
@@ -103,7 +128,7 @@ class _$Team extends Team {
   @override
   final String team_name;
   @override
-  final String agents;
+  final BuiltList<String> agents;
   @override
   final String battery_usage;
   @override
@@ -127,29 +152,7 @@ class _$Team extends Team {
       this.capacity,
       this.type,
       this.speed})
-      : super._() {
-    if (team_name == null) {
-      throw new BuiltValueNullFieldError('Team', 'team_name');
-    }
-    if (agents == null) {
-      throw new BuiltValueNullFieldError('Team', 'agents');
-    }
-    if (battery_usage == null) {
-      throw new BuiltValueNullFieldError('Team', 'battery_usage');
-    }
-    if (tags == null) {
-      throw new BuiltValueNullFieldError('Team', 'tags');
-    }
-    if (capacity == null) {
-      throw new BuiltValueNullFieldError('Team', 'capacity');
-    }
-    if (type == null) {
-      throw new BuiltValueNullFieldError('Team', 'type');
-    }
-    if (speed == null) {
-      throw new BuiltValueNullFieldError('Team', 'speed');
-    }
-  }
+      : super._();
 
   @override
   Team rebuild(void Function(TeamBuilder) updates) =>
@@ -214,9 +217,10 @@ class TeamBuilder implements Builder<Team, TeamBuilder> {
   String get team_name => _$this._team_name;
   set team_name(String team_name) => _$this._team_name = team_name;
 
-  String _agents;
-  String get agents => _$this._agents;
-  set agents(String agents) => _$this._agents = agents;
+  ListBuilder<String> _agents;
+  ListBuilder<String> get agents =>
+      _$this._agents ??= new ListBuilder<String>();
+  set agents(ListBuilder<String> agents) => _$this._agents = agents;
 
   String _battery_usage;
   String get battery_usage => _$this._battery_usage;
@@ -245,7 +249,7 @@ class TeamBuilder implements Builder<Team, TeamBuilder> {
     if (_$v != null) {
       _id = _$v.id;
       _team_name = _$v.team_name;
-      _agents = _$v.agents;
+      _agents = _$v.agents?.toBuilder();
       _battery_usage = _$v.battery_usage;
       _tags = _$v.tags;
       _capacity = _$v.capacity;
@@ -271,16 +275,29 @@ class TeamBuilder implements Builder<Team, TeamBuilder> {
 
   @override
   _$Team build() {
-    final _$result = _$v ??
-        new _$Team._(
-            id: id,
-            team_name: team_name,
-            agents: agents,
-            battery_usage: battery_usage,
-            tags: tags,
-            capacity: capacity,
-            type: type,
-            speed: speed);
+    _$Team _$result;
+    try {
+      _$result = _$v ??
+          new _$Team._(
+              id: id,
+              team_name: team_name,
+              agents: _agents?.build(),
+              battery_usage: battery_usage,
+              tags: tags,
+              capacity: capacity,
+              type: type,
+              speed: speed);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'agents';
+        _agents?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'Team', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

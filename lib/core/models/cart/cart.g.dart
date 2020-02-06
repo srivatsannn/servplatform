@@ -17,49 +17,91 @@ class _$CartSerializer implements StructuredSerializer<Cart> {
   @override
   Iterable<Object> serialize(Serializers serializers, Cart object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'cart_key',
-      serializers.serialize(object.cart_key,
-          specifiedType: const FullType(String)),
-      'provider_key',
-      serializers.serialize(object.provider_key,
-          specifiedType: const FullType(String)),
-      'service_key',
-      serializers.serialize(object.service_key,
-          specifiedType: const FullType(String)),
-      'url',
-      serializers.serialize(object.url, specifiedType: const FullType(String)),
-      'location',
-      serializers.serialize(object.location,
-          specifiedType: const FullType(String)),
-      'eta',
-      serializers.serialize(object.eta, specifiedType: const FullType(String)),
-      'discount_options',
-      serializers.serialize(object.discount_options,
-          specifiedType: const FullType(String)),
-      'delivery_note',
-      serializers.serialize(object.delivery_note,
-          specifiedType: const FullType(String)),
-      'order_key',
-      serializers.serialize(object.order_key,
-          specifiedType: const FullType(String)),
-      'bill_summary_collection',
-      serializers.serialize(object.bill_summary_collection,
-          specifiedType: const FullType(String)),
-      'payment_methods',
-      serializers.serialize(object.payment_methods,
-          specifiedType: const FullType(String)),
-      'promo_codes',
-      serializers.serialize(object.promo_codes,
-          specifiedType: const FullType(String)),
-      'tip',
-      serializers.serialize(object.tip, specifiedType: const FullType(String)),
-    ];
+    final result = <Object>[];
     if (object.id != null) {
       result
         ..add('id')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
+    }
+    if (object.cart_key != null) {
+      result
+        ..add('cart_key')
+        ..add(serializers.serialize(object.cart_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.provider_key != null) {
+      result
+        ..add('provider_key')
+        ..add(serializers.serialize(object.provider_key,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    if (object.service_key != null) {
+      result
+        ..add('service_key')
+        ..add(serializers.serialize(object.service_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.url != null) {
+      result
+        ..add('url')
+        ..add(serializers.serialize(object.url,
+            specifiedType: const FullType(String)));
+    }
+    if (object.location != null) {
+      result
+        ..add('location')
+        ..add(serializers.serialize(object.location,
+            specifiedType: const FullType(String)));
+    }
+    if (object.eta != null) {
+      result
+        ..add('eta')
+        ..add(serializers.serialize(object.eta,
+            specifiedType: const FullType(String)));
+    }
+    if (object.discount_options != null) {
+      result
+        ..add('discount_options')
+        ..add(serializers.serialize(object.discount_options,
+            specifiedType: const FullType(String)));
+    }
+    if (object.delivery_note != null) {
+      result
+        ..add('delivery_note')
+        ..add(serializers.serialize(object.delivery_note,
+            specifiedType: const FullType(String)));
+    }
+    if (object.order_key != null) {
+      result
+        ..add('order_key')
+        ..add(serializers.serialize(object.order_key,
+            specifiedType: const FullType(String)));
+    }
+    if (object.bill_summary_collection != null) {
+      result
+        ..add('bill_summary_collection')
+        ..add(serializers.serialize(object.bill_summary_collection,
+            specifiedType: const FullType(String)));
+    }
+    if (object.payment_methods != null) {
+      result
+        ..add('payment_methods')
+        ..add(serializers.serialize(object.payment_methods,
+            specifiedType: const FullType(String)));
+    }
+    if (object.promo_codes != null) {
+      result
+        ..add('promo_codes')
+        ..add(serializers.serialize(object.promo_codes,
+            specifiedType: const FullType(String)));
+    }
+    if (object.tip != null) {
+      result
+        ..add('tip')
+        ..add(serializers.serialize(object.tip,
+            specifiedType: const FullType(String)));
     }
     return result;
   }
@@ -84,8 +126,10 @@ class _$CartSerializer implements StructuredSerializer<Cart> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'provider_key':
-          result.provider_key = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.provider_key.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<dynamic>);
           break;
         case 'service_key':
           result.service_key = serializers.deserialize(value,
@@ -144,7 +188,7 @@ class _$Cart extends Cart {
   @override
   final String cart_key;
   @override
-  final String provider_key;
+  final BuiltList<String> provider_key;
   @override
   final String service_key;
   @override
@@ -186,47 +230,7 @@ class _$Cart extends Cart {
       this.payment_methods,
       this.promo_codes,
       this.tip})
-      : super._() {
-    if (cart_key == null) {
-      throw new BuiltValueNullFieldError('Cart', 'cart_key');
-    }
-    if (provider_key == null) {
-      throw new BuiltValueNullFieldError('Cart', 'provider_key');
-    }
-    if (service_key == null) {
-      throw new BuiltValueNullFieldError('Cart', 'service_key');
-    }
-    if (url == null) {
-      throw new BuiltValueNullFieldError('Cart', 'url');
-    }
-    if (location == null) {
-      throw new BuiltValueNullFieldError('Cart', 'location');
-    }
-    if (eta == null) {
-      throw new BuiltValueNullFieldError('Cart', 'eta');
-    }
-    if (discount_options == null) {
-      throw new BuiltValueNullFieldError('Cart', 'discount_options');
-    }
-    if (delivery_note == null) {
-      throw new BuiltValueNullFieldError('Cart', 'delivery_note');
-    }
-    if (order_key == null) {
-      throw new BuiltValueNullFieldError('Cart', 'order_key');
-    }
-    if (bill_summary_collection == null) {
-      throw new BuiltValueNullFieldError('Cart', 'bill_summary_collection');
-    }
-    if (payment_methods == null) {
-      throw new BuiltValueNullFieldError('Cart', 'payment_methods');
-    }
-    if (promo_codes == null) {
-      throw new BuiltValueNullFieldError('Cart', 'promo_codes');
-    }
-    if (tip == null) {
-      throw new BuiltValueNullFieldError('Cart', 'tip');
-    }
-  }
+      : super._();
 
   @override
   Cart rebuild(void Function(CartBuilder) updates) =>
@@ -317,9 +321,11 @@ class CartBuilder implements Builder<Cart, CartBuilder> {
   String get cart_key => _$this._cart_key;
   set cart_key(String cart_key) => _$this._cart_key = cart_key;
 
-  String _provider_key;
-  String get provider_key => _$this._provider_key;
-  set provider_key(String provider_key) => _$this._provider_key = provider_key;
+  ListBuilder<String> _provider_key;
+  ListBuilder<String> get provider_key =>
+      _$this._provider_key ??= new ListBuilder<String>();
+  set provider_key(ListBuilder<String> provider_key) =>
+      _$this._provider_key = provider_key;
 
   String _service_key;
   String get service_key => _$this._service_key;
@@ -375,7 +381,7 @@ class CartBuilder implements Builder<Cart, CartBuilder> {
     if (_$v != null) {
       _id = _$v.id;
       _cart_key = _$v.cart_key;
-      _provider_key = _$v.provider_key;
+      _provider_key = _$v.provider_key?.toBuilder();
       _service_key = _$v.service_key;
       _url = _$v.url;
       _location = _$v.location;
@@ -407,22 +413,35 @@ class CartBuilder implements Builder<Cart, CartBuilder> {
 
   @override
   _$Cart build() {
-    final _$result = _$v ??
-        new _$Cart._(
-            id: id,
-            cart_key: cart_key,
-            provider_key: provider_key,
-            service_key: service_key,
-            url: url,
-            location: location,
-            eta: eta,
-            discount_options: discount_options,
-            delivery_note: delivery_note,
-            order_key: order_key,
-            bill_summary_collection: bill_summary_collection,
-            payment_methods: payment_methods,
-            promo_codes: promo_codes,
-            tip: tip);
+    _$Cart _$result;
+    try {
+      _$result = _$v ??
+          new _$Cart._(
+              id: id,
+              cart_key: cart_key,
+              provider_key: _provider_key?.build(),
+              service_key: service_key,
+              url: url,
+              location: location,
+              eta: eta,
+              discount_options: discount_options,
+              delivery_note: delivery_note,
+              order_key: order_key,
+              bill_summary_collection: bill_summary_collection,
+              payment_methods: payment_methods,
+              promo_codes: promo_codes,
+              tip: tip);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'provider_key';
+        _provider_key?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'Cart', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
