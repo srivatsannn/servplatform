@@ -23,7 +23,7 @@ class SliverMultilineAppBar extends StatelessWidget {
       leading: leading,
       actions: actions,
       flexibleSpace: FlexibleSpaceBar(
-        centerTitle: true,
+        centerTitle: leading == null?true:false,
           title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,

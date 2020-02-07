@@ -27,9 +27,7 @@ class ProviderPageView extends StatelessWidget {
                   leading: IconButton(
                     color: Colors.grey[400],
                     onPressed: () {
-                      Navigator.of(context).pushNamed(
-                        ViewRoutes.main,
-                        arguments: {},
+                      Navigator.of(context).pop(
                       );
                     },
                     icon: Icon(Icons.arrow_back),

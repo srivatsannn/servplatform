@@ -41,6 +41,7 @@ class HomeView extends StatelessWidget {
           backdropEnabled: true,
           minHeight: 0,
           controller: model.pc,
+          parallaxEnabled: true,
           //widget to display in case of collapsed
           //collapsed: _floatingCollapsed(context),
 
@@ -57,9 +58,7 @@ class HomeView extends StatelessWidget {
                         delegate: SliverChildListDelegate([SearchField(),]),
                       ),
                       _RecommendedServices(),
-                      SliverList(
-                        delegate: SliverChildListDelegate([UIHelper.verticalSpaceExtraLarge(),]),
-                      ),
+                      
                      
                       _RecommendedServices(),
                     ]
@@ -67,13 +66,34 @@ class HomeView extends StatelessWidget {
                   ),
       ),
 
-                floatingActionButton: FloatingActionButton(
+                /* floatingActionButton: FloatingActionButton(
                 onPressed: () => model.pc.open(),
                 tooltip: 'Menu',
                 child: Icon(Icons.menu,color: Colors.grey,),
                 backgroundColor: Colors.white,
                 elevation: 0.0,
-            ),
+            ), */
+
+            bottomNavigationBar: BottomAppBar(
+                elevation: bottomAppBarTheme.elevation,
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Text('More', style: textTheme.caption),
+                    LiveIconButton(
+                      icon: AnimatedIcons.menu_close,
+                      onPressed: () {
+                            model.onTapMenu(context);
+
+                      },
+                    ),
+                  ],
+                ),
+              ),
+           
+
+
               )
               
             ,
@@ -151,6 +171,7 @@ Widget _floatingPanel(context){
     //margin: const EdgeInsets.all(24.0),
     child: Column(
       children: <Widget>[
+        
         
  Text("This is the SlidingUpPanel when open"),
     Text('Deliver features faster'),
