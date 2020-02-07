@@ -5,6 +5,7 @@ import 'package:provider_architecture/provider_architecture.dart';
 import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/localization/localization.dart';
 import 'package:servplatform/core/view_models/home_view_model.dart';
+import 'package:servplatform/ui/shared/ui_helper.dart';
 import 'package:servplatform/ui/widgets/list_header.dart';
 import 'package:servplatform/ui/widgets/search_field.dart';
 import 'package:servplatform/ui/widgets/service_tile.dart';
@@ -13,6 +14,8 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 
 class HomeView extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
     final local = AppLocalizations.of(context);
@@ -28,47 +31,52 @@ class HomeView extends StatelessWidget {
         onModelReady: (model) => model.init(),
         builder: (context, model, child) => 
         
-        
-        SlidingUpPanel(
+        Scaffold(
+               
+      body: SlidingUpPanel(
+
+         //only the container contained inside are visible
           renderPanelSheet: false,
+          //setting this property will blur the background
           backdropEnabled: true,
+          minHeight: 0,
           controller: model.pc,
+          //widget to display in case of collapsed
           //collapsed: _floatingCollapsed(context),
 
       
-        panel: _floatingPanel(context,model.pc),
-      body:
-        Scaffold(
-               
+        panel: _floatingPanel(context),
       body: Center(
-      
-                                child: CustomScrollView(slivers: <Widget>[
-                    SliverMultilineAppBar(
-                      title: 'Choose a Service for you below',
-                      subtitle: 'or swipe up to browse 2, 124 active services',
-                    ),
-                    SliverList(
-                      delegate: SliverChildListDelegate([SearchField()]),
-                    ),
-                    _RecommendedServices(),
-                  ]),
-                ),
-                /* bottomNavigationBar: BottomAppBar(
-                  elevation: bottomAppBarTheme.elevation,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      Text('More', style: textTheme.caption),
-                      LiveIconButton(
-                        icon: AnimatedIcons.menu_close,
-                        onPressed: () {},
+        
+                                  child: CustomScrollView(slivers: <Widget>[
+                      SliverMultilineAppBar(
+                        title: 'Choose a Service for you below',
+                        subtitle: 'or swipe up to browse 2, 124 active services',
                       ),
-                    ],
+                      SliverList(
+                        delegate: SliverChildListDelegate([SearchField(),]),
+                      ),
+                      _RecommendedServices(),
+                      SliverList(
+                        delegate: SliverChildListDelegate([UIHelper.verticalSpaceExtraLarge(),]),
+                      ),
+                     
+                      _RecommendedServices(),
+                    ]
+                    ),
                   ),
-                ), */
+      ),
+
+                floatingActionButton: FloatingActionButton(
+                onPressed: () => model.pc.open(),
+                tooltip: 'Menu',
+                child: Icon(Icons.menu,color: Colors.grey,),
+                backgroundColor: Colors.white,
+                elevation: 0.0,
+            ),
               )
-              ),
+              
+            ,
         )
     
             ;
@@ -130,65 +138,20 @@ class _LoadingAnimation extends StatelessWidget {
 }
 
 
-/* Widget _floatingCollapsed(context){
-    final textTheme = Theme.of(context).textTheme;
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(topLeft: Radius.circular(24.0), topRight: Radius.circular(24.0)),
-      ),
-      //margin: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
-      child: Center(
-        child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Text('More', style: textTheme.caption),
-                      LiveIconButton(
-                        icon: AnimatedIcons.menu_close,
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
-                ), 
 
-    
-  );
-} */
-
-Widget _floatingPanel(context,pc){
+Widget _floatingPanel(context){
       final textTheme = Theme.of(context).textTheme;
 
   return Container(
     decoration: BoxDecoration(
       color: Colors.white,
         borderRadius: BorderRadius.only(topLeft: Radius.circular(24.0), topRight: Radius.circular(24.0)),
-      /* boxShadow: [
-        BoxShadow(
-          blurRadius: 20.0,
-          color: Colors.grey,
-        ), 
-      ]*/
+      
     ),
     //margin: const EdgeInsets.all(24.0),
     child: Column(
       children: <Widget>[
-        Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Text('More', style: textTheme.caption),
-                      LiveIconButton(
-                        icon: AnimatedIcons.menu_close,
-                        onPressed: () {
-
-                            pc.show();
-                          //onTapMenu(context);
-
-                        },
-                      ),
-                    ],
-                  ),
+        
  Text("This is the SlidingUpPanel when open"),
     Text('Deliver features faster'),
     Text('Craft beautiful UIs'),
@@ -200,11 +163,9 @@ Widget _floatingPanel(context,pc){
     ),
   ],
 
-      
-      
-      
-      
      
     ),
   );
 }
+
+

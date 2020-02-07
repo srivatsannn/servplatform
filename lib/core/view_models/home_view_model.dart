@@ -29,9 +29,11 @@ class HomeViewModel extends BaseViewModel {
   List<Service> get services => _services;
   final TextEditingController _searchControl = TextEditingController();
   TextEditingController get searchControl => _searchControl;
-             PanelController _pc = new PanelController();
- 
-  get pc => _pc;
+
+  final PanelController _pc = new PanelController();
+
+  PanelController get pc => _pc;
+             
 
 
 
@@ -50,7 +52,6 @@ class HomeViewModel extends BaseViewModel {
 
       //final String userId = keyStorageService.userId;
       //Mocked user_id
-        PanelController _pc = new PanelController();
 
 
       final String userId = 'mg8519';
@@ -85,8 +86,8 @@ class HomeViewModel extends BaseViewModel {
     );
   }
   void onTapMenu(BuildContext context){
+    _pc.open();
 
-        pc.show();
 
   }
 
