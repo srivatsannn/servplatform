@@ -24,7 +24,9 @@ class MerchantHomeViewModel extends BaseViewModel {
     }
     setState(ViewState.Idle);
 
-    _tasks = [{name:'',},{}]
 
   }
+}
+
+class _tasks {
 }

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
@@ -29,9 +30,19 @@ class HomeViewModel extends BaseViewModel {
   List<Service> get services => _services;
   final TextEditingController _searchControl = TextEditingController();
   TextEditingController get searchControl => _searchControl;
+  
+//Initialized variables for slide up panel and animated icon
+
+  final IconState _iconState = IconState.first;
+  IconState get iconState => _iconState;
+
+	//bool _isClose = false;
+  //bool get isClose => _isClose;
+
+  
+
 
   final PanelController _pc = new PanelController();
-
   PanelController get pc => _pc;
              
 
@@ -77,7 +88,10 @@ class HomeViewModel extends BaseViewModel {
     setState(ViewState.Idle);
   }
 
-  Future<void> onUserLocationUpdate() async {}
+  Future<void> onUserLocationUpdate() async {
+
+    
+  }
 
   void onTap(Service service, BuildContext context) {
     Navigator.of(context).pushNamed(
@@ -86,11 +100,22 @@ class HomeViewModel extends BaseViewModel {
     );
   }
   void onTapMenu(BuildContext context){
-    _pc.open();
-
+    
+     if(_pc.isPanelClosed)
+     {
+            _pc.open();
+            
+            
+     }
+ 			else
+       {
+				 _pc.close();
+         
+			}
+     
 
   }
-
+}
   //update location() = navigate to locatios Screen
   //update when required => open diaglog update navigate screen
 //
@@ -103,5 +128,3 @@ class HomeViewModel extends BaseViewModel {
   //Backlog
   //create adhoc request()
   //navigate to orders
-
-}

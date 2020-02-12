@@ -12,6 +12,8 @@ class AgentProfileViewModel extends BaseViewModel {
   List<Agent> _agents = [];
   List<Agent> get agents => _agents;
 
+  
+
   Future<void> init() async {
     setState(ViewState.Busy);
     try {

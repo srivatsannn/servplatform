@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'dart:math';
 
-import 'package:payment/challenge0/widgets/dashed_line.dart';
+import 'package:servplatform/ui/widgets/dashed_line.dart';
+import 'package:servplatform/ui/widgets/balance.dart';
+import 'package:servplatform/ui/widgets/domain.dart';
 
 class GroupedBarChart extends StatefulWidget {
   final List<Domain> domains;
