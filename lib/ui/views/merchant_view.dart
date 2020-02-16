@@ -20,7 +20,7 @@ class MerchantView extends StatelessWidget {
     final iconTheme = Theme.of(context).iconTheme;
 
     return ViewModelProvider<MerchantHomeViewModel>.withoutConsumer(
-        viewModel: MerchantView(),
+        viewModel: MerchantHomeViewModel(),
         onModelReady: (model) => model.init(),
         builder: (context, model, child) => Scaffold(
           body: CustomScrollView(slivers: <Widget>[
