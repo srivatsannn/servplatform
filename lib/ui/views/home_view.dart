@@ -7,6 +7,7 @@ import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/localization/localization.dart';
 import 'package:servplatform/core/view_models/home_view_model.dart';
 import 'package:servplatform/ui/shared/ui_helper.dart';
+import 'package:servplatform/ui/views/location_input_view.dart';
 import 'package:servplatform/ui/widgets/search_field.dart';
 import 'package:servplatform/ui/views/merchant_selection_view.dart';
 import 'package:servplatform/ui/widgets/list_header.dart';
@@ -33,7 +34,7 @@ class HomeView extends StatelessWidget {
           //renderPanelSheet: false,
           //setting this property will blur the background
           backdropEnabled: true,
-          maxHeight: MediaQuery.of(context).size.height * .80,
+          maxHeight: MediaQuery.of(context).size.height * .60,
 
           minHeight: 0,
           controller: model.pc,
