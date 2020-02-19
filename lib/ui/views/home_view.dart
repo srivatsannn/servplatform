@@ -32,7 +32,7 @@ class HomeView extends StatelessWidget {
           //renderPanelSheet: false,
           //setting this property will blur the background
           backdropEnabled: true,
-          maxHeight: MediaQuery.of(context).size.height * .60,
+          maxHeight: MediaQuery.of(context).size.height * .80,
 
           minHeight: 0,
           controller: model.pc,
@@ -147,7 +147,7 @@ class _MenuIcontButton extends ProviderWidget<HomeViewModel> {
 
     return LiveIconButton.externalState(
       icon: AnimatedIcons.menu_close,
-      iconState: !model.pc.isPanelClosed ? IconState.first : IconState.second,
+      iconState: model.pc.isPanelClosed? IconState.first: IconState.second,
       onPressed: () {
         model.onTapMenu(context);
       },
@@ -155,31 +155,6 @@ class _MenuIcontButton extends ProviderWidget<HomeViewModel> {
   }
 }
 
-Widget _floatingPanel(context) {
-  final textTheme = Theme.of(context).textTheme;
-
-  return Container(
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(24.0), topRight: Radius.circular(24.0)),
-    ),
-    //margin: const EdgeInsets.all(24.0),
-    child: Column(
-      children: <Widget>[
-        Text("This is the SlidingUpPanel when open"),
-        Text('Deliver features faster'),
-        Text('Craft beautiful UIs'),
-        Expanded(
-          child: FittedBox(
-            fit: BoxFit.contain, // otherwise the logo will be tiny
-            child: const FlutterLogo(),
-          ),
-        ),
-      ],
-    ),
-  );
-}
 
 
 
