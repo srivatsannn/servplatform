@@ -6,6 +6,7 @@ import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/localization/localization.dart';
 import 'package:servplatform/core/view_models/home_view_model.dart';
 import 'package:servplatform/core/view_models/merchant_home_view_model.dart';
+import 'package:servplatform/ui/widgets/group_bar_chart.dart';
 import 'package:servplatform/ui/widgets/list_header.dart';
 import 'package:servplatform/ui/widgets/search_field.dart';
 import 'package:servplatform/ui/widgets/service_tile.dart';
@@ -56,13 +57,16 @@ class MerchantView extends StatelessWidget {
     backgroundColor: Colors.blueAccent,
             ),
           ),
-        ));
+        )
+        
+        
+        );
   }
 
 
 class OptionalServices extends ProviderWidget<MerchantHomeViewModel> {
   @override
-  Widget build(BuildContext context,MerchantViewModel model) {
+  Widget build(BuildContext context,MerchantHomeViewModel model) {
     if (model.state == ViewState.Busy) {
       return _LoadingAnimation();
     }
