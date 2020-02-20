@@ -440,7 +440,18 @@ packages:
       name: intl
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< Updated upstream
     version: "0.16.1"
+=======
+    version: "0.16.0"
+  intl_translation:
+    dependency: transitive
+    description:
+      name: intl_translation
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.17.9"
+>>>>>>> Stashed changes
   io:
     dependency: transitive
     description:
@@ -677,6 +688,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  smooth_star_rating:
+    dependency: "direct main"
+    description:
+      name: smooth_star_rating
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.4+2"
   source_gen:
     dependency: transitive
     description:
