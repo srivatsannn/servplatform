@@ -26,8 +26,6 @@ class HomeView extends StatelessWidget {
     final bottomAppBarTheme = Theme.of(context).bottomAppBarTheme;
     final iconTheme = Theme.of(context).iconTheme;
 
-    
-
 
     return ViewModelProvider<HomeViewModel>.withoutConsumer(
         viewModel: HomeViewModel(),

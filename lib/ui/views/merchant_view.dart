@@ -6,6 +6,7 @@ import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/localization/localization.dart';
 import 'package:servplatform/core/view_models/home_view_model.dart';
 import 'package:servplatform/core/view_models/merchant_home_view_model.dart';
+import 'package:servplatform/ui/widgets/group_bar_chart.dart';
 import 'package:servplatform/ui/widgets/list_header.dart';
 import 'package:servplatform/ui/widgets/search_field.dart';
 import 'package:servplatform/ui/widgets/service_tile.dart';
@@ -15,59 +16,67 @@ class MerchantView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final local = AppLocalizations.of(context);
-    final textTheme = Theme.of(context).textTheme;
-    final bottomAppBarTheme = Theme.of(context).bottomAppBarTheme;
-    final iconTheme = Theme.of(context).iconTheme;
+    final textTheme = Theme
+        .of(context)
+        .textTheme;
+    final bottomAppBarTheme = Theme
+        .of(context)
+        .bottomAppBarTheme;
+    final iconTheme = Theme
+        .of(context)
+        .iconTheme;
 
     return ViewModelProvider<MerchantHomeViewModel>.withoutConsumer(
-        viewModel: MerchantView(),
+        viewModel: MerchantHomeViewModel(),
         onModelReady: (model) => model.init(),
-        builder: (context, model, child) => Scaffold(
-          body: CustomScrollView(slivers: <Widget>[
-            SliverMultilineAppBar(
-              title: 'Merchant',
-            ),
-            SliverList(
-              delegate: SliverChildListDelegate([SearchField()]),
-            ),
-            OptionalServices(),
-          ],
-            GroupedBarChart(),
-          ),
+        builder: (context, model, child) =>
+            Scaffold(
+              body: CustomScrollView(
+                slivers: <Widget>[
+                  SliverMultilineAppBar(
+                    title: 'Merchant',
+                  ),
+                  SliverList(
+                    delegate: SliverChildListDelegate([SearchField()]),
+                  ),
+                  OptionalServices(),
+                  //GroupedBarChart(),
+                ],
+              ),
 
-          bottomNavigationBar: BottomAppBar(
-            elevation: bottomAppBarTheme.elevation,
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                Text('More', style: textTheme.caption),
-                LiveIconButton(
-                  icon: AnimatedIcons.menu_close,
-                  onPressed: () {},
+              bottomNavigationBar: BottomAppBar(
+                elevation: bottomAppBarTheme.elevation,
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Text('More', style: textTheme.caption),
+                    LiveIconButton(
+                      icon: AnimatedIcons.menu_close,
+                      onPressed: () {},
+                    ),
+                  ],
                 ),
-              ],
-    floatingActionButton: FloatingActionButton(
-    onPressed: () {
-    // Set up more agencies
-    },
-    children: Icon(Icons.add),
-    Text('Set up Agencies',style: textTheme.caption),
-    backgroundColor: Colors.blueAccent,
-            ),
-          ),
-        ));
+              ),
+              floatingActionButton: FloatingActionButton(
+                onPressed: () {
+                  // Set up more agencies
+                },
+                child: Icon(Icons.add),
+                //Text('Set up Agencies',style: textTheme.caption),
+                backgroundColor: Colors.blueAccent,
+              ),
+            ));
   }
-
+}
 
 class OptionalServices extends ProviderWidget<MerchantHomeViewModel> {
   @override
-  Widget build(BuildContext context,MerchantViewModel model) {
+  Widget build(BuildContext context,MerchantHomeViewModel model) {
     if (model.state == ViewState.Busy) {
       return _LoadingAnimation();
     }
-
-    if (model.services.isEmpty) {
+    if (model.merchants.isEmpty) {
       return _NoServices();
     }
 
@@ -75,12 +84,12 @@ class OptionalServices extends ProviderWidget<MerchantHomeViewModel> {
       delegate: SliverChildBuilderDelegate(
             (context, index) {
           return ServiceTile(
-            key: Key('${model.services[index].id}'),
-            service: model.services[index],
+            key: Key('${model.merchants[index].id}'),
+            //service: model.merchants[index],
             onTap: null,
           );
         },
-        childCount: model.services.length,
+        childCount: model.merchants.length,
       ),
     );
   }

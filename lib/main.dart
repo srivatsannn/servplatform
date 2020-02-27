@@ -15,6 +15,7 @@ import 'package:servplatform/ui/router.dart';
 import 'package:servplatform/ui/shared/themes.dart' as themes;
 import 'package:servplatform/local_setup.dart';
 import 'package:servplatform/ui/views/login_view.dart';
+import 'package:servplatform/ui/views/ratings_page_view.dart';
 import 'package:servplatform/ui/views/splash_view.dart';
 
 void main() async {
@@ -70,7 +71,7 @@ class MyApp extends StatelessWidget {
     final keyStorageService = locator<KeyStorageService>();
 
     if (!keyStorageService.hasLoggedIn) {
-      return LoginView();
+      return StarDisplay();//return LoginView();
     }
 
     return SplashView();
