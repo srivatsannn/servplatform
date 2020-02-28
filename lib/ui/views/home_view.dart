@@ -5,9 +5,11 @@ import 'package:provider_architecture/provider_architecture.dart';
 import 'package:servplatform/core/constant/view_routes.dart';
 import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/localization/localization.dart';
+import 'package:servplatform/core/services/auth/auth_service.dart';
 import 'package:servplatform/core/view_models/home_view_model.dart';
 import 'package:servplatform/ui/shared/ui_helper.dart';
 import 'package:servplatform/ui/views/location_input_view.dart';
+import 'package:servplatform/ui/views/order_view.dart';
 import 'package:servplatform/ui/widgets/search_field.dart';
 import 'package:servplatform/ui/views/merchant_selection_view.dart';
 import 'package:servplatform/ui/widgets/list_header.dart';
@@ -16,6 +18,8 @@ import 'package:servplatform/ui/widgets/service_tile.dart';
 import 'package:servplatform/ui/widgets/sliver_multiline_app_bar.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+
+import '../../locator.dart';
 
 class HomeView extends StatelessWidget {
   @override
@@ -211,11 +215,18 @@ Widget _panel(ScrollController sc, context) {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
-                "Explore Pittsburgh",
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  fontSize: 24.0,
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+                    return OrderPage();
+                  }));
+                },
+                child: Text(
+                  "Explore Pittsburgh",
+                  style: TextStyle(
+                    fontWeight: FontWeight.normal,
+                    fontSize: 24.0,
+                  ),
                 ),
               ),
             ],
@@ -286,6 +297,13 @@ Widget _panel(ScrollController sc, context) {
                 ),
               ],
             ),
+          ),
+          RaisedButton(
+            onPressed: () {
+              AuthService _authService = locator<AuthService>();
+              _authService.signOut();
+            },
+            child: Text("SignOut?"),
           ),
           SizedBox(
             height: 24,

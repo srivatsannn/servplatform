@@ -22,32 +22,29 @@ class HomeViewModel extends BaseViewModel {
   final _servicesRepository = locator<ServicesRepository>();
   final keyStorageService = locator<KeyStorageService>();
 
-
   User _user;
+
   User get user => _user;
 
   List<Service> _services = [];
+
   List<Service> get services => _services;
   final TextEditingController _searchControl = TextEditingController();
+
   TextEditingController get searchControl => _searchControl;
-  
+
 //Initialized variables for slide up panel and animated icon
 
   final IconState _iconState = IconState.first;
+
   IconState get iconState => _iconState;
 
-	//bool _isClose = false;
+  //bool _isClose = false;
   //bool get isClose => _isClose;
 
-  
-
-
   final PanelController _pc = new PanelController();
+
   PanelController get pc => _pc;
-             
-
-
-
 
   Future<void> init() async {
     setState(ViewState.Busy);
@@ -63,7 +60,6 @@ class HomeViewModel extends BaseViewModel {
 
       //final String userId = keyStorageService.userId;
       //Mocked user_id
-
 
       final String userId = 'mg8519';
       final User _user = await _usersRepository.getUserById(userId);
@@ -88,10 +84,7 @@ class HomeViewModel extends BaseViewModel {
     setState(ViewState.Idle);
   }
 
-  Future<void> onUserLocationUpdate() async {
-
-    
-  }
+  Future<void> onUserLocationUpdate() async {}
 
   void onTap(Service service, BuildContext context) {
     Navigator.of(context).pushNamed(
@@ -99,32 +92,24 @@ class HomeViewModel extends BaseViewModel {
       arguments: service,
     );
   }
-  void onTapMenu(BuildContext context){
-    
-     if(_pc.isPanelClosed)
-     {
-            _pc.open();
-            
-            
-     }
- 			else
-       {
-				 _pc.close();
-         
-			}
-     
 
+  void onTapMenu(BuildContext context) {
+    if (_pc.isPanelClosed) {
+      _pc.open();
+    } else {
+      _pc.close();
+    }
   }
 }
-  //update location() = navigate to locatios Screen
-  //update when required => open diaglog update navigate screen
+//update location() = navigate to locatios Screen
+//update when required => open diaglog update navigate screen
 //
-  //tapsearch()=> navigate to search
+//tapsearch()=> navigate to search
 //
-  //tabservice => navigate to service _detail page
-  //
-  //onTapAddService=> add service to cart, if service has options navigate t service options screen, if destination location , navigatoe to destinaton_location_screen
+//tabservice => navigate to service _detail page
+//
+//onTapAddService=> add service to cart, if service has options navigate t service options screen, if destination location , navigatoe to destinaton_location_screen
 
-  //Backlog
-  //create adhoc request()
-  //navigate to orders
+//Backlog
+//create adhoc request()
+//navigate to orders

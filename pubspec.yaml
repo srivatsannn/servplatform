@@ -54,9 +54,12 @@ dependencies:
   flare_flutter: any
   flare_loading: any
   charts_flutter: any
-
+  loading:
   google_map_location_picker:
-
+  firebase_auth:
+  font_awesome_flutter:
+  percent_indicator:
+  flutter_rating_bar:
   # firebase
   cloud_firestore: ^0.12.9
   firebase_core: ^0.4.0+8
@@ -72,6 +75,7 @@ dev_dependencies:
   pedantic: ^1.8.0
   logger: ^0.8.2
   mockito: ^4.1.1
+
 
 flutter_icons:
   android: "launcher_icon"
@@ -99,6 +103,8 @@ flutter:
     - assets/lang/es.json
     - assets/lang/ru.json
     - assets/mapstyle/map_style.txt
+    - assets/mapstyle/order_map_style.txt
+    - assets/countries/countries.json
 
   fonts:
     - family: Open Sans

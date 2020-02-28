@@ -9,6 +9,7 @@ import 'package:servplatform/core/managers/dialog_manager.dart';
 import 'package:servplatform/core/services/dialog/dialog_service.dart';
 import 'package:servplatform/core/services/key_storage/key_storage_service.dart';
 import 'package:servplatform/core/services/navigation/navigation_service.dart';
+import 'package:servplatform/ui/views/phone_login_view.dart';
 import 'package:servplatform/core/utils/logger.dart';
 import 'package:servplatform/locator.dart';
 import 'package:servplatform/provider_setup.dart';
@@ -17,7 +18,8 @@ import 'package:servplatform/ui/shared/themes.dart' as themes;
 import 'package:servplatform/local_setup.dart';
 import 'package:servplatform/ui/views/login_view.dart';
 import 'package:servplatform/ui/views/splash_view.dart';
-
+import 'package:servplatform/ui/views/startup_view.dart';
+import 'core/services/phone_auth/firebase_phone_auth.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -68,12 +70,15 @@ class MyApp extends StatelessWidget {
   /// determines which page to show according to whether
   /// the user has logged in already. Could be used for sign up, etc...
   Widget _getStartupScreen() {
-    final keyStorageService = locator<KeyStorageService>();
+//    final keyStorageService = locator<KeyStorageService>();
+//
+//
+//
+//    if (!FirebasePhoneAuth.isLoggedIn) {
+//      return PhoneAuthGetPhone();
+//    }
 
-    if (!keyStorageService.hasLoggedIn) {
-      return LoginView();
-    }
-
-    return SplashView();
+    return StartUpView();
+//  return PhoneAuthGetPhone();
   }
 }

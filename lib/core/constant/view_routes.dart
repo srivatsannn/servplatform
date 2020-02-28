@@ -7,7 +7,7 @@ class ViewRoutes {
   static const settings = 'settings';
   static const post_details = 'post_details';
   static const service_details = 'service_details';
-
+  static const phone_auth='phone_auth_page';
   static const login = 'login';
   static const location_input = 'location_input';
   static const home = 'home';
