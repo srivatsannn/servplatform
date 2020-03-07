@@ -97,6 +97,7 @@ class _RecommendedServices extends ProviderWidget<HomeViewModel> {
       return _NoServices();
     }
 
+    //if model.services[index]>model.services[0] then switch the slidingup panel to cart view panel
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (context, index) {
@@ -181,10 +182,6 @@ Widget _floatingPanel(context) {
   );
 }
 
-
-
-
-
-  Widget _panel(ScrollController sc,context){
-    return MenuView();
-  }
+Widget _panel(ScrollController sc, context) {
+  return MenuView();
+}
