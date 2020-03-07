@@ -6,6 +6,7 @@ class CustomTextFormField extends StatelessWidget {
   final String value;
   final Icon suffixIcon;
   final bool showLabel;
+
   CustomTextFormField(
       {@required this.hintText,
       this.verticalPadding,
@@ -21,13 +22,14 @@ class CustomTextFormField extends StatelessWidget {
         children: <Widget>[
           showLabel
               ? Text(
-                  hintText.toUpperCase(),
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 14.0,
-                    color: Color(0xFF9CA4AA),
-                  ),
-                )
+
+            hintText.toUpperCase(),
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: 14.0,
+              color: Color(0xFF9CA4AA),
+            ),
+          )
               : SizedBox(),
           SizedBox(
             height: 7.0,

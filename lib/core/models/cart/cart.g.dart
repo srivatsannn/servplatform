@@ -34,8 +34,7 @@ class _$CartSerializer implements StructuredSerializer<Cart> {
       result
         ..add('provider_key')
         ..add(serializers.serialize(object.provider_key,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(String)])));
+            specifiedType: const FullType(String)));
     }
     if (object.service_key != null) {
       result
@@ -126,10 +125,8 @@ class _$CartSerializer implements StructuredSerializer<Cart> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'provider_key':
-          result.provider_key.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+          result.provider_key = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
           break;
         case 'service_key':
           result.service_key = serializers.deserialize(value,
@@ -188,7 +185,7 @@ class _$Cart extends Cart {
   @override
   final String cart_key;
   @override
-  final BuiltList<String> provider_key;
+  final String provider_key;
   @override
   final String service_key;
   @override
@@ -321,11 +318,9 @@ class CartBuilder implements Builder<Cart, CartBuilder> {
   String get cart_key => _$this._cart_key;
   set cart_key(String cart_key) => _$this._cart_key = cart_key;
 
-  ListBuilder<String> _provider_key;
-  ListBuilder<String> get provider_key =>
-      _$this._provider_key ??= new ListBuilder<String>();
-  set provider_key(ListBuilder<String> provider_key) =>
-      _$this._provider_key = provider_key;
+  String _provider_key;
+  String get provider_key => _$this._provider_key;
+  set provider_key(String provider_key) => _$this._provider_key = provider_key;
 
   String _service_key;
   String get service_key => _$this._service_key;
@@ -381,7 +376,7 @@ class CartBuilder implements Builder<Cart, CartBuilder> {
     if (_$v != null) {
       _id = _$v.id;
       _cart_key = _$v.cart_key;
-      _provider_key = _$v.provider_key?.toBuilder();
+      _provider_key = _$v.provider_key;
       _service_key = _$v.service_key;
       _url = _$v.url;
       _location = _$v.location;
@@ -413,35 +408,22 @@ class CartBuilder implements Builder<Cart, CartBuilder> {
 
   @override
   _$Cart build() {
-    _$Cart _$result;
-    try {
-      _$result = _$v ??
-          new _$Cart._(
-              id: id,
-              cart_key: cart_key,
-              provider_key: _provider_key?.build(),
-              service_key: service_key,
-              url: url,
-              location: location,
-              eta: eta,
-              discount_options: discount_options,
-              delivery_note: delivery_note,
-              order_key: order_key,
-              bill_summary_collection: bill_summary_collection,
-              payment_methods: payment_methods,
-              promo_codes: promo_codes,
-              tip: tip);
-    } catch (_) {
-      String _$failedField;
-      try {
-        _$failedField = 'provider_key';
-        _provider_key?.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            'Cart', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result = _$v ??
+        new _$Cart._(
+            id: id,
+            cart_key: cart_key,
+            provider_key: provider_key,
+            service_key: service_key,
+            url: url,
+            location: location,
+            eta: eta,
+            discount_options: discount_options,
+            delivery_note: delivery_note,
+            order_key: order_key,
+            bill_summary_collection: bill_summary_collection,
+            payment_methods: payment_methods,
+            promo_codes: promo_codes,
+            tip: tip);
     replace(_$result);
     return _$result;
   }

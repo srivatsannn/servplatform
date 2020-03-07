@@ -204,7 +204,7 @@ class _$ServiceSerializer implements StructuredSerializer<Service> {
           result.customization.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'inventory_enabled':
           result.inventory_enabled = serializers.deserialize(value,

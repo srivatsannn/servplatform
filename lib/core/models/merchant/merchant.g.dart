@@ -397,7 +397,7 @@ class _$MerchantSerializer implements StructuredSerializer<Merchant> {
           result.provider_key.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'earnings':
           result.earnings = serializers.deserialize(value,

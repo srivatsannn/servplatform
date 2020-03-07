@@ -331,13 +331,13 @@ class _$AgentSerializer implements StructuredSerializer<Agent> {
           result.team_key.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'tags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'fleet_id':
           result.fleet_id = serializers.deserialize(value,
@@ -423,7 +423,7 @@ class _$AgentSerializer implements StructuredSerializer<Agent> {
           result.skills.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'availability':
           result.availability = serializers.deserialize(value,

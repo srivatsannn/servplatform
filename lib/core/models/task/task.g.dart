@@ -389,7 +389,7 @@ class _$TaskSerializer implements StructuredSerializer<Task> {
           result.p_ref_images.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'customer_email':
           result.customer_email = serializers.deserialize(value,

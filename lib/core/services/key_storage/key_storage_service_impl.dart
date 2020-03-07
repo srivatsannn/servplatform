@@ -53,4 +53,10 @@ class KeyStorageServiceImpl implements KeyStorageService {
       _preferences.setStringList(key, content);
     }
   }
+
+  @override
+  String position;
+
+  @override
+  int serviceCartCount;
 }

@@ -1,13 +1,22 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
+import 'package:servplatform/core/constant/view_routes.dart';
 import 'package:servplatform/core/exceptions/auth_exception.dart';
 import 'package:servplatform/core/services/auth/auth_service.dart';
 import 'package:servplatform/core/services/key_storage/key_storage_service.dart';
+import 'package:servplatform/core/services/navigation/navigation_service.dart';
+import 'package:servplatform/core/services/phone_auth/auth.dart';
 import 'package:servplatform/core/utils/logger.dart';
+
+import '../../../locator.dart';
 
 class AuthServiceImpl implements AuthService {
   final KeyStorageService keyStorageService;
 
   const AuthServiceImpl({@required this.keyStorageService});
+
+  static bool isLoggedIn;
+  static NavigationService _navigationService = locator<NavigationService>();
 
   @override
   Future<void> signUpWithEmailPassword(
@@ -20,7 +29,7 @@ class AuthServiceImpl implements AuthService {
       keyStorageService.hasLoggedIn = true;
     } on Exception {
       Logger.e('AuthService: Error signing up');
-      throw AuthException('Error signing up');
+      throw Exception('Error signing up');
     }
   }
 
@@ -38,7 +47,7 @@ class AuthServiceImpl implements AuthService {
       keyStorageService.hasLoggedIn = true;
     } on Exception {
       Logger.e('AuthService: Error signing in');
-      throw AuthException('Error signing in');
+      throw Exception('Error signing in');
     }
   }
 
@@ -51,13 +60,23 @@ class AuthServiceImpl implements AuthService {
       keyStorageService.userId = 'mg_8519';
     } on Exception {
       Logger.e('AuthService: Error signing in');
-      throw AuthException('Error signing in');
+      throw Exception('Error signing in');
     }
   }
 
   @override
   Future<void> signOut() async {
     await Future.delayed(Duration(milliseconds: 250));
+    await FirebaseAuth.instance.signOut();
     keyStorageService.hasLoggedIn = false;
+    await (_navigationService.pushReplacementNamed(ViewRoutes.phone_auth));
+  }
+
+  @override
+  isUserLoggedIn() async {
+    isLoggedIn = await FirebaseAuth.instance.currentUser() != null;
+    return isLoggedIn;
   }
 }
+
+

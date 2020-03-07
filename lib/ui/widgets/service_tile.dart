@@ -9,11 +9,13 @@ import 'package:servplatform/ui/widgets/add_button.dart';
 class ServiceTile extends StatelessWidget {
   final Service service;
   final Function onTap;
+  final Function onAdd;
 
   const ServiceTile({
     Key key,
     @required this.service,
     @required this.onTap,
+    @required this.onAdd,
   }) : super(key: key);
 
   @override
@@ -85,7 +87,7 @@ class ServiceTile extends StatelessWidget {
               //Text('\$'),
               // Text('\$ ${model.service.price}',
 
-              onTap: () {},
+              onTap: onAdd,
               onUpdateQuantity: (value) {},
               onRemove: () {},
               text: '\$ ${service.price}',
