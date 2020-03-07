@@ -253,7 +253,7 @@ class _MenuViewState extends State<MenuView> {
                               Icons.business_center,
                               size: 50,
                               color: Colors.orange,
-                            )
+                            ),
                           ],
                         ),
                         SizedBox(

@@ -1,9 +1,6 @@
 import 'dart:core';
 
 import 'package:flutter/material.dart';
-import 'package:servplatform/core/constant/view_routes.dart';
-import 'package:servplatform/core/models/service/service.dart';
-import 'package:servplatform/ui/widgets/add_button.dart';
 //import 'package:real_rich_text/real_rich_text.dart';
 
 class SearchField extends StatelessWidget {
@@ -14,7 +11,6 @@ class SearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-
     return Container(
       padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
@@ -44,9 +40,14 @@ class SearchField extends StatelessWidget {
             Icons.search,
             color: Colors.grey[400],
           ),
-          suffixIcon: Icon(
-            Icons.filter_list,
-            color: Colors.grey[400],
+          suffixIcon: Column(
+            children: <Widget>[
+              Icon(
+                Icons.filter_list,
+                color: Colors.grey[400],
+              ),
+              Text('Refine')
+            ],
           ),
           hintStyle: TextStyle(
             fontSize: 15.0,

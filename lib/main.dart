@@ -14,6 +14,7 @@ import 'package:servplatform/provider_setup.dart';
 import 'package:servplatform/ui/router.dart';
 import 'package:servplatform/ui/shared/themes.dart' as themes;
 import 'package:servplatform/local_setup.dart';
+import 'package:flutter/services.dart';
 import 'package:servplatform/ui/views/login_view.dart';
 import 'package:servplatform/ui/views/splash_view.dart';
 
@@ -30,6 +31,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+
+
     return MultiProvider(
       providers: providers,
       child: CoreManager(

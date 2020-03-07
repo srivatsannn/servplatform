@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 
-class SliverMultilineAppBar extends StatelessWidget {
+class SliverMultilineAppBar extends StatefulWidget {
   final String title;
   final String subtitle;
   final Widget leading;
   final List<Widget> actions;
 
   SliverMultilineAppBar(
-      {this.title, this.subtitle, this.leading, this.actions});
+      {this.title, this.subtitle, this.actions,this.leading});
 
+  @override
+  _SliverMultilineAppBarState createState() => _SliverMultilineAppBarState();
+}
+
+class _SliverMultilineAppBarState extends State<SliverMultilineAppBar> {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -17,13 +22,13 @@ class SliverMultilineAppBar extends StatelessWidget {
     double availableWidth = mediaQuery.size.width - 160;
 
     return SliverAppBar(
-      expandedHeight: 200.0,
+      expandedHeight: 150.0,
       backgroundColor: Colors.white,
-      floating: true,
-      leading: leading,
-      actions: actions,
+      floating: false,
+      leading: widget.leading,
+      actions: widget.actions,
       flexibleSpace: FlexibleSpaceBar(
-        centerTitle: leading == null?true:false,
+      centerTitle: widget.leading == null?true:false,
           title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
@@ -32,9 +37,9 @@ class SliverMultilineAppBar extends StatelessWidget {
               constraints: BoxConstraints(
                 maxWidth: availableWidth,
               ),
-              child: Text(title, style: textTheme.title),
+              child: Text(widget.title, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
             ),
-            Text(subtitle, style: textTheme.caption)
+            Text(widget.subtitle, style: TextStyle(color: Colors.black,))
           ])),
     );
   }

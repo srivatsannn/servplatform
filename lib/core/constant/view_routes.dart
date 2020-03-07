@@ -35,5 +35,6 @@ class ViewRoutes {
   static const security = 'security';
   static const merchant_home = 'merchant_home';
   static const provider_setup = 'provider_setup';
+  static const slid_up  = 'slid_up';
   static const merchant_assign_task = 'merchant_assign_task';
 }

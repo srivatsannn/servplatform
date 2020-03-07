@@ -9,7 +9,6 @@ import 'package:servplatform/ui/widgets/add_button.dart';
 class ServiceTile extends StatelessWidget {
   final Service service;
   final Function onTap;
-
   const ServiceTile({
     Key key,
     @required this.service,
@@ -63,7 +62,6 @@ class ServiceTile extends StatelessWidget {
                 children: [
                   TextSpan(text: '11:20 PM'),
                   TextSpan(text: ' · '),
-
                   /* WidgetSpan(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 2.0),

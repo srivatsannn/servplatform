@@ -14,9 +14,8 @@ part 'task.g.dart';
 abstract class Task implements Built<Task, TaskBuilder> {
   @nullable
   int get id;
-
     @nullable
-String get mission_id;
+ String get mission_id;
   @nullable
   String get service_key;
   @nullable
@@ -95,21 +94,16 @@ String get mission_id;
   String get job_id;
 
 
-
- 
-
-
-
+   String toJson() {
+    return json.encode(serializers.serializeWith(Task.serializer, this));
+  }
   Map<String, dynamic> toMap() {
     //Real weird way to resolve error on firebase
     return jsonDecode(
         jsonEncode(serializers.serializeWith(Task.serializer, this)));
   }
 
-  String toJson() {
-    return json.encode(serializers.serializeWith(Task.serializer, this));
-  }
-
+ 
   static Task fromJson(String jsonString) {
     return serializers.deserializeWith(
       Task.serializer,

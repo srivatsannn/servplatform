@@ -567,7 +567,8 @@ class _$Task extends Task {
       this.latitude,
       this.job_pickup_datetime,
       this.job_delivery_datetime,
-      this.job_id})
+      this.job_id,
+      })
       : super._();
 
   @override
@@ -625,7 +626,8 @@ class _$Task extends Task {
 
   @override
   int get hashCode {
-    return $jf($jc(
+    return $jf( $jc(
+     $jc(
         $jc(
             $jc(
                 $jc(
@@ -662,9 +664,10 @@ class _$Task extends Task {
                     latitude.hashCode),
                 job_pickup_datetime.hashCode),
             job_delivery_datetime.hashCode),
-        job_id.hashCode));
-  }
-
+        job_id.hashCode),
+    has_delivery.hashCode),
+ );
+}
   @override
   String toString() {
     return (newBuiltValueToStringHelper('Task')
@@ -707,7 +710,8 @@ class _$Task extends Task {
           ..add('latitude', latitude)
           ..add('job_pickup_datetime', job_pickup_datetime)
           ..add('job_delivery_datetime', job_delivery_datetime)
-          ..add('job_id', job_id))
+          ..add('job_id', job_id)
+          ..add('has_delivery', has_delivery))
         .toString();
   }
 }
@@ -890,6 +894,7 @@ class TaskBuilder implements Builder<Task, TaskBuilder> {
   String get job_id => _$this._job_id;
   set job_id(String job_id) => _$this._job_id = job_id;
 
+
   TaskBuilder();
 
   TaskBuilder get _$this {
@@ -933,8 +938,6 @@ class TaskBuilder implements Builder<Task, TaskBuilder> {
       _latitude = _$v.latitude;
       _job_pickup_datetime = _$v.job_pickup_datetime;
       _job_delivery_datetime = _$v.job_delivery_datetime;
-      _job_id = _$v.job_id;
-      _$v = null;
     }
     return this;
   }
@@ -997,7 +1000,7 @@ class TaskBuilder implements Builder<Task, TaskBuilder> {
               latitude: latitude,
               job_pickup_datetime: job_pickup_datetime,
               job_delivery_datetime: job_delivery_datetime,
-              job_id: job_id);
+              job_id: job_id,);
     } catch (_) {
       String _$failedField;
       try {

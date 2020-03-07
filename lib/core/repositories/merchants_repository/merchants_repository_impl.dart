@@ -55,7 +55,6 @@ class MerchantsRepositoryImpl implements MerchantsRepository {
   Future addMerchant(Merchant data) async {
     var result = await _firebaseService.addDocument(
         FirebasePaths.merchants, data.toMap());
-
     return;
   }
 }

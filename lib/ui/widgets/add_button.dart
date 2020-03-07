@@ -144,21 +144,21 @@ class AddButtonState extends State<AddButton> with TickerProviderStateMixin {
 
     AddButtonController _btnController = new AddButtonController();
 
-    _buttonController = new AnimationController(
-        duration: new Duration(milliseconds: 500), vsync: this);
+    _buttonController = AnimationController(
+        duration: Duration(milliseconds: 500), vsync: this);
 
-    _checkButtonControler = new AnimationController(
-        duration: new Duration(milliseconds: 1000), vsync: this);
+    _checkButtonControler =  AnimationController(
+        duration: Duration(milliseconds: 1000), vsync: this);
 
     _bounceAnimation = Tween<double>(begin: 0, end: 30).animate(
-        new CurvedAnimation(
+        CurvedAnimation(
             parent: _checkButtonControler, curve: Curves.elasticOut));
     _bounceAnimation.addListener(() {
       setState(() {});
     });
 
     _squeezeAnimation = Tween<double>(begin: 300, end: 30).animate(
-        new CurvedAnimation(
+        CurvedAnimation(
             parent: _buttonController, curve: Curves.easeInOutCirc));
     _squeezeAnimation.addListener(() {
       setState(() {});

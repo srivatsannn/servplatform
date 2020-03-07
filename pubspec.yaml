@@ -68,8 +68,11 @@ dev_dependencies:
   hive_generator: ^0.7.0
   build_runner: ^1.7.2
   pedantic: ^1.8.0
+  google_maps_flutter: ^0.5.24+1
   logger: ^0.8.2
   mockito: ^4.1.1
+  getflutter: ^1.0.8
+  intl: ^0.16.1
 
 flutter_icons:
   android: "launcher_icon"
@@ -92,7 +95,7 @@ flutter:
   assets:
     - assets/animations/
     - assets/fonts/
-    - assets/images/
+    - assets/images/introImage.jpg
     - assets/lang/en.json
     - assets/lang/es.json
     - assets/lang/ru.json

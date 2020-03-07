@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:servplatform/core/enums/view_state.dart';
@@ -9,8 +8,6 @@ import 'package:servplatform/core/models/user/user.dart';
 import 'package:servplatform/core/repositories/services_repository/services_repository.dart';
 import 'package:servplatform/core/repositories/users_repository/users_repository.dart';
 import 'package:servplatform/core/services/auth/auth_service.dart';
-import 'package:servplatform/core/constant/view_routes.dart';
-
 import 'package:servplatform/core/view_models/base_view_model.dart';
 import 'package:servplatform/locator.dart';
 import 'package:servplatform/core/services/key_storage/key_storage_service.dart';
@@ -21,18 +18,14 @@ class HomeViewModel extends BaseViewModel {
   final _authService = locator<AuthService>();
   final _servicesRepository = locator<ServicesRepository>();
   final keyStorageService = locator<KeyStorageService>();
-
-
   User _user;
   User get user => _user;
-
   List<Service> _services = [];
   List<Service> get services => _services;
   final TextEditingController _searchControl = TextEditingController();
   TextEditingController get searchControl => _searchControl;
   
 //Initialized variables for slide up panel and animated icon
-
   final IconState _iconState = IconState.first;
   IconState get iconState => _iconState;
 
@@ -42,32 +35,22 @@ class HomeViewModel extends BaseViewModel {
   
 
 
-  final PanelController _pc = new PanelController();
+  final PanelController _pc =  PanelController();
   PanelController get pc => _pc;
-             
-
-
-
-
   Future<void> init() async {
     setState(ViewState.Busy);
-
     try {
       if (!keyStorageService.hasLoggedIn) {
         await _authService.signInAnon();
       } //check if logged in, if not logged in login anonymous
-
       //TO-DO
       //get current location
       //  if permissions not accepted navigate to locations screen(all tasks from demo locationsetter)
 
       //final String userId = keyStorageService.userId;
       //Mocked user_id
-
-
       final String userId = 'mg8519';
       final User _user = await _usersRepository.getUserById(userId);
-
       final recommended_services = _user.recommended_services;
       for (var serviceKey in recommended_services) {
         Service serviceItem =
@@ -93,27 +76,17 @@ class HomeViewModel extends BaseViewModel {
     
   }
 
-  void onTap(Service service, BuildContext context) {
-    Navigator.of(context).pushNamed(
-      ViewRoutes.provider_page,
-      arguments: service,
-    );
-  }
+
   void onTapMenu(BuildContext context){
     
      if(_pc.isPanelClosed)
      {
-            _pc.open();
-            
-            
+            _pc.open();    
      }
  			else
        {
-				 _pc.close();
-         
+				 _pc.close();  
 			}
-     
-
   }
 }
   //update location() = navigate to locatios Screen
