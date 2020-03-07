@@ -7,9 +7,11 @@ import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/localization/localization.dart';
 import 'package:servplatform/core/services/auth/auth_service.dart';
 import 'package:servplatform/core/view_models/home_view_model.dart';
+import 'package:servplatform/core/view_models/widgets/service_tile_view_model.dart';
 import 'package:servplatform/ui/shared/ui_helper.dart';
+import 'package:servplatform/ui/views/agent_home_view.dart';
 import 'package:servplatform/ui/views/location_input_view.dart';
-import 'package:servplatform/ui/views/order_view.dart';
+import 'package:servplatform/ui/views/order_view/order_view.dart';
 import 'package:servplatform/ui/widgets/search_field.dart';
 import 'package:servplatform/ui/views/merchant_selection_view.dart';
 import 'package:servplatform/ui/widgets/list_header.dart';
@@ -31,7 +33,8 @@ class HomeView extends StatelessWidget {
 
     return ViewModelProvider<HomeViewModel>.withoutConsumer(
       viewModel: HomeViewModel(),
-      onModelReady: (model) => model.init(),
+      onModelReady: (model) => model.init(context),
+
       builder: (context, model, child) => Scaffold(
         body: SlidingUpPanel(
           //only the container contained inside are visible
@@ -106,10 +109,17 @@ class _RecommendedServices extends ProviderWidget<HomeViewModel> {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (context, index) {
-          return ServiceTile(
-            key: Key('${model.services[index].id}'),
-            service: model.services[index],
-            onTap: null,
+          return ViewModelProvider<ServiceTileViewModel>.withoutConsumer(
+            viewModel: ServiceTileViewModel(),
+            onModelReady: (model) => model.init(),
+            builder: (context, tile_model, child) {
+              return ServiceTile(
+                key: Key('${model.services[index].id}'),
+                service: model.services[index],
+                onTap: null,
+                onAdd: () => tile_model.onTapAddService(index),
+              );
+            },
           );
         },
         childCount: model.services.length,
@@ -216,9 +226,10 @@ Widget _panel(ScrollController sc, context) {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               GestureDetector(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
-                    return OrderPage();
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (BuildContext context) {
+                    return AgentHome();
                   }));
                 },
                 child: Text(

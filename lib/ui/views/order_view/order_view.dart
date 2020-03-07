@@ -15,10 +15,10 @@ import 'package:servplatform/core/view_models/order_view_model.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
-import 'order_view/page1.dart';
-import 'order_view/page2.dart';
-import 'order_view/page3.dart';
-import 'order_view/page4.dart';
+import 'page1.dart';
+import 'page2.dart';
+import 'page3.dart';
+import 'page4.dart';
 
 class OrderPage extends StatefulWidget {
   @override

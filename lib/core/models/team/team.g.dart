@@ -93,7 +93,7 @@ class _$TeamSerializer implements StructuredSerializer<Team> {
           result.agents.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'battery_usage':
           result.battery_usage = serializers.deserialize(value,

@@ -272,7 +272,7 @@ class _$ProviderSerializer implements StructuredSerializer<Provider> {
           result.area_serviced_geofence.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'company_address':
           result.company_address = serializers.deserialize(value,
@@ -314,7 +314,7 @@ class _$ProviderSerializer implements StructuredSerializer<Provider> {
           result.key_highlights.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'introduction':
           result.introduction = serializers.deserialize(value,
@@ -352,7 +352,7 @@ class _$ProviderSerializer implements StructuredSerializer<Provider> {
           result.merchant_permission.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'view_task':
           result.view_task = serializers.deserialize(value,
@@ -370,7 +370,7 @@ class _$ProviderSerializer implements StructuredSerializer<Provider> {
           result.view_team.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'add_region':
           result.add_region = serializers.deserialize(value,

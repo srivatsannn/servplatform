@@ -51,8 +51,8 @@ class CartsRepositoryImpl implements CartsRepository {
   }
 
   Future addCart(Cart data) async {
-    var result =
-        await _firebaseService.addDocument(FirebasePaths.carts, data.toMap());
+    await _firebaseService.addDocument(FirebasePaths.carts, data.toMap());
+    print("Data added");
 
     return;
   }

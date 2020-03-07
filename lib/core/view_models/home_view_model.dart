@@ -1,11 +1,15 @@
 import 'dart:async';
 
 import 'package:auto_animated/auto_animated.dart';
+import 'package:built_collection/src/list.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:servplatform/core/enums/view_state.dart';
 import 'package:servplatform/core/exceptions/repository_exception.dart';
+import 'package:servplatform/core/models/cart/cart.dart';
 import 'package:servplatform/core/models/service/service.dart';
 import 'package:servplatform/core/models/user/user.dart';
+import 'package:servplatform/core/repositories/carts_repository/carts_repository.dart';
 import 'package:servplatform/core/repositories/services_repository/services_repository.dart';
 import 'package:servplatform/core/repositories/users_repository/users_repository.dart';
 import 'package:servplatform/core/services/auth/auth_service.dart';
@@ -20,6 +24,8 @@ class HomeViewModel extends BaseViewModel {
   final _usersRepository = locator<UsersRepository>();
   final _authService = locator<AuthService>();
   final _servicesRepository = locator<ServicesRepository>();
+  final _cartRepository = locator<CartsRepository>();
+
   final keyStorageService = locator<KeyStorageService>();
 
   User _user;
@@ -45,9 +51,13 @@ class HomeViewModel extends BaseViewModel {
   final PanelController _pc = new PanelController();
 
   PanelController get pc => _pc;
+  Position position;
 
-  Future<void> init() async {
+  Future<void> init(BuildContext context) async {
     setState(ViewState.Busy);
+
+    //Initially, cart is empty!
+    keyStorageService.serviceCartCount=0;
 
     try {
       if (!keyStorageService.hasLoggedIn) {
@@ -56,6 +66,23 @@ class HomeViewModel extends BaseViewModel {
 
       //TO-DO
       //get current location
+
+//      GeolocationStatus geolocationStatus =
+//          await Geolocator().checkGeolocationPermissionStatus();
+//      print("Pemission Status : --->");
+//      print(geolocationStatus.value);
+//      if (geolocationStatus.value == 2) {
+//        position = await Geolocator()
+//            .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+//        print("Location : --->");
+//        print(position);
+//        keyStorageService.position = position.toString();
+//      } else if (geolocationStatus.value == 0) {
+//        await Navigator.of(context).pushNamed(
+//          ViewRoutes.location_input,
+//        );
+//      }
+
       //  if permissions not accepted navigate to locations screen(all tasks from demo locationsetter)
 
       //final String userId = keyStorageService.userId;
@@ -101,6 +128,7 @@ class HomeViewModel extends BaseViewModel {
     }
   }
 }
+
 //update location() = navigate to locatios Screen
 //update when required => open diaglog update navigate screen
 //

@@ -419,25 +419,25 @@ class _$UserSerializer implements StructuredSerializer<User> {
           result.recommended_services.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'recommended_stories':
           result.recommended_stories.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'recommended_categories':
           result.recommended_categories.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'notifications':
           result.notifications.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'profile_completion_steps_pending':
           result.profile_completion_steps_pending = serializers.deserialize(
@@ -464,7 +464,7 @@ class _$UserSerializer implements StructuredSerializer<User> {
           result.friends.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'rating':
           result.rating = serializers.deserialize(value,

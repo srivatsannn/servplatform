@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:servplatform/core/constant/view_routes.dart';
+import 'package:servplatform/ui/views/location_input_view.dart';
 import 'package:servplatform/ui/views/phone_login_view.dart';
 import 'package:servplatform/ui/views/login_view.dart';
 import 'package:servplatform/ui/views/main_view.dart';
@@ -29,6 +30,8 @@ class Router {
       // Tab Views
       case ViewRoutes.main:
         return MainView();
+      case ViewRoutes.location_input:
+        return LocationInputPage();
       case ViewRoutes.phone_auth:
         return PhoneAuthGetPhone();
       case ViewRoutes.login:

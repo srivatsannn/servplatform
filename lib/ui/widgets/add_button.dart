@@ -68,10 +68,10 @@ class AddButtonState extends State<AddButton> with TickerProviderStateMixin {
 
     var _cross = Container(
         alignment: FractionalOffset.center,
-        decoration: new BoxDecoration(
+        decoration: BoxDecoration(
           color: Colors.red,
           borderRadius:
-              new BorderRadius.all(Radius.circular(_bounceAnimation.value / 2)),
+              BorderRadius.all(Radius.circular(_bounceAnimation.value / 2)),
         ),
         width: _bounceAnimation.value,
         height: _bounceAnimation.value,

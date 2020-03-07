@@ -17,7 +17,7 @@ abstract class Cart implements Built<Cart, CartBuilder> {
   @nullable
   String get cart_key;
   @nullable
-  BuiltList<String> get provider_key;
+  String get provider_key;
   @nullable
   String get service_key;
   @nullable
