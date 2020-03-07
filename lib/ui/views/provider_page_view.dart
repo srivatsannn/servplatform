@@ -149,10 +149,10 @@ class _ProviderPageViewState extends State<ProviderPageView> {
                       ];
                     },
                     body: CustomScrollView(slivers: <Widget>[
-                      SliverList(
+                     /* SliverList(
                         delegate: SliverChildListDelegate([MyWidget()]),
-                      ),
-                      /*SliverList(
+                      ),*/
+                      SliverList(
                         delegate: SliverChildListDelegate([SearchField()]),
                       ),
                       SliverList(
@@ -166,7 +166,7 @@ class _ProviderPageViewState extends State<ProviderPageView> {
                           )
                         ]),
                       ),
-                      ProviderHomeList()*/
+                      ProviderHomeList()
                     ]))),
           ),
         ),
