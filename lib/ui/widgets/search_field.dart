@@ -1,5 +1,6 @@
 import 'dart:core';
 
+import 'package:algolia/algolia.dart';
 import 'package:flutter/material.dart';
 
 class SearchField extends StatefulWidget {
@@ -7,6 +8,11 @@ class SearchField extends StatefulWidget {
 
   @override
   _SearchFieldState createState() => _SearchFieldState();
+}
+
+class Application {
+  static final Algolia algolia = Algolia.init(
+      applicationId: "4G14T29E29", apiKey: "fee95dde1d83700139a669fa893");
 }
 
 class _SearchFieldState extends State<SearchField> {
@@ -67,6 +73,8 @@ class _SearchFieldState extends State<SearchField> {
 }
 
 class _searchBarDelegate extends SearchDelegate {
+  Algolia algolia = Application.algolia;
+
   @override
   List<Widget> buildActions(BuildContext context) {
     // TODO: implement buildActions
@@ -93,7 +101,17 @@ class _searchBarDelegate extends SearchDelegate {
   @override
   Widget buildResults(BuildContext context) {
     // TODO: implement buildResults
-    return null;
+    AlgoliaQuery newQuery = algolia.instance.index("Providers").search(query);
+    print(newQuery.setFacetFilter('status:published'));
+    print(newQuery.setFacetFilter('isDelete:false'));
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Text(query),
+        Text(newQuery.setFacetFilter('status:published').toString()),
+        Text(newQuery.setFacetFilter('isDelete:false').toString()),
+      ],
+    );
   }
 
   @override

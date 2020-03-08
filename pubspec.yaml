@@ -39,6 +39,7 @@ dependencies:
   mime: ^0.9.6+3
   hive: ^1.3.0
   dio: ^3.0.8
+  algolia: ^0.1.6+1
   google_maps_place_picker:
   google_maps_flutter:
 
