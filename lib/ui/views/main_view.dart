@@ -14,6 +14,7 @@ import 'chat_view.dart';
 import 'merchant_selection_view.dart';
 import 'merchant_selection_refine_view.dart';
 import 'merchant_empty_state_view.dart';
+import 'camera_view_story.dart';
 
 /// Main view container that handles rendering pages according to which bottom
 /// navigation bar item is tapped
@@ -29,7 +30,7 @@ class MainView extends StatelessWidget {
               1 //Should be variable, no. of items added should be passed here
           ),
       builder: (context, model, child) => Scaffold(
-        body: MerchantStateEmptyView(), //HomeView(),
+        body: CameraScreen(), //MerchantStateEmptyView(), //HomeView(),
         /*SlidingUpPanel(
           defaultPanelState: PanelState.CLOSED,
           //only the container contained inside are visible

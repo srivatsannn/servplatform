@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
-
 class MenuView extends StatefulWidget {
-  MenuView({Key key, }) : super(key: key);
+  MenuView({
+    Key key,
+  }) : super(key: key);
 
   @override
   _MenuViewState createState() => _MenuViewState();
@@ -196,17 +196,17 @@ class _MenuViewState extends State<MenuView> {
                       children: <Widget>[
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
                           children: <Widget>[
                             Text(
                               "Agent",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
                               ),
                             ),
                             SizedBox(
-                              width: MediaQuery.of(context).size.width*0.01,
+                              width: MediaQuery.of(context).size.width * 0.01,
                             ),
                             Icon(
                               Icons.perm_identity,
@@ -216,7 +216,7 @@ class _MenuViewState extends State<MenuView> {
                           ],
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height*0.01,
+                          height: MediaQuery.of(context).size.height * 0.01,
                         ),
                         Text(
                           "Learn More",
@@ -243,11 +243,12 @@ class _MenuViewState extends State<MenuView> {
                               "Merchant",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
                               ),
                             ),
                             SizedBox(
-                              width: MediaQuery.of(context).size.width*0.01,
+                              width: MediaQuery.of(context).size.width * 0.01,
                             ),
                             Icon(
                               Icons.business_center,
@@ -257,7 +258,7 @@ class _MenuViewState extends State<MenuView> {
                           ],
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height*0.01,
+                          height: MediaQuery.of(context).size.height * 0.01,
                         ),
                         Text(
                           "Learn More",
@@ -276,64 +277,8 @@ class _MenuViewState extends State<MenuView> {
               height: 30,
             ),
             Container(
-              width: MediaQuery.of(context).size.width*0.95,
-              height: MediaQuery.of(context).size.height*0.13,
-//              color: Colors.black,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                SizedBox(
-                  height: 10,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    SizedBox(height: MediaQuery.of(context).size.height*0.025),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Text("Explore", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height*0.02,
-                    ),
-
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Text("Over 2,123 services to explore"),
-                    ),
-
-                  ],
-                ),
-               SizedBox(
-                 width: MediaQuery.of(context).size.width*0.3,
-               ),
-
-               Row(
-                 mainAxisAlignment: MainAxisAlignment.end,
-                 children: <Widget>[
-
-                   Icon(
-                     Icons.compare_arrows,
-                     size: 40,
-                   )
-                 ],
-               )
-              ],
-            ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(18),
-                border: Border.all(
-                  color: Colors.black,
-                  width: 1,
-                )
-              ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width*0.95,
-              height: MediaQuery.of(context).size.height*0.13,
+              width: MediaQuery.of(context).size.width * 0.95,
+              height: MediaQuery.of(context).size.height * 0.13,
 //              color: Colors.black,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -344,30 +289,87 @@ class _MenuViewState extends State<MenuView> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      SizedBox(height: MediaQuery.of(context).size.height*0.02),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.025),
                       Padding(
                         padding: const EdgeInsets.only(left: 10),
-                        child: Text("List", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                        child: Text(
+                          "Explore",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height*0.02,
+                        height: MediaQuery.of(context).size.height * 0.02,
                       ),
-
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Text("Over 2,123 services to explore"),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Icon(
+                        Icons.compare_arrows,
+                        size: 40,
+                      )
+                    ],
+                  )
+                ],
+              ),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 1,
+                  )),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.95,
+              height: MediaQuery.of(context).size.height * 0.13,
+//              color: Colors.black,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.02),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Text(
+                          "List",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.02,
+                      ),
                       Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: Text("Now savings on your list"),
                       ),
-
                     ],
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width*0.4,
+                    width: MediaQuery.of(context).size.width * 0.4,
                   ),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-
                       Icon(
                         Icons.bookmark,
                         size: 40,
@@ -381,15 +383,14 @@ class _MenuViewState extends State<MenuView> {
                   border: Border.all(
                     color: Colors.black,
                     width: 1,
-                  )
-              ),
+                  )),
             ),
             SizedBox(
               height: 30,
             ),
             Container(
-              width: MediaQuery.of(context).size.width*0.95,
-              height: MediaQuery.of(context).size.height*0.13,
+              width: MediaQuery.of(context).size.width * 0.95,
+              height: MediaQuery.of(context).size.height * 0.13,
 //              color: Colors.black,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -400,30 +401,31 @@ class _MenuViewState extends State<MenuView> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      SizedBox(height: MediaQuery.of(context).size.height*0.02),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.02),
                       Padding(
                         padding: const EdgeInsets.only(left: 10),
-                        child: Text("Refer and Earn", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                        child: Text(
+                          "Refer and Earn",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height*0.02,
+                        height: MediaQuery.of(context).size.height * 0.02,
                       ),
-
                       Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: Text("Earn 10% in commission credits"),
                       ),
-
                     ],
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width*0.28,
+                    width: MediaQuery.of(context).size.width * 0.28,
                   ),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-
                       Icon(
                         Icons.share,
                         size: 40,
@@ -437,24 +439,27 @@ class _MenuViewState extends State<MenuView> {
                   border: Border.all(
                     color: Colors.black,
                     width: 1,
-                  )
-              ),
+                  )),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height*0.05,
+              height: MediaQuery.of(context).size.height * 0.05,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Container(
-                  width: MediaQuery.of(context).size.width*0.45,
-                  height: MediaQuery.of(context).size.height*0.15,
+                  width: MediaQuery.of(context).size.width * 0.45,
+                  height: MediaQuery.of(context).size.height * 0.15,
                   child: Column(
                     children: <Widget>[
                       SizedBox(
-                        height: MediaQuery.of(context).size.height*0.02,
+                        height: MediaQuery.of(context).size.height * 0.02,
                       ),
-                      Text("Order", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),)
+                      Text(
+                        "Order",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      )
                     ],
                   ),
 //                  color: Colors.black,
@@ -463,18 +468,19 @@ class _MenuViewState extends State<MenuView> {
                       border: Border.all(
                         color: Colors.black,
                         width: 1,
-                      )
-                  ),
+                      )),
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width*0.45,
-                  height: MediaQuery.of(context).size.height*0.15,
+                  width: MediaQuery.of(context).size.width * 0.45,
+                  height: MediaQuery.of(context).size.height * 0.15,
                   child: Column(
                     children: <Widget>[
                       SizedBox(
-                        height: MediaQuery.of(context).size.height*0.02,
+                        height: MediaQuery.of(context).size.height * 0.02,
                       ),
-                      Text("Payment", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20))
+                      Text("Payment",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20))
                     ],
                   ),
 //                  color: Colors.green,
@@ -483,26 +489,27 @@ class _MenuViewState extends State<MenuView> {
                       border: Border.all(
                         color: Colors.black,
                         width: 1,
-                      )
-                  ),
+                      )),
                 ),
               ],
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height*0.05,
+              height: MediaQuery.of(context).size.height * 0.05,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Container(
-                  width: MediaQuery.of(context).size.width*0.3,
-                  height: MediaQuery.of(context).size.height*0.15,
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  height: MediaQuery.of(context).size.height * 0.15,
                   child: Column(
                     children: <Widget>[
                       SizedBox(
-                        height: MediaQuery.of(context).size.height*0.02,
+                        height: MediaQuery.of(context).size.height * 0.02,
                       ),
-                      Text("Help", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15))
+                      Text("Help",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 15))
                     ],
                   ),
 //                  color: Colors.black,
@@ -511,19 +518,20 @@ class _MenuViewState extends State<MenuView> {
                       border: Border.all(
                         color: Colors.black,
                         width: 1,
-                      )
-                  ),
+                      )),
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width*0.3,
-                  height: MediaQuery.of(context).size.height*0.15,
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  height: MediaQuery.of(context).size.height * 0.15,
 //                  color: Colors.green,
                   child: Column(
                     children: <Widget>[
                       SizedBox(
-                        height: MediaQuery.of(context).size.height*0.02,
+                        height: MediaQuery.of(context).size.height * 0.02,
                       ),
-                      Text("Settings", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15))
+                      Text("Settings",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 15))
                     ],
                   ),
                   decoration: BoxDecoration(
@@ -531,19 +539,20 @@ class _MenuViewState extends State<MenuView> {
                       border: Border.all(
                         color: Colors.black,
                         width: 1,
-                      )
-                  ),
+                      )),
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width*0.3,
-                  height: MediaQuery.of(context).size.height*0.15,
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  height: MediaQuery.of(context).size.height * 0.15,
 //                  color: Colors.green,
                   child: Column(
                     children: <Widget>[
                       SizedBox(
-                        height: MediaQuery.of(context).size.height*0.02,
+                        height: MediaQuery.of(context).size.height * 0.02,
                       ),
-                      Text("Logout",  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15))
+                      Text("Logout",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 15))
                     ],
                   ),
                   decoration: BoxDecoration(
@@ -551,34 +560,29 @@ class _MenuViewState extends State<MenuView> {
                       border: Border.all(
                         color: Colors.black,
                         width: 1,
-                      )
-                  ),
+                      )),
                 ),
               ],
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height*0.05,
+              height: MediaQuery.of(context).size.height * 0.05,
             ),
             Container(
-              width: MediaQuery.of(context).size.width*0.95,
-              height: MediaQuery.of(context).size.height*0.18,
+                width: MediaQuery.of(context).size.width * 0.95,
+                height: MediaQuery.of(context).size.height * 0.18,
 //              color: Colors.indigo,
-            child: TextField(
-              maxLines: 5,
-              decoration: InputDecoration(
-                hintText: "PeepsHub Community"
-              ),
-            ),
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.black,
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(12.0)
-            )
-            ),
+                child: TextField(
+                  maxLines: 5,
+                  decoration: InputDecoration(hintText: "PeepsHub Community"),
+                ),
+                decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.black,
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(12.0))),
             SizedBox(
-              height: MediaQuery.of(context).size.height*0.05,
+              height: MediaQuery.of(context).size.height * 0.05,
             ),
 //            Container(
 //              width: MediaQuery.of(context).size.width*1.0,
@@ -593,5 +597,3 @@ class _MenuViewState extends State<MenuView> {
         );
   }
 }
-  
-         

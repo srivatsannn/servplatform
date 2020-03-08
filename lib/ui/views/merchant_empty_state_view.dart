@@ -7,6 +7,7 @@ import 'package:servplatform/ui/shared/themes.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:servplatform/ui/widgets/sliver_multiline_app_bar.dart';
 import 'package:servplatform/ui/shared/themes.dart';
+import 'camera_view_story.dart';
 
 class MerchantStateEmptyView extends StatelessWidget {
   @override
@@ -390,14 +391,15 @@ class _AddAServiceMerchantViewState extends State<AddAServiceMerchantView> {
                         SizedBox(width: 100),
                         Expanded(
                           child: RaisedButton(
+                            onPressed: () {
+                              setState(() {
+                                CameraScreen();
+                              });
+                            },
                             color: Colors.blue,
                             textColor: Colors.white,
                             padding: EdgeInsets.all(8.0),
                             splashColor: Colors.blueAccent,
-                            onPressed: (
-                                //Opens a slide up panel
-
-                                ) {},
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
@@ -413,7 +415,7 @@ class _AddAServiceMerchantViewState extends State<AddAServiceMerchantView> {
                   ],
                 ),
               ),
-              StoryView(),
+              //StoryView(),
             ],
           ),
         ),
