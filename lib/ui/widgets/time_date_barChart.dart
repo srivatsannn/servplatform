@@ -7,6 +7,7 @@ import 'package:servplatform/ui/widgets/balance.dart';
 import 'package:servplatform/ui/widgets/domain.dart';
 import 'package:servplatform/ui/widgets/drop_widget.dart';
 import 'package:servplatform/ui/widgets/group_bar_chart.dart';
+
 class TimeAndDateBarChart extends StatefulWidget {
   @override
   _TimeAndDateState createState() => _TimeAndDateState();
@@ -56,24 +57,25 @@ class _TimeAndDateState extends State<TimeAndDateBarChart> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-               Text(
+              Text(
                 "\$621",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0),
               ),
-               Text(
+              Text(
                 DateFormat.yMMMd().format(DateTime.now()),
                 style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
               ),
-               DropWidget(timeValues,(mainValue,subIndex){
-            setState(() {
-              if(this.mainValue!=mainValue)
-                this.mainValue=mainValue;
-              if(this.subIndex!=subIndex)
-                this.subIndex=subIndex;
-              series=db.getSeries(mainValue, subIndex,max:1000);
-            });
-          },mainValue: mainValue,),
-             
+              DropWidget(
+                timeValues,
+                (mainValue, subIndex) {
+                  setState(() {
+                    if (this.mainValue != mainValue) this.mainValue = mainValue;
+                    if (this.subIndex != subIndex) this.subIndex = subIndex;
+                    series = db.getSeries(mainValue, subIndex, max: 1000);
+                  });
+                },
+                mainValue: mainValue,
+              ),
               SizedBox(height: 10.0),
               GroupedBarChart(
                   Domain.getDomain(["Income", "Expenditure"],

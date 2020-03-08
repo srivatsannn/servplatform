@@ -1,4 +1,3 @@
-
 import 'package:servplatform/core/constant/view_routes.dart';
 import 'package:servplatform/core/services/auth/auth_service.dart';
 import 'package:servplatform/core/services/navigation/navigation_service.dart';
@@ -12,10 +11,9 @@ class StartUpViewModel extends BaseViewModel {
 
   Future handleStartUpLogic() async {
     final hasLoggedInUser = await _authService.isUserLoggedIn();
-    
-    if (!hasLoggedInUser) {
-      await (_navigationService.pushReplacementNamed(ViewRoutes.phone_auth));
 
+    if (!hasLoggedInUser) {
+      await (_navigationService.pushReplacementNamed(ViewRoutes.main));
     } else {
       await (_navigationService.pushReplacementNamed(ViewRoutes.main));
     }
