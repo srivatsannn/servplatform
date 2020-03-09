@@ -85,7 +85,6 @@ class _ProviderPageViewState extends State<ProviderPageView> {
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-
               getSectionRows(sections, height, width),
 
               Padding(
@@ -151,6 +150,8 @@ class _ProviderPageViewState extends State<ProviderPageView> {
 
   Widget getServicesRows(double height, double width) {
     return Container(
+      width: width * 0.95,
+      height: height * 0.14 * 3,
       child: ListView.builder(
         itemCount: services.length,
         itemBuilder: (BuildContext context, int index) {
@@ -161,14 +162,19 @@ class _ProviderPageViewState extends State<ProviderPageView> {
   }
 
   Widget getSectionRows(List<Section> sections, double height, double width) {
-    return Container(
-      child: ListView.builder(
-        itemCount: sections.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (BuildContext context, int index) {
-          return sectionRow(
-              height, width, sections[index].globalKey, sections[index].text);
-        },
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Container(
+        width: width * 0.95,
+        height: height * 0.08,
+        child: ListView.builder(
+          itemCount: sections.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (BuildContext context, int index) {
+            return sectionRow(
+                height, width, sections[index].globalKey, sections[index].text);
+          },
+        ),
       ),
     );
   }
@@ -182,8 +188,9 @@ class _ProviderPageViewState extends State<ProviderPageView> {
       child: Row(
         children: <Widget>[
           Container(
+            padding: EdgeInsets.symmetric(vertical: 8.0),
             width: width * 0.20,
-            height: height * 0.10,
+            height: height * 0.08,
             color: Colors.grey[300],
             child: IconButton(
                 icon: Icon(
@@ -222,7 +229,7 @@ class _ProviderPageViewState extends State<ProviderPageView> {
               FlatButton(
                 onPressed: () {
                   setState(() {
-                    a++;
+                    // a++;
                   });
                 },
                 color: Colors.white,
@@ -231,7 +238,7 @@ class _ProviderPageViewState extends State<ProviderPageView> {
                 ),
                 child: Row(
                   children: <Widget>[
-                    Text(' \$ $a ',
+                    Text(' \$  ',
                         style: TextStyle(
                             fontSize: 15.0,
                             color: Colors.black,
@@ -260,7 +267,7 @@ class _ProviderPageViewState extends State<ProviderPageView> {
     return Container(
       width: width * 0.29,
       height: height * 0.05,
-      margin: EdgeInsets.symmetric(vertical: 10.0),
+      margin: EdgeInsets.symmetric(horizontal: 10.0),
       child: RaisedButton(
         onPressed: () => Scrollable.ensureVisible(key.currentContext),
         color: Colors.grey[200],
