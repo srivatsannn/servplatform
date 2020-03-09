@@ -58,7 +58,6 @@ dependencies:
   charts_flutter: any
   loading:
   google_map_location_picker:
-  firebase_auth:
   font_awesome_flutter:
   percent_indicator:
   flutter_rating_bar:
@@ -67,6 +66,8 @@ dependencies:
   cloud_firestore: ^0.12.9
   firebase_core: ^0.4.0+8
   carousel_slider:
+  firebase_auth:
+
 
   geolocator: ^5.3.0
 
