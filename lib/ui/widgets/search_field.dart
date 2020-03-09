@@ -98,7 +98,6 @@ class _SearchFieldState extends State<SearchField> {
               ),
             ),
             maxLines: 1,
-            //controller: searchControl,
           ),
         ),
       ),
@@ -109,19 +108,18 @@ class _SearchFieldState extends State<SearchField> {
 class _searchBarDelegate extends SearchDelegate {
   @override
   List<Widget> buildActions(BuildContext context) {
-    // TODO: implement buildActions
     return [
       IconButton(
-          icon: Icon(Icons.clear),
-          onPressed: () {
-            query = '';
-          })
+        icon: Icon(Icons.clear),
+        onPressed: () {
+          query = '';
+        },
+      )
     ];
   }
 
   @override
   Widget buildLeading(BuildContext context) {
-    // TODO: implement buildLeading
     return IconButton(
         icon: AnimatedIcon(
             icon: AnimatedIcons.menu_arrow, progress: transitionAnimation),
@@ -132,8 +130,7 @@ class _searchBarDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    AlgoliaQuery searchQuery =
-        algolia.instance.index("Providers").search(query);
+    AlgoliaQuery searchQuery = algolia.instance.index("Serv").search(query);
     return Column(
       children: <Widget>[
         FutureBuilder(
@@ -182,7 +179,6 @@ class _searchBarDelegate extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    // TODO: implement buildSuggestions
     return Center(child: CircularProgressIndicator());
   }
 }
