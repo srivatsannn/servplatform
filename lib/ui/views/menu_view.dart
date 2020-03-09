@@ -241,7 +241,7 @@ class _MenuViewState extends State<MenuView> {
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).pushNamed(
-                      ViewRoutes.merchant_home,
+                      ViewRoutes.merchant_view,
                     );
                   },
                   child: Container(

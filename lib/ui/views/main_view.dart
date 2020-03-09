@@ -29,7 +29,7 @@ class MainView extends StatelessWidget {
               1 //Should be variable, no. of items added should be passed here
           ),
       builder: (context, model, child) => Scaffold(
-        body:HomeView(),
+        body: HomeView(),
         /*
 
         if(counter > 1) ? SlideUpPanel(HomeView) : SlideUpPanel(Cart)

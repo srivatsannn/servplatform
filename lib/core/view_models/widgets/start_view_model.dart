@@ -14,7 +14,7 @@ class StartUpViewModel extends BaseViewModel {
     final hasLoggedInUser = await _authService.isUserLoggedIn();
     
     if (!hasLoggedInUser) {
-      await (_navigationService.pushReplacementNamed(ViewRoutes.phone_auth));
+      await (_navigationService.pushReplacementNamed(ViewRoutes.main));
 
     } else {
       await (_navigationService.pushReplacementNamed(ViewRoutes.main));

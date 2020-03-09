@@ -20,8 +20,6 @@ class _ProviderPageViewState extends State<ProviderPageView> {
   Widget build(BuildContext context) {
     final local = AppLocalizations.of(context);
     final textTheme = Theme.of(context).textTheme;
-    var top = 0.0;
-
     return ViewModelProvider<ProviderSetupViewModel>.withoutConsumer(
       viewModel: ProviderSetupViewModel(),
       onModelReady: (model) => model.init(),
@@ -93,58 +91,53 @@ class _ProviderPageViewState extends State<ProviderPageView> {
                     headerSliverBuilder:
                         (BuildContext context, bool innerBoxIsScrolled) {
                       return <Widget>[
-                        SliverAppBar(
-                          expandedHeight: 250.0,
-                          floating: false,
-                          pinned: false,
-                          forceElevated: true,
-                          stretch: true,
-                          leading: CircleAvatar(
-                              radius: 20.0,
-                              backgroundColor: ProviderPageView.transparent,
-                              child: IconButton(
-                                  icon: Icon(Icons.arrow_back,
-                                      color: Colors.black),
-                                  onPressed: () {})),
-                          actions: <Widget>[
-                            CircleAvatar(
+                        DefaultTabController(
+                          length: 3,
+                          child: SliverAppBar(
+                            expandedHeight: 200.0,
+                            floating: false,
+                            pinned: true,
+                            forceElevated: true,
+                            stretch: true,
+                            leading: CircleAvatar(
                                 radius: 20.0,
                                 backgroundColor: ProviderPageView.transparent,
                                 child: IconButton(
-                                    icon: Icon(Icons.bookmark,
+                                    icon: Icon(Icons.arrow_back,
                                         color: Colors.black),
                                     onPressed: () {})),
-                            SizedBox(width: 8.0),
-                            CircleAvatar(
-                                radius: 20.0,
-                                backgroundColor: ProviderPageView.transparent,
-                                child: IconButton(
-                                    icon:
-                                        Icon(Icons.share, color: Colors.black),
-                                    onPressed: () {})),
-                            SizedBox(width: 8.0),
-                            CircleAvatar(
-                                radius: 20.0,
-                                backgroundColor: ProviderPageView.transparent,
-                                child: IconButton(
-                                    icon: Icon(Icons.more_horiz,
-                                        color: Colors.black),
-                                    onPressed: () {})),
-                          ],
-                          flexibleSpace:
-                              LayoutBuilder(builder: (context, constraints) {
-                            top = constraints.biggest.height;
-                            return FlexibleSpaceBar(
+                            actions: <Widget>[
+                              CircleAvatar(
+                                  radius: 20.0,
+                                  backgroundColor: ProviderPageView.transparent,
+                                  child: IconButton(
+                                      icon: Icon(Icons.bookmark,
+                                          color: Colors.black),
+                                      onPressed: () {})),
+                              SizedBox(width: 8.0),
+                              CircleAvatar(
+                                  radius: 20.0,
+                                  backgroundColor: ProviderPageView.transparent,
+                                  child: IconButton(
+                                      icon: Icon(Icons.share,
+                                          color: Colors.black),
+                                      onPressed: () {})),
+                              SizedBox(width: 8.0),
+                              CircleAvatar(
+                                  radius: 20.0,
+                                  backgroundColor: ProviderPageView.transparent,
+                                  child: IconButton(
+                                      icon: Icon(Icons.more_horiz,
+                                          color: Colors.black),
+                                      onPressed: () {})),
+                            ],
+                            flexibleSpace: FlexibleSpaceBar(
                               collapseMode: CollapseMode.parallax,
                               background: Container(
                                 child: MapView(),
                               ),
-                              centerTitle: true,
-                              title: Flexible(
-                                child: Text('Selected Services'),
-                              ),
-                            );
-                          }),
+                            ),
+                          ),
                         ),
                       ];
                     },
@@ -223,7 +216,9 @@ class _ProviderPageViewState extends State<ProviderPageView> {
                 ),
               ),
               SizedBox(height: 10.0),
-              ReadMoreText(),
+              ReadMoreText(
+                  "Provides a ScrollController to attach to a scrollable object in the panel that links the panel position with the scroll position. Useful for implementing an infinite scroll behavior. If panel and panelBuilder are both non-null, panel will be used."
+              ),
               SizedBox(height: 10.0),
               Text(
                 'HIGHLIGHTS',
@@ -245,17 +240,139 @@ class _ProviderPageViewState extends State<ProviderPageView> {
               ),
               Stories(),
               SizedBox(height: 10.0),
-              Text(
-                'Ratings & Reviews',
-                style: TextStyle(fontWeight: FontWeight.bold),
+              Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Ratings & Reviews',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                      Text("5.0", style: TextStyle(fontSize: 70.0, fontWeight: FontWeight.bold),),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: <Widget>[
+                        Row(children: <Widget>[
+                          Icon(Icons.star, size: 15,),
+                          Icon(Icons.star, size: 15,),
+                          Icon(Icons.star, size: 15,),
+                          Icon(Icons.star, size: 15,),
+                          Icon(Icons.star, size: 15,),
+                        ],),
+                        Row(children: <Widget>[
+                          Icon(Icons.star, size: 15,),
+                          Icon(Icons.star, size: 15,),
+                          Icon(Icons.star, size: 15,),
+                          Icon(Icons.star, size: 15,),
+                        ],),
+                        Row(children: <Widget>[
+                          Icon(Icons.star, size: 15,),
+                          Icon(Icons.star, size: 15,),
+                          Icon(Icons.star, size: 15,),
+                        ],),
+                        Row(children: <Widget>[
+                          Icon(Icons.star, size: 15,),
+                          Icon(Icons.star, size: 15,),
+                        ],),
+                        Icon(Icons.star, size: 15,),
+                      ],),
+                      Container(
+                        width: 200,
+                        height: 100,
+                        padding: EdgeInsets.all(16),
+                        child: CustomPaint(
+                          foregroundPainter: GraphPainter(),
+                        ),
+                      ),
+                    ]),
+                    Text('Out of 5', style: TextStyle(fontWeight: FontWeight.bold),),
+                    SizedBox(height: 10,),
+                    Text('Relevant',  style: TextStyle(fontWeight: FontWeight.bold),),
+                    SizedBox(height: 10,),
+                    Card(
+                      elevation: 5,
+                      child: Container(
+                        padding: EdgeInsets.all(8.0),
+                          child: Column(
+                            children: <Widget>[
+                              ListTile(
+                                leading: Column(children: <Widget>[
+                                  Text('Stunning.', style: TextStyle(fontSize:20.0, fontWeight: FontWeight.bold),),
+                                  Text('\u2B50\u2B50\u2B50\u2B50\u2B50')
+                                ]
+                                ),
+                                trailing: Column(children: <Widget>[
+                                  Text('Wed'),
+                                  Text('LaQuishaMane')
+                                ],),
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                child: ReadMoreText('This game is absolutely wonderful. I had been waiting for more levels to be released for quite some time — so the fact that they released an entirely separate app made me so excited. The colors, story, and levels are both beautiful and challenging in a way that makes you not want to put your'),
+                              )
+                            ],
+                          )
+                      )
+                    )
+                  ],
+                ),
               ),
-              SizedBox(height: 10.0),
-              HorizontalBarLabelChart(),
             ],
           ),
         ),
       ),
     );
+  }
+}
+
+
+class GraphPainter extends CustomPainter {
+  Paint trackBarPaint = Paint()
+    ..color = Colors.black45
+    ..style = PaintingStyle.stroke
+    ..strokeCap = StrokeCap.round
+    ..strokeWidth = 12;
+
+  Paint trackPaint = Paint()
+    ..color = Colors.grey[300]
+    ..style = PaintingStyle.stroke
+    ..strokeCap = StrokeCap.round
+    ..strokeWidth = 12;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    Path trackPath = Path();
+    Path trackBarPath = Path();
+
+    List val = [
+      size.height * 0.2,
+      size.width * 0.5,
+      size.width * 0.6,
+      size.width * 0.8,
+      size.width * 0.9,
+    ];
+
+    double origin = 1;
+
+    for (int i = 0; i != val.length; i++) {
+      trackBarPath.moveTo(size.width, origin);
+      trackBarPath.lineTo(val[i], origin);
+      trackPath.moveTo(size.width, origin);
+      trackPath.lineTo(5, origin);
+      origin = origin + size.height * 0.22;
+    }
+    canvas.drawPath(trackPath, trackPaint);
+
+    canvas.drawPath(trackBarPath, trackBarPaint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    // TODO: implement shouldRepaint
+    return true;
   }
 }
 
@@ -295,7 +412,7 @@ class _MyWidgetState extends State<MyWidget> {
       children: <Widget>[
         Row(
           children: <Widget>[
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 3; i++)
               Container(
                   decoration: BoxDecoration(
                       color: i == currTab ? Colors.red : Colors.blue,
@@ -309,7 +426,7 @@ class _MyWidgetState extends State<MyWidget> {
           ],
         ),
         ListView(
-          controller: _scrollController,
+            /*controller: _scrollController,
           children: <Widget>[
             for (int i = 0; i < 100; i++)
               Container(
@@ -320,14 +437,8 @@ class _MyWidgetState extends State<MyWidget> {
             for (int i = 0; i < 100; i++)
               Container(
                   height: 30, child: Text("Conten at 2 -" + i.toString())),
-            for (int i = 0; i < 100; i++)
-              Container(
-                  height: 30, child: Text("Conten at 3 -" + i.toString())),
-            for (int i = 0; i < 100; i++)
-              Container(
-                  height: 30, child: Text("Conten at 4 -" + i.toString())),
-          ],
-        )
+          ],*/
+            )
       ],
     );
   }
@@ -413,13 +524,6 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   }
 }
 
-class HorizontalBarLabelChart extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
 class Stories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -498,7 +602,7 @@ class IntroList extends StatelessWidget {
           FadeInImage(
             placeholder: AssetImage('assets/images/introImage.jpg'),
             fit: BoxFit.cover,
-            image: NetworkImage(""),
+            image: NetworkImage("https://wallpapercave.com/wp/wp3509358.jpg"),
           ),
           SizedBox(height: 10.0),
           Text('UrbanClap Provide Will Come to Your Home'),
@@ -506,7 +610,7 @@ class IntroList extends StatelessWidget {
           FadeInImage(
             placeholder: AssetImage('assets/images/introImage.jpg'),
             fit: BoxFit.cover,
-            image: NetworkImage(""),
+            image: NetworkImage("https://wallpapercave.com/wp/wp3509358.jpg"),
           ),
           SizedBox(height: 10.0),
           Text(
@@ -515,7 +619,7 @@ class IntroList extends StatelessWidget {
           FadeInImage(
             placeholder: AssetImage('assets/images/introImage.jpg'),
             fit: BoxFit.cover,
-            image: NetworkImage(""),
+            image: NetworkImage("https://wallpapercave.com/wp/wp3509358.jpg"),
           ),
           SizedBox(height: 10.0),
           Text('We bring all equipment and clean up as well after the service'),
@@ -563,14 +667,15 @@ class FaceRecoText extends StatelessWidget {
 }
 
 class ReadMoreText extends StatefulWidget {
+  final String descText;
+  ReadMoreText(this.descText);
   @override
   _ReadMoreTextState createState() => _ReadMoreTextState();
 }
 
 class _ReadMoreTextState extends State<ReadMoreText> {
+
   bool description = false;
-  String descText =
-      "Provides a ScrollController to attach to a scrollable object in the panel that links the panel position with the scroll position. Useful for implementing an infinite scroll behavior. If panel and panelBuilder are both non-null, panel will be used.";
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -579,7 +684,7 @@ class _ReadMoreTextState extends State<ReadMoreText> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            descText,
+            widget.descText,
             maxLines: description ? 8 : 2,
             textAlign: TextAlign.center,
           ),

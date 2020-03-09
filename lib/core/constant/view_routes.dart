@@ -33,7 +33,7 @@ class ViewRoutes {
   static const agent_tasks = 'agent_tasks';
   static const agent_see_all_promotions = 'agent_see_all_promotions';
   static const security = 'security';
-  static const merchant_home = 'merchant_home';
+  static const merchant_view = 'merchant_view';
   static const provider_setup = 'provider_setup';
   static const merchant_assign_task = 'merchant_assign_task';
 }
