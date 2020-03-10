@@ -144,23 +144,26 @@ class _ProviderPageViewState extends State<ProviderPageView> {
                 },
                 body: CustomScrollView(
                   slivers: <Widget>[
-                    /* SliverList(
-                        delegate: SliverChildListDelegate([MyWidget()]),
-                      ),*/
                     SliverList(
-                      delegate: SliverChildListDelegate([SearchField()]),
+                      delegate: SliverChildListDelegate(
+                        [
+                          SearchField(),
+                        ],
+                      ),
                     ),
-                    SliverList(
-                      delegate: SliverChildListDelegate([
-                        Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Text(
-                            'Save upto 40% . In High Demand',
-                            style: TextStyle(color: Colors.green),
-                          ),
-                        )
-                      ]),
-                    ),
+                    // SliverList(
+                    //   delegate: SliverChildListDelegate(
+                    //     [
+                    //       Padding(
+                    //         padding: const EdgeInsets.all(12.0),
+                    //         child: Text(
+                    //           'Save upto 40% . In High Demand',
+                    //           style: TextStyle(color: Colors.green),
+                    //         ),
+                    //       )
+                    //     ],
+                    //   ),
+                    // ),
                     ProviderHomeList(),
                   ],
                 ),
