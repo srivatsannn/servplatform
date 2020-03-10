@@ -50,117 +50,122 @@ class _ProviderPageViewState extends State<ProviderPageView> {
                       topLeft: Radius.circular(30.0),
                       topRight: Radius.circular(30.0))),
               child: Center(
-                  child: Column(
-                children: <Widget>[
-                  Text(
-                    'Merchant: Swipe to learn More',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  ListTile(
-                    title: Row(
-                      children: <Widget>[
-                        CircleAvatar(
-                          radius: 6.0,
-                          backgroundColor: Colors.green,
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      'Merchant: Swipe to learn More',
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    ListTile(
+                      title: Row(
+                        children: <Widget>[
+                          CircleAvatar(
+                            radius: 6.0,
+                            backgroundColor: Colors.green,
+                          ),
+                          SizedBox(width: 12.0),
+                          Text('UrbanClap'),
+                        ],
+                      ),
+                      subtitle: Text(
+                        '98% Macth',
+                        style: TextStyle(color: Colors.green),
+                      ),
+                      trailing: ClipRRect(
+                        borderRadius: BorderRadius.circular(12.0),
+                        child: Image.network(
+                          "https://png.pngtree.com/png-vector/20190521/ourlarge/pngtree-skull-demon-head-black-white-hand-drawing-vector-png-image_1043333.jpg",
+                          height: 90.0,
+                          width: 100.0,
                         ),
-                        SizedBox(width: 12.0),
-                        Text('UrbanClap'),
-                      ],
-                    ),
-                    subtitle: Text(
-                      '98% Macth',
-                      style: TextStyle(color: Colors.green),
-                    ),
-                    trailing: ClipRRect(
-                      borderRadius: BorderRadius.circular(12.0),
-                      child: Image.network(
-                        "https://png.pngtree.com/png-vector/20190521/ourlarge/pngtree-skull-demon-head-black-white-hand-drawing-vector-png-image_1043333.jpg",
-                        height: 90.0,
-                        width: 100.0,
                       ),
                     ),
-                  ),
-                ],
-              )),
+                  ],
+                ),
+              ),
             ),
             // panel: _floatingPanel(context),
             panelBuilder: (ScrollController sc) => _floatingPanel(sc),
             body: Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: NestedScrollView(
-                    headerSliverBuilder:
-                        (BuildContext context, bool innerBoxIsScrolled) {
-                      return <Widget>[
-                        DefaultTabController(
-                          length: 3,
-                          child: SliverAppBar(
-                            expandedHeight: 200.0,
-                            floating: false,
-                            pinned: true,
-                            forceElevated: true,
-                            stretch: true,
-                            leading: CircleAvatar(
-                                radius: 20.0,
-                                backgroundColor: ProviderPageView.transparent,
-                                child: IconButton(
-                                    icon: Icon(Icons.arrow_back,
-                                        color: Colors.black),
-                                    onPressed: () {})),
-                            actions: <Widget>[
-                              CircleAvatar(
-                                  radius: 20.0,
-                                  backgroundColor: ProviderPageView.transparent,
-                                  child: IconButton(
-                                      icon: Icon(Icons.bookmark,
-                                          color: Colors.black),
-                                      onPressed: () {})),
-                              SizedBox(width: 8.0),
-                              CircleAvatar(
-                                  radius: 20.0,
-                                  backgroundColor: ProviderPageView.transparent,
-                                  child: IconButton(
-                                      icon: Icon(Icons.share,
-                                          color: Colors.black),
-                                      onPressed: () {})),
-                              SizedBox(width: 8.0),
-                              CircleAvatar(
-                                  radius: 20.0,
-                                  backgroundColor: ProviderPageView.transparent,
-                                  child: IconButton(
-                                      icon: Icon(Icons.more_horiz,
-                                          color: Colors.black),
-                                      onPressed: () {})),
-                            ],
-                            flexibleSpace: FlexibleSpaceBar(
-                              collapseMode: CollapseMode.parallax,
-                              background: Container(
-                                child: MapView(),
-                              ),
-                            ),
+              padding: const EdgeInsets.all(5.0),
+              child: NestedScrollView(
+                headerSliverBuilder:
+                    (BuildContext context, bool innerBoxIsScrolled) {
+                  return <Widget>[
+                    DefaultTabController(
+                      length: 3,
+                      child: SliverAppBar(
+                        expandedHeight: 200.0,
+                        floating: false,
+                        pinned: true,
+                        forceElevated: true,
+                        stretch: true,
+                        leading: CircleAvatar(
+                          radius: 20.0,
+                          backgroundColor: ProviderPageView.transparent,
+                          child: IconButton(
+                            icon: Icon(Icons.arrow_back, color: Colors.black),
+                            onPressed: () {},
                           ),
                         ),
-                      ];
-                    },
-                    body: CustomScrollView(slivers: <Widget>[
-                      /* SliverList(
+                        actions: <Widget>[
+                          CircleAvatar(
+                              radius: 20.0,
+                              backgroundColor: ProviderPageView.transparent,
+                              child: IconButton(
+                                  icon:
+                                      Icon(Icons.bookmark, color: Colors.black),
+                                  onPressed: () {})),
+                          SizedBox(width: 8.0),
+                          CircleAvatar(
+                              radius: 20.0,
+                              backgroundColor: ProviderPageView.transparent,
+                              child: IconButton(
+                                  icon: Icon(Icons.share, color: Colors.black),
+                                  onPressed: () {})),
+                          SizedBox(width: 8.0),
+                          CircleAvatar(
+                              radius: 20.0,
+                              backgroundColor: ProviderPageView.transparent,
+                              child: IconButton(
+                                  icon: Icon(Icons.more_horiz,
+                                      color: Colors.black),
+                                  onPressed: () {})),
+                        ],
+                        flexibleSpace: FlexibleSpaceBar(
+                          collapseMode: CollapseMode.parallax,
+                          background: Container(
+                            child: MapView(),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ];
+                },
+                body: CustomScrollView(
+                  slivers: <Widget>[
+                    /* SliverList(
                         delegate: SliverChildListDelegate([MyWidget()]),
                       ),*/
-                      SliverList(
-                        delegate: SliverChildListDelegate([SearchField()]),
-                      ),
-                      SliverList(
-                        delegate: SliverChildListDelegate([
-                          Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: Text(
-                              'Save upto 40% . In High Demand',
-                              style: TextStyle(color: Colors.green),
-                            ),
-                          )
-                        ]),
-                      ),
-                      ProviderHomeList(),
-                    ]))),
+                    SliverList(
+                      delegate: SliverChildListDelegate([SearchField()]),
+                    ),
+                    SliverList(
+                      delegate: SliverChildListDelegate([
+                        Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Text(
+                            'Save upto 40% . In High Demand',
+                            style: TextStyle(color: Colors.green),
+                          ),
+                        )
+                      ]),
+                    ),
+                    ProviderHomeList(),
+                  ],
+                ),
+              ),
+            ),
           ),
         ),
       ),
@@ -217,8 +222,7 @@ class _ProviderPageViewState extends State<ProviderPageView> {
               ),
               SizedBox(height: 10.0),
               ReadMoreText(
-                  "Provides a ScrollController to attach to a scrollable object in the panel that links the panel position with the scroll position. Useful for implementing an infinite scroll behavior. If panel and panelBuilder are both non-null, panel will be used."
-              ),
+                  "Provides a ScrollController to attach to a scrollable object in the panel that links the panel position with the scroll position. Useful for implementing an infinite scroll behavior. If panel and panelBuilder are both non-null, panel will be used."),
               SizedBox(height: 10.0),
               Text(
                 'HIGHLIGHTS',
@@ -250,73 +254,149 @@ class _ProviderPageViewState extends State<ProviderPageView> {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                      Text("5.0", style: TextStyle(fontSize: 70.0, fontWeight: FontWeight.bold),),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: <Widget>[
-                        Row(children: <Widget>[
-                          Icon(Icons.star, size: 15,),
-                          Icon(Icons.star, size: 15,),
-                          Icon(Icons.star, size: 15,),
-                          Icon(Icons.star, size: 15,),
-                          Icon(Icons.star, size: 15,),
-                        ],),
-                        Row(children: <Widget>[
-                          Icon(Icons.star, size: 15,),
-                          Icon(Icons.star, size: 15,),
-                          Icon(Icons.star, size: 15,),
-                          Icon(Icons.star, size: 15,),
-                        ],),
-                        Row(children: <Widget>[
-                          Icon(Icons.star, size: 15,),
-                          Icon(Icons.star, size: 15,),
-                          Icon(Icons.star, size: 15,),
-                        ],),
-                        Row(children: <Widget>[
-                          Icon(Icons.star, size: 15,),
-                          Icon(Icons.star, size: 15,),
-                        ],),
-                        Icon(Icons.star, size: 15,),
-                      ],),
-                      Container(
-                        width: 200,
-                        height: 100,
-                        padding: EdgeInsets.all(16),
-                        child: CustomPaint(
-                          foregroundPainter: GraphPainter(),
+                      children: <Widget>[
+                        Text(
+                          "5.0",
+                          style: TextStyle(
+                              fontSize: 70.0, fontWeight: FontWeight.bold),
                         ),
-                      ),
-                    ]),
-                    Text('Out of 5', style: TextStyle(fontWeight: FontWeight.bold),),
-                    SizedBox(height: 10,),
-                    Text('Relevant',  style: TextStyle(fontWeight: FontWeight.bold),),
-                    SizedBox(height: 10,),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.star,
+                                  size: 15,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 15,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 15,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 15,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 15,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.star,
+                                  size: 15,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 15,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 15,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 15,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.star,
+                                  size: 15,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 15,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 15,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.star,
+                                  size: 15,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 15,
+                                ),
+                              ],
+                            ),
+                            Icon(
+                              Icons.star,
+                              size: 15,
+                            ),
+                          ],
+                        ),
+                        Container(
+                          width: 200,
+                          height: 100,
+                          padding: EdgeInsets.all(16),
+                          child: CustomPaint(
+                            foregroundPainter: GraphPainter(),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      'Out of 5',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      'Relevant',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Card(
                       elevation: 5,
                       child: Container(
                         padding: EdgeInsets.all(8.0),
-                          child: Column(
-                            children: <Widget>[
-                              ListTile(
-                                leading: Column(children: <Widget>[
-                                  Text('Stunning.', style: TextStyle(fontSize:20.0, fontWeight: FontWeight.bold),),
-                                  Text('\u2B50\u2B50\u2B50\u2B50\u2B50')
-                                ]
+                        child: Column(
+                          children: <Widget>[
+                            ListTile(
+                              leading: Column(children: <Widget>[
+                                Text(
+                                  'Stunning.',
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold),
                                 ),
-                                trailing: Column(children: <Widget>[
+                                Text('\u2B50\u2B50\u2B50\u2B50\u2B50')
+                              ]),
+                              trailing: Column(
+                                children: <Widget>[
                                   Text('Wed'),
                                   Text('LaQuishaMane')
-                                ],),
+                                ],
                               ),
-                              Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                child: ReadMoreText('This game is absolutely wonderful. I had been waiting for more levels to be released for quite some time — so the fact that they released an entirely separate app made me so excited. The colors, story, and levels are both beautiful and challenging in a way that makes you not want to put your'),
-                              )
-                            ],
-                          )
-                      )
-                    )
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: ReadMoreText(
+                                  'This game is absolutely wonderful. I had been waiting for more levels to be released for quite some time — so the fact that they released an entirely separate app made me so excited. The colors, story, and levels are both beautiful and challenging in a way that makes you not want to put your'),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -327,7 +407,6 @@ class _ProviderPageViewState extends State<ProviderPageView> {
     );
   }
 }
-
 
 class GraphPainter extends CustomPainter {
   Paint trackBarPaint = Paint()
@@ -674,7 +753,6 @@ class ReadMoreText extends StatefulWidget {
 }
 
 class _ReadMoreTextState extends State<ReadMoreText> {
-
   bool description = false;
   @override
   Widget build(BuildContext context) {
