@@ -26,28 +26,33 @@ class ServiceTile extends StatelessWidget {
         leading: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 4.0),
           child: Container(
-              decoration: BoxDecoration(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(8.0),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.shade100,
+                  spreadRadius: 0.1,
+                  blurRadius: 25.0,
+                  offset: Offset(0.0, 1.0),
+                ),
+                BoxShadow(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(8.0),
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.grey.shade100,
-                        spreadRadius: 0.1,
-                        blurRadius: 25.0,
-                        offset: Offset(0.0, 1.0)),
-                    BoxShadow(
-                        color: Colors.white,
-                        spreadRadius: 0.1,
-                        blurRadius: 25.0,
-                        offset: Offset(0.0, 1.0))
-                  ]),
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.network(
-                    service.logo_url,
-                    width: 50.0,
-                    height: 50.0,
-                  ))),
+                  spreadRadius: 0.1,
+                  blurRadius: 25.0,
+                  offset: Offset(0.0, 1.0),
+                )
+              ],
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.network(
+                service.logo_url,
+                width: 50.0,
+                height: 50.0,
+              ),
+            ),
+          ),
         ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,28 +61,30 @@ class ServiceTile extends StatelessWidget {
           ],
         ),
         subtitle: Padding(
-            padding: const EdgeInsets.only(top: 2.0),
-            child: RichText(
-              text: TextSpan(
-                style: textTheme.caption,
-                children: [
-                  TextSpan(text: '11:20 PM'),
-                  TextSpan(text: ' · '),
+          padding: const EdgeInsets.only(top: 2.0),
+          child: RichText(
+            text: TextSpan(
+              style: textTheme.caption,
+              children: [
+                TextSpan(text: '11:20 PM'),
+                TextSpan(text: ' · '),
 
-                  /* WidgetSpan(
+                /* WidgetSpan(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 2.0),
                     child: Icon(Icons.flash_on),
                   ),
                 ), */
-                  TextSpan(
-                      text: '98%Match',
-                      style: textTheme.caption.copyWith(
-                        color: Colors.green,
-                      )),
-                ],
-              ),
-            )),
+                TextSpan(
+                  text: '98%Match',
+                  style: textTheme.caption.copyWith(
+                    color: Colors.green,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
         trailing: Container(
           width: 80,
           child: AddButton(
