@@ -30,7 +30,7 @@ class MainView extends StatelessWidget {
               1 //Should be variable, no. of items added should be passed here
           ),
       builder: (context, model, child) => Scaffold(
-        body: CameraScreen(), //MerchantStateEmptyView(), //HomeView(),
+        body: MerchantStateEmptyView(), //HomeView(),
         /*SlidingUpPanel(
           defaultPanelState: PanelState.CLOSED,
           //only the container contained inside are visible

@@ -8,9 +8,9 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:servplatform/ui/widgets/sliver_multiline_app_bar.dart';
 import 'package:servplatform/ui/shared/themes.dart';
 import 'camera_view_story.dart';
-import '../../ui/shared/ui_helper.dart';
+import 'merchant_add_agency.dart';
 
-class MerchantStateEmptyView extends StatelessWidget {
+class MerchantStateEmptyView2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,8 +20,7 @@ class MerchantStateEmptyView extends StatelessWidget {
           topRight: Radius.circular(18.0),
         ),
         backdropEnabled: true,
-        minHeight: 20,
-        maxHeight: MediaQuery.of(context).size.height * .60,
+        minHeight: 30,
         panelBuilder: (ScrollController sc) => _scrollingList(sc),
         body: Center(
           child: MainMerchantView(),
@@ -181,15 +180,6 @@ class _AddAServiceMerchantViewState extends State<AddAServiceMerchantView> {
                 decoration: InputDecoration(
                     hintText: 'Category', border: OutlineInputBorder()),
               ),
-              Container(
-                padding: EdgeInsets.only(left: 350),
-                child: Text(
-                  '0/20',
-                  style: TextStyle(
-                    fontSize: 13.5,
-                  ),
-                ),
-              ),
               SizedBox(
                 height: 40.0,
               ),
@@ -199,7 +189,7 @@ class _AddAServiceMerchantViewState extends State<AddAServiceMerchantView> {
                   Expanded(
                     child: TextField(
                       decoration: InputDecoration(
-                          hintText: 'Price', border: OutlineInputBorder()),
+                          hintText: 'Category', border: OutlineInputBorder()),
                     ),
                   ),
                   SizedBox(
@@ -377,64 +367,21 @@ class _AddAServiceMerchantViewState extends State<AddAServiceMerchantView> {
               SizedBox(
                 height: 60.0,
               ),
-              Text(
-                'Next Up: Create story to describe your service',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  color: Colors.grey,
-                ),
-              ),
-              SizedBox(
-                height: 40.0,
-              ),
-              Container(
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        SizedBox(width: 100),
-                        Expanded(
-                          child: RaisedButton(
-                            onPressed: () {
-                              setState(() {
-                                navigateToCamera(context);
-                              });
-                            },
-                            color: Colors.blue,
-                            textColor: Colors.white,
-                            padding: EdgeInsets.all(8.0),
-                            splashColor: Colors.blueAccent,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text('Next'),
-                                Icon(Icons.arrow_forward),
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 100),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              //StoryView(),
+              StoryView(),
             ],
           ),
         ),
       ),
     );
   }
-
-  Future navigateToCamera(context) async {
-    await Navigator.push(
-        context, MaterialPageRoute(builder: (context) => CameraScreen()));
-  }
 }
 
-/*
-class StoryView extends StatelessWidget {
+class StoryView extends StatefulWidget {
+  @override
+  _StoryViewState createState() => _StoryViewState();
+}
+
+class _StoryViewState extends State<StoryView> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -443,7 +390,7 @@ class StoryView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            'Add Story ',
+            'Add Story',
             style: textTheme.title,
           ),
           Text(
@@ -465,14 +412,15 @@ class StoryView extends StatelessWidget {
                     SizedBox(width: 100),
                     Expanded(
                       child: RaisedButton(
+                        onPressed: () {
+                          setState(() {
+                            navigateToMerchantAddAgency(context);
+                          });
+                        },
                         color: Colors.blue,
                         textColor: Colors.white,
                         padding: EdgeInsets.all(8.0),
                         splashColor: Colors.blueAccent,
-                        onPressed: (
-                            //Opens a slide up panel
-
-                            ) {},
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
@@ -491,6 +439,12 @@ class StoryView extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  //navigate to merchant_add_agency
+  Future navigateToMerchantAddAgency(context) async {
+    await Navigator.push(context,
+        MaterialPageRoute(builder: (context) => Merchant2StateEmptyView()));
   }
 }
 
@@ -523,9 +477,7 @@ class CircleWidgets extends State<CircleImages> {
             border: Border.all(
               width: 3.5,
               style: BorderStyle.solid,
-              color: Colors.blue */
-/*Color.fromARGB(0, 0, 255, 0)*/ /*
-,
+              color: Colors.blue /*Color.fromARGB(0, 0, 255, 0)*/,
             ),
             image: DecorationImage(
               fit: BoxFit.cover,
@@ -544,7 +496,6 @@ class CircleWidgets extends State<CircleImages> {
             children: widgets));
   }
 }
-*/
 
 Widget _scrollingList(ScrollController sc) {
   return AddAServiceMerchantView();
